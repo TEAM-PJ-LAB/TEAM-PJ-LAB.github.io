@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://team-pj-lab.github.io/assets/og-image.png">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/og-image.png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 
   <script type="application/ld+json">
   {
@@ -39,7 +39,7 @@
         "name": "PJ Group",
         "alternateName": ["PJ그룹", "PJ", "피제이그룹"],
         "url": "https://team-pj-lab.github.io/",
-        "logo": "https://team-pj-lab.github.io/assets/og-image.png",
+        "logo": "https://team-pj-lab.github.io/assets/brand/pj-profile.png",
         "image": "https://team-pj-lab.github.io/assets/og-image.png",
         "description": "PJ Group is a software company that designs and operates a range of businesses built on software.",
         "slogan": "From code to companies.",
@@ -95,6 +95,14 @@
   </script>
 </head>
 <body class="is-loading">
+
+  <!-- outline = dilated fill minus fill; avoids overlapping-contour lines that text-stroke draws -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="pj-outline" x="-2%" y="-2%" width="104%" height="104%">
+      <feMorphology in="SourceGraphic" operator="dilate" radius="1" result="grown"/>
+      <feComposite in="grown" in2="SourceGraphic" operator="out"/>
+    </filter>
+  </svg>
 
   <!-- ============ PRELOADER ============ -->
   <div class="loader" id="loader" aria-hidden="true">
