@@ -98,11 +98,11 @@ function count(el) {
 
 /* ---------- Typed code ---------- */
 const CODE = [
-  ['c', '// PJ — Team No.01\n'],
+  ['c', '// PJ Group — Team No.01\n'],
   ['k', 'const'], ['t', ' '], ['v', 'teamPJ'], ['p', ' = {\n'],
   ['t', '  name'], ['p', ': '], ['s', '"Team PJ"'], ['p', ',\n'],
   ['t', '  role'], ['p', ': '], ['s', '"Main Development Team"'], ['p', ',\n'],
-  ['t', '  cto'], ['p', ': '], ['s', '"박부건"'], ['p', ',\n'],
+  ['t', '  cto'], ['p', ': '], ['s', '"Park Bugeon"'], ['p', ',\n'],
   ['t', '  order'], ['p', ': '], ['k', '1'], ['p', ',\n'],
   ['t', '  status'], ['p', ': '], ['s', '"active"'], ['p', ',\n'],
   ['t', '  mission'], ['p', ': '], ['s', '"Ship software that becomes business."'], ['p', ',\n'],
@@ -148,6 +148,43 @@ function toast(msg) {
   el.classList.add('is-show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove('is-show'), 2200);
+}
+
+/* ---------- Language ---------- */
+const MESSAGES = {
+  ko: { copied: '이메일 주소가 복사되었습니다' },
+  en: { copied: 'Email address copied' },
+};
+const currentLang = () => (html.dataset.lang === 'en' ? 'en' : 'ko');
+const t = (key) => MESSAGES[currentLang()][key];
+
+function setLang(lang, animate = true) {
+  html.dataset.lang = lang;
+  html.lang = lang;
+  try { localStorage.setItem('pj-lang', lang); } catch { /* storage unavailable */ }
+  $$('[data-lang-set]').forEach((btn) => {
+    const on = btn.dataset.langSet === lang;
+    btn.classList.toggle('is-active', on);
+    btn.setAttribute('aria-pressed', String(on));
+  });
+  if (animate && !reduced) {
+    const shown = $$(`.${lang}`).filter((el) => {
+      const r = el.getBoundingClientRect();
+      return r.width > 0 && r.bottom > 0 && r.top < innerHeight;
+    });
+    gsap.fromTo(shown, { opacity: 0, filter: 'blur(8px)' }, {
+      opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power2.out', stagger: 0.02, clearProps: 'opacity,filter',
+    });
+  }
+  ScrollTrigger.refresh();
+}
+function initLang() {
+  $$('[data-lang-set]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.langSet !== currentLang()) setLang(btn.dataset.langSet);
+    });
+  });
+  setLang(currentLang(), false);
 }
 
 /* ---------- Cursor ---------- */
@@ -236,7 +273,7 @@ function setMenu(open) {
   menuOpen = open;
   html.classList.toggle('menu-open', open);
   $('#burger').setAttribute('aria-expanded', String(open));
-  $('#burger').setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  $('#burger').setAttribute('aria-label', open ? 'Close menu' : 'Menu');
   $('#menu').setAttribute('aria-hidden', String(!open));
   if (lenis) open ? lenis.stop() : lenis.start();
 }
@@ -266,7 +303,7 @@ function initNavigation() {
     btn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(btn.dataset.copy);
-        toast('이메일 주소가 복사되었습니다');
+        toast(t('copied'));
       } catch {
         toast(btn.dataset.copy);
       }
@@ -354,14 +391,14 @@ function initScroll() {
   });
 
   // manifesto — words light up as you read
-  const words = $$('[data-manifesto] .w__i');
-  if (reduced) gsap.set(words, { opacity: 1 });
-  else {
+  ['ko', 'en'].forEach((lang) => {
+    const words = $$(`[data-manifesto] .${lang} .w__i`);
+    if (reduced) { gsap.set(words, { opacity: 1 }); return; }
     gsap.fromTo(words, { opacity: 0.13 }, {
       opacity: 1, ease: 'none', stagger: 0.08,
       scrollTrigger: { trigger: '[data-manifesto]', start: 'top 78%', end: 'bottom 48%', scrub: true },
     });
-  }
+  });
 
   // marquee — loops that react to scroll velocity
   const marqueeTweens = $$('.marquee__inner').map((inner, i) => {
@@ -524,6 +561,7 @@ async function boot() {
     gl = null;
   }
 
+  initLang();
   initCursor();
   initPointerFx();
   initNavigation();

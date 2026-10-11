@@ -70,6 +70,16 @@ em {
 strong { font-weight: 600; color: var(--fg); }
 .hl { color: var(--accent); }
 
+html[data-lang="ko"] .en, html[data-lang="en"] .ko { display: none !important; }
+:is(.mono, .status-pill) .ko { letter-spacing: 0; }
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
 .mono {
   font-family: var(--font-mono);
   font-size: 11.5px;
@@ -253,6 +263,43 @@ main, .footer { position: relative; z-index: 1; }
   background: #fff;
   margin-bottom: 3px;
 }
+.nav__logo-sub {
+  font-weight: 500;
+  font-size: .6em;
+  letter-spacing: -.02em;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+.nav__right { display: flex; align-items: center; gap: clamp(14px, 1.6vw, 24px); }
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+.lang button {
+  position: relative;
+  padding: 8px 2px;
+  opacity: .45;
+  transition: opacity .3s;
+}
+.lang button::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform .5s var(--ease);
+}
+.lang button:hover { opacity: .8; }
+.lang button.is-active { opacity: 1; }
+.lang button.is-active::after { transform: scaleX(1); }
+.lang > span { opacity: .3; }
 .nav__links { display: flex; gap: clamp(18px, 2.4vw, 40px); }
 .nav__links a {
   position: relative;
@@ -975,7 +1022,9 @@ section { position: relative; }
   line-height: 1;
   letter-spacing: -.055em;
 }
-.leader__role { margin: 14px 0 22px; color: var(--fg-2); font-size: 16px; }
+.leader__name .en { font-family: var(--font-display); font-weight: 600; font-size: .84em; letter-spacing: -.055em; }
+.leader__alt { margin-top: 12px; color: var(--fg); }
+.leader__role { margin: 8px 0 22px; color: var(--fg-2); font-size: 16px; }
 
 /* ---------- Status ---------- */
 .status { padding: clamp(80px, 14vh, 180px) var(--pad) clamp(100px, 16vh, 200px); }
