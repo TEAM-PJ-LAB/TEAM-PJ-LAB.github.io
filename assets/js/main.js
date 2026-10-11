@@ -140,6 +140,82 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '0px 0px -10% 0px' });
 
+/* Mask that keeps only a Hangul syllable's initial consonant (e.g. ㅈ in 정, ㅂ in 박).
+   Renders the glyph exactly as CSS lays it out (line-height = box height), splits the ink
+   into connected components and keeps those in the top-left of the ink box. */
+function initialMask(ch, fontFamily, fontWeight, fontSize, boxW, boxH, dpr) {
+  const W = Math.round(boxW * dpr), H = Math.round(boxH * dpr);
+  if (!W || !H) return null;
+  const cv = document.createElement('canvas');
+  cv.width = W;
+  cv.height = H;
+  const ctx = cv.getContext('2d', { willReadFrequently: true });
+  ctx.font = `${fontWeight} ${fontSize * dpr}px ${fontFamily}`;
+  const m = ctx.measureText(ch);
+  const asc = m.fontBoundingBoxAscent, desc = m.fontBoundingBoxDescent;
+  ctx.fillText(ch, 0, (H - (asc + desc)) / 2 + asc);
+
+  const d = ctx.getImageData(0, 0, W, H).data;
+  const N = W * H;
+  const solid = (i) => d[i * 4 + 3] >= 110;
+  const lab = new Int32Array(N);
+  const comps = [];
+  let minX = W, minY = H, maxX = 0, maxY = 0;
+  for (let i = 0; i < N; i++) {
+    if (lab[i] || !solid(i)) continue;
+    const id = comps.length + 1;
+    let cnt = 0, sx = 0, sy = 0;
+    const st = [i];
+    lab[i] = id;
+    while (st.length) {
+      const p = st.pop(), x = p % W, y = (p - x) / W;
+      cnt++; sx += x; sy += y;
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+      if (x > 0 && !lab[p - 1] && solid(p - 1)) { lab[p - 1] = id; st.push(p - 1); }
+      if (x < W - 1 && !lab[p + 1] && solid(p + 1)) { lab[p + 1] = id; st.push(p + 1); }
+      if (y > 0 && !lab[p - W] && solid(p - W)) { lab[p - W] = id; st.push(p - W); }
+      if (y < H - 1 && !lab[p + W] && solid(p + W)) { lab[p + W] = id; st.push(p + W); }
+    }
+    comps.push({ id, cnt, cx: sx / cnt, cy: sy / cnt });
+  }
+  const bw = maxX - minX || 1, bh = maxY - minY || 1;
+  const keep = new Set(comps
+    .filter((c) => c.cnt > 40 && (c.cx - minX) / bw < 0.55 && (c.cy - minY) / bh < 0.62)
+    .map((c) => c.id));
+  if (!keep.size) return null;
+
+  const out = ctx.createImageData(W, H), o = out.data;
+  for (let i = 0; i < N; i++) {
+    const a = d[i * 4 + 3];
+    if (!a) continue;
+    let k = keep.has(lab[i]);
+    if (!k && !lab[i]) {
+      const x = i % W;   // anti-aliased edge pixel: follow a neighbour's component
+      k = (x > 0 && keep.has(lab[i - 1])) || (x < W - 1 && keep.has(lab[i + 1])) || keep.has(lab[i - W]) || keep.has(lab[i + W]);
+    }
+    if (k) o[i * 4 + 3] = a;
+  }
+  ctx.putImageData(out, 0, 0);
+  return cv.toDataURL('image/png');
+}
+
+function paintInitials() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  $$('.leader__glyph').forEach((glyph) => {
+    const outline = $('.leader__glyph-o', glyph);
+    const layer = $('.leader__glyph-j', glyph);
+    if (!outline || !layer || !outline.offsetWidth) return;
+    const cs = getComputedStyle(outline);
+    const url = initialMask(outline.textContent.trim(), cs.fontFamily, cs.fontWeight, parseFloat(cs.fontSize), outline.offsetWidth, outline.offsetHeight, dpr);
+    if (!url) return;
+    layer.style.webkitMaskImage = layer.style.maskImage = `url(${url})`;
+    layer.classList.add('is-ready');
+  });
+}
+
 /* ---------- Toast ---------- */
 let toastTimer;
 function toast(msg) {
@@ -548,7 +624,11 @@ async function boot() {
   });
 
   await Promise.race([
-    Promise.all([document.fonts.ready, document.fonts.load('800 100px "Inter Tight"')]),
+    Promise.all([
+      document.fonts.ready,
+      document.fonts.load('800 100px "Inter Tight"'),
+      document.fonts.load('800 100px "Pretendard Variable"', '정박'),
+    ]),
     wait(3500),
   ]).catch(() => {});
 
@@ -562,6 +642,9 @@ async function boot() {
   }
 
   initLang();
+  paintInitials();
+  let initialsTimer;
+  addEventListener('resize', () => { clearTimeout(initialsTimer); initialsTimer = setTimeout(paintInitials, 200); });
   initCursor();
   initPointerFx();
   initNavigation();

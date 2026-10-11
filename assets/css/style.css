@@ -1012,9 +1012,21 @@ section { position: relative; }
   transition: clip-path 1.4s var(--ease);
 }
 .leader:hover .leader__glyph-f { clip-path: inset(0 0 0 0); }
-@media (hover: none) {
-  .leader-wrap.is-in .leader__glyph-f { clip-path: inset(0 0 0 0); transition-duration: 2.4s; transition-delay: .4s; }
+/* initial consonants ㅈ (J) and ㅂ (P) — masked in main.js */
+.leader__glyph-j {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, var(--accent) 10%, #ff7a45 55%, #ffb48a 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  opacity: 0;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.6s var(--ease) .35s;
 }
+.leader__glyph-j.is-ready { opacity: 1; }
+.leader-wrap.is-in .leader__glyph-j { clip-path: inset(0 0 0 0); }
 .leader__body { position: relative; z-index: 2; transform: translateZ(50px); }
 .leader__kicker { margin-bottom: 14px; }
 .leader__name {
