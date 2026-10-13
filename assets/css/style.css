@@ -60,7 +60,9 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
 
 /* ---------- Atoms ---------- */
 .brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand__mark { display: block; width: auto; height: 24px; fill: currentColor; flex: none; }
+/* YC-style tile: white PJ monogram on brand orange */
+.brand__tile { flex: none; width: 30px; height: 30px; border-radius: 6px; background: var(--accent); display: grid; place-items: center; }
+.brand__mark { display: block; width: auto; height: 15px; fill: #fff; }
 .brand__name { font-weight: 700; font-size: 17px; letter-spacing: -.02em; }
 
 .btn {
