@@ -175,7 +175,6 @@ html[data-lang="ko"] .section__title { letter-spacing: -.03em; line-height: 1.25
 
 .grid { display: grid; gap: 20px; }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
-.grid--3 { grid-template-columns: repeat(3, 1fr); }
 
 .card {
   background: #fff;
@@ -185,36 +184,38 @@ html[data-lang="ko"] .section__title { letter-spacing: -.03em; line-height: 1.25
   transition: border-color .2s, box-shadow .25s, transform .25s;
 }
 .card:hover { border-color: var(--line-2); box-shadow: 0 10px 30px -14px rgba(22, 19, 15, .16); transform: translateY(-2px); }
-.card__num { font-size: 13px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
 .card h3 { margin-top: 14px; font-size: 20px; font-weight: 650; line-height: 1.3; letter-spacing: -.02em; }
 .card p { margin-top: 8px; font-size: 16px; line-height: 1.6; color: var(--muted); }
 
-.card--area { display: flex; align-items: flex-start; gap: 20px; }
-.card--area h3 { margin-top: 2px; }
-.icon {
-  flex: none;
-  width: 44px;
-  height: 44px;
-  padding: 10px;
-  border-radius: 10px;
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+/* Now building */
+.list { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.list li {
+  display: grid;
+  grid-template-columns: 48px 220px minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
 }
-.card .tags { margin-top: 14px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
-
-/* Team PJ */
-.split { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
-.split .section__head { margin-bottom: 0; }
-.kv { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 28px; }
-.kv div { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.kv div:last-child { border-bottom: 0; }
-.kv dt { font-size: 15px; color: var(--muted); }
-.kv dd { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+.list li:last-child { border-bottom: 0; }
+.list__num { font-size: 13px; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.list__field { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+.list__focus { font-size: 16px; color: var(--muted); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+  justify-self: end;
+}
+.badge--live { border-color: var(--line-2); background: #fff; color: var(--ink); }
 
 /* Founders */
 .founder { display: flex; align-items: flex-start; gap: 22px; }
@@ -345,14 +346,15 @@ html[data-lang="ko"] .section__title { letter-spacing: -.03em; line-height: 1.25
   .nav.is-open .nav__links { display: flex; }
   .nav.is-open { border-bottom-color: var(--line); background: #fff; }
   .nav__burger { display: block; }
-  .grid--3, .steps { grid-template-columns: 1fr; }
-  .split { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .grid--2 { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .card { padding: 22px; }
-  .card--area { gap: 16px; }
+  .list li { grid-template-columns: 32px 1fr; gap: 6px 12px; padding: 18px 20px; }
+  .list__focus, .list .badge { grid-column: 2; }
+  .list .badge { justify-self: start; margin-top: 4px; }
   .founder { flex-direction: column; gap: 16px; }
   .avatar { width: 64px; height: 64px; }
   .avatar__base { font-size: 34px; }
