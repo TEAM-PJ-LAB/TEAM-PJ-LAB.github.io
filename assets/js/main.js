@@ -332,8 +332,8 @@ function initPointerFx() {
       const r = el.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
       const py = (e.clientY - r.top) / r.height - 0.5;
-      ry(px * 9);
-      rx(-py * 9);
+      ry(px * 3);
+      rx(-py * 3);
     });
     el.addEventListener('pointerleave', () => { rx(0); ry(0); });
   });

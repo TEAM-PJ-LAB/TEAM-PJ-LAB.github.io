@@ -976,7 +976,7 @@ section { position: relative; }
 }
 .leader-wrap:nth-child(2) { --delay: .15s; }
 .leader {
-  height: clamp(460px, 68vh, 680px);
+  height: clamp(520px, 74vh, 720px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -986,32 +986,26 @@ section { position: relative; }
 }
 .leader__top { display: flex; justify-content: space-between; position: relative; z-index: 2; }
 .leader__top .mono:first-child { color: var(--accent); }
+.leader__key { color: var(--fg); font-size: 14px; letter-spacing: .12em; }
+.leader__key b { color: var(--accent); font-family: var(--font-kr); font-weight: 700; font-size: 1.15em; letter-spacing: 0; }
 .leader__glyph {
   position: absolute;
   top: clamp(36px, 5vh, 64px);
   right: clamp(20px, 2.4vw, 40px);
   font-family: var(--font-kr);
   font-weight: 800;
-  font-size: clamp(200px, 22vw, 360px);
+  font-size: clamp(200px, 20vw, 330px);
   line-height: 1;
   letter-spacing: 0;
   pointer-events: none;
   z-index: 0;
   transform: translateZ(30px);
+  transition: transform 1s var(--ease);
 }
+.leader:hover .leader__glyph { transform: translateZ(30px) scale(1.03); }
 .leader__glyph span { display: block; }
-.leader__glyph-o { color: var(--fg); opacity: .2; filter: url(#pj-outline); }
-.leader__glyph-f {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(165deg, var(--accent) 15%, #ffb48a 60%, rgba(239, 236, 230, .85) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1.4s var(--ease);
-}
-.leader:hover .leader__glyph-f { clip-path: inset(0 0 0 0); }
+.leader__glyph-o { color: var(--fg); opacity: .2; filter: url(#pj-outline); transition: opacity .6s; }
+.leader:hover .leader__glyph-o { opacity: .4; }
 /* initial consonants ㅈ (J) and ㅂ (P) — masked in main.js */
 .leader__glyph-j {
   position: absolute;
@@ -1023,12 +1017,12 @@ section { position: relative; }
   mask-repeat: no-repeat;
   opacity: 0;
   clip-path: inset(100% 0 0 0);
-  transition: clip-path 1.6s var(--ease) .35s;
+  transition: clip-path 1.6s var(--ease) .35s, filter .6s;
 }
 .leader__glyph-j.is-ready { opacity: 1; }
 .leader-wrap.is-in .leader__glyph-j { clip-path: inset(0 0 0 0); }
+.leader:hover .leader__glyph-j { filter: brightness(1.15) saturate(1.15); }
 .leader__body { position: relative; z-index: 2; transform: translateZ(50px); }
-.leader__kicker { margin-bottom: 14px; }
 .leader__name {
   font-family: var(--font-kr);
   font-weight: 700;
@@ -1038,7 +1032,32 @@ section { position: relative; }
 }
 .leader__name .en { font-family: var(--font-display); font-weight: 600; font-size: .84em; letter-spacing: -.055em; }
 .leader__alt { margin-top: 12px; color: var(--fg); }
-.leader__role { margin: 8px 0 22px; color: var(--fg-2); font-size: 16px; }
+.leader__role { margin-top: 10px; color: var(--fg-2); font-size: 16px; }
+.leader__bio {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  max-width: 34em;
+  color: var(--fg-2);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.leaders__together {
+  margin-top: clamp(16px, 1.6vw, 28px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 40px;
+  padding: 22px clamp(24px, 2.4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(22, 22, 24, .55), rgba(12, 12, 13, .45));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  --delay: .25s;
+}
+.leaders__together > .mono { color: var(--accent); min-width: 96px; }
+.leaders__together p { font-size: 17px; letter-spacing: -.01em; }
 
 /* ---------- Status ---------- */
 .status { padding: clamp(80px, 14vh, 180px) var(--pad) clamp(100px, 16vh, 200px); }
@@ -1327,7 +1346,7 @@ section { position: relative; }
 
   .leaders__head { flex-direction: column; align-items: flex-start; }
   .leaders__grid { grid-template-columns: 1fr; }
-  .leader { height: 480px; }
+  .leader { height: auto; min-height: 560px; }
   .leader__glyph { font-size: 200px; }
 
   .status__now { grid-template-columns: 1fr; grid-template-areas: "pill" "title" "aside"; }
