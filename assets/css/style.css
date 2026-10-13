@@ -60,19 +60,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
 
 /* ---------- Atoms ---------- */
 .brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand__mark {
-  width: 30px;
-  height: 30px;
-  border-radius: 7px;
-  background: var(--accent);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: -.05em;
-  line-height: 1;
-}
+.brand__mark { display: block; width: auto; height: 24px; fill: currentColor; flex: none; }
 .brand__name { font-weight: 700; font-size: 17px; letter-spacing: -.02em; }
 
 .btn {
