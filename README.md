@@ -10,14 +10,13 @@ PJ Group은 소프트웨어를 중심으로 다양한 사업을 설계하고 운
 
 ## Stack
 
-빌드 단계 없는 정적 사이트입니다. GitHub Pages가 `main` 브랜치 루트를 그대로 배포합니다.
+빌드 단계 없는 정적 사이트입니다. GitHub Pages가 `main` 브랜치 루트를 그대로 배포합니다. 외부 라이브러리 없이 HTML · CSS · 순수 JS만 씁니다.
 
 | | |
 |---|---|
 | `index.html` | 마크업 · 한/영 콘텐츠 (`.ko` / `.en`) · SEO 메타 · JSON-LD |
-| `assets/css/style.css` | 스타일 |
-| `assets/js/main.js` | 스크롤 · 커서 · 텍스트 모션 (GSAP, ScrollTrigger, Lenis) |
-| `assets/js/particles.js` | WebGL 파티클 (Three.js) — PJ 로고 → 구 → 웨이브 → 은하로 모핑 |
+| `assets/css/style.css` | 스타일 (밝은 배경, 브랜드 오렌지 `#ff4d1c`) |
+| `assets/js/main.js` | 언어 전환 · 모바일 메뉴 · 스크롤 등장 효과 · 이메일 복사 · 창업자 아바타의 ㅈ/ㅂ 강조 |
 
 ## Language
 

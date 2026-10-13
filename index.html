@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>PJ Group — Software &amp; Ventures</title>
-  <meta name="description" content="PJ Group is a software company that designs and operates a range of businesses built on software, led by Co-CEOs Jung Woojin and Park Bugeon. PJ Group(PJ그룹) — 소프트웨어로 시작해, 사업으로 증명합니다.">
+  <meta name="description" content="PJ Group is a software company that designs and operates a range of businesses built on software, founded by Jung Woojin and Park Bugeon. PJ Group(PJ그룹) — 소프트웨어로 시작해, 사업으로 증명합니다.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="PJ Group">
-  <meta name="theme-color" content="#070707">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://team-pj-lab.github.io/">
 
   <meta property="og:type" content="website">
@@ -76,13 +76,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
 
-  <script type="importmap">
-    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js" } }
-  </script>
   <script>
     (function () {
       var d = document.documentElement, l;
@@ -94,476 +91,245 @@
     })();
   </script>
 </head>
-<body class="is-loading">
-
-  <!-- outline = dilated fill minus fill; avoids overlapping-contour lines that text-stroke draws -->
-  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="pj-outline" x="-2%" y="-2%" width="104%" height="104%">
-      <feMorphology in="SourceGraphic" operator="dilate" radius="1" result="grown"/>
-      <feComposite in="grown" in2="SourceGraphic" operator="out"/>
-    </filter>
-  </svg>
-
-  <!-- ============ PRELOADER ============ -->
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader__meta">
-      <span class="mono">PJ Group — Software &amp; Ventures</span>
-      <span class="mono">Initializing</span>
-    </div>
-    <div class="loader__word" data-split="chars">PJ</div>
-    <div class="loader__foot">
-      <span class="loader__count" id="loaderCount">000</span>
-      <div class="loader__bar"><i></i></div>
-    </div>
-  </div>
-
-  <canvas id="webgl" class="webgl" aria-hidden="true"></canvas>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
-
-  <div class="cursor" aria-hidden="true">
-    <div class="cursor__dot"></div>
-    <div class="cursor__ring"><span class="cursor__label"></span></div>
-  </div>
-
-  <div class="progress" aria-hidden="true"><i></i></div>
+<body>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
-    <a href="#top" class="nav__logo" aria-label="PJ Group">PJ<i></i><span class="nav__logo-sub">Group</span></a>
-    <nav class="nav__links" aria-label="Main">
-      <a href="#about" data-scramble>About</a>
-      <a href="#business" data-scramble>Business</a>
-      <a href="#teampj" data-scramble>Team PJ</a>
-      <a href="#leadership" data-scramble>Leadership</a>
-      <a href="#status" data-scramble>Status</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang-set="ko" lang="ko">KO</button>
-        <span aria-hidden="true">/</span>
-        <button type="button" data-lang-set="en" lang="en">EN</button>
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="PJ Group home">
+        <span class="brand__mark">PJ</span>
+        <span class="brand__name">PJ Group</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main">
+        <a href="#about"><span class="ko">소개</span><span class="en">About</span></a>
+        <a href="#business"><span class="ko">사업</span><span class="en">Business</span></a>
+        <a href="#team"><span class="ko">Team PJ</span><span class="en">Team PJ</span></a>
+        <a href="#founders"><span class="ko">창업자</span><span class="en">Founders</span></a>
+        <a href="#status"><span class="ko">현황</span><span class="en">Status</span></a>
+      </nav>
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang-set="en" lang="en">EN</button>
+          <button type="button" data-lang-set="ko" lang="ko">KO</button>
+        </div>
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta"><span class="ko">문의하기</span><span class="en">Contact</span></a>
+        <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
       </div>
-      <a href="#contact" class="nav__cta" data-magnetic><span>Contact</span><i>→</i></a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </header>
 
-  <div class="menu" id="menu" aria-hidden="true">
-    <nav class="menu__links">
-      <a href="#about"><span class="mono">01</span>About</a>
-      <a href="#business"><span class="mono">02</span>Business</a>
-      <a href="#teampj"><span class="mono">03</span>Team PJ</a>
-      <a href="#leadership"><span class="mono">04</span>Leadership</a>
-      <a href="#status"><span class="mono">05</span>Status</a>
-      <a href="#contact"><span class="mono">06</span>Contact</a>
-    </nav>
-    <div class="menu__foot">
-      <span class="mono"><span class="ko">대외 연락</span><span class="en">Get in touch</span></span>
-      <a href="mailto:pj.southkorea@gmail.com">pj.southkorea@gmail.com</a>
-    </div>
-  </div>
-
-  <main>
+  <main id="top">
     <!-- ============ HERO ============ -->
-    <section class="hero" id="top">
-      <div class="hero__meta">
-        <span class="mono hero__brand">PJ Group — Software &amp; Ventures</span>
-        <ul class="hero__areas mono">
-          <li><span>(01)</span> Software</li>
-          <li><span>(02)</span> Platforms</li>
-          <li><span>(03)</span> Ventures</li>
-        </ul>
-        <span class="status-pill"><i class="pulse"></i><span class="ko">기초 자금 모집 중</span><span class="en">Raising foundation capital</span></span>
-      </div>
-
-      <div class="hero__bottom">
-        <h1 class="hero__title">
+    <section class="hero">
+      <div class="container">
+        <p class="pill reveal"><i class="dot"></i><span class="ko">기초 자금 모집 중</span><span class="en">Raising foundation capital</span></p>
+        <h1 class="hero__title reveal">
           <span class="sr-only">PJ Group — </span>
-          <span class="line"><span>From code</span></span>
-          <span class="line"><span>to <em>companies.</em></span></span>
+          <span class="en">From code<br>to companies.</span>
+          <span class="ko">소프트웨어로 시작해,<br>사업으로 증명합니다.</span>
         </h1>
-        <div class="hero__aside">
-          <p class="hero__desc">
-            <span class="ko">PJ Group은 소프트웨어를 중심으로<br>다양한 사업을 설계하고 운영하는 회사입니다.</span>
-            <span class="en">PJ Group designs and operates<br>a range of businesses built on software.</span>
-          </p>
-          <a href="#about" class="scroll-badge" aria-label="Scroll down" data-magnetic="0.5">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <defs><path id="circlePath" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
-              <text><textPath href="#circlePath" textLength="292" lengthAdjust="spacing">SCROLL TO EXPLORE • SCROLL TO EXPLORE • </textPath></text>
-            </svg>
-            <span class="scroll-badge__arrow">↓</span>
-          </a>
+        <p class="hero__lead reveal">
+          <span class="en">PJ Group is a software company that designs and operates a range of businesses — built by two student founders in South Korea.</span>
+          <span class="ko">PJ Group은 소프트웨어를 중심으로 다양한 사업을 설계하고 운영하는 회사입니다. 대한민국의 두 학생 창업자가 만들어 가고 있습니다.</span>
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#contact" class="btn btn--primary"><span class="en">Get in touch</span><span class="ko">문의하기</span></a>
+          <a href="#founders" class="btn btn--ghost"><span class="en">Meet the founders</span><span class="ko">창업자 소개</span> <span aria-hidden="true">→</span></a>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <section class="marquee" aria-label="PJ Group business keywords">
-      <div class="marquee__row marquee__row--solid">
-        <div class="marquee__inner">
-          <span>Software Development</span><b>✺</b><span>Platforms</span><b>✺</b><span>Data &amp; AI</span><b>✺</b><span>New Ventures</span><b>✺</b><span>Team PJ</span><b>✺</b>
-        </div>
-      </div>
-      <div class="marquee__row marquee__row--outline">
-        <div class="marquee__inner">
-          <span>소프트웨어</span><b>✦</b><span>플랫폼</span><b>✦</b><span>데이터 &amp; AI</span><b>✦</b><span>신규 사업</span><b>✦</b><span>From code to companies</span><b>✦</b>
-        </div>
+        <dl class="facts reveal">
+          <div><dt><span class="en">Founders</span><span class="ko">창업자</span></dt><dd>2</dd></div>
+          <div><dt><span class="en">Main team</span><span class="ko">메인 팀</span></dt><dd>Team PJ</dd></div>
+          <div><dt><span class="en">Stage</span><span class="ko">단계</span></dt><dd><span class="en">Seed · raising</span><span class="ko">시드 · 자금 모집 중</span></dd></div>
+          <div><dt><span class="en">Based in</span><span class="ko">소재지</span></dt><dd><span class="en">South Korea</span><span class="ko">대한민국</span></dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="about" id="about">
-      <div class="section-head" data-reveal="line">
-        <span class="mono">(About)</span>
-        <span class="mono">01 / 06</span>
-      </div>
-
-      <p class="about__manifesto" data-split="words" data-manifesto>
-        <span class="ko">PJ Group은 하나의 제품이 아니라, <span class="hl">여러 개의 사업</span>을 만들어내는 소프트웨어 회사입니다. 우리는 기술로 문제를 정의하고, 팀으로 해결하며, <span class="hl">사업으로 증명</span>합니다.</span>
-        <span class="en">PJ Group isn't a single product — it's a software company that builds <span class="hl">many businesses.</span> We define problems with technology, solve them as a team, and <span class="hl">prove them in business.</span></span>
-      </p>
-
-      <div class="about__stats">
-        <div class="stat" data-reveal="fade">
-          <span class="stat__num"><span data-count="2">00</span></span>
-          <span class="stat__label mono">Co-CEOs</span>
-          <span class="stat__desc"><span class="ko">공동대표 체제로 운영됩니다</span><span class="en">Led by two co-CEOs</span></span>
+    <section class="section section--soft" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">About</span><span class="ko">소개</span></p>
+          <h2 class="section__title"><span class="en">One company, many businesses.</span><span class="ko">하나의 회사, 여러 개의 사업.</span></h2>
+          <p class="section__lead">
+            <span class="en">PJ Group isn't a single product. We're a software company that builds — and runs — many businesses, starting from code.</span>
+            <span class="ko">PJ Group은 하나의 제품이 아니라, 여러 개의 사업을 만들어내는 소프트웨어 회사입니다. 모든 사업은 코드에서 시작합니다.</span>
+          </p>
         </div>
-        <div class="stat" data-reveal="fade">
-          <span class="stat__num"><span data-count="1">00</span></span>
-          <span class="stat__label mono">Core team</span>
-          <span class="stat__desc"><span class="ko">메인 개발팀 Team PJ</span><span class="en">Team PJ, our main dev team</span></span>
-        </div>
-        <div class="stat" data-reveal="fade">
-          <span class="stat__num stat__num--inf">∞</span>
-          <span class="stat__label mono">Ventures</span>
-          <span class="stat__desc"><span class="ko">다양한 사업체 운영 계획</span><span class="en">Multiple businesses planned</span></span>
-        </div>
-        <div class="stat" data-reveal="fade">
-          <span class="stat__num"><span data-count="1">00</span></span>
-          <span class="stat__label mono">Phase</span>
-          <span class="stat__desc"><span class="ko">기초 자금 조성 단계</span><span class="en">Raising foundation capital</span></span>
+        <div class="grid grid--3">
+          <article class="card reveal">
+            <span class="card__num">01</span>
+            <h3><span class="en">Define with technology</span><span class="ko">기술로 정의합니다</span></h3>
+            <p><span class="en">We start from a real problem and use software to frame it clearly.</span><span class="ko">실제 문제에서 출발해, 소프트웨어로 문제를 명확하게 정의합니다.</span></p>
+          </article>
+          <article class="card reveal">
+            <span class="card__num">02</span>
+            <h3><span class="en">Solve as a team</span><span class="ko">팀으로 해결합니다</span></h3>
+            <p><span class="en">Small, focused teams own a problem from the first line of code to launch.</span><span class="ko">작고 집중된 팀이 첫 코드부터 출시까지 문제를 책임집니다.</span></p>
+          </article>
+          <article class="card reveal">
+            <span class="card__num">03</span>
+            <h3><span class="en">Prove it in business</span><span class="ko">사업으로 증명합니다</span></h3>
+            <p><span class="en">Success means a product people use — and a business that lasts.</span><span class="ko">사람들이 쓰는 제품, 오래가는 사업으로 증명합니다.</span></p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ BUSINESS (horizontal) ============ -->
-    <section class="business" id="business">
-      <div class="business__track">
-        <div class="biz-intro">
-          <div class="section-head" data-reveal="line">
-            <span class="mono">(What we do)</span>
-            <span class="mono">02 / 06</span>
-          </div>
-          <h2 class="title-xl" data-split="words" data-reveal="words">Business<br><em>areas.</em></h2>
-          <p class="biz-intro__desc" data-reveal="fade">
-            <span class="ko">소프트웨어라는 하나의 뿌리에서<br>여러 갈래의 사업을 키워갑니다.</span>
-            <span class="en">From a single root — software —<br>we grow many branches of business.</span>
-          </p>
-          <span class="mono biz-intro__hint">Scroll →</span>
+    <!-- ============ BUSINESS ============ -->
+    <section class="section" id="business">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">What we do</span><span class="ko">사업 분야</span></p>
+          <h2 class="section__title"><span class="en">Four areas, one root: software.</span><span class="ko">하나의 뿌리, 네 개의 사업 분야.</span></h2>
         </div>
-
-        <article class="biz-card" data-spot>
-          <div class="biz-card__top"><span class="mono">01</span><span class="mono">Software</span></div>
-          <div class="biz-card__visual">
-            <svg viewBox="0 0 240 240" class="viz viz--stack" aria-hidden="true">
-              <g class="code">
-                <path d="M96 30 L80 44 L96 58"/><path d="M144 30 L160 44 L144 58"/><path d="M128 26 L112 62"/>
-              </g>
-              <g class="layer l3"><path d="M120 150 L192 186 L120 222 L48 186 Z"/></g>
-              <g class="layer l2"><path d="M120 120 L192 156 L120 192 L48 156 Z"/></g>
-              <g class="layer l1"><path class="accent" d="M120 90 L192 126 L120 162 L48 126 Z"/></g>
-            </svg>
-          </div>
-          <div class="biz-card__body">
-            <h3>Software<br>Development</h3>
-            <p class="biz-card__kr"><span class="ko">소프트웨어 개발</span><span class="en">End-to-end product building</span></p>
-            <p>
-              <span class="ko">웹 · 앱 · 서비스의 기획부터 설계, 개발, 운영까지. 제품의 처음과 끝을 직접 만듭니다.</span>
-              <span class="en">From planning and design to development and operations — we build products from the first line of code to launch and beyond.</span>
-            </p>
-            <ul class="tags"><li>Web</li><li>App</li><li>Backend</li></ul>
-          </div>
-        </article>
-
-        <article class="biz-card" data-spot>
-          <div class="biz-card__top"><span class="mono">02</span><span class="mono">Platforms</span></div>
-          <div class="biz-card__visual">
-            <svg viewBox="0 0 240 240" class="viz viz--net" aria-hidden="true">
-              <circle class="orbit" cx="120" cy="120" r="84"/>
-              <circle class="orbit orbit--inner" cx="120" cy="120" r="48"/>
-              <g class="net-rot">
-                <g class="spokes">
-                  <line x1="120" y1="120" x2="204" y2="120"/><line x1="120" y1="120" x2="179.4" y2="179.4"/>
-                  <line x1="120" y1="120" x2="120" y2="204"/><line x1="120" y1="120" x2="60.6" y2="179.4"/>
-                  <line x1="120" y1="120" x2="36" y2="120"/><line x1="120" y1="120" x2="60.6" y2="60.6"/>
-                  <line x1="120" y1="120" x2="120" y2="36"/><line x1="120" y1="120" x2="179.4" y2="60.6"/>
-                </g>
-                <g class="nodes">
-                  <circle cx="204" cy="120" r="5"/><circle cx="179.4" cy="179.4" r="5"/><circle cx="120" cy="204" r="5" class="accent"/>
-                  <circle cx="60.6" cy="179.4" r="5"/><circle cx="36" cy="120" r="5"/><circle cx="60.6" cy="60.6" r="5" class="accent"/>
-                  <circle cx="120" cy="36" r="5"/><circle cx="179.4" cy="60.6" r="5"/>
-                </g>
-              </g>
-              <circle class="hub-ring" cx="120" cy="120" r="18"/>
-              <circle class="hub" cx="120" cy="120" r="14"/>
-            </svg>
-          </div>
-          <div class="biz-card__body">
-            <h3>Platform<br>Services</h3>
-            <p class="biz-card__kr"><span class="ko">플랫폼 서비스</span><span class="en">Connecting people &amp; services</span></p>
-            <p>
-              <span class="ko">사람과 사람, 사람과 서비스를 잇는 플랫폼을 구축하고 직접 운영합니다.</span>
-              <span class="en">We build and run platforms that connect people with people, and people with services.</span>
-            </p>
-            <ul class="tags"><li>Marketplace</li><li>Community</li><li>SaaS</li></ul>
-          </div>
-        </article>
-
-        <article class="biz-card" data-spot>
-          <div class="biz-card__top"><span class="mono">03</span><span class="mono">Data &amp; AI</span></div>
-          <div class="biz-card__visual">
-            <svg viewBox="0 0 240 240" class="viz viz--eq" aria-hidden="true">
-              <g class="bars">
-                <rect x="34" y="70" width="8" height="120" rx="4" style="--d:1.1s;--o:-.2s"/>
-                <rect x="48" y="70" width="8" height="120" rx="4" style="--d:1.4s;--o:-.9s"/>
-                <rect x="62" y="70" width="8" height="120" rx="4" style="--d:.9s;--o:-.4s"/>
-                <rect x="76" y="70" width="8" height="120" rx="4" style="--d:1.6s;--o:-1.2s"/>
-                <rect x="90" y="70" width="8" height="120" rx="4" style="--d:1.2s;--o:-.6s"/>
-                <rect x="104" y="70" width="8" height="120" rx="4" style="--d:1s;--o:-.1s" class="accent"/>
-                <rect x="118" y="70" width="8" height="120" rx="4" style="--d:1.5s;--o:-.7s"/>
-                <rect x="132" y="70" width="8" height="120" rx="4" style="--d:1.3s;--o:-1s"/>
-                <rect x="146" y="70" width="8" height="120" rx="4" style="--d:.95s;--o:-.3s"/>
-                <rect x="160" y="70" width="8" height="120" rx="4" style="--d:1.7s;--o:-1.4s"/>
-                <rect x="174" y="70" width="8" height="120" rx="4" style="--d:1.15s;--o:-.5s"/>
-                <rect x="188" y="70" width="8" height="120" rx="4" style="--d:1.45s;--o:-.8s"/>
-              </g>
-              <path class="trend" d="M30 160 C 60 150, 70 110, 100 118 S 140 70, 160 82 S 196 48, 212 40"/>
-              <circle class="trend-dot" cx="212" cy="40" r="5"/>
-            </svg>
-          </div>
-          <div class="biz-card__body">
-            <h3>Data<br>&amp; AI</h3>
-            <p class="biz-card__kr"><span class="ko">데이터 &amp; AI</span><span class="en">Decisions powered by data</span></p>
-            <p>
-              <span class="ko">데이터를 모으고 분석해, AI와 결합한 더 나은 의사결정 도구를 만듭니다.</span>
-              <span class="en">We collect and analyze data, then combine it with AI to build better decision-making tools.</span>
-            </p>
-            <ul class="tags"><li>Data</li><li>ML</li><li>Automation</li></ul>
-          </div>
-        </article>
-
-        <article class="biz-card" data-spot>
-          <div class="biz-card__top"><span class="mono">04</span><span class="mono">Ventures</span></div>
-          <div class="biz-card__visual">
-            <svg viewBox="0 0 240 240" class="viz viz--radar" aria-hidden="true">
-              <defs>
-                <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#ff4d1c" stop-opacity="0"/>
-                  <stop offset="1" stop-color="#ff4d1c" stop-opacity=".55"/>
-                </linearGradient>
-              </defs>
-              <circle class="grid" cx="120" cy="120" r="32"/>
-              <circle class="grid" cx="120" cy="120" r="64"/>
-              <circle class="grid" cx="120" cy="120" r="96"/>
-              <line class="grid" x1="24" y1="120" x2="216" y2="120"/>
-              <line class="grid" x1="120" y1="24" x2="120" y2="216"/>
-              <circle class="ripple" cx="120" cy="120" r="96"/>
-              <circle class="ripple ripple--2" cx="120" cy="120" r="96"/>
-              <g class="sweep"><path d="M120 120 L216 120 A96 96 0 0 0 203.1 72 Z" fill="url(#sweepGrad)"/></g>
-              <circle class="blip" cx="168" cy="92" r="4" style="--o:-.3s"/>
-              <circle class="blip" cx="82" cy="150" r="4" style="--o:-1.1s"/>
-              <circle class="blip blip--accent" cx="146" cy="170" r="5" style="--o:-.7s"/>
-              <circle class="blip" cx="96" cy="76" r="3" style="--o:-1.6s"/>
-            </svg>
-          </div>
-          <div class="biz-card__body">
-            <h3>New<br>Ventures</h3>
-            <p class="biz-card__kr"><span class="ko">신규 사업</span><span class="en">Building new businesses</span></p>
-            <p>
-              <span class="ko">검증된 기술과 팀을 바탕으로 다양한 사업체를 세우고 운영해 나갈 계획입니다.</span>
-              <span class="en">Backed by proven technology and team, we plan to launch and operate a range of new businesses.</span>
-            </p>
-            <ul class="tags"><li>Incubation</li><li>Spin-off</li><li>Partnership</li></ul>
-          </div>
-        </article>
+        <div class="grid grid--2">
+          <article class="card card--area reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg>
+            <div>
+              <h3>Software Development</h3>
+              <p><span class="en">From planning and design to development and operations — we build products end to end.</span><span class="ko">웹 · 앱 · 서비스의 기획부터 설계, 개발, 운영까지. 제품의 처음과 끝을 직접 만듭니다.</span></p>
+              <p class="tags">Web · App · Backend</p>
+            </div>
+          </article>
+          <article class="card card--area reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="6" r="1.8"/><circle cx="19.5" cy="6" r="1.8"/><circle cx="4.5" cy="18" r="1.8"/><circle cx="19.5" cy="18" r="1.8"/><path d="M6 7.2l4 3.2M18 7.2l-4 3.2M6 16.8l4-3.2M18 16.8l-4-3.2"/></svg>
+            <div>
+              <h3>Platform Services</h3>
+              <p><span class="en">We build and run platforms that connect people with people, and people with services.</span><span class="ko">사람과 사람, 사람과 서비스를 잇는 플랫폼을 구축하고 직접 운영합니다.</span></p>
+              <p class="tags">Marketplace · Community · SaaS</p>
+            </div>
+          </article>
+          <article class="card card--area reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/><path d="M3 8l6-4 6 6 6-5" opacity=".55"/></svg>
+            <div>
+              <h3>Data &amp; AI</h3>
+              <p><span class="en">We collect and analyze data, then combine it with AI to build better decision-making tools.</span><span class="ko">데이터를 모으고 분석해, AI와 결합한 더 나은 의사결정 도구를 만듭니다.</span></p>
+              <p class="tags">Data · ML · Automation</p>
+            </div>
+          </article>
+          <article class="card card--area reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+            <div>
+              <h3>New Ventures</h3>
+              <p><span class="en">Backed by proven technology and team, we plan to launch and operate a range of new businesses.</span><span class="ko">검증된 기술과 팀을 바탕으로 다양한 사업체를 세우고 운영해 나갈 계획입니다.</span></p>
+              <p class="tags">Incubation · Spin-off · Partnership</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="business__progress" aria-hidden="true"><i></i></div>
     </section>
 
     <!-- ============ TEAM PJ ============ -->
-    <section class="teampj" id="teampj">
-      <div class="teampj__sheet">
-        <div class="section-head section-head--ink" data-reveal="line">
-          <span class="mono">(The first team)</span>
-          <span class="mono">03 / 06</span>
-        </div>
-
-        <h2 class="teampj__title" data-split="chars" data-reveal="chars">TEAM PJ</h2>
-
-        <div class="teampj__grid">
-          <div class="teampj__text">
-            <p class="teampj__lead" data-reveal="fade">
-              <span class="ko">PJ Group의 첫 번째 팀이자,<br>현재 회사의 <strong>메인 개발팀</strong>입니다.</span>
-              <span class="en">The first team at PJ Group —<br>and today, our <strong>main development team.</strong></span>
-            </p>
-            <p class="teampj__body" data-reveal="fade">
-              <span class="ko">Team PJ는 PJ Group의 모든 제품이 시작되는 곳입니다. 아이디어를 코드로, 코드를 서비스로 바꾸며 회사의 기술적 기반을 만들어가고 있습니다.</span>
-              <span class="en">Team PJ is where every PJ Group product begins. Turning ideas into code and code into services, the team is laying the company's technical foundation.</span>
-            </p>
-            <dl class="teampj__info">
-              <div data-reveal="fade"><dt class="mono">Role</dt><dd><span class="ko">메인 개발팀</span><span class="en">Main Development Team</span></dd></div>
-              <div data-reveal="fade"><dt class="mono">CTO</dt><dd><span class="ko">박부건</span><span class="en">Park Bugeon</span></dd></div>
-              <div data-reveal="fade"><dt class="mono">Status</dt><dd><i class="pulse"></i><span class="ko">활동 중</span><span class="en">Active</span></dd></div>
-              <div data-reveal="fade"><dt class="mono">Order</dt><dd><span class="ko">첫 번째 팀 · No. 01</span><span class="en">Team No. 01</span></dd></div>
-            </dl>
-          </div>
-
-          <div class="terminal" data-reveal="fade" data-terminal>
-            <div class="terminal__bar">
-              <i></i><i></i><i></i>
-              <span class="mono">team-pj.ts</span>
-            </div>
-            <pre class="terminal__code"><code id="typeCode"></code><span class="caret"></span></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ LEADERSHIP ============ -->
-    <section class="leaders" id="leadership">
-      <div class="section-head" data-reveal="line">
-        <span class="mono">(Leadership)</span>
-        <span class="mono">04 / 06</span>
-      </div>
-
-      <div class="leaders__head">
-        <h2 class="title-xl" data-split="words" data-reveal="words">Two founders,<br><em>one direction.</em></h2>
-        <p class="leaders__desc" data-reveal="fade">
-          <span class="ko">DGIST 재학생과 고등학생, 두 명의 학생 창업자가 PJ Group을 처음부터 함께 만들어 가고 있습니다.</span>
-          <span class="en">Two student founders — one at DGIST, one in high school — building PJ Group from day one.</span>
-        </p>
-      </div>
-
-      <div class="leaders__grid">
-        <div class="leader-wrap" data-reveal="fade">
-          <article class="leader" data-tilt data-spot>
-            <div class="leader__glyph" aria-hidden="true"><span class="leader__glyph-o">정</span><span class="leader__glyph-j"></span></div>
-            <div class="leader__top"><span class="mono">01</span><span class="mono leader__key"><b>ㅈ</b> → J</span></div>
-            <div class="leader__body">
-              <h3 class="leader__name"><span class="ko">정우진</span><span class="en">Jung Woojin</span></h3>
-              <p class="mono leader__alt"><span class="ko">Jung Woojin</span><span class="en">정우진</span></p>
-              <p class="leader__role"><span class="ko">공동창업자 · 공동대표</span><span class="en">Co-founder · Co-CEO</span></p>
-              <p class="leader__bio">
-                <span class="ko">아이디어를 제품으로 만드는 사람. PRD 작성부터 MVP와 1차 개발까지, PJ Group이 내놓는 모든 것의 첫 버전을 직접 만듭니다. 현재 DGIST에 재학 중입니다.</span>
-                <span class="en">Woojin turns ideas into products — writing our product specs and building the first version of everything we ship, from PRD to MVP. Currently a student at DGIST.</span>
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div class="leader-wrap" data-reveal="fade">
-          <article class="leader" data-tilt data-spot>
-            <div class="leader__glyph" aria-hidden="true"><span class="leader__glyph-o">박</span><span class="leader__glyph-j"></span></div>
-            <div class="leader__top"><span class="mono">02</span><span class="mono leader__key"><b>ㅂ</b> → P</span></div>
-            <div class="leader__body">
-              <h3 class="leader__name"><span class="ko">박부건</span><span class="en">Park Bugeon</span></h3>
-              <p class="mono leader__alt"><span class="ko">Park Bugeon</span><span class="en">박부건</span></p>
-              <p class="leader__role"><span class="ko">공동창업자 · 공동대표 · CTO</span><span class="en">Co-founder · Co-CEO · CTO</span></p>
-              <p class="leader__bio">
-                <span class="ko">아이디어를 내고, 그것을 오래 가는 제품으로 다듬는 사람. CTO로서 코드 고도화와 아키텍처, 보안을 책임지고 대외 연락과 서비스 운영을 맡고 있습니다. 현재 고등학교에 재학 중입니다.</span>
-                <span class="en">Bugeon comes up with the ideas and makes them last. As CTO, Bugeon owns our code, architecture and security, and runs communications and operations. Currently in high school.</span>
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="leaders__together" data-reveal="fade">
-        <span class="mono"><span class="ko">함께</span><span class="en">Together</span></span>
-        <p>
-          <span class="ko">파트너와의 대면 미팅, 그리고 회사의 중요한 결정은 언제나 두 사람이 함께합니다.</span>
-          <span class="en">We meet partners together, and we make the big calls together.</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- ============ STATUS / ROADMAP ============ -->
-    <section class="status" id="status">
-      <div class="section-head" data-reveal="line">
-        <span class="mono">(Status)</span>
-        <span class="mono">05 / 06</span>
-      </div>
-
-      <div class="status__now">
-        <span class="status-pill status-pill--lg" data-reveal="fade"><i class="pulse"></i>Now — Seed stage</span>
-        <h2 class="title-xl" data-split="words" data-reveal="words">Raising our<br><em>foundation capital.</em></h2>
-        <div class="status__aside" data-reveal="fade">
-          <p>
-            <span class="ko">PJ Group은 현재 회사의 <strong>기초 자금</strong>을 모으고 있습니다.<br>첫 단추를 함께 끼울 투자자와 파트너를 찾고 있습니다.</span>
-            <span class="en">PJ Group is currently raising its <strong>foundation capital.</strong><br>We're looking for investors and partners to take the first step with us.</span>
+    <section class="section section--soft" id="team">
+      <div class="container split">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">The first team</span><span class="ko">첫 번째 팀</span></p>
+          <h2 class="section__title">Team PJ</h2>
+          <p class="section__lead">
+            <span class="en">Our first team — and today, our main development team. Every PJ Group product starts here: ideas become code, and code becomes services.</span>
+            <span class="ko">PJ Group의 첫 번째 팀이자, 현재 회사의 메인 개발팀입니다. 아이디어를 코드로, 코드를 서비스로 바꾸며 모든 제품이 이곳에서 시작됩니다.</span>
           </p>
-          <a class="btn" href="mailto:pj.southkorea@gmail.com?subject=%5BPJ%20Group%5D%20Investment%20%26%20Partnership%20Inquiry" data-magnetic="0.25">
-            <span><span class="ko">투자 · 파트너십 문의</span><span class="en">Investment &amp; partnership inquiry</span></span><i>↗</i>
-          </a>
         </div>
+        <dl class="kv reveal">
+          <div><dt><span class="en">Role</span><span class="ko">역할</span></dt><dd><span class="en">Main development team</span><span class="ko">메인 개발팀</span></dd></div>
+          <div><dt>CTO</dt><dd><span class="en">Park Bugeon</span><span class="ko">박부건</span></dd></div>
+          <div><dt><span class="en">Status</span><span class="ko">상태</span></dt><dd><i class="dot dot--live"></i><span class="en">Active</span><span class="ko">활동 중</span></dd></div>
+          <div><dt><span class="en">Order</span><span class="ko">순서</span></dt><dd><span class="en">Team No. 01</span><span class="ko">첫 번째 팀</span></dd></div>
+        </dl>
       </div>
+    </section>
 
-      <div class="timeline">
-        <div class="timeline__line"><i></i></div>
-        <div class="phase phase--now" data-reveal="fade">
-          <span class="phase__dot"></span>
-          <span class="mono phase__tag">Phase 01 — Now</span>
-          <h3>Foundation</h3>
-          <p><span class="ko">회사 설립 및 기초 자금 조성</span><span class="en">Company formation &amp; foundation capital</span></p>
+    <!-- ============ FOUNDERS ============ -->
+    <section class="section" id="founders">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Founders</span><span class="ko">창업자</span></p>
+          <h2 class="section__title"><span class="en">Two student founders, one direction.</span><span class="ko">두 명의 학생 창업자, 하나의 방향.</span></h2>
+          <p class="section__lead">
+            <span class="en">The P and J in PJ come from our family names — <b class="hl">ㅂ</b> in 박 (Park) and <b class="hl">ㅈ</b> in 정 (Jung).</span>
+            <span class="ko">PJ의 P와 J는 두 창업자의 성에서 왔습니다 — 박의 <b class="hl">ㅂ</b>, 정의 <b class="hl">ㅈ</b>.</span>
+          </p>
         </div>
-        <div class="phase" data-reveal="fade">
-          <span class="phase__dot"></span>
-          <span class="mono phase__tag">Phase 02 — Ongoing</span>
-          <h3>Build</h3>
-          <p><span class="ko">Team PJ 중심의 핵심 제품 개발</span><span class="en">Core product development led by Team PJ</span></p>
+        <div class="grid grid--2">
+          <article class="card founder reveal">
+            <div class="avatar" aria-hidden="true"><span class="avatar__base">정</span><span class="avatar__key"></span></div>
+            <div>
+              <h3 class="founder__name"><span class="en">Jung Woojin <span class="founder__alt">정우진</span></span><span class="ko">정우진 <span class="founder__alt">Jung Woojin</span></span></h3>
+              <p class="founder__title"><span class="en">Co-founder &amp; Co-CEO</span><span class="ko">공동창업자 · 공동대표</span></p>
+              <p class="founder__bio">
+                <span class="en">Woojin turns ideas into products — writing our product specs and building the first version of everything we ship, from PRD to MVP. Currently a student at DGIST.</span>
+                <span class="ko">아이디어를 제품으로 만드는 사람. PRD 작성부터 MVP와 1차 개발까지, PJ Group이 내놓는 모든 것의 첫 버전을 직접 만듭니다. 현재 DGIST에 재학 중입니다.</span>
+              </p>
+            </div>
+          </article>
+          <article class="card founder reveal">
+            <div class="avatar" aria-hidden="true"><span class="avatar__base">박</span><span class="avatar__key"></span></div>
+            <div>
+              <h3 class="founder__name"><span class="en">Park Bugeon <span class="founder__alt">박부건</span></span><span class="ko">박부건 <span class="founder__alt">Park Bugeon</span></span></h3>
+              <p class="founder__title"><span class="en">Co-founder, Co-CEO &amp; CTO</span><span class="ko">공동창업자 · 공동대표 · CTO</span></p>
+              <p class="founder__bio">
+                <span class="en">Bugeon comes up with the ideas and makes them last. As CTO, Bugeon owns our code, architecture and security, and runs communications and operations. Currently in high school.</span>
+                <span class="ko">아이디어를 내고, 그것을 오래 가는 제품으로 다듬는 사람. CTO로서 코드 고도화와 아키텍처, 보안을 책임지고 대외 연락과 서비스 운영을 맡고 있습니다. 현재 고등학교에 재학 중입니다.</span>
+              </p>
+            </div>
+          </article>
         </div>
-        <div class="phase" data-reveal="fade">
-          <span class="phase__dot"></span>
-          <span class="mono phase__tag">Phase 03 — Planned</span>
-          <h3>Expand</h3>
-          <p><span class="ko">다양한 사업체 설립 및 운영</span><span class="en">Launching and operating multiple businesses</span></p>
+        <p class="together reveal">
+          <span class="en">We meet partners together, and we make the big calls together.</span>
+          <span class="ko">파트너와의 대면 미팅, 그리고 회사의 중요한 결정은 언제나 두 사람이 함께합니다.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section section--soft" id="status">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Where we are</span><span class="ko">현황</span></p>
+          <h2 class="section__title"><span class="en">Day one: raising our foundation capital.</span><span class="ko">첫날: 회사의 기초 자금을 모으고 있습니다.</span></h2>
+        </div>
+        <ol class="steps">
+          <li class="step step--now reveal">
+            <span class="step__tag"><i class="dot dot--live"></i><span class="en">Now</span><span class="ko">진행 중</span></span>
+            <h3>01 · Foundation</h3>
+            <p><span class="en">Company formation &amp; foundation capital</span><span class="ko">회사 설립 및 기초 자금 조성</span></p>
+          </li>
+          <li class="step reveal">
+            <span class="step__tag"><span class="en">Ongoing</span><span class="ko">진행 중</span></span>
+            <h3>02 · Build</h3>
+            <p><span class="en">Core product development led by Team PJ</span><span class="ko">Team PJ 중심의 핵심 제품 개발</span></p>
+          </li>
+          <li class="step reveal">
+            <span class="step__tag"><span class="en">Planned</span><span class="ko">예정</span></span>
+            <h3>03 · Expand</h3>
+            <p><span class="en">Launching and operating multiple businesses</span><span class="ko">다양한 사업체 설립 및 운영</span></p>
+          </li>
+        </ol>
+        <div class="callout reveal">
+          <p>
+            <span class="en">We're looking for investors and partners to take the first step with us.</span>
+            <span class="ko">첫 단추를 함께 끼울 투자자와 파트너를 찾고 있습니다.</span>
+          </p>
+          <a class="btn btn--primary" href="mailto:pj.southkorea@gmail.com?subject=%5BPJ%20Group%5D%20Investment%20%26%20Partnership%20Inquiry"><span class="en">Talk to us</span><span class="ko">투자 · 파트너십 문의</span></a>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact">
-      <div class="section-head" data-reveal="line">
-        <span class="mono">(Contact)</span>
-        <span class="mono">06 / 06</span>
-      </div>
-
-      <div class="contact__inner">
-        <p class="mono contact__kicker" data-reveal="fade"><span class="ko">투자 · 파트너십 · 협업 문의</span><span class="en">Investment · Partnership · Collaboration</span></p>
-        <h2 class="contact__title" data-split="chars" data-reveal="chars">Let's talk.</h2>
-        <a class="contact__mail" href="mailto:pj.southkorea@gmail.com" data-cursor="Mail" data-reveal="fade">
-          <span>pj.southkorea</span><span class="at">@</span><span>gmail.com</span>
-        </a>
-        <div class="contact__row">
-          <div data-reveal="fade">
-            <span class="mono">Contact person</span>
-            <p>
-              <span class="ko">박부건 <small>Co-CEO · 대외 연락 담당</small></span>
-              <span class="en">Park Bugeon <small>Co-CEO · External Relations</small></span>
-            </p>
-          </div>
-          <div data-reveal="fade">
-            <span class="mono">Inquiries</span>
-            <p><span class="ko">투자 · 파트너십 · 협업</span><span class="en">Investment · Partnership · Collaboration</span></p>
-          </div>
-          <div data-reveal="fade">
-            <button class="copy-btn" data-copy="pj.southkorea@gmail.com" data-magnetic="0.3">
-              <span>Copy email</span><i>⧉</i>
-            </button>
-          </div>
+    <section class="section contact" id="contact">
+      <div class="container contact__inner reveal">
+        <p class="eyebrow"><span class="en">Contact</span><span class="ko">연락처</span></p>
+        <h2 class="section__title"><span class="en">Let's talk.</span><span class="ko">이야기 나눠요.</span></h2>
+        <a class="contact__mail" href="mailto:pj.southkorea@gmail.com">pj.southkorea@gmail.com</a>
+        <p class="contact__meta">
+          <span class="en">Investment · Partnership · Collaboration — reach Park Bugeon, Co-CEO.</span>
+          <span class="ko">투자 · 파트너십 · 협업 문의 — 대외 연락 담당 박부건 공동대표</span>
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="mailto:pj.southkorea@gmail.com"><span class="en">Email us</span><span class="ko">이메일 보내기</span></a>
+          <button class="btn btn--ghost" type="button" data-copy="pj.southkorea@gmail.com"><span class="en">Copy email</span><span class="ko">주소 복사</span></button>
         </div>
       </div>
     </section>
@@ -571,38 +337,24 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <span class="footer__logo">PJ<i></i><span class="nav__logo-sub">Group</span></span>
-        <p>
-          <span class="ko">From code to companies.<br>소프트웨어로 시작해, 사업으로 증명합니다.</span>
-          <span class="en">From code to companies.<br>Software first — proven in business.</span>
-        </p>
-      </div>
-      <nav class="footer__nav" aria-label="Footer">
-        <span class="mono">Index</span>
-        <a href="#about">About</a><a href="#business">Business</a><a href="#teampj">Team PJ</a>
-        <a href="#leadership">Leadership</a><a href="#status">Status</a><a href="#contact">Contact</a>
+    <div class="container footer__inner">
+      <a href="#top" class="brand" aria-label="PJ Group home">
+        <span class="brand__mark">PJ</span>
+        <span class="brand__name">PJ Group</span>
+      </a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#about"><span class="en">About</span><span class="ko">소개</span></a>
+        <a href="#business"><span class="en">Business</span><span class="ko">사업</span></a>
+        <a href="#founders"><span class="en">Founders</span><span class="ko">창업자</span></a>
+        <a href="mailto:pj.southkorea@gmail.com">Email</a>
+        <a href="https://github.com/TEAM-PJ-LAB" target="_blank" rel="noopener">GitHub</a>
       </nav>
-      <div class="footer__nav">
-        <span class="mono">Connect</span>
-        <a href="mailto:pj.southkorea@gmail.com">Email ↗</a>
-        <a href="https://github.com/TEAM-PJ-LAB" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="footer__word" aria-hidden="true"><span>P</span><span>J</span></div>
-    <div class="footer__bottom">
-      <span class="mono">© <span id="year">2026</span> PJ Group. All rights reserved.</span>
-      <span class="mono"><span class="ko">공동대표 정우진 · 박부건</span><span class="en">Co-CEOs Jung Woojin · Park Bugeon</span></span>
-      <button class="to-top mono" id="toTop">Back to top ↑</button>
+      <p class="footer__copy">© <span id="year">2026</span> PJ Group</p>
     </div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-  <script type="module" src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2" defer></script>
 </body>
 </html>
