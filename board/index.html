@@ -1,0 +1,26 @@
+---
+layout: default
+nav: board
+title: Board
+description: "News, launch notes and build logs from PJ Group."
+---
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow reveal"><span class="en">Board</span><span class="ko">게시판</span></p>
+        <h1 class="page-head__title reveal"><span class="en">News &amp; build logs.</span><span class="ko">소식과 개발 일지.</span></h1>
+        <p class="page-head__lead reveal">
+          <span class="en">Launch notes and updates from the team. Comments are open on every post.</span>
+          <span class="ko">팀이 전하는 런칭 소식과 업데이트. 모든 글에 댓글을 남길 수 있습니다.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        {%- if site.posts.size > 0 %}
+        {% include post-list.html %}
+        {%- else %}
+        <p class="empty"><span class="en">No posts yet.</span><span class="ko">아직 글이 없습니다.</span></p>
+        {%- endif %}
+      </div>
+    </section>

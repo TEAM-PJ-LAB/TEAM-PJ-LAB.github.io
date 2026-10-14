@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  {%- if page.home %}
+  <title>PJ Group — Software &amp; Ventures</title>
+  {%- else %}
+  <title>{{ page.title }} — PJ Group</title>
+  {%- endif %}
+  {%- assign desc = page.description | default: site.description %}
+  <meta name="description" content="{{ desc | escape }}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="PJ Group">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:site_name" content="PJ Group">
+  <meta property="og:title" content="{% if page.home %}PJ Group — Software &amp; Ventures{% else %}{{ page.title | escape }} — PJ Group{% endif %}">
+  <meta property="og:description" content="{{ desc | escape }}">
+  <meta property="og:url" content="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/og-image.png' | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PJ Group — From code to companies.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.home %}PJ Group — Software &amp; Ventures{% else %}{{ page.title | escape }} — PJ Group{% endif %}">
+  <meta name="twitter:description" content="{{ desc | escape }}">
+  <meta name="twitter:image" content="{{ '/assets/og-image.png' | absolute_url }}">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="PJ Group — Board" href="/feed.xml">
+  {%- if page.home %}
+{% include jsonld.html %}
+  {%- endif %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=9">
+
+  <script>
+    (function () {
+      var d = document.documentElement, l;
+      try { l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('pj-lang'); } catch (e) {}
+      if (l !== 'ko' && l !== 'en') l = /^ko/i.test(navigator.language || '') ? 'ko' : 'en';
+      d.setAttribute('data-lang', l);
+      d.lang = l;
+      d.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="/" class="brand" aria-label="PJ Group home">
+        <svg class="brand__mark" viewBox="0 0 520 482" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M0 0H385V279H76V482H0Z M76 76V203H309V76Z"/><path d="M444 0H520V332A150 150 0 0 1 370 482H106V406H370A74 74 0 0 0 444 332Z"/></svg>
+        <span class="brand__name">PJ Group</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main">
+        <a href="/apps/"{% if page.nav == 'apps' %} aria-current="page"{% endif %}><span class="en">Apps</span><span class="ko">앱</span></a>
+        <a href="/board/"{% if page.nav == 'board' %} aria-current="page"{% endif %}><span class="en">Board</span><span class="ko">게시판</span></a>
+        <a href="/#founders"><span class="en">Founders</span><span class="ko">창업자</span></a>
+        <a href="/#status"><span class="en">Status</span><span class="ko">현황</span></a>
+      </nav>
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang-set="en" lang="en">EN</button>
+          <button type="button" data-lang-set="ko" lang="ko">KO</button>
+        </div>
+        <a href="/#contact" class="btn btn--primary btn--sm nav__cta"><span class="en">Contact</span><span class="ko">문의하기</span></a>
+        <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+{{ content }}
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="/" class="brand" aria-label="PJ Group home">
+        <svg class="brand__mark" viewBox="0 0 520 482" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M0 0H385V279H76V482H0Z M76 76V203H309V76Z"/><path d="M444 0H520V332A150 150 0 0 1 370 482H106V406H370A74 74 0 0 0 444 332Z"/></svg>
+        <span class="brand__name">PJ Group</span>
+      </a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="/apps/"><span class="en">Apps</span><span class="ko">앱</span></a>
+        <a href="/board/"><span class="en">Board</span><span class="ko">게시판</span></a>
+        <a href="/#founders"><span class="en">Founders</span><span class="ko">창업자</span></a>
+        <a href="mailto:pj.southkorea@gmail.com">Email</a>
+        <a href="https://github.com/TEAM-PJ-LAB" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <p class="footer__copy">© <span id="year">2026</span> PJ Group</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/js/main.js?v=3" defer></script>
+</body>
+</html>

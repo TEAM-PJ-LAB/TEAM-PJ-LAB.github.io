@@ -1,0 +1,31 @@
+# Pages CMS (https://pagescms.org) — sign in with a GitHub account that has
+# write access to this repo to create, edit and delete board posts.
+media:
+  input: assets/board
+  output: /assets/board
+content:
+  - name: posts
+    label: Board
+    type: collection
+    path: _posts
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Summary (one line)
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: body
+        label: Body
+        type: rich-text

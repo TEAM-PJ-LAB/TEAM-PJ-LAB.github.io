@@ -1,0 +1,29 @@
+---
+layout: default
+nav: board
+---
+    <article class="post">
+      <div class="container container--narrow">
+        <a class="post__back" href="/board/"><span aria-hidden="true">←</span> <span class="en">Board</span><span class="ko">게시판</span></a>
+        <header class="post__head">
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+          <h1 class="post__title">{{ page.title }}</h1>
+          {%- if page.description %}
+          <p class="post__lead">{{ page.description }}</p>
+          {%- endif %}
+        </header>
+        <div class="prose">
+{{ content }}
+        </div>
+
+        <section class="comments" aria-label="Comments">
+          <h2 class="comments__title"><span class="en">Comments</span><span class="ko">댓글</span></h2>
+          <p class="comments__note"><span class="en">Sign in with GitHub to comment.</span><span class="ko">GitHub 계정으로 로그인하면 댓글을 남길 수 있습니다.</span></p>
+          <div class="giscus" data-giscus
+               data-repo="TEAM-PJ-LAB/TEAM-PJ-LAB.github.io"
+               data-repo-id="R_kgDOVE8xuw"
+               data-category="Announcements"
+               data-category-id="DIC_kwDOVE8xu84DIXMQ"></div>
+        </section>
+      </div>
+    </article>

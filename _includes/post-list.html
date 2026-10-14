@@ -1,0 +1,16 @@
+{%- assign posts = site.posts %}
+{%- if include.limit %}{% assign posts = site.posts | slice: 0, include.limit %}{% endif %}
+<ul class="posts reveal">
+  {%- for post in posts %}
+  <li>
+    <a href="{{ post.url }}">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+      <span class="posts__body">
+        <span class="posts__title">{{ post.title }}</span>
+        {%- if post.description %}<span class="posts__desc">{{ post.description }}</span>{% endif %}
+      </span>
+      <span class="posts__arrow" aria-hidden="true">→</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

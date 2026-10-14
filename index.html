@@ -1,122 +1,8 @@
-<!doctype html>
-<html lang="en" data-lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>PJ Group — Software &amp; Ventures</title>
-  <meta name="description" content="PJ Group is a software company that designs and operates a range of businesses built on software, founded by Jung Woojin and Park Bugeon. PJ Group(PJ그룹) — 소프트웨어로 시작해, 사업으로 증명합니다.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="author" content="PJ Group">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="canonical" href="https://team-pj-lab.github.io/">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="PJ Group">
-  <meta property="og:title" content="PJ Group — Software &amp; Ventures">
-  <meta property="og:description" content="From code to companies. A software company building a range of businesses.">
-  <meta property="og:url" content="https://team-pj-lab.github.io/">
-  <meta property="og:image" content="https://team-pj-lab.github.io/assets/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PJ Group — From code to companies.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="ko_KR">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PJ Group — Software &amp; Ventures">
-  <meta name="twitter:description" content="From code to companies. A software company building a range of businesses.">
-  <meta name="twitter:image" content="https://team-pj-lab.github.io/assets/og-image.png">
-
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://team-pj-lab.github.io/#organization",
-        "name": "PJ Group",
-        "alternateName": ["PJ그룹", "PJ", "피제이그룹"],
-        "url": "https://team-pj-lab.github.io/",
-        "logo": "https://team-pj-lab.github.io/assets/brand/pj-logo.png",
-        "image": "https://team-pj-lab.github.io/assets/og-image.png",
-        "description": "PJ Group is a software company that designs and operates a range of businesses built on software.",
-        "slogan": "From code to companies.",
-        "email": "pj.southkorea@gmail.com",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "pj.southkorea@gmail.com",
-          "contactType": "business inquiries",
-          "availableLanguage": ["Korean", "English"]
-        },
-        "founder": [
-          { "@type": "Person", "name": "Jung Woojin", "alternateName": "정우진", "jobTitle": "Co-founder & Co-CEO", "description": "Student at DGIST" },
-          { "@type": "Person", "name": "Park Bugeon", "alternateName": "박부건", "jobTitle": "Co-founder, Co-CEO & CTO", "description": "High school student" }
-        ],
-        "subOrganization": {
-          "@type": "Organization",
-          "name": "Team PJ",
-          "description": "PJ Group's first team and main software development team."
-        },
-        "sameAs": ["https://github.com/TEAM-PJ-LAB"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://team-pj-lab.github.io/#website",
-        "url": "https://team-pj-lab.github.io/",
-        "name": "PJ Group",
-        "inLanguage": ["en", "ko"],
-        "publisher": { "@id": "https://team-pj-lab.github.io/#organization" }
-      }
-    ]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
-
-  <script>
-    (function () {
-      var d = document.documentElement, l;
-      try { l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('pj-lang'); } catch (e) {}
-      if (l !== 'ko' && l !== 'en') l = /^ko/i.test(navigator.language || '') ? 'ko' : 'en';
-      d.setAttribute('data-lang', l);
-      d.lang = l;
-      d.classList.add('js');
-    })();
-  </script>
-</head>
-<body>
-
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a href="#top" class="brand" aria-label="PJ Group home">
-        <svg class="brand__mark" viewBox="0 0 520 482" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M0 0H385V279H76V482H0Z M76 76V203H309V76Z"/><path d="M444 0H520V332A150 150 0 0 1 370 482H106V406H370A74 74 0 0 0 444 332Z"/></svg>
-        <span class="brand__name">PJ Group</span>
-      </a>
-      <nav class="nav__links" id="navLinks" aria-label="Main">
-        <a href="#building"><span class="ko">제품</span><span class="en">Building</span></a>
-        <a href="#founders"><span class="ko">창업자</span><span class="en">Founders</span></a>
-        <a href="#status"><span class="ko">현황</span><span class="en">Status</span></a>
-      </nav>
-      <div class="nav__right">
-        <div class="lang" role="group" aria-label="Language">
-          <button type="button" data-lang-set="en" lang="en">EN</button>
-          <button type="button" data-lang-set="ko" lang="ko">KO</button>
-        </div>
-        <a href="#contact" class="btn btn--primary btn--sm nav__cta"><span class="ko">문의하기</span><span class="en">Contact</span></a>
-        <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
+---
+layout: default
+home: true
+description: "PJ Group is a software company from South Korea, founded by Jung Woojin and Park Bugeon. We build products and grow the ones that work into businesses. PJ Group(PJ그룹) — 소프트웨어로 시작해, 사업으로 증명합니다."
+---
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="container">
@@ -151,30 +37,31 @@
           <p class="eyebrow"><span class="en">Now building</span><span class="ko">지금 만드는 것</span></p>
           <h2 class="section__title"><span class="en">Three products in the works.</span><span class="ko">개발 중인 세 가지 제품.</span></h2>
           <p class="section__lead">
-            <span class="en">Everything is built in-house by Team PJ, our core engineering team. More detail as each one launches.</span>
-            <span class="ko">모든 제품은 핵심 개발팀 Team PJ가 직접 만듭니다. 자세한 내용은 출시에 맞춰 공개합니다.</span>
+            <span class="en">Everything is built in-house by Team PJ, our core engineering team.</span>
+            <span class="ko">모든 제품은 핵심 개발팀 Team PJ가 직접 만듭니다.</span>
           </p>
         </div>
         <ol class="list reveal">
           <li>
             <span class="list__num">01</span>
-            <span class="list__field"><span class="en">Fintech</span><span class="ko">핀테크</span></span>
-            <span class="list__focus"><span class="en">Quantitative trading platform</span><span class="ko">퀀트 트레이딩 플랫폼</span></span>
+            <span class="list__name">Quant Forge X<small><span class="en">Fintech</span><span class="ko">핀테크</span></small></span>
+            <span class="list__focus"><span class="en">Verification-first quantitative trading platform</span><span class="ko">검증 중심 퀀트 트레이딩 플랫폼</span></span>
             <span class="badge badge--live"><i class="dot dot--live"></i><span class="en">In validation</span><span class="ko">운영 검증 중</span></span>
           </li>
           <li>
             <span class="list__num">02</span>
-            <span class="list__field"><span class="en">AI · Commerce</span><span class="ko">AI · 커머스</span></span>
-            <span class="list__focus"><span class="en">Second-hand price estimation</span><span class="ko">중고 물품 시세 산정</span></span>
+            <span class="list__name">ANABADA<small><span class="en">AI · Commerce</span><span class="ko">AI · 커머스</span></small></span>
+            <span class="list__focus"><span class="en">Fair prices for second-hand goods, from a few photos</span><span class="ko">사진 몇 장으로 중고 물품 적정가 산정</span></span>
             <span class="badge"><span class="en">In development</span><span class="ko">개발 중</span></span>
           </li>
           <li>
             <span class="list__num">03</span>
-            <span class="list__field"><span class="en">AI · Voice</span><span class="ko">AI · 음성</span></span>
-            <span class="list__focus"><span class="en">Memorial service</span><span class="ko">추모 서비스</span></span>
+            <span class="list__name">Ryeong-Eon<small><span class="en">AI · Voice</span><span class="ko">AI · 음성</span></small></span>
+            <span class="list__focus"><span class="en">Verified AI memorial voice service</span><span class="ko">검증 기반 AI 추모 음성 서비스</span></span>
             <span class="badge"><span class="en">In design</span><span class="ko">설계 중</span></span>
           </li>
         </ol>
+        <p class="more reveal"><a href="/apps/"><span class="en">See all apps</span><span class="ko">앱 전체 보기</span> <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
@@ -272,8 +159,24 @@
       </div>
     </section>
 
+    <!-- ============ BOARD (latest) ============ -->
+    {%- if site.posts.size > 0 %}
+    <section class="section" id="latest">
+      <div class="container">
+        <div class="section__head section__head--row reveal">
+          <div>
+            <p class="eyebrow"><span class="en">Board</span><span class="ko">게시판</span></p>
+            <h2 class="section__title"><span class="en">Latest from PJ Group.</span><span class="ko">PJ Group 소식.</span></h2>
+          </div>
+          <a class="more" href="/board/"><span class="en">All posts</span><span class="ko">전체 글</span> <span aria-hidden="true">→</span></a>
+        </div>
+        {% include post-list.html limit=3 %}
+      </div>
+    </section>
+    {%- endif %}
+
     <!-- ============ CONTACT ============ -->
-    <section class="section contact" id="contact">
+    <section class="section section--soft contact" id="contact">
       <div class="container contact__inner reveal">
         <p class="eyebrow"><span class="en">Contact</span><span class="ko">연락처</span></p>
         <h2 class="section__title"><span class="en">Let's talk.</span><span class="ko">이야기 나눠요.</span></h2>
@@ -288,28 +191,3 @@
         </div>
       </div>
     </section>
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <a href="#top" class="brand" aria-label="PJ Group home">
-        <svg class="brand__mark" viewBox="0 0 520 482" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M0 0H385V279H76V482H0Z M76 76V203H309V76Z"/><path d="M444 0H520V332A150 150 0 0 1 370 482H106V406H370A74 74 0 0 0 444 332Z"/></svg>
-        <span class="brand__name">PJ Group</span>
-      </a>
-      <nav class="footer__links" aria-label="Footer">
-        <a href="#building"><span class="en">Building</span><span class="ko">제품</span></a>
-        <a href="#founders"><span class="en">Founders</span><span class="ko">창업자</span></a>
-        <a href="#status"><span class="en">Status</span><span class="ko">현황</span></a>
-        <a href="mailto:pj.southkorea@gmail.com">Email</a>
-        <a href="https://github.com/TEAM-PJ-LAB" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-      <p class="footer__copy">© <span id="year">2026</span> PJ Group</p>
-    </div>
-  </footer>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <script src="assets/js/main.js?v=2" defer></script>
-</body>
-</html>

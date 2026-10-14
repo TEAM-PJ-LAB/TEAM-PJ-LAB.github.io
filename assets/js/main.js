@@ -24,6 +24,7 @@
       btn.setAttribute('aria-pressed', String(on));
     });
     paintAvatars();
+    setCommentsLang(lang);
   }
   $$('[data-lang-set]').forEach((btn) => btn.addEventListener('click', () => setLang(btn.dataset.langSet)));
 
@@ -159,6 +160,34 @@
       });
       key.classList.add('is-ready');
     });
+  }
+
+  /* ---------- Board comments (giscus, backed by GitHub Discussions) ---------- */
+  const giscusBox = $('[data-giscus]');
+  function setCommentsLang(lang) {
+    const frame = document.querySelector('iframe.giscus-frame');
+    if (frame) frame.contentWindow.postMessage({ giscus: { setConfig: { lang } } }, 'https://giscus.app');
+  }
+  if (giscusBox) {
+    const s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    Object.entries({
+      repo: giscusBox.dataset.repo,
+      repoId: giscusBox.dataset.repoId,
+      category: giscusBox.dataset.category,
+      categoryId: giscusBox.dataset.categoryId,
+      mapping: 'pathname',
+      strict: '1',
+      reactionsEnabled: '1',
+      emitMetadata: '0',
+      inputPosition: 'top',
+      theme: 'light',
+      lang: currentLang(),
+      loading: 'lazy',
+    }).forEach(([k, v]) => s.setAttribute(`data-${k.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}`, v));
+    giscusBox.appendChild(s);
   }
 
   /* ---------- Init ---------- */

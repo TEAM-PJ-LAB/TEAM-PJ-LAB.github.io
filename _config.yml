@@ -1,0 +1,24 @@
+title: PJ Group
+description: "PJ Group is a software company from South Korea. We build products and grow the ones that work into businesses."
+url: "https://team-pj-lab.github.io"
+baseurl: ""
+timezone: Asia/Seoul
+markdown: kramdown
+permalink: /board/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
