@@ -19,6 +19,11 @@ defaults:
       type: posts
     values:
       layout: post
+      nav: board
+  - scope:
+      path: "google08e1dfb6159df86a.html"
+    values:
+      sitemap: false
 
 exclude:
   - README.md
