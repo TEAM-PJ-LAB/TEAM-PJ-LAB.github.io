@@ -5,7 +5,11 @@ description: "PJ Group is a software company from South Korea, founded by Jung W
 ---
     <!-- ============ HERO ============ -->
     <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container">
+        <div class="hero__mark" aria-hidden="true">
+          <svg viewBox="0 0 520 482" focusable="false"><path class="hero__p" fill-rule="evenodd" d="M0 0H385V279H76V482H0Z M76 76V203H309V76Z"/><path class="hero__j" d="M444 0H520V332A150 150 0 0 1 370 482H106V406H370A74 74 0 0 0 444 332Z"/></svg>
+        </div>
         <p class="pill reveal"><i class="dot"></i><span class="ko">기초 자금 모집 중</span><span class="en">Raising foundation capital</span></p>
         <h1 class="hero__title reveal">
           <span class="sr-only">PJ Group — </span>
@@ -96,26 +100,38 @@ description: "PJ Group is a software company from South Korea, founded by Jung W
         </div>
         <div class="grid grid--2">
           <article class="card founder reveal">
-            <div class="avatar" aria-hidden="true"><span class="avatar__base">정</span><span class="avatar__key"></span></div>
-            <div>
-              <h3 class="founder__name"><span class="en">Jung Woojin <span class="founder__alt">정우진</span></span><span class="ko">정우진 <span class="founder__alt">Jung Woojin</span></span></h3>
-              <p class="founder__title"><span class="en">Co-founder &amp; Co-CEO</span><span class="ko">공동창업자 · 공동대표</span></p>
-              <p class="founder__bio">
-                <span class="en">Woojin turns ideas into products — writing our product specs and building the first version of everything we ship, from PRD to MVP. Currently a student at DGIST.</span>
-                <span class="ko">아이디어를 제품으로 만드는 사람. PRD 작성부터 MVP와 1차 개발까지, PJ Group이 내놓는 모든 것의 첫 버전을 직접 만듭니다. 현재 DGIST에 재학 중입니다.</span>
-              </p>
-            </div>
+            <header class="founder__head">
+              <div class="avatar" aria-hidden="true"><span class="avatar__base">정</span><span class="avatar__key"></span></div>
+              <div>
+                <h3 class="founder__name"><span class="en">Jung Woojin <span class="founder__alt">정우진</span></span><span class="ko">정우진 <span class="founder__alt">Jung Woojin</span></span></h3>
+                <p class="founder__title"><span class="en">Co-founder &amp; Co-CEO</span><span class="ko">공동창업자 · 공동대표</span></p>
+              </div>
+            </header>
+            <p class="founder__bio">
+              <span class="en">Woojin turns ideas into products — writing our product specs and building the first version of everything we ship, from PRD to MVP.</span>
+              <span class="ko">아이디어를 제품으로 만드는 사람. PRD 작성부터 MVP와 1차 개발까지, PJ Group이 내놓는 모든 것의 첫 버전을 직접 만듭니다.</span>
+            </p>
+            <dl class="founder__meta">
+              <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Product · MVP</span><span class="ko">제품 기획 · MVP</span></dd></div>
+              <div><dt><span class="en">School</span><span class="ko">학교</span></dt><dd><span class="en">DGIST</span><span class="ko">DGIST</span></dd></div>
+            </dl>
           </article>
           <article class="card founder reveal">
-            <div class="avatar" aria-hidden="true"><span class="avatar__base">박</span><span class="avatar__key"></span></div>
-            <div>
-              <h3 class="founder__name"><span class="en">Park Bugeon <span class="founder__alt">박부건</span></span><span class="ko">박부건 <span class="founder__alt">Park Bugeon</span></span></h3>
-              <p class="founder__title"><span class="en">Co-founder, Co-CEO &amp; CTO</span><span class="ko">공동창업자 · 공동대표 · CTO</span></p>
-              <p class="founder__bio">
-                <span class="en">Bugeon comes up with the ideas and makes them last. As CTO, Bugeon owns our code, architecture and security, and runs communications and operations. Currently in high school.</span>
-                <span class="ko">아이디어를 내고, 그것을 오래 가는 제품으로 다듬는 사람. CTO로서 코드 고도화와 아키텍처, 보안을 책임지고 대외 연락과 서비스 운영을 맡고 있습니다. 현재 고등학교에 재학 중입니다.</span>
-              </p>
-            </div>
+            <header class="founder__head">
+              <div class="avatar" aria-hidden="true"><span class="avatar__base">박</span><span class="avatar__key"></span></div>
+              <div>
+                <h3 class="founder__name"><span class="en">Park Bugeon <span class="founder__alt">박부건</span></span><span class="ko">박부건 <span class="founder__alt">Park Bugeon</span></span></h3>
+                <p class="founder__title"><span class="en">Co-founder, Co-CEO &amp; CTO</span><span class="ko">공동창업자 · 공동대표 · CTO</span></p>
+              </div>
+            </header>
+            <p class="founder__bio">
+              <span class="en">Bugeon comes up with the ideas and makes them last. As CTO, Bugeon owns our code, architecture and security, and runs communications and operations.</span>
+              <span class="ko">아이디어를 내고, 그것을 오래 가는 제품으로 다듬는 사람. CTO로서 코드 고도화와 아키텍처, 보안을 책임지고 대외 연락과 서비스 운영을 맡고 있습니다.</span>
+            </p>
+            <dl class="founder__meta">
+              <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Ideas · Engineering · Ops</span><span class="ko">아이디어 · 엔지니어링 · 운영</span></dd></div>
+              <div><dt><span class="en">School</span><span class="ko">학교</span></dt><dd><span class="en">High school</span><span class="ko">고등학교</span></dd></div>
+            </dl>
           </article>
         </div>
         <p class="together reveal">
