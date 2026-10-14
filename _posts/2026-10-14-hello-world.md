@@ -11,9 +11,9 @@ PJ Group is a software company from South Korea, started by two student founders
 
 ## What we're building
 
-- **Quant Forge X** — a verification-first platform for quantitative trading.
 - **ANABADA** — evidence-backed fair prices for second-hand goods, from a few photos.
 - **Ryeong-Eon** *(working title)* — a verified AI memorial voice service.
+- **SampleLedger** — checkout, return and traceability for physical samples.
 
 More on each one in [Apps](/apps/).
 
@@ -33,9 +33,9 @@ PJ Group은 대한민국의 소프트웨어 회사입니다. 두 명의 학생 �
 
 ## 지금 만드는 것
 
-- **Quant Forge X** — 검증 중심 퀀트 트레이딩 플랫폼
 - **ANABADA (아나바다)** — 사진 몇 장으로 알려주는 중고 물품의 근거 있는 적정가
 - **Ryeong-Eon** *(가칭)* — 검증 기반 AI 추모 음성 서비스
+- **SampleLedger** — 실물 샘플의 대여·반납·이력 추적 관리
 
 자세한 내용은 [앱](/apps/) 페이지에 있습니다.
 
