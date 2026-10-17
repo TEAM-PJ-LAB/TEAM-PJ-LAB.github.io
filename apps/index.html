@@ -2,21 +2,44 @@
 layout: default
 nav: apps
 title: Apps
-description: "The apps PJ Group is building — ANABADA, Ryeong-Eon and SampleLedger. Every app and web service we build launches within a month."
+description: "The apps PJ Group is building — our main project Interlock, plus ANABADA, Ryeong-Eon and SampleLedger. Every app and web service we build launches within a month."
 ---
     <section class="page-head">
       <div class="container">
         <p class="eyebrow reveal"><span class="en">Apps</span><span class="ko">앱</span></p>
         <h1 class="page-head__title reveal"><span class="en">What we're building.</span><span class="ko">우리가 만드는 앱.</span></h1>
         <p class="page-head__lead reveal">
-          <span class="en">Three products, built in-house by Team PJ — under our one rule: every app launches within a month.</span>
-          <span class="ko">Team PJ가 직접 만드는 세 가지 제품. 모든 앱은 한 달 안에 런칭한다는 규칙 아래에서 만듭니다.</span>
+          <span class="en">Our main project, Interlock, and three more products — all built in-house by Team PJ under one rule: every app launches within a month.</span>
+          <span class="ko">메인 프로젝트 Interlock과 세 가지 제품. 모두 Team PJ가 직접 만들며, 모든 앱은 한 달 안에 런칭한다는 규칙 아래에서 만듭니다.</span>
         </p>
       </div>
     </section>
 
     <section class="section section--tight">
       <div class="container apps">
+
+        <article class="app app--main reveal" id="interlock">
+          <header class="app__head">
+            <div>
+              <p class="app__field"><span class="en">Main project · Developer tools</span><span class="ko">메인 프로젝트 · 개발자 도구</span></p>
+              <h2 class="app__name">Interlock</h2>
+            </div>
+            <span class="badge badge--live"><i class="dot dot--live"></i><span class="en">Working demo</span><span class="ko">데모 작동 중</span></span>
+          </header>
+          <p class="app__desc">
+            <span class="en">Run many AI coding agents on one codebase without them overwriting each other. Interlock tracks which code each agent is changing — down to the function — and enforces it at three layers: the edit, the commit and the merge. Every verdict comes with its evidence.</span>
+            <span class="ko">여러 AI 코딩 에이전트가 하나의 코드베이스에서 서로의 작업을 덮어쓰지 않게 해줍니다. 각 에이전트가 어떤 코드를 바꾸는지 함수 단위까지 추적하고, 편집 · 커밋 · 머지 세 단계에서 막습니다. 모든 판단에는 근거가 함께 나옵니다.</span>
+          </p>
+          <ul class="app__points">
+            <li><span class="en">Symbol-level claims</span><span class="ko">함수 단위 점유</span></li>
+            <li><span class="en">Dependency cautions &amp; contract-change notices</span><span class="ko">의존 관계 경고 · 시그니처 변경 알림</span></li>
+            <li><span class="en">Edit, commit &amp; merge enforcement</span><span class="ko">편집 · 커밋 · 머지 단계 차단</span></li>
+            <li><span class="en">Fair queue with deadlock detection</span><span class="ko">대기열 · 교착 감지</span></li>
+            <li><span class="en">Leases tied to session liveness</span><span class="ko">세션이 끝나면 자동 해제</span></li>
+            <li><span class="en">Works with Claude Code, Codex &amp; Cursor</span><span class="ko">Claude Code · Codex · Cursor 지원</span></li>
+          </ul>
+          <p class="app__links"><a href="https://github.com/TEAM-PJ-LAB/interlock-demo" target="_blank" rel="noopener"><span class="en">Demo repository</span><span class="ko">데모 저장소</span> <span aria-hidden="true">↗</span></a></p>
+        </article>
 
         <article class="app reveal" id="anabada">
           <header class="app__head">

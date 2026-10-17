@@ -1,7 +1,7 @@
 ---
 layout: default
 home: true
-description: "PJ Group is a software company from South Korea, founded by Jung Woojin and Park Bugeon. We build products and grow the ones that work into businesses. PJ Group(PJ그룹) — 소프트웨어로 시작해, 사업으로 증명합니다."
+description: "PJ Group is a software company from South Korea, founded by Jung Woojin and Park Bugeon. Our main project, Interlock, lets many AI coding agents work on one codebase without overwriting each other. PJ Group(PJ그룹) — 소프트웨어로 시작해, 사업으로 증명합니다."
 ---
     <!-- ============ HERO ============ -->
     <section class="hero">
@@ -26,20 +26,63 @@ description: "PJ Group is a software company from South Korea, founded by Jung W
         </div>
 
         <dl class="facts reveal">
-          <div><dt><span class="en">In the works</span><span class="ko">개발 중인 제품</span></dt><dd><span class="en">3 products</span><span class="ko">3개</span></dd></div>
-          <div><dt><span class="en">Founders</span><span class="ko">창업자</span></dt><dd><span class="en">2 · both students</span><span class="ko">2명 · 모두 학생</span></dd></div>
+          <div><dt><span class="en">Main project</span><span class="ko">메인 프로젝트</span></dt><dd>Interlock</dd></div>
+          <div><dt><span class="en">In the works</span><span class="ko">개발 중인 제품</span></dt><dd><span class="en">4 products</span><span class="ko">4개</span></dd></div>
           <div><dt><span class="en">Stage</span><span class="ko">단계</span></dt><dd><span class="en">Seed · raising</span><span class="ko">시드 · 자금 모집 중</span></dd></div>
           <div><dt><span class="en">Based in</span><span class="ko">소재지</span></dt><dd><span class="en">South Korea</span><span class="ko">대한민국</span></dd></div>
         </dl>
       </div>
     </section>
 
+    <!-- ============ INTERLOCK (main project) ============ -->
+    <section class="section section--soft" id="interlock">
+      <div class="container">
+        <div class="feature">
+          <div class="feature__text reveal">
+            <p class="eyebrow"><span class="en">Main project</span><span class="ko">메인 프로젝트</span></p>
+            <h2 class="feature__title">Interlock</h2>
+            <p class="feature__tagline">
+              <span class="en">Run many AI coding agents on one codebase — without them overwriting each other.</span>
+              <span class="ko">여러 AI 코딩 에이전트가 하나의 코드베이스에서, 서로의 작업을 덮어쓰지 않게.</span>
+            </p>
+            <p class="feature__desc">
+              <span class="en">Claude Code, Codex and Cursor are good enough to run in parallel — but they don't notice each other. Interlock is the signal box for your agents: it knows what every agent is changing, never lets two changes collide, and explains every decision.</span>
+              <span class="ko">Claude Code, Codex, Cursor는 이제 동시에 돌릴 만큼 뛰어나지만, 서로를 알아채지 못합니다. Interlock은 에이전트들의 신호소입니다. 누가 어떤 코드를 바꾸는지 알고, 두 변경이 부딪히지 않게 막으며, 모든 판단의 근거를 보여줍니다.</span>
+            </p>
+            <div class="hero__actions feature__actions">
+              <a href="/apps/#interlock" class="btn btn--primary"><span class="en">How it works</span><span class="ko">자세히 보기</span></a>
+              <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" class="btn btn--ghost" target="_blank" rel="noopener"><span class="en">Demo repo</span><span class="ko">데모 저장소</span> <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <figure class="term reveal" aria-label="Interlock decisions from the demo">
+            <div class="term__bar"><i></i><i></i><i></i><span>interlock · decisions</span></div>
+            <ol class="term__log">
+              <li><b class="v v--clear">clear</b><span class="a">claude-code</span><span class="m">claims <code>session.py::login</code></span></li>
+              <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m">claims <code>session.py::logout</code> — same file</span></li>
+              <li><b class="v v--caution">caution</b><span class="a">codex</span><span class="m"><code>create_order</code> calls <code>login</code></span></li>
+              <li><b class="v v--stop">stop</b><span class="a">cursor</span><span class="m">edit in <code>login</code> — held by claude-code</span></li>
+              <li><b class="v v--wait">wait</b><span class="a">codex</span><span class="m">queued for <code>login</code></span></li>
+              <li><b class="v v--stop">deadlock</b><span class="a">claude-code</span><span class="m">release <code>login</code> to break the cycle</span></li>
+              <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m"><code>login</code> handed off · PR #41 cleared</span></li>
+            </ol>
+            <figcaption><span class="en">From the 90-second demo</span><span class="ko">90초 데모 중</span></figcaption>
+          </figure>
+        </div>
+        <ul class="points reveal">
+          <li><b><span class="en">Symbol-level claims</span><span class="ko">함수 단위 점유</span></b><span class="en">Two agents can work in the same file, on different functions.</span><span class="ko">같은 파일이라도 다른 함수라면 두 에이전트가 동시에 작업합니다.</span></li>
+          <li><b><span class="en">Stops agents that never ask</span><span class="ko">묻지 않는 에이전트도 차단</span></b><span class="en">Edit hooks for Claude Code, Codex and Cursor, a git pre-commit hook, and a GitHub merge check.</span><span class="ko">Claude Code·Codex·Cursor 편집 훅, git 커밋 훅, GitHub 머지 체크.</span></li>
+          <li><b><span class="en">No deadlocks, no stale locks</span><span class="ko">교착도, 남은 잠금도 없이</span></b><span class="en">A fair queue with cycle detection; claims expire when a session dies.</span><span class="ko">공정한 대기열과 순환 감지. 세션이 끝나면 점유도 자동 해제됩니다.</span></li>
+          <li><b><span class="en">Every verdict explained</span><span class="ko">모든 판단에 근거</span></b><span class="en">Who holds what, on which branch — and what's free instead.</span><span class="ko">누가 무엇을 어느 브랜치에서 잡고 있는지, 대신 쓸 수 있는 부분까지.</span></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ============ BUILDING ============ -->
-    <section class="section section--soft" id="building">
+    <section class="section" id="building">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow"><span class="en">Now building</span><span class="ko">지금 만드는 것</span></p>
-          <h2 class="section__title"><span class="en">Three products in the works.</span><span class="ko">개발 중인 세 가지 제품.</span></h2>
+          <p class="eyebrow"><span class="en">Also building</span><span class="ko">그 밖에 만드는 것</span></p>
+          <h2 class="section__title"><span class="en">Three more products in the works.</span><span class="ko">개발 중인 세 가지 제품.</span></h2>
           <p class="section__lead">
             <span class="en">Everything is built in-house by Team PJ, our core engineering team.</span>
             <span class="ko">모든 제품은 핵심 개발팀 Team PJ가 직접 만듭니다.</span>
