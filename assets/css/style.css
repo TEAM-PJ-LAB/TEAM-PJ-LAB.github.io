@@ -346,6 +346,7 @@ html[data-lang="ko"] .rule__title { line-height: 1.3; letter-spacing: -.03em; }
 .role::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--line-2); }
 .role--lead { color: var(--ink); font-weight: 600; }
 .role--lead::before { background: var(--ink); border-color: var(--ink); }
+.roles__joint .role { white-space: normal; }
 
 /* Status */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
