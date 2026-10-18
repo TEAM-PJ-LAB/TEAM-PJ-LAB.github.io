@@ -1,0 +1,86 @@
+---
+layout: default
+nav: apps
+title: Interlock Experiment E4
+description: "Interlock experiment E4: 5,352 real commit pairs from five open-source repositories replayed as concurrent agent work. File locking blocked 3,535 edits needlessly; Interlock V3 blocked none."
+---
+    <style>
+      .exp { padding-bottom: clamp(72px, 10vw, 120px); }
+      .exp h2 { margin-top: 44px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+      .exp p, .exp li { margin-top: 12px; font-size: 16px; line-height: 1.7; color: var(--ink); }
+      .exp ul { padding-left: 1.2em; list-style: disc; }
+      .exp .muted { color: var(--muted); }
+      .exp__wrap { margin-top: 18px; overflow-x: auto; }
+      .exp table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; }
+      .exp th, .exp td { padding: 11px 10px 11px 0; border-top: 1px solid var(--line); text-align: right; white-space: nowrap; }
+      .exp th:first-child, .exp td:first-child, .exp th:nth-child(2), .exp td:nth-child(2) { text-align: left; }
+      .exp thead th { border-top: 0; font-size: 12px; font-weight: 600; color: var(--muted); white-space: normal; vertical-align: bottom; }
+      .exp tfoot td { font-weight: 700; border-top: 2px solid var(--ink); }
+      .exp .hl { font-weight: 700; }
+      .exp a { border-bottom: 1px solid var(--line-2); }
+      .exp a:hover { border-color: var(--ink); }
+    </style>
+
+    <section class="page-head">
+      <div class="container container--narrow">
+        <p class="eyebrow"><a href="/apps/#interlock">Interlock</a> · <span class="en">Experiment E4</span><span class="ko">실험 E4</span></p>
+        <h1 class="page-head__title"><span class="en">Needless refusals on real commit histories</span><span class="ko">실제 커밋 기록에서 불필요한 차단</span></h1>
+        <p class="page-head__lead">
+          <span class="en">A coordination layer for AI coding agents is only useful if it blocks real conflicts and lets everything else through. E4 measures the second part on real code.</span>
+          <span class="ko">AI 코딩 에이전트 조정 도구는 진짜 충돌만 막고 나머지는 통과시켜야 쓸모가 있습니다. E4는 그 두 번째를 실제 코드로 측정했습니다.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="exp">
+      <div class="container container--narrow">
+        <p class="muted"><span class="en">Run on 2026-10-18 with Interlock V3.0.0.</span><span class="ko">2026-10-18, Interlock V3.0.0으로 실행.</span> <a href="/interlock/experiments/e4_history.json"><span class="en">Raw results (JSON)</span><span class="ko">원자료 (JSON)</span></a></p>
+
+        <h2><span class="en">Method</span><span class="ko">방법</span></h2>
+        <ul>
+          <li><span class="en"><strong>Source:</strong> the commit histories of five public repositories: httpx, click, requests (Python) and zod, ky (TypeScript).</span><span class="ko"><strong>대상:</strong> 공개 저장소 5개의 커밋 기록. httpx, click, requests(Python), zod, ky(TypeScript).</span></li>
+          <li><span class="en"><strong>Pairs:</strong> two consecutive commits that change the same file are replayed as two agents starting at the same time from the first commit's parent. Up to 1,500 pairs per repository; 438 pairs that could not be replayed were skipped.</span><span class="ko"><strong>쌍:</strong> 같은 파일을 연달아 고친 두 커밋을, 앞 커밋의 부모에서 동시에 출발한 두 에이전트의 작업으로 재현했습니다. 저장소당 최대 1,500쌍, 재현할 수 없는 438쌍은 제외했습니다.</span></li>
+          <li><span class="en"><strong>Ground truth is git itself:</strong> independent pairs are merged with real <code>git merge</code> (merge-ort, via <code>git merge-tree</code>). All 3,535 independent pairs merged without conflict, so any refusal of them is needless. Pairs where the second commit was built on the first (1,817) cannot be replayed as concurrent work and are counted as conflicts, an approximation.</span><span class="ko"><strong>정답은 git:</strong> 독립 쌍은 실제 <code>git merge</code>(merge-ort, <code>git merge-tree</code>)로 합쳤고, 3,535쌍 모두 충돌 없이 합쳐졌습니다. 따라서 이 쌍을 막으면 불필요한 차단입니다. 뒤 커밋이 앞 커밋 위에서 만들어진 1,817쌍은 동시 작업으로 재현할 수 없어 충돌로 분류했습니다(근사치).</span></li>
+          <li><span class="en"><strong>Rules compared:</strong> a file lock (one agent per file); a symbol lock (Interlock V2: refuse when changed functions or classes overlap); and the Interlock V3 line rule (refuse when the second change would make a merge conflict with the first one's changed lines).</span><span class="ko"><strong>비교한 규칙:</strong> 파일 잠금(파일당 에이전트 하나), 심볼 잠금(Interlock V2: 바뀐 함수·클래스가 겹치면 차단), Interlock V3 줄 규칙(뒤 변경이 앞 변경의 줄과 머지 충돌을 일으킬 때만 차단).</span></li>
+        </ul>
+
+        <h2><span class="en">Results</span><span class="ko">결과</span></h2>
+        <div class="exp__wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Repository</span><span class="ko">저장소</span></th>
+                <th><span class="en">Language</span><span class="ko">언어</span></th>
+                <th><span class="en">Commit pairs</span><span class="ko">커밋 쌍</span></th>
+                <th><span class="en">Counted as conflicts</span><span class="ko">충돌로 분류</span></th>
+                <th><span class="en">File lock: needless</span><span class="ko">파일 잠금: 불필요</span></th>
+                <th><span class="en">Symbol lock: needless / missed</span><span class="ko">심볼 잠금: 불필요 / 놓침</span></th>
+                <th class="hl"><span class="en">Interlock V3: needless / missed</span><span class="ko">Interlock V3: 불필요 / 놓침</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>httpx</td><td>Python</td><td>1,499</td><td>433</td><td>1,066</td><td>313 / 36</td><td class="hl">0 / 0</td></tr>
+              <tr><td>click</td><td>Python</td><td>471</td><td>157</td><td>314</td><td>79 / 25</td><td class="hl">0 / 0</td></tr>
+              <tr><td>requests</td><td>Python</td><td>701</td><td>358</td><td>343</td><td>129 / 19</td><td class="hl">0 / 1</td></tr>
+              <tr><td>zod</td><td>TypeScript</td><td>1,499</td><td>535</td><td>964</td><td>594 / 9</td><td class="hl">0 / 1</td></tr>
+              <tr><td>ky</td><td>TypeScript</td><td>1,182</td><td>334</td><td>848</td><td>594 / 5</td><td class="hl">0 / 0</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td><span class="en">Total</span><span class="ko">합계</span></td><td></td><td>5,352</td><td>1,817</td><td>3,535</td><td>1,709 / 94</td><td class="hl">0 / 2</td></tr>
+            </tfoot>
+          </table>
+        </div>
+        <ul>
+          <li><span class="en"><strong>File locking</strong> would have needlessly blocked <strong>3,535</strong> edits that git merges cleanly.</span><span class="ko"><strong>파일 잠금</strong>은 git이 문제없이 합치는 편집 <strong>3,535건</strong>을 불필요하게 막았을 것입니다.</span></li>
+          <li><span class="en"><strong>Symbol locking</strong> cut that to 1,709 but missed 94 conflicts whose changed symbols did not overlap.</span><span class="ko"><strong>심볼 잠금</strong>은 이를 1,709건으로 줄였지만, 바뀐 심볼이 겹치지 않는 충돌 94건을 놓쳤습니다.</span></li>
+          <li><span class="en"><strong>Interlock V3</strong> blocked <strong>no</strong> edit needlessly in any repository and missed <strong>2</strong> of the 1,817 pairs counted as conflicts.</span><span class="ko"><strong>Interlock V3</strong>는 다섯 저장소 모두에서 불필요한 차단이 <strong>0건</strong>이었고, 충돌로 분류한 1,817쌍 중 <strong>2쌍</strong>만 놓쳤습니다.</span></li>
+        </ul>
+
+        <h2><span class="en">Limits</span><span class="ko">한계</span></h2>
+        <ul>
+          <li><span class="en">This is a replay of commit histories, not agents writing code. Our other experiments, with 373 live Claude Code sessions, are not included here.</span><span class="ko">에이전트가 직접 코드를 쓴 것이 아니라 커밋 기록을 재현한 실험입니다. 실제 Claude Code 세션 373개로 진행한 나머지 실험은 여기에 포함하지 않았습니다.</span></li>
+          <li><span class="en">Pairs counted as conflicts were not merged, so the "missed" column is approximate.</span><span class="ko">충돌로 분류한 쌍은 실제로 합치지 않았으므로 "놓침" 수치는 근사치입니다.</span></li>
+          <li><span class="en">The Interlock source and the experiment harness are not public.</span><span class="ko">Interlock 소스와 실험 도구는 공개하지 않습니다.</span></li>
+        </ul>
+      </div>
+    </section>
