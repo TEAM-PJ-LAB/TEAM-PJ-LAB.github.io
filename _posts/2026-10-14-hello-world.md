@@ -21,7 +21,7 @@ More on each one in [Apps](/apps/).
 
 **Every app and web service we build launches within a month.**
 
-We'll post launch notes and build logs here. If you're an investor or want to build with us, write to [pj.southkorea@gmail.com](mailto:pj.southkorea@gmail.com) — or leave a comment below.
+We'll post launch notes and build logs here. If you want to build with us, write to [pj.southkorea@gmail.com](mailto:pj.southkorea@gmail.com) — or leave a comment below.
 
 </div>
 
@@ -43,6 +43,6 @@ PJ Group은 대한민국의 소프트웨어 회사입니다. 두 명의 학생 �
 
 **모든 앱과 웹 서비스는 한 달 안에 런칭합니다.**
 
-앞으로 이곳에 런칭 소식과 개발 일지를 올리겠습니다. 투자나 협업에 관심이 있다면 [pj.southkorea@gmail.com](mailto:pj.southkorea@gmail.com)으로 연락하시거나, 아래에 댓글을 남겨주세요.
+앞으로 이곳에 런칭 소식과 개발 일지를 올리겠습니다. 협업에 관심이 있다면 [pj.southkorea@gmail.com](mailto:pj.southkorea@gmail.com)으로 연락하시거나, 아래에 댓글을 남겨주세요.
 
 </div>
