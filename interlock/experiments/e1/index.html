@@ -1,6 +1,7 @@
 ---
 layout: default
 nav: results
+exp: e1
 title: Interlock Experiment E1
 description: "Interlock experiment E1: a teammate's agent declared a signature change. Without Interlock, the other agent wrote the old call in 20 of 20 real Claude Code runs; with Interlock V3, 20 of 20 calls fit the declared signature."
 ---
@@ -23,12 +24,13 @@ description: "Interlock experiment E1: a teammate's agent declared a signature c
 
     <section class="page-head">
       <div class="container container--narrow">
-        <p class="eyebrow"><a href="/apps/#interlock">Interlock</a> · <span class="en">Experiment E1</span><span class="ko">실험 E1</span> · <a href="/interlock/experiments/"><span class="en">E4</span><span class="ko">E4</span></a></p>
+        <p class="eyebrow"><a href="/apps/#interlock">Interlock</a> · <span class="en">Experiment E1</span><span class="ko">실험 E1</span></p>
         <h1 class="page-head__title"><span class="en">Writing calls against a teammate's declared signature</span><span class="ko">동료가 선언한 시그니처에 맞춰 호출을 쓰는가</span></h1>
         <p class="page-head__lead">
           <span class="en">Two agents can each pass their own tests and still break main: one changes a function's signature while the other writes a new call to it. E1 measures whether an agent, never told about the change, writes the call for the signature a teammate has declared.</span>
           <span class="ko">두 에이전트가 각자 테스트를 통과해도 main은 깨질 수 있습니다. 한쪽이 함수 시그니처를 바꾸는 동안 다른 쪽이 그 함수를 부르는 새 코드를 쓰는 경우입니다. E1은 변경 사실을 듣지 못한 에이전트가 동료가 선언한 시그니처에 맞춰 호출을 쓰는지 측정했습니다.</span>
         </p>
+        {% include exp-nav.html %}
       </div>
     </section>
 

@@ -545,3 +545,19 @@ html[data-lang="ko"] .page-head__title { line-height: 1.2; letter-spacing: -.035
   .js .reveal { opacity: 1; transform: none; }
   .js .hero__p, .js .hero__j { animation: none; }
 }
+
+/* Experiment pages: list of published experiments */
+.exp-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.exp-nav a { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.exp-nav a:hover { color: var(--ink); border-color: var(--line-2); }
+.exp-nav a[aria-current="page"] { color: var(--ink); border-color: var(--ink); font-weight: 600; }
+
+/* Home: more experiments strip */
+.rule--more { padding: clamp(48px, 7vw, 80px) 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.rule-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 24px; }
+.rule-grid a { display: block; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .2); transition: border-color .2s; }
+.rule-grid a:hover { border-color: #fff; }
+.rule-grid b { display: block; font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.rule-grid span { display: block; margin-top: 12px; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, .7); }
+@media (max-width: 960px) { .rule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .rule-grid { grid-template-columns: 1fr; gap: 24px; } }

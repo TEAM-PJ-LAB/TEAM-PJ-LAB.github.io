@@ -1,0 +1,45 @@
+{
+ "run_date": "2026-10-19",
+ "interlock": "3.1.0",
+ "commit": "d9f3cea",
+ "git": "git version 2.43.0",
+ "python": "3.13.16",
+ "how": "pytest with a fixed random seed per test; 3,000 random cases per conflict and binding check (INTERLOCK_FUZZ=4:6000)",
+ "result": "4 passed in 202.57 s",
+ "checks": [
+  {
+   "check": "conflict rule predicts git merge",
+   "compared_with": "git merge (merge-ort via git merge-tree)",
+   "cases": 3000,
+   "disagreements": 0,
+   "seed": 3,
+   "seconds": 70.33
+  },
+  {
+   "check": "an edit is refused exactly when it makes a new git conflict",
+   "compared_with": "git merge (merge-ort via git merge-tree)",
+   "cases": 3000,
+   "disagreements": 0,
+   "seed": 5,
+   "seconds": 131.02
+  },
+  {
+   "check": "Python call binding",
+   "compared_with": "calling the function in Python 3.13",
+   "cases": 3000,
+   "disagreements": 0,
+   "seed": 7,
+   "seconds": 0.16
+  },
+  {
+   "check": "breaking-change classification",
+   "compared_with": "Python over 558 call shapes per pair",
+   "cases": 400,
+   "unit": "signature pairs",
+   "disagreements": 0,
+   "seed": 11,
+   "seconds": 0.96
+  }
+ ],
+ "inputs": "random text files of 0 to 10 lines with random edits; random Python signatures and calls"
+}
