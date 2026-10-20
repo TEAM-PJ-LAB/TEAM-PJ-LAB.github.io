@@ -1,0 +1,102 @@
+---
+layout: default
+nav: results
+exp: e9
+title: Interlock Experiment E9
+description: "Interlock experiment E9: prevent the conflict, or merge and let an agent fix it afterwards? Merging and fixing left main correct in 2 of 10 runs, with CI green in all 8 broken ones; with Interlock, main was correct in 10 of 10."
+---
+    <style>
+      .exp { padding-bottom: clamp(72px, 10vw, 120px); }
+      .exp h2 { margin-top: 44px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+      .exp p, .exp li { margin-top: 12px; font-size: 16px; line-height: 1.7; color: var(--ink); }
+      .exp ul { padding-left: 1.2em; list-style: disc; }
+      .exp .muted { color: var(--muted); }
+      .exp__wrap { margin-top: 18px; overflow-x: auto; }
+      .exp table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; }
+      .exp th, .exp td { padding: 11px 10px 11px 0; border-top: 1px solid var(--line); text-align: right; white-space: nowrap; }
+      .exp th:first-child, .exp td:first-child { text-align: left; }
+      .exp thead th { border-top: 0; font-size: 12px; font-weight: 600; color: var(--muted); white-space: normal; vertical-align: bottom; }
+      .exp .hl { font-weight: 700; }
+      .exp a { border-bottom: 1px solid var(--line-2); }
+      .exp a:hover { border-color: var(--ink); }
+      .exp code { font-size: .92em; }
+    </style>
+
+    <section class="page-head">
+      <div class="container container--narrow">
+        <p class="eyebrow"><a href="/apps/#interlock">Interlock</a> · <span class="en">Experiment E9</span><span class="ko">실험 E9</span></p>
+        <h1 class="page-head__title"><span class="en">Prevent it, or merge and fix it afterwards?</span><span class="ko">미리 막을까, 합친 뒤 고칠까</span></h1>
+        <p class="page-head__lead">
+          <span class="en">A common answer to conflicts between agents is to merge, run CI, and let another agent fix whatever breaks. E9 tests that against Interlock, and judges the end result with a hidden check the agents never see, not with git.</span>
+          <span class="ko">에이전트 간 충돌에 대한 흔한 답은 "병합하고 CI를 돌려서, 깨진 건 다른 에이전트에게 고치게 하라"입니다. E9는 이 방식을 Interlock과 비교하고, 최종 결과를 git이 아니라 에이전트가 보지 못하는 숨은 검사로 판정합니다.</span>
+        </p>
+        {% include exp-nav.html %}
+      </div>
+    </section>
+
+    <section class="exp">
+      <div class="container container--narrow">
+        <p class="muted"><span class="en">Run on 2026-10-20 with Interlock V3.2.0 and real Claude Code 2.1.303 sessions on Sonnet 5.5: 20 runs, 43 sessions, $3.53 reported cost.</span><span class="ko">2026-10-20, Interlock V3.2.0과 실제 Claude Code 2.1.303 세션(Sonnet 5.5)으로 실행. 시행 20번, 세션 43개, 보고 비용 $3.53.</span> <a href="/interlock/experiments/e9_fixlater.json"><span class="en">Raw results (JSON)</span><span class="ko">원자료 (JSON)</span></a></p>
+
+        <h2><span class="en">Method</span><span class="ko">방법</span></h2>
+        <ul>
+          <li><span class="en"><strong>Two real agents</strong> work at the same time, each in its own worktree:</span><span class="ko"><strong>실제 에이전트 둘</strong>이 각자 worktree에서 동시에 일합니다.</span>
+            <ul>
+              <li><span class="en"><strong>A</strong> changes <code>login</code> to take a one-time code (<code>otp</code>) and updates its caller <code>reorder</code>.</span><span class="ko"><strong>A</strong>: <code>login</code>이 일회용 코드(<code>otp</code>)를 받도록 바꾸고, 호출하는 <code>reorder</code>도 고칩니다.</span></li>
+              <li><span class="en"><strong>B</strong> adds <code>checkout()</code>, which calls <code>login</code>.</span><span class="ko"><strong>B</strong>: <code>login</code>을 부르는 <code>checkout()</code>을 추가합니다.</span></li>
+            </ul>
+          </li>
+          <li><span class="en"><strong>Merge, then fix:</strong> both branches merge into main and CI (pytest) runs. If CI is red, a third agent is asked to make the tests pass without undoing either branch's intent, up to two rounds. This is how a merge queue, or "let the agent fix it", works.</span><span class="ko"><strong>합친 뒤 고치기:</strong> 두 브랜치를 main에 병합하고 CI(pytest)를 돌립니다. CI가 빨간색이면 세 번째 에이전트에게 "두 브랜치의 의도는 되돌리지 말고 테스트가 통과하게 고치라"고 맡깁니다(최대 2번). 병합 대기열이나 "에이전트가 고치게 두는" 운영 방식을 흉내 낸 것입니다.</span></li>
+          <li><span class="en"><strong>Variants:</strong> <em>tested</em>, where B is also asked to write a test for <code>checkout</code>, so CI has a chance to see the break; <em>untested</em>, with only the existing tests.</span><span class="ko"><strong>변형:</strong> <em>tested</em>는 B에게 <code>checkout</code> 테스트도 쓰게 해 CI가 깨짐을 볼 기회가 있고, <em>untested</em>는 기존 테스트만 있습니다.</span></li>
+          <li><span class="en"><strong>Conditions:</strong> no Interlock (merge, then fix) and Interlock (the setup <code>interlock init</code> installs). Five runs per variant and condition.</span><span class="ko"><strong>조건:</strong> Interlock 없음(합친 뒤 고침)과 Interlock(<code>interlock init</code>과 같은 설정). 변형×조건마다 5회.</span></li>
+          <li><span class="en"><strong>Hidden check</strong> on the final main. It counts as correct only if all three hold: <code>checkout</code> works when given an otp; every <code>login</code> call fits its definition; <code>login</code> still requires an otp and rejects an empty one.</span><span class="ko"><strong>숨은 검사</strong>로 최종 main을 판정합니다. 세 가지가 모두 참이어야 올바름입니다. otp를 넘기면 <code>checkout</code>이 동작한다. 모든 <code>login</code> 호출이 정의에 맞는다. <code>login</code>이 여전히 otp를 요구하고 빈 값을 거부한다.</span></li>
+        </ul>
+
+        <h2><span class="en">Results</span><span class="ko">결과</span></h2>
+        <div class="exp__wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en">Variant · condition</span><span class="ko">변형 · 조건</span></th>
+                <th><span class="en">CI green at first merge</span><span class="ko">첫 병합에서 CI 통과</span></th>
+                <th><span class="en">Fix rounds</span><span class="ko">고친 횟수</span></th>
+                <th class="hl"><span class="en">main correct at the end</span><span class="ko">끝에 main이 올바름</span></th>
+                <th><span class="en">login still requires otp</span><span class="ko">login이 otp를 계속 요구</span></th>
+                <th><span class="en">Cost per run</span><span class="ko">시행당 비용</span></th>
+                <th><span class="en">Time per run</span><span class="ko">시행당 시간</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="en">tested · no Interlock</span><span class="ko">tested · Interlock 없음</span></td><td>3/5</td><td>2</td><td class="hl">2/5</td><td>5/5</td><td>$0.163</td><td>23 s</td></tr>
+              <tr><td class="hl">tested · Interlock</td><td>4/5</td><td>1</td><td class="hl">5/5</td><td>5/5</td><td>$0.221</td><td>32 s</td></tr>
+              <tr><td><span class="en">untested · no Interlock</span><span class="ko">untested · Interlock 없음</span></td><td>5/5</td><td>0</td><td class="hl">0/5</td><td>5/5</td><td>$0.116</td><td>14 s</td></tr>
+              <tr><td class="hl">untested · Interlock</td><td>5/5</td><td>0</td><td class="hl">5/5</td><td>5/5</td><td>$0.206</td><td>26 s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><span class="en"><strong>Merge-then-fix only works when CI sees the break.</strong></span><span class="ko"><strong>"합친 뒤 고친다"는 CI가 깨짐을 볼 때만 작동합니다.</strong></span>
+            <ul>
+              <li><span class="en"><em>untested:</em> CI was green in 5 of 5 runs and main was broken in 5 of 5: calling <code>checkout</code> raises a <code>TypeError</code>. Nothing ever asked for a fix.</span><span class="ko"><em>untested:</em> CI는 5번 모두 초록색이었고 main은 5번 모두 깨져 있었습니다. <code>checkout</code>을 부르면 <code>TypeError</code>가 납니다. 고칠 기회 자체가 없었습니다.</span></li>
+              <li><span class="en"><em>tested:</em> the 3 runs where CI was green were all broken. In each, B's test had replaced <code>login</code> with a monkeypatch, so the test never saw the real signature. The 2 red runs were fixed correctly in one round.</span><span class="ko"><em>tested:</em> CI가 초록색이던 3번은 모두 깨져 있었습니다. 세 번 모두 B의 테스트가 <code>login</code>을 monkeypatch로 바꿔 놓아 실제 시그니처를 보지 못했습니다. 빨간색이던 2번은 고치는 에이전트가 한 번에 올바르게 고쳤습니다.</span></li>
+            </ul>
+          </li>
+          <li><span class="en"><strong>Without Interlock, main ended correct in 2 of 10 runs, and CI was green in all 8 broken ones. With Interlock, 10 of 10</strong> (Fisher's exact test, two-sided p ≈ 0.0007).</span><span class="ko"><strong>Interlock 없이는 main이 10번 중 2번만 올바르게 끝났고, 깨진 8번은 모두 CI가 초록색이었습니다. Interlock은 10번 모두 올바랐습니다</strong>(Fisher 정확 검정, 양측 p ≈ 0.0007).</span></li>
+          <li><span class="en">With Interlock, B's first edit was refused in 7 runs, and B rewrote the call to the new signature every time. In one run B gave <code>checkout</code>'s <code>otp</code> parameter a default of <code>None</code> and wrote a test that called it without one; CI went red and the fixing agent fixed it in one round.</span><span class="ko">Interlock에서는 B의 첫 편집이 7번 거부됐고, 7번 모두 B가 새 시그니처에 맞춰 다시 썼습니다. 한 번은 B가 <code>checkout</code>의 <code>otp</code> 인자 기본값을 <code>None</code>으로 두고 otp 없이 부르는 테스트를 써서 CI가 빨간색이 됐고, 고치는 에이전트가 한 번에 고쳤습니다.</span></li>
+          <li><span class="en">No fixing agent gave up the intent, for example by making <code>otp</code> optional.</span><span class="ko">고치는 에이전트가 의도를 버린 경우(예: otp를 선택 인자로 만들기)는 없었습니다.</span></li>
+        </ul>
+
+        <h2><span class="en">What to watch</span><span class="ko">주의할 점</span></h2>
+        <ul>
+          <li><span class="en"><strong>Interlock costs more per run:</strong> $0.06 to $0.09 (36% to 78%) and 9 to 12 seconds. Most of the cheap runs without Interlock were the ones that left main broken.</span><span class="ko"><strong>Interlock은 시행당 더 듭니다:</strong> $0.06~0.09(36~78%), 9~12초. Interlock 없이 싸게 끝난 시행은 대부분 깨진 main을 남긴 시행입니다.</span></li>
+          <li><span class="en"><strong>untested is the worst case</strong> for merge-then-fix: a new call with no test of its own. But even in <em>tested</em>, 3 of 5 ended broken because the test was mocked.</span><span class="ko"><strong>untested는 "합친 뒤 고치기"에 가장 불리한 경우</strong>입니다(자기 테스트가 없는 새 호출). 다만 <em>tested</em>에서도 가짜 테스트 때문에 5번 중 3번이 같은 결과였습니다.</span></li>
+        </ul>
+
+        <h2><span class="en">Limits</span><span class="ko">한계</span></h2>
+        <ul>
+          <li><span class="en">One scenario and five runs per cell. One model (Sonnet 5.5).</span><span class="ko">시나리오 하나, 칸마다 5회. 모델 하나(Sonnet 5.5).</span></li>
+          <li><span class="en">The fixing agent did not use a shell. Had it run the tests itself, more <em>tested</em> runs might have ended correct.</span><span class="ko">고치는 에이전트는 셸을 쓰지 않았습니다. 테스트를 직접 돌려 볼 수 있었다면 <em>tested</em>에서 올바른 비율이 더 높았을 수 있습니다.</span></li>
+          <li><span class="en">We designed the tasks and the hidden check, and no one else has reproduced the results. The Interlock source and the experiment harness are not public.</span><span class="ko">작업과 숨은 검사는 우리가 설계했고, 다른 사람이 재현한 적은 없습니다. Interlock 소스와 실험 도구는 공개하지 않습니다.</span></li>
+        </ul>
+      </div>
+    </section>
