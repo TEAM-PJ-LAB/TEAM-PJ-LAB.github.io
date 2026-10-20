@@ -8,8 +8,18 @@
 
   /* ---------- Language ---------- */
   const MESSAGES = {
-    en: { copied: 'Email address copied', menu: 'Menu', close: 'Close menu' },
-    ko: { copied: '이메일 주소가 복사되었습니다', menu: '메뉴', close: '메뉴 닫기' },
+    en: {
+      copied: 'Email address copied', menu: 'Menu', close: 'Close menu',
+      signedUp: "Thanks — you're on the list. We'll be in touch.",
+      mailOpened: 'Your email app should open with the request ready to send.',
+      signupFailed: "Couldn't send. Please email pj.southkorea@gmail.com.",
+    },
+    ko: {
+      copied: '이메일 주소가 복사되었습니다', menu: '메뉴', close: '메뉴 닫기',
+      signedUp: '신청되었습니다. 곧 연락드릴게요.',
+      mailOpened: '메일 앱이 열리면 신청 메일을 보내 주세요.',
+      signupFailed: '전송하지 못했습니다. pj.southkorea@gmail.com으로 메일 주세요.',
+    },
   };
   const currentLang = () => (html.dataset.lang === 'ko' ? 'ko' : 'en');
   const t = (key) => MESSAGES[currentLang()][key];
@@ -75,6 +85,31 @@
         toast(t('copied'));
       } catch {
         toast(btn.dataset.copy);
+      }
+    });
+  });
+
+  /* ---------- Beta sign-up: POST to site.beta_form, else open a pre-filled email ---------- */
+  $$('form[data-signup]').forEach((form) => {
+    const msg = $('.signup__msg', form);
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const action = form.getAttribute('action');
+      if (action.startsWith('mailto:')) {
+        location.href = `${action}&body=${encodeURIComponent(`Email: ${form.elements.email.value.trim()}`)}`;
+        msg.textContent = t('mailOpened');
+        return;
+      }
+      form.setAttribute('aria-busy', 'true');
+      try {
+        const res = await fetch(action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        form.classList.add('is-sent');
+        msg.textContent = t('signedUp');
+      } catch {
+        msg.textContent = t('signupFailed');
+      } finally {
+        form.removeAttribute('aria-busy');
       }
     });
   });

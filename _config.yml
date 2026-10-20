@@ -4,6 +4,8 @@ url: "https://team-pj-lab.github.io"
 baseurl: ""
 timezone: Asia/Seoul
 markdown: kramdown
+# Beta sign-up endpoint (e.g. a Formspree/Tally POST URL). Empty: the form opens a pre-filled email.
+beta_form: ""
 permalink: /board/:year/:month/:day/:title/
 
 plugins:

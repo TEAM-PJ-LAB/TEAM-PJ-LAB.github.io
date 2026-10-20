@@ -6,195 +6,127 @@ description: "PJ Group builds Interlock, which lets many AI coding agents work o
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero__grid" aria-hidden="true"></div>
-      <div class="container">
-        <div class="hero__mark" aria-hidden="true">
-          <svg viewBox="0 0 520 482" focusable="false"><path class="hero__p" fill-rule="evenodd" d="M0 0H385V279H76V482H0Z M76 76V203H309V76Z"/><path class="hero__j" d="M444 0H520V332A150 150 0 0 1 370 482H106V406H370A74 74 0 0 0 444 332Z"/></svg>
+      <div class="container hero__inner">
+        <div>
+          <p class="pill reveal"><i class="dot dot--live"></i><span class="en">Recruiting beta testers · first 100 free</span><span class="ko">베타 테스터 모집 중 · 첫 100명 무료</span></p>
+          <h1 class="hero__title reveal">
+            <span class="sr-only">Interlock by PJ Group — </span>
+            <span class="en">Stop your AI coding agents from overwriting each other.</span>
+            <span class="ko">AI 코딩 에이전트끼리 서로의 작업을 덮어쓰지 않게.</span>
+          </h1>
+          <p class="hero__lead reveal">
+            <span class="en">Interlock lets a team run Claude Code, Codex and Cursor on the same repository at the same time. It tracks what every agent is changing, holds edits that would collide, and explains every decision.</span>
+            <span class="ko">Interlock은 Claude Code, Codex, Cursor를 한 저장소에서 동시에 돌릴 수 있게 합니다. 에이전트마다 무엇을 바꾸는지 추적하고, 부딪힐 편집은 잡아 두며, 모든 판단의 근거를 보여줍니다.</span>
+          </p>
+          <div class="reveal">
+            {% include signup.html id="hero" %}
+            <p class="hero__note">
+              <span class="en">Works with Claude Code, Codex and Cursor ·</span><span class="ko">Claude Code · Codex · Cursor 지원 ·</span>
+              <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" target="_blank" rel="noopener"><span class="en">Try the demo repo</span><span class="ko">데모 저장소 보기</span> <span aria-hidden="true">↗</span></a>
+            </p>
+          </div>
         </div>
-        <p class="pill reveal"><i class="dot"></i><span class="ko">Interlock 개발 중</span><span class="en">Building Interlock</span></p>
-        <h1 class="hero__title reveal">
-          <span class="sr-only">PJ Group — </span>
-          <span class="en">Many AI agents.<br>One codebase.</span>
-          <span class="ko">에이전트는 여럿,<br>코드베이스는 하나.</span>
-        </h1>
-        <p class="hero__lead reveal">
-          <span class="en">PJ Group builds Interlock: it lets a team run Claude Code, Codex and Cursor on the same repository without the agents overwriting each other's work.</span>
-          <span class="ko">PJ Group은 Interlock을 만듭니다. Claude Code, Codex, Cursor를 한 저장소에서 함께 돌려도 에이전트끼리 서로의 작업을 덮어쓰지 않게 합니다.</span>
-        </p>
-        <div class="hero__actions reveal">
-          <a href="mailto:pj.southkorea@gmail.com?subject=%5BPJ%20Group%5D%20Interlock%20Beta%20Tester" class="btn btn--primary"><span class="en">Join the beta</span><span class="ko">베타 테스트 신청</span></a>
-          <a href="#interlock" class="btn btn--ghost"><span class="en">How it works</span><span class="ko">작동 방식</span> <span aria-hidden="true">→</span></a>
-        </div>
-
-        <dl class="facts reveal">
-          <div><dt><span class="en">Product</span><span class="ko">제품</span></dt><dd>Interlock</dd></div>
-          <div><dt><span class="en">Latest version</span><span class="ko">최신 버전</span></dt><dd>V3.1.0</dd></div>
-          <div><dt><span class="en">Stage</span><span class="ko">단계</span></dt><dd><span class="en">Pre-launch</span><span class="ko">출시 전</span></dd></div>
-          <div><dt><span class="en">Based in</span><span class="ko">소재지</span></dt><dd><span class="en">South Korea</span><span class="ko">대한민국</span></dd></div>
-        </dl>
+        <figure class="term reveal" aria-label="Interlock decisions from the demo">
+          <div class="term__bar"><i></i><i></i><i></i><span>interlock · decisions</span></div>
+          <ol class="term__log">
+            <li><b class="v v--clear">clear</b><span class="a">claude-code</span><span class="m">claims <code>session.py::login</code></span></li>
+            <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m">claims <code>session.py::logout</code> — same file</span></li>
+            <li><b class="v v--caution">caution</b><span class="a">codex</span><span class="m"><code>create_order</code> calls <code>login</code></span></li>
+            <li><b class="v v--stop">stop</b><span class="a">cursor</span><span class="m">edit in <code>login</code> — held by claude-code</span></li>
+            <li><b class="v v--wait">wait</b><span class="a">codex</span><span class="m">queued for <code>login</code></span></li>
+            <li><b class="v v--stop">deadlock</b><span class="a">claude-code</span><span class="m">release <code>login</code> to break the cycle</span></li>
+            <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m"><code>login</code> handed off · PR #41 cleared</span></li>
+          </ol>
+          <figcaption><span class="en">From the 90-second demo</span><span class="ko">90초 데모 중</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ============ INTERLOCK (main project) ============ -->
-    <section class="section section--soft" id="interlock">
-      <div class="container">
-        <div class="feature">
-          <div class="feature__text reveal">
-            <p class="eyebrow"><span class="en">The product</span><span class="ko">제품</span></p>
-            <h2 class="feature__title">Interlock</h2>
-            <p class="feature__tagline">
-              <span class="en">Run many AI coding agents on one codebase — without them overwriting each other.</span>
-              <span class="ko">여러 AI 코딩 에이전트가 하나의 코드베이스에서, 서로의 작업을 덮어쓰지 않게.</span>
-            </p>
-            <p class="feature__desc">
-              <span class="en">Claude Code, Codex and Cursor are good enough to run in parallel — but they don't notice each other. Interlock is the signal box for your agents: it knows what every agent is changing, never lets two changes collide, and explains every decision.</span>
-              <span class="ko">Claude Code, Codex, Cursor는 이제 동시에 돌릴 만큼 뛰어나지만, 서로를 알아채지 못합니다. Interlock은 에이전트들의 신호소입니다. 누가 어떤 코드를 바꾸는지 알고, 두 변경이 부딪히지 않게 막으며, 모든 판단의 근거를 보여줍니다.</span>
-            </p>
-            <div class="hero__actions feature__actions">
-              <a href="/apps/" class="btn btn--primary"><span class="en">Full details</span><span class="ko">자세히 보기</span></a>
-              <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" class="btn btn--ghost" target="_blank" rel="noopener"><span class="en">Demo repo</span><span class="ko">데모 저장소</span> <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-          <figure class="term reveal" aria-label="Interlock decisions from the demo">
-            <div class="term__bar"><i></i><i></i><i></i><span>interlock · decisions</span></div>
-            <ol class="term__log">
-              <li><b class="v v--clear">clear</b><span class="a">claude-code</span><span class="m">claims <code>session.py::login</code></span></li>
-              <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m">claims <code>session.py::logout</code> — same file</span></li>
-              <li><b class="v v--caution">caution</b><span class="a">codex</span><span class="m"><code>create_order</code> calls <code>login</code></span></li>
-              <li><b class="v v--stop">stop</b><span class="a">cursor</span><span class="m">edit in <code>login</code> — held by claude-code</span></li>
-              <li><b class="v v--wait">wait</b><span class="a">codex</span><span class="m">queued for <code>login</code></span></li>
-              <li><b class="v v--stop">deadlock</b><span class="a">claude-code</span><span class="m">release <code>login</code> to break the cycle</span></li>
-              <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m"><code>login</code> handed off · PR #41 cleared</span></li>
-            </ol>
-            <figcaption><span class="en">From the 90-second demo</span><span class="ko">90초 데모 중</span></figcaption>
-          </figure>
+    <!-- ============ PROBLEM ============ -->
+    <section class="section section--soft stat" aria-label="The problem">
+      <div class="container stat__inner reveal">
+        <p class="stat__num">27.67%</p>
+        <div class="stat__text">
+          <p class="stat__lead"><span class="en">of pull requests opened by AI coding agents on GitHub had merge conflicts.</span><span class="ko">GitHub에서 AI 코딩 에이전트가 연 풀 리퀘스트 중 병합 충돌이 난 비율입니다.</span></p>
+          <p><span class="en">Agents are now good enough to run in parallel. They just can't see each other.</span><span class="ko">에이전트는 이제 동시에 돌릴 만큼 뛰어나지만, 서로를 보지 못합니다.</span></p>
+          <p class="stat__src"><span class="en">Source:</span><span class="ko">출처:</span> <a href="https://arxiv.org/abs/2604.03551" target="_blank" rel="noopener">AgenticFlict</a> (Ogenrwot &amp; Businge, 2026)<span class="en">, merge simulation of 107K+ agent PRs.</span><span class="ko">, 에이전트 PR 10.7만+ 건 병합 시뮬레이션.</span></p>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">How it works</span><span class="ko">작동 방식</span></p>
+          <h2 class="section__title"><span class="en">A signal box for your agents.</span><span class="ko">에이전트를 위한 신호소.</span></h2>
+          <p class="section__lead">
+            <span class="en">Interlock installs as an MCP server and a GitHub App next to the agents you already use. Every change passes three gates, so even an agent that never asks gets stopped.</span>
+            <span class="ko">Interlock은 쓰던 에이전트 옆에 MCP 서버와 GitHub App으로 설치됩니다. 모든 변경이 세 관문을 지나므로, 묻지 않는 에이전트도 막힙니다.</span>
+          </p>
+        </div>
+        <ol class="grid grid--3">
+          <li class="card gate reveal">
+            <p class="gate__k"><span class="en">Gate 1 · Edit</span><span class="ko">관문 1 · 편집</span></p>
+            <h3><span class="en">Before the edit lands</span><span class="ko">편집이 들어가기 전</span></h3>
+            <p><span class="en">Hooks for Claude Code, Codex and Cursor check every edit. Claims are per function, so two agents can work in the same file.</span><span class="ko">Claude Code·Codex·Cursor 편집 훅이 모든 편집을 확인합니다. 점유는 함수 단위라 두 에이전트가 같은 파일에서 일할 수 있습니다.</span></p>
+          </li>
+          <li class="card gate reveal">
+            <p class="gate__k"><span class="en">Gate 2 · Commit</span><span class="ko">관문 2 · 커밋</span></p>
+            <h3><span class="en">Before the commit</span><span class="ko">커밋하기 전</span></h3>
+            <p><span class="en">A git pre-commit hook catches anything that slipped past the editor.</span><span class="ko">편집 단계를 빠져나간 변경은 git pre-commit 훅이 잡습니다.</span></p>
+          </li>
+          <li class="card gate reveal">
+            <p class="gate__k"><span class="en">Gate 3 · Merge</span><span class="ko">관문 3 · 병합</span></p>
+            <h3><span class="en">Before main</span><span class="ko">main에 합치기 전</span></h3>
+            <p><span class="en">A GitHub merge check keeps colliding branches out of main.</span><span class="ko">GitHub 머지 체크가 충돌하는 브랜치를 main 밖에 둡니다.</span></p>
+          </li>
+        </ol>
         <ul class="points reveal">
-          <li><b><span class="en">Symbol-level claims</span><span class="ko">함수 단위 점유</span></b><span class="en">Two agents can work in the same file, on different functions.</span><span class="ko">같은 파일이라도 다른 함수라면 두 에이전트가 동시에 작업합니다.</span></li>
-          <li><b><span class="en">Stops agents that never ask</span><span class="ko">묻지 않는 에이전트도 차단</span></b><span class="en">Edit hooks for Claude Code, Codex and Cursor, a git pre-commit hook, and a GitHub merge check.</span><span class="ko">Claude Code·Codex·Cursor 편집 훅, git 커밋 훅, GitHub 머지 체크.</span></li>
-          <li><b><span class="en">No deadlocks, no stale locks</span><span class="ko">교착도, 남은 잠금도 없이</span></b><span class="en">A fair queue with cycle detection; claims expire when a session dies.</span><span class="ko">공정한 대기열과 순환 감지. 세션이 끝나면 점유도 자동 해제됩니다.</span></li>
+          <li><b><span class="en">No deadlocks</span><span class="ko">교착 없음</span></b><span class="en">A fair queue with cycle detection.</span><span class="ko">공정한 대기열과 순환 감지.</span></li>
+          <li><b><span class="en">No stale locks</span><span class="ko">남는 잠금 없음</span></b><span class="en">Claims expire when a session dies.</span><span class="ko">세션이 끝나면 점유가 자동 해제됩니다.</span></li>
           <li><b><span class="en">Every verdict explained</span><span class="ko">모든 판단에 근거</span></b><span class="en">Who holds what, on which branch — and what's free instead.</span><span class="ko">누가 무엇을 어느 브랜치에서 잡고 있는지, 대신 쓸 수 있는 부분까지.</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- ============ EVIDENCE ============ -->
-    <section class="rule" id="evidence">
-      <div class="container rule__inner reveal">
-        <p class="rule__num" aria-hidden="true">0<span><span class="en">needless blocks</span><span class="ko">불필요한 차단</span></span></p>
-        <div>
-          <p class="eyebrow"><span class="en">Experiment E4</span><span class="ko">실험 E4</span></p>
-          <h2 class="rule__title">
-            <span class="en">On 5,352 real commit pairs, file locking blocked 3,535 edits that git merges cleanly. Interlock blocked none of them.</span>
-            <span class="ko">실제 커밋 5,352쌍에서 파일 잠금은 git이 문제없이 합치는 편집 3,535건을 막았습니다. Interlock은 그중 한 건도 막지 않았습니다.</span>
-          </h2>
-          <p class="rule__lead">
-            <span class="en">The commit histories of httpx, click, requests, zod and ky, replayed as two agents starting at the same time. Of the 1,817 pairs counted as conflicts, it let through only 2. Interlock V3.0.0, run on 2026-10-18.</span>
-            <span class="ko">httpx, click, requests, zod, ky의 커밋 기록을 두 에이전트가 동시에 시작한 상황으로 재현했습니다. 충돌로 분류한 1,817쌍 중 놓친 것은 2쌍입니다. Interlock V3.0.0, 2026-10-18 실행.</span>
-          </p>
-          <p class="more"><a href="/interlock/experiments/" class="rule__link"><span class="en">Method, table and raw data</span><span class="ko">방법 · 결과표 · 원자료</span> <span aria-hidden="true">→</span></a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EVIDENCE: E1 ============ -->
-    <section class="rule" id="evidence-e1" style="border-top: 1px solid rgba(255, 255, 255, .14);">
-      <div class="container rule__inner reveal">
-        <p class="rule__num" aria-hidden="true">20<span><span class="en">of 20 calls fit</span><span class="ko">20번 중 맞은 호출</span></span></p>
-        <div>
-          <p class="eyebrow"><span class="en">Experiment E1</span><span class="ko">실험 E1</span></p>
-          <h2 class="rule__title">
-            <span class="en">A teammate's agent declared a signature change. Without Interlock, the other agent wrote the old call 20 of 20 times. With it, every call fit the new one.</span>
-            <span class="ko">동료 에이전트가 시그니처 변경을 선언했습니다. Interlock이 없으면 다른 에이전트는 20번 모두 옛 방식으로 호출했고, Interlock이 있으면 모든 호출이 새 시그니처에 맞았습니다.</span>
-          </h2>
-          <p class="rule__lead">
-            <span class="en">Real Claude Code sessions on four tasks in Python and TypeScript, five runs each. The six runs that were refused all fixed the call themselves and finished. Interlock V3.0.0, run on 2026-10-18.</span>
-            <span class="ko">Python·TypeScript 작업 4종, 작업마다 5회씩 실제 Claude Code 세션으로 돌렸습니다. 거부된 6번도 모두 스스로 호출을 고쳐 작업을 끝냈습니다. Interlock V3.0.0, 2026-10-18 실행.</span>
-          </p>
-          <p class="more"><a href="/interlock/experiments/e1/" class="rule__link"><span class="en">Method, results, side effects and raw data</span><span class="ko">방법 · 결과 · 부작용 · 원자료</span> <span aria-hidden="true">→</span></a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EVIDENCE: MORE ============ -->
-    <section class="rule rule--more" id="evidence-more" aria-label="More experiments">
-      <div class="container reveal">
-        <p class="eyebrow"><span class="en">More experiments, each with method, limits and raw data</span><span class="ko">다른 실험도 방법 · 한계 · 원자료와 함께 공개했습니다</span></p>
-        <div class="rule-grid">
-          <a href="/interlock/experiments/e2/"><b>8 → 0</b><span class="en">E2 · merge conflicts when two agents edit the same or the next line</span><span class="ko">E2 · 두 에이전트가 같은 줄이나 바로 다음 줄을 고칠 때 병합 충돌</span></a>
-          <a href="/interlock/experiments/e6/"><b>12/12</b><span class="en">E6 · branches merged when three agents change one backend (8/12 without)</span><span class="ko">E6 · 세 에이전트가 한 백엔드를 고칠 때 병합된 브랜치 (없으면 8/12)</span></a>
-          <a href="/interlock/experiments/e7/"><b>3–6 ms</b><span class="en">E7 · median hook time on a 2,000-line file</span><span class="ko">E7 · 2,000줄 파일에서 훅 응답 시간 중앙값</span></a>
-          <a href="/interlock/experiments/e8/"><b>12/12</b><span class="en">E8 · calls that fit a teammate's new signature (Shepherd 0/12, Foremerge 0/12)</span><span class="ko">E8 · 동료의 새 시그니처에 맞은 호출 (Shepherd 0/12, Foremerge 0/12)</span></a>
-          <a href="/interlock/experiments/e9/"><b>10/10</b><span class="en">E9 · main correct at the end (2/10 when merged and fixed afterwards)</span><span class="ko">E9 · 끝에 main이 올바름 (합친 뒤 고치면 2/10)</span></a>
-          <a href="/interlock/experiments/checks/"><b>0</b><span class="en">Rule checks · disagreements with git merge in 3,000 random cases</span><span class="ko">규칙 검증 · 무작위 3,000건에서 git merge와 불일치</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FOUNDERS ============ -->
-    <section class="section" id="founders">
+    <!-- ============ RESULTS ============ -->
+    <section class="rule" id="results">
       <div class="container">
         <div class="section__head reveal">
-          <p class="eyebrow"><span class="en">Founders</span><span class="ko">창업자</span></p>
-          <h2 class="section__title"><span class="en">Two student founders, one direction.</span><span class="ko">두 명의 학생 창업자, 하나의 방향.</span></h2>
-          <p class="section__lead">
-            <span class="en">The P and J in PJ come from our family names — <b class="hl">ㅂ</b> in 박 (Park) and <b class="hl">ㅈ</b> in 정 (Jung).</span>
-            <span class="ko">PJ의 P와 J는 두 창업자의 성에서 왔습니다 — 박의 <b class="hl">ㅂ</b>, 정의 <b class="hl">ㅈ</b>.</span>
+          <p class="eyebrow"><span class="en">Results</span><span class="ko">실험 결과</span></p>
+          <h2 class="section__title"><span class="en">We tested it before asking anyone to trust it.</span><span class="ko">믿어 달라고 하기 전에 먼저 검증했습니다.</span></h2>
+          <p class="section__lead"><span class="en">Nine experiments and 488 real Claude Code sessions, each published with its method, limits and raw data.</span><span class="ko">실험 9종, 실제 Claude Code 세션 488개. 모든 실험의 방법 · 한계 · 원자료를 공개합니다.</span></p>
+        </div>
+
+        <figure class="bars reveal">
+          <figcaption>
+            <p class="eyebrow"><span class="en">Experiment E4 · Interlock V3.0.0 · run 2026-10-18</span><span class="ko">실험 E4 · Interlock V3.0.0 · 2026-10-18 실행</span></p>
+            <p class="bars__title"><span class="en">Edits blocked for no reason, on 5,352 real commit pairs</span><span class="ko">실제 커밋 5,352쌍에서 이유 없이 막힌 편집</span></p>
+            <p class="bars__sub"><span class="en">Every one of these edits merges cleanly with git. Lower is better.</span><span class="ko">모두 git이 문제없이 합치는 편집입니다. 낮을수록 좋습니다.</span></p>
+          </figcaption>
+          <ol class="bars__list">
+            <li><span class="bars__k"><span class="en">File lock</span><span class="ko">파일 잠금</span><small><span class="en">One agent per file</span><span class="ko">파일당 에이전트 하나</span></small></span><span class="bars__track"><i style="--w: 100%"></i></span><b>3,535</b></li>
+            <li><span class="bars__k"><span class="en">Symbol lock</span><span class="ko">심볼 잠금</span><small><span class="en">Our previous version (V2)</span><span class="ko">이전 버전 (V2)</span></small></span><span class="bars__track"><i style="--w: 48.35%"></i></span><b>1,709</b></li>
+            <li class="bars__us"><span class="bars__k">Interlock V3<small><span class="en">Current version</span><span class="ko">현재 버전</span></small></span><span class="bars__track"><i style="--w: 0%"></i></span><b>0</b></li>
+          </ol>
+          <p class="bars__note">
+            <span class="en">Commit histories of httpx, click, requests, zod and ky, replayed as two agents starting at the same time. Interlock missed 2 of the 1,817 pairs counted as conflicts — an approximate count.</span>
+            <span class="ko">httpx, click, requests, zod, ky의 커밋 기록을 두 에이전트가 동시에 시작한 상황으로 재현했습니다. 충돌로 분류한 1,817쌍 중 놓친 것은 2쌍이며, 이 분류는 근사치입니다.</span>
           </p>
-        </div>
-        <div class="grid grid--2">
-          <article class="card founder reveal">
-            <header class="founder__head">
-              <div class="avatar" aria-hidden="true"><span class="avatar__base">정</span><span class="avatar__key"></span></div>
-              <div>
-                <h3 class="founder__name"><span class="en">Jung Woojin <span class="founder__alt">정우진</span></span><span class="ko">정우진 <span class="founder__alt">Jung Woojin</span></span></h3>
-                <p class="founder__title"><span class="en">Co-founder &amp; CEO</span><span class="ko">공동창업자 · 대표(CEO)</span></p>
-              </div>
-            </header>
-            <p class="founder__bio">
-              <span class="en">Woojin turns ideas into products — he writes the product spec and builds the first version, from PRD to MVP.</span>
-              <span class="ko">아이디어를 제품으로 만드는 사람. PRD 작성부터 MVP와 1차 개발까지, 첫 버전을 직접 만듭니다.</span>
-            </p>
-            <dl class="founder__meta">
-              <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Product · MVP</span><span class="ko">제품 기획 · MVP</span></dd></div>
-              <div><dt><span class="en">School</span><span class="ko">학교</span></dt><dd><span class="en">DGIST</span><span class="ko">DGIST</span></dd></div>
-              <div class="founder__meta-wide"><dt><span class="en">Contact</span><span class="ko">연락처</span></dt><dd><a href="mailto:jeromesone@gmail.com">jeromesone@gmail.com</a></dd></div>
-            </dl>
-          </article>
-          <article class="card founder reveal">
-            <header class="founder__head">
-              <div class="avatar" aria-hidden="true"><span class="avatar__base">박</span><span class="avatar__key"></span></div>
-              <div>
-                <h3 class="founder__name"><span class="en">Park Bugeon <span class="founder__alt">박부건</span></span><span class="ko">박부건 <span class="founder__alt">Park Bugeon</span></span></h3>
-                <p class="founder__title"><span class="en">Co-founder &amp; CTO</span><span class="ko">공동창업자 · CTO</span></p>
-              </div>
-            </header>
-            <p class="founder__bio">
-              <span class="en">Bugeon comes up with the ideas and makes them last. As CTO, Bugeon owns our code, architecture and security — and leads external relations, from partners to investors.</span>
-              <span class="ko">아이디어를 내고, 그것을 오래 가는 제품으로 다듬는 사람. CTO로서 코드 고도화와 아키텍처, 보안을 책임지고, 파트너·투자자와의 대외 협력과 서비스 운영을 맡고 있습니다.</span>
-            </p>
-            <dl class="founder__meta">
-              <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Ideas · Engineering · Partnerships</span><span class="ko">아이디어 · 엔지니어링 · 대외 협력</span></dd></div>
-              <div><dt><span class="en">School</span><span class="ko">학교</span></dt><dd><span class="en">High school</span><span class="ko">고등학교</span></dd></div>
-              <div class="founder__meta-wide"><dt><span class="en">Contact</span><span class="ko">연락처</span></dt><dd><a href="mailto:bagdoeon827@gmail.com">bagdoeon827@gmail.com</a></dd></div>
-            </dl>
-          </article>
-        </div>
-        <div class="roles reveal">
-          <p class="roles__label"><span class="en">Who does what</span><span class="ko">업무 분담</span></p>
-          <table class="roles__table">
-            <thead>
-              <tr><th scope="col"><span class="sr-only">Area</span></th><th scope="col"><span class="en">Woojin</span><span class="ko">정우진</span></th><th scope="col"><span class="en">Bugeon</span><span class="ko">박부건</span></th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row"><span class="en">Ideas</span><span class="ko">아이디어 제안</span></th><td><span class="role"><span class="en">Shapes</span><span class="ko">구체화</span></span></td><td><span class="role role--lead"><span class="en">Leads</span><span class="ko">총괄</span></span></td></tr>
-              <tr><th scope="row"><span class="en">Product spec (PRD)</span><span class="ko">PRD 작성</span></th><td><span class="role role--lead"><span class="en">Leads</span><span class="ko">총괄</span></span></td><td><span class="role"><span class="en">Reviews</span><span class="ko">검토</span></span></td></tr>
-              <tr><th scope="row"><span class="en">MVP &amp; first build</span><span class="ko">MVP · 1차 개발</span></th><td><span class="role role--lead"><span class="en">Leads</span><span class="ko">총괄</span></span></td><td><span class="role"><span class="en">Reviews</span><span class="ko">검토</span></span></td></tr>
-              <tr><th scope="row"><span class="en">Code, architecture &amp; security</span><span class="ko">코드 · 아키텍처 · 보안</span></th><td><span class="role"><span class="en">Supports</span><span class="ko">지원 · 협업</span></span></td><td><span class="role role--lead"><span class="en">Leads</span><span class="ko">총괄</span></span></td></tr>
-              <tr><th scope="row"><span class="en">Email &amp; online outreach</span><span class="ko">이메일 · 온라인 연락</span></th><td><span class="role"><span class="en">Supports</span><span class="ko">지원</span></span></td><td><span class="role role--lead"><span class="en">Leads</span><span class="ko">총괄</span></span></td></tr>
-              <tr><th scope="row"><span class="en">Accounts &amp; services</span><span class="ko">계정 · 서비스 관리</span></th><td><span class="role"><span class="en">In part</span><span class="ko">일부</span></span></td><td><span class="role role--lead"><span class="en">Leads</span><span class="ko">총괄</span></span></td></tr>
-              <tr class="roles__joint"><th scope="row"><span class="en">Meetings &amp; key decisions</span><span class="ko">대면 미팅 · 주요 의사결정</span></th><td colspan="2"><span class="role role--lead"><span class="en">Together; Woojin makes the final call</span><span class="ko">공동 · 최종 결정은 정우진</span></span></td></tr>
-            </tbody>
-          </table>
+          <p class="more"><a href="/interlock/experiments/"><span class="en">Method, table and raw data</span><span class="ko">방법 · 결과표 · 원자료</span> <span aria-hidden="true">→</span></a></p>
+        </figure>
+
+        <div class="rule__more reveal">
+          <p class="eyebrow"><span class="en">More experiments</span><span class="ko">다른 실험</span></p>
+          <div class="rule-grid">
+            <a href="/interlock/experiments/e1/"><b>20/20</b><span class="en">E1 · calls that fit a teammate's new signature, in real Claude Code sessions (0/20 without)</span><span class="ko">E1 · 실제 Claude Code 세션에서 동료의 새 시그니처에 맞은 호출 (없으면 0/20)</span></a>
+            <a href="/interlock/experiments/e2/"><b>8 → 0</b><span class="en">E2 · merge conflicts when two agents edit the same or the next line</span><span class="ko">E2 · 두 에이전트가 같은 줄이나 바로 다음 줄을 고칠 때 병합 충돌</span></a>
+            <a href="/interlock/experiments/e6/"><b>12/12</b><span class="en">E6 · branches merged when three agents change one backend (8/12 without)</span><span class="ko">E6 · 세 에이전트가 한 백엔드를 고칠 때 병합된 브랜치 (없으면 8/12)</span></a>
+            <a href="/interlock/experiments/e9/"><b>10/10</b><span class="en">E9 · main correct at the end (2/10 when merged and fixed afterwards)</span><span class="ko">E9 · 끝에 main이 올바름 (합친 뒤 고치면 2/10)</span></a>
+            <a href="/interlock/experiments/e7/"><b>3–6 ms</b><span class="en">E7 · median hook time on a 2,000-line file</span><span class="ko">E7 · 2,000줄 파일에서 훅 응답 시간 중앙값</span></a>
+            <a href="/interlock/experiments/checks/"><b>0</b><span class="en">Rule checks · disagreements with git merge in 3,000 random cases</span><span class="ko">규칙 검증 · 무작위 3,000건에서 git merge와 불일치</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -223,45 +155,79 @@ description: "PJ Group builds Interlock, which lets many AI coding agents work o
             <p><span class="en">Recruiting the first teams to run it on their own repositories</span><span class="ko">자기 저장소에서 써 볼 첫 팀 모집 중</span></p>
           </li>
         </ol>
-        <div class="callout reveal">
-          <p>
-            <span class="en">We're looking for developers to test Interlock with us.</span>
-            <span class="ko">Interlock을 함께 써 볼 첫 테스터를 찾고 있습니다.</span>
-          </p>
-          <a class="btn btn--primary" href="mailto:pj.southkorea@gmail.com?subject=%5BPJ%20Group%5D%20Interlock%20Beta%20Tester"><span class="en">Join the beta</span><span class="ko">베타 테스트 신청</span></a>
-        </div>
       </div>
     </section>
 
-    <!-- ============ BOARD (latest) ============ -->
-    {%- if site.posts.size > 0 %}
-    <section class="section" id="latest">
+    <!-- ============ FOUNDERS ============ -->
+    <section class="section" id="founders">
       <div class="container">
-        <div class="section__head section__head--row reveal">
-          <div>
-            <p class="eyebrow"><span class="en">Board</span><span class="ko">게시판</span></p>
-            <h2 class="section__title"><span class="en">Latest from PJ Group.</span><span class="ko">PJ Group 소식.</span></h2>
-          </div>
-          <a class="more" href="/board/"><span class="en">All posts</span><span class="ko">전체 글</span> <span aria-hidden="true">→</span></a>
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Founders</span><span class="ko">창업자</span></p>
+          <h2 class="section__title"><span class="en">Two technical founders.</span><span class="ko">직접 만드는 두 창업자.</span></h2>
+          <p class="section__lead">
+            <span class="en">The P and J in PJ come from our family names — <b class="hl">ㅂ</b> in 박 (Park) and <b class="hl">ㅈ</b> in 정 (Jung).</span>
+            <span class="ko">PJ의 P와 J는 두 창업자의 성에서 왔습니다 — 박의 <b class="hl">ㅂ</b>, 정의 <b class="hl">ㅈ</b>.</span>
+          </p>
         </div>
-        {% include post-list.html limit=3 %}
+        <div class="grid grid--2">
+          <article class="card founder reveal">
+            <header class="founder__head">
+              <div class="avatar" aria-hidden="true"><span class="avatar__base">정</span><span class="avatar__key"></span></div>
+              <div>
+                <h3 class="founder__name"><span class="en">Jung Woojin <span class="founder__alt">정우진</span></span><span class="ko">정우진 <span class="founder__alt">Jung Woojin</span></span></h3>
+                <p class="founder__title"><span class="en">Co-founder &amp; CEO</span><span class="ko">공동창업자 · 대표(CEO)</span></p>
+              </div>
+            </header>
+            <p class="founder__bio">
+              <span class="en">Woojin turns ideas into products — he writes the product spec and builds the first version, from PRD to MVP.</span>
+              <span class="ko">아이디어를 제품으로 만드는 사람. PRD 작성부터 MVP와 1차 개발까지, 첫 버전을 직접 만듭니다.</span>
+            </p>
+            <dl class="founder__meta">
+              <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Product · MVP</span><span class="ko">제품 기획 · MVP</span></dd></div>
+              <div><dt><span class="en">School</span><span class="ko">학교</span></dt><dd>DGIST</dd></div>
+              <div class="founder__meta-wide"><dt><span class="en">Contact</span><span class="ko">연락처</span></dt><dd><a href="mailto:jeromesone@gmail.com">jeromesone@gmail.com</a></dd></div>
+            </dl>
+          </article>
+          <article class="card founder reveal">
+            <header class="founder__head">
+              <div class="avatar" aria-hidden="true"><span class="avatar__base">박</span><span class="avatar__key"></span></div>
+              <div>
+                <h3 class="founder__name"><span class="en">Park Bugeon <span class="founder__alt">박부건</span></span><span class="ko">박부건 <span class="founder__alt">Park Bugeon</span></span></h3>
+                <p class="founder__title"><span class="en">Co-founder &amp; CTO</span><span class="ko">공동창업자 · CTO</span></p>
+              </div>
+            </header>
+            <p class="founder__bio">
+              <span class="en">Bugeon owns our code, architecture and security, and leads partnerships and investor relations.</span>
+              <span class="ko">코드 · 아키텍처 · 보안을 책임지고, 파트너 · 투자자와의 대외 협력을 이끕니다.</span>
+            </p>
+            <p class="founder__win">
+              <span class="en">Writing software since 2nd grade · Ruby tier on solved.ac (competitive programming)</span>
+              <span class="ko">초등학교 2학년 때부터 개발 · solved.ac 루비 티어 (알고리즘 문제 해결)</span>
+            </p>
+            <dl class="founder__meta">
+              <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Ideas · Engineering · Partnerships</span><span class="ko">아이디어 · 엔지니어링 · 대외 협력</span></dd></div>
+              <div><dt><span class="en">School</span><span class="ko">학교</span></dt><dd><span class="en">High school</span><span class="ko">고등학교</span></dd></div>
+              <div class="founder__meta-wide"><dt><span class="en">Contact</span><span class="ko">연락처</span></dt><dd><a href="mailto:bagdoeon827@gmail.com">bagdoeon827@gmail.com</a></dd></div>
+            </dl>
+          </article>
+        </div>
       </div>
     </section>
-    {%- endif %}
 
-    <!-- ============ CONTACT ============ -->
-    <section class="section section--soft contact" id="contact">
-      <div class="container contact__inner reveal">
-        <p class="eyebrow"><span class="en">Contact</span><span class="ko">연락처</span></p>
-        <h2 class="section__title"><span class="en">Let's talk.</span><span class="ko">이야기 나눠요.</span></h2>
-        <a class="contact__mail" href="mailto:pj.southkorea@gmail.com">pj.southkorea@gmail.com</a>
-        <p class="contact__meta">
-          <span class="en">Partnership · Collaboration · Beta testing — or reach Park Bugeon (CTO, external relations) directly at <a href="mailto:bagdoeon827@gmail.com">bagdoeon827@gmail.com</a>.</span>
-          <span class="ko">파트너십 · 협업 · 베타 테스트 문의 — 대외 협력 담당 박부건 CTO에게 직접: <a href="mailto:bagdoeon827@gmail.com">bagdoeon827@gmail.com</a></span>
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="mailto:pj.southkorea@gmail.com"><span class="en">Email us</span><span class="ko">이메일 보내기</span></a>
-          <button class="btn btn--ghost" type="button" data-copy="pj.southkorea@gmail.com"><span class="en">Copy email</span><span class="ko">주소 복사</span></button>
+    <!-- ============ CTA ============ -->
+    <section class="cta" id="beta">
+      <div class="container cta__inner reveal">
+        <div>
+          <h2 class="section__title"><span class="en">Running two or more agents on one repo?</span><span class="ko">한 저장소에서 에이전트를 둘 이상 돌리나요?</span></h2>
+          <p class="cta__lead"><span class="en">Get early access — free for the first 100 beta testers.</span><span class="ko">베타를 먼저 써 보세요. 첫 100명은 무료입니다.</span></p>
+        </div>
+        <div>
+          {% include signup.html id="cta" %}
+          <p class="cta__alt">
+            <span class="en">Or write to the founders:</span><span class="ko">또는 창업자에게 직접:</span>
+            <a href="mailto:pj.southkorea@gmail.com">pj.southkorea@gmail.com</a>
+            <button type="button" data-copy="pj.southkorea@gmail.com"><span class="en">Copy</span><span class="ko">복사</span></button>
+          </p>
         </div>
       </div>
     </section>
