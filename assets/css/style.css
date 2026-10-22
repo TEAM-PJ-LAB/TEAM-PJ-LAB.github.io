@@ -334,8 +334,6 @@ html[data-lang="ko"] .section__title { letter-spacing: -.03em; line-height: 1.25
 .founder__meta a { border-bottom: 1px solid var(--line-2); transition: border-color .2s; }
 .founder__meta a:hover { border-color: var(--ink); }
 .card .founder__win { margin-top: 14px; padding: 10px 14px; border-radius: 10px; background: var(--accent-wash); font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--ink); }
-.founder__win a { margin-left: 4px; font-weight: 500; white-space: nowrap; border-bottom: 1px solid var(--line-2); transition: border-color .2s; }
-.founder__win a:hover { border-color: var(--ink); }
 
 /* Status */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
