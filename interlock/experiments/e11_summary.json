@@ -1,0 +1,170 @@
+{
+  "experiment": "E11",
+  "description": "Pre-registered head-to-head: Interlock vs Shepherd 0.11.4 vs no tool. Real Claude Code agents (Claude Haiku 5.5) in parallel; success = all branches merged, no conflict left, visible tests and hidden checks pass. Aggregates only.",
+  "run_dates": "2026-10-22..2026-10-23",
+  "claude_code": "2.1.308",
+  "sets": [
+    {
+      "set": "A-F",
+      "runs_per_condition": 120,
+      "interlock_version": "V3.5",
+      "success": {
+        "none": "76/120",
+        "shepherd": "82/120",
+        "interlock": "112/120"
+      },
+      "median_time_s": {
+        "none": 33,
+        "shepherd": 50,
+        "interlock": 59
+      },
+      "mean_cost_usd": {
+        "none": 0.0097,
+        "shepherd": 0.0143,
+        "interlock": 0.0178
+      }
+    },
+    {
+      "set": "X",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.5",
+      "success": {
+        "none": "45/60",
+        "shepherd": "46/60",
+        "interlock": "41/60"
+      },
+      "median_time_s": {
+        "none": 35,
+        "shepherd": 53,
+        "interlock": 62
+      },
+      "mean_cost_usd": {
+        "none": 0.0121,
+        "shepherd": 0.0174,
+        "interlock": 0.0211
+      }
+    },
+    {
+      "set": "Y",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.6",
+      "success": {
+        "none": "38/60",
+        "shepherd": "32/60",
+        "interlock": "51/60"
+      },
+      "median_time_s": {
+        "none": 37,
+        "shepherd": 46,
+        "interlock": 67
+      },
+      "mean_cost_usd": {
+        "none": 0.0115,
+        "shepherd": 0.0149,
+        "interlock": 0.0243
+      }
+    },
+    {
+      "set": "Z",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.8.1",
+      "success": {
+        "none": "27/60",
+        "shepherd": "26/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 20,
+        "shepherd": 32,
+        "interlock": 31
+      },
+      "mean_cost_usd": {
+        "none": 0.0105,
+        "shepherd": 0.0144,
+        "interlock": 0.012
+      }
+    },
+    {
+      "set": "W",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.9.0",
+      "success": {
+        "none": "26/60",
+        "shepherd": "27/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 25,
+        "shepherd": 46,
+        "interlock": 36
+      },
+      "mean_cost_usd": {
+        "none": 0.0094,
+        "shepherd": 0.0144,
+        "interlock": 0.0096
+      }
+    }
+  ],
+  "final_verdict_set_W": {
+    "success_diff_vs_shepherd_pts": 55,
+    "ci95_pts": [
+      48.3,
+      60
+    ],
+    "median_time_diff_s": -10.2,
+    "time_diff_ci95_s": [
+      -28.4,
+      -2.8
+    ],
+    "mean_cost_diff_usd": -0.0048,
+    "cost_diff_ci95_usd": [
+      -0.0057,
+      -0.0039
+    ],
+    "conflict_resolution_sessions": {
+      "interlock": "0/60",
+      "shepherd": "28/60",
+      "none": "19/60"
+    },
+    "scenarios_success_of_10": {
+      "W1": {
+        "none": 0,
+        "shepherd": 0,
+        "interlock": 10
+      },
+      "W2": {
+        "none": 2,
+        "shepherd": 6,
+        "interlock": 10
+      },
+      "W3": {
+        "none": 0,
+        "shepherd": 0,
+        "interlock": 10
+      },
+      "W4": {
+        "none": 10,
+        "shepherd": 10,
+        "interlock": 10
+      },
+      "W5": {
+        "none": 10,
+        "shepherd": 10,
+        "interlock": 10
+      },
+      "W6": {
+        "none": 4,
+        "shepherd": 1,
+        "interlock": 10
+      }
+    }
+  },
+  "earlier_result": {
+    "interlock_v3_4_0_A_to_F_20_runs_each": {
+      "none": "62.5%",
+      "shepherd": "67.5%",
+      "interlock": "36.7%"
+    }
+  },
+  "note": "Per-run raw data, hidden checks, Interlock source and harness are not public."
+}
