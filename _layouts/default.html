@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   {%- if page.home %}
-  <title>Interlock by PJ Group — Stop AI coding agents from overwriting each other</title>
+  <title>PJ Group</title>
   {%- else %}
   <title>{{ page.title }} — PJ Group</title>
   {%- endif %}
@@ -17,7 +17,7 @@
 
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:site_name" content="PJ Group">
-  <meta property="og:title" content="{% if page.home %}Interlock by PJ Group — Stop AI coding agents from overwriting each other{% else %}{{ page.title | escape }} — PJ Group{% endif %}">
+  <meta property="og:title" content="{% if page.home %}PJ Group{% else %}{{ page.title | escape }} — PJ Group{% endif %}">
   <meta property="og:description" content="{{ desc | escape }}">
   <meta property="og:url" content="{{ page.url | replace: 'index.html', '' | absolute_url }}">
   <meta property="og:image" content="{{ '/assets/og-image.png' | absolute_url }}">
@@ -27,7 +27,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.home %}Interlock by PJ Group — Stop AI coding agents from overwriting each other{% else %}{{ page.title | escape }} — PJ Group{% endif %}">
+  <meta name="twitter:title" content="{% if page.home %}PJ Group{% else %}{{ page.title | escape }} — PJ Group{% endif %}">
   <meta name="twitter:description" content="{{ desc | escape }}">
   <meta name="twitter:image" content="{{ '/assets/og-image.png' | absolute_url }}">
 
@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css?v=19">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20">
 
   <script>
     (function () {
@@ -76,7 +76,7 @@
           <button type="button" data-lang-set="en" lang="en">EN</button>
           <button type="button" data-lang-set="ko" lang="ko">KO</button>
         </div>
-        <a href="/#beta" class="btn btn--accent btn--sm nav__cta"><span class="en">Get early access</span><span class="ko">베타 신청</span></a>
+        <a href="/apps/#beta" class="btn btn--accent btn--sm nav__cta"><span class="en">Get early access</span><span class="ko">베타 신청</span></a>
         <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
       </div>
     </div>

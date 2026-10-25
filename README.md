@@ -14,8 +14,8 @@ GitHub Pages가 Jekyll로 빌드합니다. 공통 틀은 `_layouts/default.html`
 
 | | |
 |---|---|
-| `index.html` | 홈 (제품 · 30일 규칙 · 창업자 · 현황 · 최신 글 · 연락처) |
-| `apps/index.html` | 앱 페이지 |
+| `index.html` | 홈 (회사 소개 · 창업자 · 연락처) |
+| `apps/index.html` | Interlock 섹션 (소개 · 작동 방식 · 실험 · 현황 · 업데이트 기록 · 베타 신청) |
 | `board/index.html` | 게시판 목록 |
 | `_posts/` | 게시글 (마크다운) |
 | `_layouts/` | 공통 틀(`default.html`)과 글 틀(`post.html`) |
