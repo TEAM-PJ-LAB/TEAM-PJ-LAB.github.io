@@ -94,7 +94,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
             {%- endif %}
           </header>
           <ol class="releases">
-            {%- for r in site.data.interlock_releases %}
+            {%- for r in site.data.interlock_releases limit: 6 %}
             <li class="release">
               <div class="release__meta">
                 <b class="release__ver">V{{ r.version }}</b>
@@ -113,9 +113,34 @@ description: "Interlock lets many AI coding agents work on one codebase without 
             </li>
             {%- endfor %}
           </ol>
+          {%- if site.data.interlock_releases.size > 6 %}
+          <details class="releases-more">
+            <summary><span class="en">Earlier versions</span><span class="ko">이전 버전</span></summary>
+            <ol class="releases">
+            {%- for r in site.data.interlock_releases offset: 6 %}
+            <li class="release">
+              <div class="release__meta">
+                <b class="release__ver">V{{ r.version }}</b>
+                <time datetime="{{ r.date }}">{{ r.date | date: "%Y.%m.%d" }}</time>
+              </div>
+              <div class="release__body">
+                <ul>
+                  {%- for it in r.items %}
+                  <li><span class="en">{{ it.en }}</span><span class="ko">{{ it.ko }}</span></li>
+                  {%- endfor %}
+                </ul>
+                {%- if r.proof %}
+                <p class="release__proof"><span class="en">Verified in</span><span class="ko">검증</span> <a href="{{ r.proof.url }}"><span class="en">{{ r.proof.en }}</span><span class="ko">{{ r.proof.ko }}</span></a></p>
+                {%- endif %}
+              </div>
+            </li>
+            {%- endfor %}
+            </ol>
+          </details>
+          {%- endif %}
           <p class="release__note">
-            <span class="en">Dates are when each version was first run in our published experiments. Versions between these were internal builds.</span>
-            <span class="ko">날짜는 각 버전을 공개 실험에서 처음 돌린 날입니다. 사이에 있는 버전은 내부 빌드입니다.</span>
+            <span class="en">Dates are the day each version first appeared in the project's changelog (Korea time). Experiment pages state which version they ran on.</span>
+            <span class="ko">날짜는 각 버전이 프로젝트 변경 기록에 처음 올라온 날입니다(한국 시간). 각 실험 페이지에 실험에 쓴 버전을 적어 두었습니다.</span>
           </p>
         </article>
 

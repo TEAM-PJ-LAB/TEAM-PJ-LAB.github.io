@@ -567,3 +567,9 @@ html[data-lang="ko"] .page-head__title { line-height: 1.2; letter-spacing: -.035
 .rule-grid span { display: block; margin-top: 12px; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, .7); }
 @media (max-width: 960px) { .rule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .rule-grid { grid-template-columns: 1fr; gap: 24px; } }
+.releases-more { margin-top: 4px; border-top: 1px solid var(--line); }
+.releases-more summary { padding: 16px 0; font-size: 15px; font-weight: 600; cursor: pointer; list-style: none; }
+.releases-more summary::-webkit-details-marker { display: none; }
+.releases-more summary::after { content: " +"; color: var(--muted); }
+.releases-more[open] summary::after { content: " −"; }
+.releases-more .releases { margin-top: 0; border-top: 0; }

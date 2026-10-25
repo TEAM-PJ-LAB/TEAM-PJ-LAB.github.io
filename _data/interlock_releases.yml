@@ -1,36 +1,141 @@
-# Interlock release notes, newest first. Add one entry per release and the
-# /apps/ page picks it up. Dates are YYYY-MM-DD (Asia/Seoul).
-# `items`: key changes, `en` and `ko` each. `proof`: optional link to the experiment that verified it.
+# Interlock release notes, newest first. Add one entry per release and /apps/ picks it up.
+# date: the day the version first appeared in the project's changelog (YYYY-MM-DD, Asia/Seoul).
+# items: key changes, `en` and `ko` each. proof: optional link to the experiment that measured it.
+# Source: the project's CHANGELOG.md. Keep entries to what the changelog says.
+
+- version: "3.15.0"
+  date: "2026-10-25"
+  items:
+    - en: "Self-service accounts: one server can host many separate teams, each in its own workspace. Sign-up is off unless the operator turns it on."
+      ko: "셀프서비스 계정: 서버 하나에서 여러 팀을 각자의 워크스페이스로 나눠 운영합니다. 가입은 운영자가 켜지 않으면 닫혀 있습니다."
+
+- version: "3.14.0"
+  date: "2026-10-25"
+  items:
+    - en: "Operator analytics per workspace (agents seen, claims, edits, merges, waits, refused conflicts) and a command for users to leave feedback."
+      ko: "워크스페이스별 운영자 통계(확인된 에이전트, 점유, 편집, 병합, 대기, 거부된 충돌)와 사용자 의견 남기기 명령."
+
+- version: "3.13.0"
+  date: "2026-10-25"
+  items:
+    - en: "Limits per workspace: members, repositories, and how long events, decisions and chat are kept."
+      ko: "워크스페이스별 한도: 구성원 수, 저장소 수, 이벤트 · 판단 · 채팅 보관 기간."
+
+- version: "3.12.0"
+  date: "2026-10-25"
+  items:
+    - en: "Invite codes: hand out a code instead of a token. A code expires, can be capped in uses and can be revoked."
+      ko: "초대 코드: 토큰 대신 코드를 건넵니다. 코드는 만료되고, 사용 횟수를 제한할 수 있고, 취소할 수 있습니다."
+
+- version: "3.11.0"
+  date: "2026-10-25"
+  items:
+    - en: "Teams and workspaces with roles (owner, member, viewer) that decide who may reach which repositories, and a Team panel on the dashboard."
+      ko: "팀과 워크스페이스, 그리고 어느 저장소에 누가 접근할지 정하는 역할(소유자 · 구성원 · 열람자). 대시보드에 팀 패널이 생겼습니다."
+
+- version: "3.10.0"
+  date: "2026-10-25"
+  items:
+    - en: "Team chat and shared status: agents and people leave each other messages beside the claims they are about, with a chat panel on the dashboard."
+      ko: "팀 채팅과 공유 상태: 에이전트와 사람이 해당 점유 옆에서 서로에게 메시지를 남깁니다. 대시보드에 채팅 패널이 생겼습니다."
+
+- version: "3.9.2"
+  date: "2026-10-24"
+  items:
+    - en: "Fix to the pre-merge check at Stop: a peer's stale import no longer hides this checkout's own."
+      ko: "Stop 단계 병합 전 검사 수정: 동료의 오래된 import가 이 체크아웃의 import를 가리지 않습니다."
+
+- version: "3.9.1"
+  date: "2026-10-24"
+  items:
+    - en: "Load and memory: a stopped MCP server exits cleanly under load, and parsed code is cached and bounded to 64 MB across all worktrees."
+      ko: "부하와 메모리: 부하 중에도 MCP 서버가 깔끔히 종료되고, 파싱한 코드는 캐시하되 모든 워크트리를 합쳐 64 MB로 제한합니다."
 
 - version: "3.9.0"
-  date: "2026-10-22"
+  date: "2026-10-23"
   items:
-    - en: "Catches semantic breaks before merging: shares declared signatures and runs tests on the state merged with teammates' work."
-      ko: "병합 전에 의미 충돌을 잡습니다. 선언된 시그니처를 공유하고, 동료 작업과 합친 상태로 테스트를 돌립니다."
-    - en: "Faster per run: V3.8–V3.9 changes cut time and cost, about equal to Shepherd on set Z and faster on set W."
-      ko: "시행당 속도 개선: V3.8~V3.9 변경으로 시간과 비용이 줄어, 세트 Z에서 Shepherd와 비슷하고 세트 W에서는 더 빨랐습니다."
+    - en: "Fewer merge conflicts where one agent changes a signature and another uses the function: the agent that declares the change updates existing calls in test files."
+      ko: "한 에이전트가 시그니처를 바꾸고 다른 에이전트가 그 함수를 쓸 때의 병합 충돌 감소: 변경을 선언한 에이전트가 테스트 파일의 기존 호출을 고칩니다."
+    - en: "Claims taken from a task's text no longer refuse anyone, since a task also names files it only reads."
+      ko: "작업 문구에서 잡은 점유는 누구도 거부하지 않습니다. 작업이 읽기만 하는 파일도 언급하기 때문입니다."
   proof:
     url: "/interlock/experiments/e11/"
     en: "E11: 60/60 runs correct on a codebase unseen during development (Shepherd 27/60, no tool 26/60)"
     ko: "E11: 개발에 쓰지 않은 코드베이스에서 60/60 성공 (Shepherd 27/60, 도구 없음 26/60)"
 
-- version: "3.2.0"
+- version: "3.8.1"
+  date: "2026-10-23"
+  items:
+    - en: "The pre-merge check merges every peer at once, as the branches will land. Tests an agent added move to a clean place at Stop."
+      ko: "병합 전 검사가 실제로 합쳐질 모습대로 모든 동료를 한꺼번에 합칩니다. 에이전트가 추가한 테스트는 Stop에서 깨끗한 자리로 옮겨집니다."
+
+- version: "3.8.0"
+  date: "2026-10-23"
+  items:
+    - en: "No turns spent waiting or on another agent's failures: Stop waits inside the hook for a peer still holding the code, and the pre-merge check says which agent a failure comes from."
+      ko: "기다리거나 다른 에이전트의 실패를 처리하느라 쓰는 턴이 없습니다. Stop이 코드를 쥔 동료를 훅 안에서 기다리고, 병합 전 검사는 실패가 어느 에이전트에서 왔는지 알려줍니다."
+
+- version: "3.7.0"
+  date: "2026-10-23"
+  items:
+    - en: "Fewer turns per agent: what an agent had to do by tool call, Interlock now does from the hooks, such as claiming the files a task names."
+      ko: "에이전트당 턴 감소: 에이전트가 도구 호출로 하던 일을 Interlock이 훅에서 대신합니다. 작업이 언급한 파일 점유가 한 예입니다."
+
+- version: "3.6.1"
+  date: "2026-10-23"
+  items:
+    - en: "Less waiting where agents do not collide: claims on test files never refuse each other, and Stop waits only when a peer's intent names the function the new code calls."
+      ko: "충돌하지 않는 곳에서 대기 감소: 테스트 파일 점유끼리는 서로 거부하지 않고, Stop은 동료의 의도가 새 코드가 부르는 함수를 가리킬 때만 기다립니다."
+
+- version: "3.6.0"
+  date: "2026-10-23"
+  items:
+    - en: "Pre-merge check at Stop: the checkout's work is merged with each peer's current work in scratch space and the project's tests run on the result."
+      ko: "Stop 단계 병합 전 검사: 이 체크아웃의 작업을 동료의 현재 작업과 임시 공간에서 합치고, 그 결과에 프로젝트 테스트를 돌립니다."
+  proof:
+    url: "/interlock/experiments/e11/"
+    en: "E11 set Y: 51/60 tasks correctly merged with Interlock (Shepherd 32/60, no tool 38/60)"
+    ko: "E11 세트 Y: Interlock 51/60 성공 (Shepherd 32/60, 도구 없음 38/60)"
+
+- version: "3.5.0"
+  date: "2026-10-23"
+  items:
+    - en: "Refusals that end the task are replaced by ones that lead to a finished, mergeable change: an overlap is refused once with the holder's intent, and the same agent's retry goes through."
+      ko: "작업을 끝내 버리는 거부 대신, 끝까지 병합 가능한 변경으로 이어지는 거부로 바꿨습니다. 겹침은 점유자의 의도와 함께 한 번 거부하고, 같은 에이전트의 재시도는 통과합니다."
+
+- version: "3.4.0"
+  date: "2026-10-22"
+  items:
+    - en: "Usage per day, numbers only: every edit the hooks check is counted, and a command exports per-day counts, so a team can show people kept using Interlock."
+      ko: "하루 단위 사용량(숫자만): 훅이 검사한 모든 편집을 세고, 명령으로 하루별 수치를 내보냅니다. 팀이 계속 쓰고 있다는 것을 보여줄 수 있습니다."
+
+- version: "3.3.1"
+  date: "2026-10-21"
+  items:
+    - en: "Fix release from four independent pre-launch reviews (beta server, tester client and installers, hosting, hooks in real repositories). Each fix has a test that reproduced the problem first."
+      ko: "출시 전 독립 리뷰 4건(베타 서버, 테스터 클라이언트와 설치 프로그램, 호스팅, 실제 저장소의 훅)의 수정 릴리스. 모든 수정에는 문제를 먼저 재현한 테스트가 있습니다."
+
+- version: "3.3.0"
   date: "2026-10-20"
   items:
-    - en: "Prevents conflicts up front instead of merging first and fixing afterwards."
-      ko: "합친 뒤 고치는 대신, 충돌을 미리 막습니다."
+    - en: "Beta ready for testers who use Codex and Cursor as much as Claude Code: counts from any of them, an English guide, and `interlock` on the PATH after installing."
+      ko: "Codex · Cursor를 Claude Code만큼 쓰는 테스터를 위한 베타: 어느 쪽에서든 집계, 영어 가이드, 설치 후 `interlock`이 PATH에 등록됩니다."
+
+- version: "3.2.0"
+  date: "2026-10-19"
+  items:
+    - en: "`interlock audit`: experiment E4 as a command. It replays a repository's commit history, read-only."
+      ko: "`interlock audit`: 실험 E4를 명령으로 만들었습니다. 저장소의 커밋 기록을 읽기 전용으로 재현합니다."
   proof:
-    url: "/interlock/experiments/e9/"
-    en: "E9: main correct in 10/10 runs (2/10 when merged and fixed afterwards)"
-    ko: "E9: main이 10/10 올바름 (합친 뒤 고치면 2/10)"
+    url: "/interlock/experiments/"
+    en: "E4: 0 needless refusals on 5,352 real commit pairs (symbol lock: 1,709)"
+    ko: "E4: 실제 커밋 5,352쌍에서 불필요한 차단 0건 (심볼 잠금: 1,709건)"
 
 - version: "3.1.0"
   date: "2026-10-19"
   items:
-    - en: "Conflict rule and call checks agree with git's own merge and with Python on random cases (0 disagreements in 3,000 per check)."
-      ko: "충돌 규칙과 호출 검사가 git 병합·파이썬과 무작위 사례에서 일치합니다 (검증마다 3,000건 중 불일치 0)."
-    - en: "Compared with Shepherd and Foremerge on the same tasks: calls fit the teammate's new signature in 12/12 runs."
-      ko: "같은 작업에서 Shepherd·Foremerge와 비교: 동료의 새 시그니처에 맞는 호출 12/12."
+    - en: "The beta: what Interlock decides is counted, testers get a build and a token, and testers who opt in send daily counts only."
+      ko: "베타 시작: Interlock의 판단을 집계하고, 테스터는 빌드와 토큰을 받으며, 동의한 테스터만 하루 단위 수치를 보냅니다."
   proof:
     url: "/interlock/experiments/checks/"
     en: "Rule checks and E8"
@@ -39,11 +144,9 @@
 - version: "3.0.0"
   date: "2026-10-18"
   items:
-    - en: "Line-level conflict rule: an edit is refused only when it would make a real git merge conflict."
-      ko: "줄 단위 충돌 규칙: 실제 git 병합 충돌을 만들 편집만 거부합니다."
-    - en: "Declared-signature checks: reads show the teammate's declared signature, and edits that break it are refused."
-      ko: "선언된 시그니처 검사: 읽을 때 동료가 선언한 시그니처를 보여주고, 어긋나는 편집은 거부합니다."
+    - en: "The engine: precise admission control, where an edit is refused only for a static fact, and promise-consistent reads, where peers see a teammate's declared signature."
+      ko: "엔진: 정밀 허용 제어(정적 사실이 있을 때만 편집을 거부)와 약속 일관 읽기(동료가 선언한 시그니처를 읽을 때 보여줌)."
   proof:
-    url: "/interlock/experiments/"
-    en: "E4: 0 needless refusals on 5,352 real commit pairs (symbol lock: 1,709)"
-    ko: "E4: 실제 커밋 5,352쌍에서 불필요한 차단 0건 (심볼 잠금: 1,709건)"
+    url: "/interlock/experiments/e1/"
+    en: "E1: calls fit the declared signature in 20/20 runs (0/20 without)"
+    ko: "E1: 선언된 시그니처에 맞는 호출 20/20 (없으면 0/20)"
