@@ -1,5 +1,5 @@
 /* =========================================================
-   PJ Group — interactions
+   Team PJ — interactions
    ========================================================= */
 (() => {
   const $ = (s, c = document) => c.querySelector(s);

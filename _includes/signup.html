@@ -1,4 +1,4 @@
-{%- assign beta = site.beta_form | default: "mailto:pj.southkorea@gmail.com?subject=%5BPJ%20Group%5D%20Interlock%20Beta%20Tester" -%}
+{%- assign beta = site.beta_form | default: "mailto:pj.southkorea@gmail.com?subject=%5BTeam%20PJ%5D%20Interlock%20Beta%20Tester" -%}
 <form class="signup" data-signup action="{{ beta }}" method="post"{% if beta contains "mailto:" %} enctype="text/plain"{% endif %}>
   <label class="sr-only" for="email-{{ include.id }}"><span class="en">Work email</span><span class="ko">업무용 이메일</span></label>
   <input id="email-{{ include.id }}" name="email" type="email" required autocomplete="email" placeholder="you@company.com">

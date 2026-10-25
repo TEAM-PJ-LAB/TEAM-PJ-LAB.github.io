@@ -1,11 +1,10 @@
-# PJ Group — Software & Ventures
+# Team PJ — Software & Ventures
 
-PJ Group 공식 웹사이트 · https://team-pj-lab.github.io (한국어 / English)
+Team PJ 공식 웹사이트 · https://team-pj-lab.github.io (한국어 / English)
 
-PJ Group은 소프트웨어를 중심으로 다양한 사업을 설계하고 운영하는 회사입니다.
+Team PJ는 소프트웨어를 중심으로 다양한 사업을 설계하고 운영하는 회사입니다.
 
 - **CEO** 정우진 (Jung Woojin) · **CTO** 박부건 (Park Bugeon)
-- **Team PJ** — 회사의 첫 번째 팀이자 메인 개발팀 (CTO 박부건)
 - **Contact** — pj.southkorea@gmail.com (대외 연락: 박부건)
 
 ## Stack

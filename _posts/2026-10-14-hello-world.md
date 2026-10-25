@@ -1,13 +1,13 @@
 ---
-title: "Hello, world — PJ Group is live"
+title: "Hello, world — Team PJ is live"
 description: "Our website is up. Who we are and what we're building: Interlock."
 ---
 
 <div class="en" markdown="1">
 
-Today we're opening PJ Group's website.
+Today we're opening Team PJ's website.
 
-PJ Group is a software company from South Korea, started by two student founders — Jung Woojin (DGIST) and Park Bugeon (high school). We build Interlock.
+Team PJ is a software company from South Korea, started by two student founders — Jung Woojin (DGIST) and Park Bugeon (high school). We build Interlock.
 
 ## What we're building
 
@@ -19,9 +19,9 @@ We'll post launch notes and build logs here. If you want to build with us, write
 
 <div class="ko" markdown="1">
 
-오늘 PJ Group 홈페이지를 열었습니다.
+오늘 Team PJ 홈페이지를 열었습니다.
 
-PJ Group은 대한민국의 소프트웨어 회사입니다. 두 명의 학생 창업자 — 정우진(DGIST), 박부건(고등학생) — 이 함께 시작했습니다. 우리는 Interlock을 만듭니다.
+Team PJ는 대한민국의 소프트웨어 회사입니다. 두 명의 학생 창업자 — 정우진(DGIST), 박부건(고등학생) — 이 함께 시작했습니다. 우리는 Interlock을 만듭니다.
 
 ## 지금 만드는 것
 
