@@ -97,7 +97,8 @@ description: "Interlock lets many AI coding agents work on one codebase without 
             {%- for r in site.data.interlock_releases limit: 6 %}
             <li class="release">
               <div class="release__meta">
-                <b class="release__ver">V{{ r.version }}</b>
+                <b class="release__ver">V{{ r.version }}</b>{%- if r.aka %}
+                <small class="release__aka"><span class="en">first numbered {{ r.aka }}</span><span class="ko">당시 번호 {{ r.aka }}</span></small>{%- endif %}
                 <time datetime="{{ r.date }}">{{ r.date | date: "%Y.%m.%d" }}</time>
               </div>
               <div class="release__body">
@@ -120,7 +121,8 @@ description: "Interlock lets many AI coding agents work on one codebase without 
             {%- for r in site.data.interlock_releases offset: 6 %}
             <li class="release">
               <div class="release__meta">
-                <b class="release__ver">V{{ r.version }}</b>
+                <b class="release__ver">V{{ r.version }}</b>{%- if r.aka %}
+                <small class="release__aka"><span class="en">first numbered {{ r.aka }}</span><span class="ko">당시 번호 {{ r.aka }}</span></small>{%- endif %}
                 <time datetime="{{ r.date }}">{{ r.date | date: "%Y.%m.%d" }}</time>
               </div>
               <div class="release__body">
@@ -139,8 +141,8 @@ description: "Interlock lets many AI coding agents work on one codebase without 
           </details>
           {%- endif %}
           <p class="release__note">
-            <span class="en">Dates are the day each version first appeared in the project's changelog (Korea time). Experiment pages state which version they ran on.</span>
-            <span class="ko">날짜는 각 버전이 프로젝트 변경 기록에 처음 올라온 날입니다(한국 시간). 각 실험 페이지에 실험에 쓴 버전을 적어 두었습니다.</span>
+            <span class="en">Dates are Korea time: V3 dates are the day a version first appeared in the project's changelog, and V1 and V2.0 are the day it was built. The first builds were numbered 0.1 to 0.4 and renamed V1.0 to V2.0 when the VX.Y.Z scheme began on 2026-10-18. Experiment pages state which version they ran on.</span>
+            <span class="ko">날짜는 한국 시간입니다. V3는 변경 기록에 처음 올라온 날이고, V1과 V2.0은 만든 날입니다. 초기 빌드는 0.1~0.4로 번호를 매겼고, 2026-10-18에 VX.Y.Z 체계를 도입하며 V1.0~V2.0으로 바꿨습니다. 각 실험 페이지에 실험에 쓴 버전을 적어 두었습니다.</span>
           </p>
         </article>
 

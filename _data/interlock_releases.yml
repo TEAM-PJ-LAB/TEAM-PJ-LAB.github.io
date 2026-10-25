@@ -150,3 +150,45 @@
     url: "/interlock/experiments/e1/"
     en: "E1: calls fit the declared signature in 20/20 runs (0/20 without)"
     ko: "E1: 선언된 시그니처에 맞는 호출 20/20 (없으면 0/20)"
+
+- version: "2.1.0"
+  date: "2026-10-18"
+  items:
+    - en: "Fixes from the V2.0.0 review (16 items), covering security and correctness. Versions are now numbered VX.Y.Z: structure, feature, fix."
+      ko: "V2.0.0 리뷰에서 나온 수정 16건(보안과 정확성). 버전 표기가 VX.Y.Z(구조 · 기능 · 수정)로 바뀌었습니다."
+
+- version: "2.0.0"
+  aka: "0.4.0"
+  date: "2026-10-16"
+  items:
+    - en: "Symbol-level claims: an agent claims a function, not a file, so two agents can work in one file. Python, JavaScript and TypeScript are parsed with tree-sitter."
+      ko: "함수 단위 점유: 에이전트가 파일이 아니라 함수를 점유하므로 두 에이전트가 한 파일에서 일할 수 있습니다. Python · JavaScript · TypeScript는 tree-sitter로 분석합니다."
+    - en: "Routes with cautions, leases tied to session liveness, deadlock detection and explained decisions, enforced by symbol-level edit and commit hooks and a symbol-level GitHub check."
+      ko: "주의 표시가 있는 경로, 세션 생존에 묶인 점유, 교착 감지, 근거가 붙는 판단. 함수 단위 편집 · 커밋 훅과 함수 단위 GitHub 체크로 적용합니다."
+
+- version: "1.2.0"
+  aka: "0.3.0"
+  date: "2026-10-16"
+  items:
+    - en: "Enforcement without cooperation: a Claude Code edit hook and a git pre-commit hook apply to agents that never call Interlock's tools."
+      ko: "협조 없이도 적용: Claude Code 편집 훅과 git pre-commit 훅이 Interlock 도구를 부르지 않는 에이전트에도 적용됩니다."
+    - en: "A first-come, first-served wait queue, a three-layer dashboard (edit, commit, merge) and one-click GitHub App setup."
+      ko: "선착순 대기열, 편집 · 커밋 · 머지 3단계 대시보드, GitHub App 원클릭 설정."
+
+- version: "1.1.0"
+  aka: "0.2.0"
+  date: "2026-10-16"
+  items:
+    - en: "Faster and fairer: an indexed overlap check cut a PR check over 3,000 files and 1,000 claims from 949 ms to 22 ms."
+      ko: "더 빠르고 공정하게: 겹침 검사에 색인을 써서, 파일 3,000개 · 점유 1,000개 PR 검사가 949 ms에서 22 ms로 줄었습니다."
+    - en: "A failing PR check turns green on its own when the claim is released, expires or the PR closes. Event log and live dashboard."
+      ko: "점유가 풀리거나 만료되거나 PR이 닫히면 실패한 PR 체크가 새 푸시 없이 스스로 통과로 바뀝니다. 이벤트 기록과 실시간 대시보드."
+
+- version: "1.0.0"
+  aka: "0.1.0"
+  date: "2026-10-16"
+  items:
+    - en: "The first version: file claims through MCP. A refused agent is told who holds the files, on which branch and why."
+      ko: "첫 버전: MCP를 통한 파일 점유. 거부된 에이전트는 누가 어느 브랜치에서 왜 점유 중인지 안내받습니다."
+    - en: "A GitHub App check on every PR: a PR that changes files claimed by another branch fails the check, and closing or merging a PR releases its claims. Works with any MCP client."
+      ko: "모든 PR에 GitHub App 체크: 다른 브랜치가 점유한 파일을 바꾸는 PR은 체크에서 실패하고, PR을 닫거나 병합하면 점유가 풀립니다. 모든 MCP 클라이언트에서 작동합니다."
