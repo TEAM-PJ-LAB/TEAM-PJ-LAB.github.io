@@ -27,6 +27,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
             </p>
           </div>
           <nav class="subnav reveal" aria-label="Interlock">
+            <a href="#demo"><span class="en">Demo</span><span class="ko">데모</span></a>
             <a href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
             <a href="#results"><span class="en">Results</span><span class="ko">실험 결과</span></a>
             <a href="#status"><span class="en">Status</span><span class="ko">현황</span></a>
@@ -45,7 +46,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
             <li><b class="v v--stop">deadlock</b><span class="a">claude-code</span><span class="m">release <code>login</code> to break the cycle</span></li>
             <li><b class="v v--clear">clear</b><span class="a">codex</span><span class="m"><code>login</code> handed off · PR #41 cleared</span></li>
           </ol>
-          <figcaption><span class="en">From the 90-second demo</span><span class="ko">90초 데모 중</span></figcaption>
+          <figcaption><a href="#demo"><span class="en">From the demo video ↓</span><span class="ko">데모 영상 중 ↓</span></a></figcaption>
         </figure>
       </div>
     </section>
@@ -63,6 +64,29 @@ description: "Interlock lets many AI coding agents work on one codebase without 
     </section>
 
     <!-- ============ HOW IT WORKS ============ -->
+    <!-- ============ DEMO ============ -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Demo</span><span class="ko">데모</span></p>
+          <h2 class="section__title"><span class="en">Five agents, one file, 79 seconds.</span><span class="ko">에이전트 다섯, 파일 하나, 79초.</span></h2>
+          <p class="section__lead">
+            <span class="en">Claude Code, Codex and Cursor change the same file. Interlock lets the edits that don't collide through and stops the rest at the edit, the commit and the merge, with a reason each time.</span>
+            <span class="ko">Claude Code, Codex, Cursor가 같은 파일을 고칩니다. Interlock은 부딪히지 않는 편집은 통과시키고, 나머지는 편집 · 커밋 · 머지 단계에서 매번 이유와 함께 막습니다.</span>
+          </p>
+        </div>
+        <figure class="demo-video reveal">
+          <video controls playsinline preload="metadata" poster="/assets/interlock-demo-poster.jpg" aria-label="Interlock demo video">
+            <source src="/assets/interlock-demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <span class="en">Real Interlock server, MCP processes, Claude Code, Codex and Cursor hooks and git commits; the agents' decisions are scripted, and GitHub check runs are printed instead of sent.</span>
+            <span class="ko">Interlock 서버, MCP 프로세스, Claude Code · Codex · Cursor 훅, git 커밋은 실제로 동작합니다. 에이전트의 판단은 스크립트로 정했고, GitHub 체크 결과는 전송하지 않고 화면에 출력합니다.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section" id="how">
       <div class="container">
         <div class="section__head reveal">
@@ -104,7 +128,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
         <div class="section__head reveal">
           <p class="eyebrow"><span class="en">Results</span><span class="ko">실험 결과</span></p>
           <h2 class="section__title"><span class="en">We tested it before asking anyone to trust it.</span><span class="ko">믿어 달라고 하기 전에 먼저 검증했습니다.</span></h2>
-          <p class="section__lead"><span class="en">Ten experiments and 560 real Claude Code sessions, each published with its method, limits and raw data.</span><span class="ko">실험 10종, 실제 Claude Code 세션 560개. 모든 실험의 방법 · 한계 · 원자료를 공개합니다.</span></p>
+          <p class="section__lead"><span class="en">Ten published experiments, each with its method, limits and raw data. The live-agent experiments alone used 560 real Claude Code sessions.</span><span class="ko">공개한 실험 10종, 모두 방법 · 한계 · 원자료와 함께. 실제 에이전트 실험에만 Claude Code 세션 560개를 썼습니다.</span></p>
         </div>
 
         <figure class="bars reveal">

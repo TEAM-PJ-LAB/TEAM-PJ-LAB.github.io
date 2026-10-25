@@ -234,6 +234,11 @@ html[data-lang="ko"] .section__title { letter-spacing: -.03em; line-height: 1.25
 .v--stop { color: #ff7a52; }
 .v--wait { color: #9db8ff; }
 .term figcaption { padding: 10px 18px 14px; font-size: 12px; color: rgba(255, 255, 255, .4); }
+.term figcaption a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.term figcaption a:hover { color: rgba(255, 255, 255, .75); }
+.demo-video { margin: 0; }
+.demo-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-soft); box-shadow: 0 30px 60px -30px rgba(22, 19, 15, .35); }
+.demo-video figcaption { margin-top: 12px; font-size: 13px; color: var(--muted); max-width: 72ch; }
 .points { margin-top: clamp(40px, 5vw, 56px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .points li { display: flex; flex-direction: column; gap: 6px; padding-top: 18px; border-top: 1px solid var(--line-2); font-size: 15px; line-height: 1.55; color: var(--muted); }
 .points b { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
