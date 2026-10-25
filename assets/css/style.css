@@ -394,6 +394,32 @@ html[data-lang="ko"] .page-head__title { line-height: 1.2; letter-spacing: -.035
 .app__points { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
 .app__points li { padding: 6px 12px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); }
 .apps .callout { margin-top: 4px; }
+.apps .callout p { max-width: 46em; font-size: 17px; line-height: 1.6; }
+.apps [id] { scroll-margin-top: 88px; }
+.subnav { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+.subnav a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 14px; font-weight: 500; color: var(--ink-2); transition: border-color .2s, color .2s; }
+.subnav a:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Interlock status and release notes */
+.status { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+.status__col h3 { font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.status__col ul { margin-top: 12px; display: grid; gap: 10px; }
+.status__col li { position: relative; padding: 10px 0 0 18px; border-top: 1px solid var(--line); font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
+.status__col li::before { content: ""; position: absolute; left: 0; top: 19px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
+.status__col:last-child li::before { background: var(--line-2); }
+.releases { margin-top: 24px; border-top: 1px solid var(--line); }
+.release { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.release:last-child { border-bottom: 0; }
+.release__meta { display: flex; flex-direction: column; gap: 2px; }
+.release__ver { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+.release__meta time { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.release__body ul { display: grid; gap: 8px; }
+.release__body li { position: relative; padding-left: 16px; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.release__body li::before { content: ""; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+.release__proof { margin-top: 12px; font-size: 14.5px; color: var(--muted); }
+.release__proof a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color .2s; }
+.release__proof a:hover { border-color: var(--ink); }
+.release__note { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
 
 /* Board */
 .posts { border-top: 1px solid var(--line); }
@@ -439,6 +465,7 @@ html[data-lang="ko"] .page-head__title { line-height: 1.2; letter-spacing: -.035
 .footer__links { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14.5px; color: var(--muted); }
 .footer__links a:hover { color: var(--ink); }
 .footer__copy { font-size: 14px; color: var(--muted); }
+.footer__note { order: 9; flex-basis: 100%; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.6; color: var(--muted); }
 
 /* Toast */
 .toast {
@@ -493,6 +520,9 @@ html[data-lang="ko"] .page-head__title { line-height: 1.2; letter-spacing: -.035
   .steps { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
+  .status { grid-template-columns: 1fr; }
+  .release { grid-template-columns: 1fr; }
+  .release__meta { flex-direction: row; align-items: baseline; gap: 12px; }
   .term__log { font-size: 12px; }
   .term__log li { grid-template-columns: 64px 1fr; }
   .term__log .m { grid-column: 1 / -1; }

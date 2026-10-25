@@ -1,0 +1,49 @@
+# Interlock release notes, newest first. Add one entry per release and the
+# /apps/ page picks it up. Dates are YYYY-MM-DD (Asia/Seoul).
+# `items`: key changes, `en` and `ko` each. `proof`: optional link to the experiment that verified it.
+
+- version: "3.9.0"
+  date: "2026-10-22"
+  items:
+    - en: "Catches semantic breaks before merging: shares declared signatures and runs tests on the state merged with teammates' work."
+      ko: "병합 전에 의미 충돌을 잡습니다. 선언된 시그니처를 공유하고, 동료 작업과 합친 상태로 테스트를 돌립니다."
+    - en: "Faster per run: V3.8–V3.9 changes cut time and cost, about equal to Shepherd on set Z and faster on set W."
+      ko: "시행당 속도 개선: V3.8~V3.9 변경으로 시간과 비용이 줄어, 세트 Z에서 Shepherd와 비슷하고 세트 W에서는 더 빨랐습니다."
+  proof:
+    url: "/interlock/experiments/e11/"
+    en: "E11: 60/60 runs correct on a codebase unseen during development (Shepherd 27/60, no tool 26/60)"
+    ko: "E11: 개발에 쓰지 않은 코드베이스에서 60/60 성공 (Shepherd 27/60, 도구 없음 26/60)"
+
+- version: "3.2.0"
+  date: "2026-10-20"
+  items:
+    - en: "Prevents conflicts up front instead of merging first and fixing afterwards."
+      ko: "합친 뒤 고치는 대신, 충돌을 미리 막습니다."
+  proof:
+    url: "/interlock/experiments/e9/"
+    en: "E9: main correct in 10/10 runs (2/10 when merged and fixed afterwards)"
+    ko: "E9: main이 10/10 올바름 (합친 뒤 고치면 2/10)"
+
+- version: "3.1.0"
+  date: "2026-10-19"
+  items:
+    - en: "Conflict rule and call checks agree with git's own merge and with Python on random cases (0 disagreements in 3,000 per check)."
+      ko: "충돌 규칙과 호출 검사가 git 병합·파이썬과 무작위 사례에서 일치합니다 (검증마다 3,000건 중 불일치 0)."
+    - en: "Compared with Shepherd and Foremerge on the same tasks: calls fit the teammate's new signature in 12/12 runs."
+      ko: "같은 작업에서 Shepherd·Foremerge와 비교: 동료의 새 시그니처에 맞는 호출 12/12."
+  proof:
+    url: "/interlock/experiments/checks/"
+    en: "Rule checks and E8"
+    ko: "규칙 검증과 E8"
+
+- version: "3.0.0"
+  date: "2026-10-18"
+  items:
+    - en: "Line-level conflict rule: an edit is refused only when it would make a real git merge conflict."
+      ko: "줄 단위 충돌 규칙: 실제 git 병합 충돌을 만들 편집만 거부합니다."
+    - en: "Declared-signature checks: reads show the teammate's declared signature, and edits that break it are refused."
+      ko: "선언된 시그니처 검사: 읽을 때 동료가 선언한 시그니처를 보여주고, 어긋나는 편집은 거부합니다."
+  proof:
+    url: "/interlock/experiments/"
+    en: "E4: 0 needless refusals on 5,352 real commit pairs (symbol lock: 1,709)"
+    ko: "E4: 실제 커밋 5,352쌍에서 불필요한 차단 0건 (심볼 잠금: 1,709건)"
