@@ -3,7 +3,7 @@ layout: default
 nav: results
 exp: e11
 title: Interlock Experiment E11
-description: "Interlock experiment E11: a pre-registered head-to-head against Shepherd. On a codebase unseen during development, Interlock V3.9.0 finished 60 of 60 runs correctly merged and passing hidden checks, against 27 of 60 for Shepherd and 26 of 60 for no tool. Earlier versions lost."
+description: "Interlock experiment E11: pre-registered head-to-heads against Shepherd with real Claude Code agents. Every Interlock version since V3.9.2 finished 60 of 60 runs on each set it was judged on (7 runs, 4 codebases, Claude Haiku 5.5). Earlier versions lost or fell short, and on Sonnet 5.5 the gap was small. Every run is listed."
 ---
     <style>
       .exp { padding-bottom: clamp(72px, 10vw, 120px); }
@@ -17,6 +17,7 @@ description: "Interlock experiment E11: a pre-registered head-to-head against Sh
       .exp th:first-child, .exp td:first-child { text-align: left; }
       .exp thead th { border-top: 0; font-size: 12px; font-weight: 600; color: var(--muted); white-space: normal; vertical-align: bottom; }
       .exp .hl { font-weight: 700; }
+      .exp tr.sep td { border-top: 2px solid var(--line-2); }
       .exp a { border-bottom: 1px solid var(--line-2); }
       .exp a:hover { border-color: var(--ink); }
       .exp code { font-size: .92em; }
@@ -27,7 +28,7 @@ description: "Interlock experiment E11: a pre-registered head-to-head against Sh
         <p class="eyebrow"><a href="/apps/#interlock">Interlock</a> · <span class="en">Experiment E11</span><span class="ko">실험 E11</span></p>
         <h1 class="page-head__title"><span class="en">Interlock against Shepherd, pre-registered</span><span class="ko">Interlock 대 Shepherd, 사전 등록 비교</span></h1>
         <p class="page-head__lead">
-          <span class="en">Real Claude Code agents work in parallel on a small codebase. We measure the share of tasks that end correctly merged and passing checks the agents never saw. Each time we changed Interlock after seeing results, we committed a new, unseen set of scenarios before running it. Earlier versions lost; the table shows every set.</span><span class="ko">실제 Claude Code 에이전트들이 작은 코드베이스에서 동시에 일합니다. 끝까지 올바르게 병합되고 에이전트가 보지 못한 검사까지 통과한 작업의 비율을 잽니다. 결과를 보고 Interlock을 고칠 때마다, 실행 전에 처음 보는 시나리오를 새로 커밋(사전 등록)한 뒤 다시 쟀습니다. 이전 버전은 졌고, 표에 모든 세트를 실었습니다.</span>
+          <span class="en">Real Claude Code agents work in parallel on a small codebase. We measure the share of tasks that end correctly merged and passing checks the agents never saw. Each time we changed Interlock after seeing results, we committed a new set of scenarios before running it. Earlier versions lost; the tables list every run, including the ones we set aside.</span><span class="ko">실제 Claude Code 에이전트들이 작은 코드베이스에서 동시에 일합니다. 끝까지 올바르게 병합되고 에이전트가 보지 못한 검사까지 통과한 작업의 비율을 잽니다. 결과를 보고 Interlock을 고칠 때마다, 실행 전에 새 시나리오 세트를 커밋(사전 등록)한 뒤 다시 쟀습니다. 이전 버전은 졌고, 표에는 따로 분류한 실행까지 모든 실행을 실었습니다.</span>
         </p>
         {% include exp-nav.html %}
       </div>
@@ -35,68 +36,105 @@ description: "Interlock experiment E11: a pre-registered head-to-head against Sh
 
     <section class="exp">
       <div class="container container--narrow">
-        <p class="muted"><span class="en">Run 2026-10-22 to 23 with Claude Code 2.1.308 (headless) on Claude Haiku 5.5, 30 turns and 900 s per agent. Shepherd 0.11.4 (hub built from commit 407ee77, npm <code>@korso/shepherd</code> 0.11.4, Postgres 16). Interlock V3.9.0 (source commit c8ba70e), set up with <code>interlock init</code>. The final verdict set W was registered at commit 8d60529 before the run.</span><span class="ko">2026-10-22~23 실행. Claude Code 2.1.308(헤드리스), 모델 Claude Haiku 5.5, 에이전트당 30턴·900초. Shepherd 0.11.4(hub는 커밋 407ee77에서 빌드, npm <code>@korso/shepherd</code> 0.11.4, Postgres 16). Interlock V3.9.0(소스 커밋 c8ba70e), <code>interlock init</code> 구성. 최종 판정 세트 W는 실행 전 커밋 8d60529로 사전 등록했습니다.</span> <a href="/interlock/experiments/e11_summary.json"><span class="en">Summary data (JSON)</span><span class="ko">요약 데이터 (JSON)</span></a></p>
+        <p class="muted"><span class="en">Sets A–F to W ran 2026-10-22 to 23 with Claude Code 2.1.308 (headless) on Claude Haiku 5.5, 30 turns and 900 s per agent. Shepherd 0.11.4 (hub built from commit 407ee77, npm <code>@korso/shepherd</code> 0.11.4, Postgres 16). Interlock V3.9.0 on W (source commit c8ba70e), set up with <code>interlock init</code>; set W was registered at commit 8d60529 before the run. Sets V to L ran 2026-10-24 to 25 with the same agent settings and the same Shepherd hub commit in a different container (Postgres 16.14 from npm embedded-postgres instead of Docker, the hub built from source, the client installed without install scripts), so times and costs are compared only within a set.</span><span class="ko">A–F부터 W까지는 2026-10-22~23 실행. Claude Code 2.1.308(헤드리스), 모델 Claude Haiku 5.5, 에이전트당 30턴·900초. Shepherd 0.11.4(hub는 커밋 407ee77에서 빌드, npm <code>@korso/shepherd</code> 0.11.4, Postgres 16). W의 Interlock은 V3.9.0(소스 커밋 c8ba70e), <code>interlock init</code> 구성이고, 세트 W는 실행 전 커밋 8d60529로 사전 등록했습니다. V부터 L까지는 2026-10-24~25에 같은 에이전트 설정과 같은 Shepherd hub 커밋으로, 다른 컨테이너(Docker 대신 npm embedded-postgres의 Postgres 16.14, 소스에서 빌드한 hub, 설치 스크립트 없이 받은 클라이언트)에서 돌렸습니다. 그래서 시간과 비용은 같은 세트 안에서만 비교합니다.</span> <a href="/interlock/experiments/e11_summary.json"><span class="en">Summary data (JSON)</span><span class="ko">요약 데이터 (JSON)</span></a></p>
 
-        <h2><span class="en">Result: set W, a codebase unseen during development</span><span class="ko">결과: 개발에 쓰지 않은 코드베이스, 세트 W</span></h2>
-        <p><span class="en">Six scenarios on a hotel-booking codebase, 10 runs each per condition, 180 runs in all. Success means every branch merged, no conflict left, visible tests pass and the hidden checks pass.</span><span class="ko">호텔 예약 코드베이스의 시나리오 6개, 조건마다 10회씩 모두 180회. 성공은 모든 브랜치가 병합되고, 충돌이 남지 않고, 보이는 테스트와 숨겨진 검사가 통과한 경우입니다.</span></p>
+        <h2><span class="en">Latest: V3.15.1 on set T</span><span class="ko">최신: 세트 T의 V3.15.1</span></h2>
+        <p><span class="en">Six scenarios on a gym-booking codebase, 10 runs each per condition, 180 runs in all, pre-registered before the run. Success means every branch merged, no conflict left, visible tests pass and the hidden checks pass. Set T had been used before, to judge V3.10.0 (table below) and in a Sonnet run we stopped early; no change to Interlock was based on it.</span><span class="ko">체육관 예약 코드베이스의 시나리오 6개, 조건마다 10회씩 모두 180회이고 실행 전에 사전 등록했습니다. 성공은 모든 브랜치가 병합되고, 충돌이 남지 않고, 보이는 테스트와 숨겨진 검사가 통과한 경우입니다. 세트 T는 이전에 V3.10.0 판정(아래 표)과 중간에 멈춘 Sonnet 실행에 쓰였고, Interlock 수정에는 쓰이지 않았습니다.</span></p>
         <div class="exp__wrap">
           <table>
             <thead><tr><th><span class="en">Scenario</span><span class="ko">시나리오</span></th><th><span class="en">No tool</span><span class="ko">도구 없음</span></th><th>Shepherd</th><th class="hl">Interlock</th></tr></thead>
             <tbody>
-              <tr><td>W1 <span class="en">Required argument</span><span class="ko">필수 인자</span></td><td>0/10</td><td>0/10</td><td class="hl">10/10</td></tr>
-              <tr><td>W2 <span class="en">Return type</span><span class="ko">반환 타입</span></td><td>2/10</td><td>6/10</td><td class="hl">10/10</td></tr>
-              <tr><td>W3 <span class="en">Module move</span><span class="ko">모듈 이동</span></td><td>0/10</td><td>0/10</td><td class="hl">10/10</td></tr>
-              <tr><td>W4 <span class="en">Independent feature</span><span class="ko">독립 기능</span></td><td>10/10</td><td>10/10</td><td class="hl">10/10</td></tr>
-              <tr><td>W5 <span class="en">Same function</span><span class="ko">같은 함수</span></td><td>10/10</td><td>10/10</td><td class="hl">10/10</td></tr>
-              <tr><td>W6 <span class="en">Three agents</span><span class="ko">에이전트 3개</span></td><td>4/10</td><td>1/10</td><td class="hl">10/10</td></tr>
+              <tr><td>T1 <span class="en">Required argument</span><span class="ko">필수 인자</span></td><td>1/10</td><td>0/10</td><td class="hl">10/10</td></tr>
+              <tr><td>T2 <span class="en">Return type</span><span class="ko">반환 타입</span></td><td>8/10</td><td>8/10</td><td class="hl">10/10</td></tr>
+              <tr><td>T3 <span class="en">Module move</span><span class="ko">모듈 이동</span></td><td>9/10</td><td>4/10</td><td class="hl">10/10</td></tr>
+              <tr><td>T4 <span class="en">Independent feature</span><span class="ko">독립 기능</span></td><td>10/10</td><td>10/10</td><td class="hl">10/10</td></tr>
+              <tr><td>T5 <span class="en">Same function</span><span class="ko">같은 함수</span></td><td>10/10</td><td>10/10</td><td class="hl">10/10</td></tr>
+              <tr><td>T6 <span class="en">Setting rename</span><span class="ko">설정 이름 변경</span></td><td>1/10</td><td>3/10</td><td class="hl">10/10</td></tr>
             </tbody>
           </table>
         </div>
-        <p><span class="en">Overall on W: Interlock 60/60 (100%), Shepherd 27/60 (45%), no tool 26/60 (43%). The difference against Shepherd is +55.0 points (95% CI +48.3 to +60.0). Median time per run was 36.0 s with Interlock against 46.2 s with Shepherd (bootstrap 95% CI of the difference −28.4 to −2.8 s); no tool took 25.4 s but failed more than half the runs. Mean cost per run was $0.0096 against $0.0144. No Interlock run needed a conflict-resolution session; 28 of 60 Shepherd runs and 19 of 60 no-tool runs did.</span><span class="ko">W 전체: Interlock 60/60(100%), Shepherd 27/60(45%), 도구 없음 26/60(43%). Shepherd와의 차이는 +55.0%p(95% 신뢰구간 +48.3~+60.0)입니다. 시행당 시간 중앙값은 Interlock 36.0초, Shepherd 46.2초(차이의 부트스트랩 95% 구간 −28.4~−2.8초)이고, 도구 없음은 25.4초지만 절반 넘게 실패했습니다. 시행당 평균 비용은 $0.0096 대 $0.0144입니다. Interlock은 충돌 해결 세션이 한 번도 필요 없었고, Shepherd는 60회 중 28회, 도구 없음은 19회였습니다.</span></p>
+        <p><span class="en">Overall on T: Interlock 60/60 (100%), Shepherd 35/60 (58%), no tool 39/60 (65%). The difference against Shepherd is +41.7 points (95% CI +33.3 to +50.0). Median time per run was 56.6 s with Interlock, 114.5 s with Shepherd and 89.8 s with no tool. Mean cost per run was $0.0266, $0.0392 and $0.0288.</span><span class="ko">T 전체: Interlock 60/60(100%), Shepherd 35/60(58%), 도구 없음 39/60(65%). Shepherd와의 차이는 +41.7%p(95% 신뢰구간 +33.3~+50.0)입니다. 시행당 시간 중앙값은 Interlock 56.6초, Shepherd 114.5초, 도구 없음 89.8초이고, 시행당 평균 비용은 $0.0266, $0.0392, $0.0288입니다.</span></p>
 
-        <h2><span class="en">Every set, including the ones Interlock lost</span><span class="ko">Interlock이 진 세트를 포함한 전체 세트</span></h2>
-        <p class="muted"><span class="en">Each set ran all three conditions together, in random order. Set A–F is the scenario family used to develop Interlock; X, Y, Z and W were unseen when registered, but Interlock was changed after X, Y and Z, so only W tests the final version on scenarios nobody tuned it for.</span><span class="ko">세트마다 세 조건을 함께, 무작위 순서로 돌렸습니다. A–F는 Interlock 개발에 쓴 시나리오 묶음이고, X·Y·Z·W는 등록 당시 처음 보는 것이었습니다. 다만 X·Y·Z 결과를 보고 Interlock을 고쳤으므로, 최종 버전을 아무도 맞춰 고치지 않은 시나리오로 확인한 것은 W뿐입니다.</span></p>
+        <h2><span class="en">Every run used to judge a version</span><span class="ko">버전 판정에 쓴 모든 실행</span></h2>
+        <p class="muted"><span class="en">Each run used all three conditions together, in random order, on Claude Haiku 5.5. A–F is the scenario family used to develop Interlock. X to L were committed before the run they judged; Interlock was later changed after X, Y, Z, W, V, S and L, so those sets became development sets. U was used twice and T three times (once in a stopped Sonnet run). S and L share one structure; L adds about 2,800 lines in 40 packages around the same core.</span><span class="ko">실행마다 세 조건을 함께, 무작위 순서로, Claude Haiku 5.5로 돌렸습니다. A–F는 Interlock 개발에 쓴 시나리오 묶음입니다. X부터 L까지는 판정하는 실행 전에 커밋했고, X·Y·Z·W·V·S·L은 그 결과를 본 뒤 Interlock을 고쳤으므로 이후 개발 세트가 됐습니다. U는 두 번, T는 세 번(한 번은 중간에 멈춘 Sonnet 실행) 쓰였습니다. S와 L은 같은 구조이고, L은 같은 코어에 40개 패키지 약 2,800줄을 더한 것입니다.</span></p>
         <div class="exp__wrap">
           <table>
-            <thead><tr><th><span class="en">Set · Interlock version (runs per condition)</span><span class="ko">세트 · Interlock 버전 (조건당 시행)</span></th><th><span class="en">No tool</span><span class="ko">도구 없음</span></th><th>Shepherd</th><th class="hl">Interlock</th></tr></thead>
+            <thead><tr><th><span class="en">Set · Interlock version (runs per condition)</span><span class="ko">세트 · Interlock 버전 (조건당 시행)</span></th><th><span class="en">No tool</span><span class="ko">도구 없음</span></th><th>Shepherd</th><th class="hl">Interlock</th><th><span class="en">Interlock − Shepherd (95% CI)</span><span class="ko">Interlock − Shepherd (95% 신뢰구간)</span></th></tr></thead>
             <tbody>
-              <tr><td>A–F · V3.5 (120)</td><td>76/120 (63%)</td><td>82/120 (68%)</td><td class="hl">112/120 (93%)</td></tr>
-              <tr><td>X · V3.5 (60)</td><td>45/60 (75%)</td><td>46/60 (77%)</td><td class="hl">41/60 (68%)</td></tr>
-              <tr><td>Y · V3.6 (60)</td><td>38/60 (63%)</td><td>32/60 (53%)</td><td class="hl">51/60 (85%)</td></tr>
-              <tr><td>Z · V3.8.1 (60)</td><td>27/60 (45%)</td><td>26/60 (43%)</td><td class="hl">60/60 (100%)</td></tr>
-              <tr><td>W · V3.9.0 (60)</td><td>26/60 (43%)</td><td>27/60 (45%)</td><td class="hl">60/60 (100%)</td></tr>
+              <tr><td>A–F · v3.4.0 (120)</td><td>75/120 (63%)</td><td>81/120 (68%)</td><td class="hl">44/120 (37%)</td><td>−30.8</td></tr>
+              <tr><td>A–F · V3.5 (120)</td><td>76/120 (63%)</td><td>82/120 (68%)</td><td class="hl">112/120 (93%)</td><td>+25.0 (+19.2 ~ +30.0)</td></tr>
+              <tr><td>X · V3.5 (60)</td><td>45/60 (75%)</td><td>46/60 (77%)</td><td class="hl">41/60 (68%)</td><td>−8.3</td></tr>
+              <tr><td>Y · V3.6 (60)</td><td>38/60 (63%)</td><td>32/60 (53%)</td><td class="hl">51/60 (85%)</td><td>+31.7 (+25.0 ~ +38.3)</td></tr>
+              <tr><td>Z · V3.8.1 (60)</td><td>27/60 (45%)</td><td>26/60 (43%)</td><td class="hl">60/60 (100%)</td><td>+56.7 (+50.0 ~ +63.3)</td></tr>
+              <tr><td>W · V3.9.0 (60)</td><td>26/60 (43%)</td><td>27/60 (45%)</td><td class="hl">60/60 (100%)</td><td>+55.0 (+48.3 ~ +60.0)</td></tr>
+              <tr class="sep"><td>V <span class="en">clinic</span><span class="ko">클리닉</span> · V3.9.1 (60)</td><td>46/60 (77%)</td><td>45/60 (75%)</td><td class="hl">57/60 (95%)</td><td>+20.0 (+10.0 ~ +30.0)</td></tr>
+              <tr><td>U <span class="en">school</span><span class="ko">학교</span> · V3.9.2 (60)</td><td>35/60 (58%)</td><td>40/60 (67%)</td><td class="hl">60/60 (100%)</td><td>+33.3 (+25.0 ~ +41.7)</td></tr>
+              <tr><td>T <span class="en">gym</span><span class="ko">체육관</span> · V3.10.0 (60)</td><td>37/60 (62%)</td><td>37/60 (62%)</td><td class="hl">60/60 (100%)</td><td>+38.3 (+30.0 ~ +46.7)</td></tr>
+              <tr><td>S <span class="en">studio</span><span class="ko">스튜디오</span> · V3.11.0 (60)</td><td>43/60 (72%)</td><td>35/60 (58%)</td><td class="hl">60/60 (100%)</td><td>+41.7 (+33.3 ~ +50.0)</td></tr>
+              <tr><td>S <span class="en">studio</span><span class="ko">스튜디오</span> · V3.15.0 (60)</td><td>43/60 (72%)</td><td>34/60 (57%)</td><td class="hl">60/60 (100%)</td><td>+43.3 (+36.7 ~ +51.7)</td></tr>
+              <tr><td>L <span class="en">~10× larger</span><span class="ko">약 10배</span> · V3.15.0 (60)</td><td>41/60 (68%)</td><td>40/60 (67%)</td><td class="hl">60/60 (100%)</td><td>+33.3 (+23.3 ~ +43.3)</td></tr>
+              <tr><td>T <span class="en">gym</span><span class="ko">체육관</span> · V3.15.1 (60)</td><td>39/60 (65%)</td><td>35/60 (58%)</td><td class="hl">60/60 (100%)</td><td>+41.7 (+33.3 ~ +50.0)</td></tr>
             </tbody>
           </table>
         </div>
-        <p><span class="en">The first full comparison (v3.4.0, scenarios A–F, 20 runs each) was a loss: 36.7% for Interlock against 67.5% for Shepherd and 62.5% without a tool. On set X (V3.5) Interlock again trailed, 68% against 77%.</span><span class="ko">처음 전체 비교(v3.4.0, A–F, 조건당 20회)는 졌습니다. Interlock 36.7%, Shepherd 67.5%, 도구 없음 62.5%였습니다. 세트 X(V3.5)에서도 Interlock이 68%로 Shepherd 77%에 뒤졌습니다.</span></p>
+        <p><span class="en">Interlock lost the first full comparison (v3.4.0) and set X (V3.5). On set V, V3.9.1 led by 20 points with 57/60, short of the +30-point bar we had set for calling a result decisive; the cause (a stale import hidden when a peer added the same import) was fixed in V3.9.2. Every version since V3.9.2 finished 60/60 on each set it was judged on. Where no interval is shown, it was not computed for that run.</span><span class="ko">Interlock은 처음 전체 비교(v3.4.0)와 세트 X(V3.5)에서 졌습니다. 세트 V에서 V3.9.1은 57/60으로 20%p 앞섰지만, 결정적이라고 부르기로 정한 +30%p에는 못 미쳤습니다. 원인(동료가 같은 import를 추가하면 내 쪽의 낡은 import가 가려지는 문제)은 V3.9.2에서 고쳤습니다. V3.9.2 이후 모든 버전은 판정한 세트마다 60/60이었습니다. 신뢰구간이 없는 칸은 그 실행에서 계산하지 않은 것입니다.</span></p>
+
+        <h2><span class="en">Runs not used for a verdict</span><span class="ko">판정에 쓰지 않은 실행</span></h2>
+        <div class="exp__wrap">
+          <table>
+            <thead><tr><th><span class="en">Run</span><span class="ko">실행</span></th><th><span class="en">No tool</span><span class="ko">도구 없음</span></th><th>Shepherd</th><th class="hl">Interlock</th><th><span class="en">Why</span><span class="ko">이유</span></th></tr></thead>
+            <tbody>
+              <tr><td>W · V3.9.1 <span class="en">code</span><span class="ko">코드</span> (60)</td><td>25/60</td><td>26/60</td><td class="hl">60/60</td><td><span class="en">Regression check on a development set</span><span class="ko">개발 세트에서 회귀 확인</span></td></tr>
+              <tr><td>Z · V3.9.1 <span class="en">code</span><span class="ko">코드</span> (60)</td><td>24/60</td><td>24/60</td><td class="hl">60/60</td><td><span class="en">Regression check on a development set</span><span class="ko">개발 세트에서 회귀 확인</span></td></tr>
+              <tr><td>Y · V3.9.1 <span class="en">code</span><span class="ko">코드</span> (60)</td><td>35/60</td><td>30/60</td><td class="hl">60/60</td><td><span class="en">Regression check on a development set</span><span class="ko">개발 세트에서 회귀 확인</span></td></tr>
+              <tr><td>S · V3.11.0, <span class="en">first run</span><span class="ko">첫 실행</span> (60)</td><td>29/60</td><td>27/60</td><td class="hl">40/60</td><td><span class="en">Invalid: our renaming broke strings in two hidden checks; rerun above</span><span class="ko">무효: 우리의 이름 바꾸기가 숨은 검사 두 개의 문자열을 깨뜨림, 위 표에서 재실행</span></td></tr>
+              <tr><td>L · V3.15.0, <span class="en">first run</span><span class="ko">첫 실행</span> (60)</td><td>41/60</td><td>38/60</td><td class="hl">51/60</td><td><span class="en">Invalid: our error in one task text; rerun above</span><span class="ko">무효: 과제 문장 하나에 우리의 오류, 위 표에서 재실행</span></td></tr>
+              <tr><td>T · V3.9.2, Sonnet 5.5 (17 <span class="en">runs</span><span class="ko">회</span>)</td><td>4/6</td><td>4/4</td><td class="hl">7/7</td><td><span class="en">Stopped early; not analysed</span><span class="ko">중간에 멈춤, 분석하지 않음</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted"><span class="en">The raw data of both invalid runs is kept; each correction was written down before its rerun.</span><span class="ko">무효 실행 두 건의 원자료는 보존했고, 정정 내용은 재실행 전에 기록했습니다.</span></p>
+
+        <h2><span class="en">A stronger model: Sonnet 5.5</span><span class="ko">더 강한 모델: Sonnet 5.5</span></h2>
+        <p><span class="en">On set S with V3.11.0 and 4 runs per scenario (24 per condition), Interlock finished 24/24, Shepherd 23/24 and no tool 19/24. The difference against Shepherd is +4.2 points (95% CI 0.0 to +12.5): not a clear win. Median time per run was 52.0 s against 71.2 s, and mean cost $0.354 against $0.445. With a stronger model Shepherd solved almost every scenario; most of the gap we measured with Haiku 5.5 disappears.</span><span class="ko">세트 S, V3.11.0, 시나리오당 4회(조건당 24회)에서 Interlock 24/24, Shepherd 23/24, 도구 없음 19/24였습니다. Shepherd와의 차이는 +4.2%p(95% 신뢰구간 0.0~+12.5)로 확실한 우위가 아닙니다. 시행당 시간 중앙값은 52.0초 대 71.2초, 평균 비용은 $0.354 대 $0.445입니다. 더 강한 모델에서는 Shepherd도 거의 모든 시나리오를 풀었고, Haiku 5.5에서 잰 격차는 대부분 사라집니다.</span></p>
 
         <h2><span class="en">Time and cost per run</span><span class="ko">시행당 시간과 비용</span></h2>
-        <p class="muted"><span class="en">Each cell: median time per run · mean cost per run. Time and cost were measured on a shared 2 vCPU container with up to four runs at once; absolute times depend on the machine.</span><span class="ko">칸마다: 시행당 시간 중앙값 · 시행당 평균 비용. 2 vCPU 공용 컨테이너에서 동시 최대 4시행으로 쟀으므로 절대 시간은 기계에 따라 달라집니다.</span></p>
+        <p class="muted"><span class="en">Each cell: median time per run · mean cost per run, on a shared 2 vCPU container with up to four runs at once. The line marks the change of container; absolute times depend on the machine.</span><span class="ko">칸마다: 시행당 시간 중앙값 · 시행당 평균 비용이고, 2 vCPU 공용 컨테이너에서 동시 최대 4시행으로 쟀습니다. 굵은 선에서 컨테이너가 바뀌었고, 절대 시간은 기계에 따라 달라집니다.</span></p>
         <div class="exp__wrap">
           <table>
-            <thead><tr><th><span class="en">Set</span><span class="ko">세트</span></th><th><span class="en">No tool</span><span class="ko">도구 없음</span></th><th>Shepherd</th><th class="hl">Interlock</th></tr></thead>
+            <thead><tr><th><span class="en">Set · version</span><span class="ko">세트 · 버전</span></th><th><span class="en">No tool</span><span class="ko">도구 없음</span></th><th>Shepherd</th><th class="hl">Interlock</th></tr></thead>
             <tbody>
-              <tr><td>A–F</td><td>33 s · $0.0097</td><td>50 s · $0.0143</td><td class="hl">59 s · $0.0178</td></tr>
-              <tr><td>X</td><td>35 s · $0.0121</td><td>53 s · $0.0174</td><td class="hl">62 s · $0.0211</td></tr>
-              <tr><td>Y</td><td>37 s · $0.0115</td><td>46 s · $0.0149</td><td class="hl">67 s · $0.0243</td></tr>
-              <tr><td>Z</td><td>20 s · $0.0105</td><td>32 s · $0.0144</td><td class="hl">31 s · $0.0120</td></tr>
-              <tr><td>W</td><td>25 s · $0.0094</td><td>46 s · $0.0144</td><td class="hl">36 s · $0.0096</td></tr>
+              <tr><td>A–F · V3.5</td><td>33 s · $0.0097</td><td>50 s · $0.0143</td><td class="hl">59 s · $0.0178</td></tr>
+              <tr><td>X · V3.5</td><td>35 s · $0.0121</td><td>53 s · $0.0174</td><td class="hl">62 s · $0.0211</td></tr>
+              <tr><td>Y · V3.6</td><td>37 s · $0.0115</td><td>46 s · $0.0149</td><td class="hl">67 s · $0.0243</td></tr>
+              <tr><td>Z · V3.8.1</td><td>20 s · $0.0105</td><td>32 s · $0.0144</td><td class="hl">31 s · $0.0120</td></tr>
+              <tr><td>W · V3.9.0</td><td>25 s · $0.0094</td><td>46 s · $0.0144</td><td class="hl">36 s · $0.0096</td></tr>
+              <tr class="sep"><td>V · V3.9.1</td><td>88 s · $0.0298</td><td>119 s · $0.0430</td><td class="hl">63 s · $0.0300</td></tr>
+              <tr><td>U · V3.9.2</td><td>72 s · $0.0275</td><td>103 s · $0.0389</td><td class="hl">52 s · $0.0274</td></tr>
+              <tr><td>T · V3.10.0</td><td>75 s · $0.0278</td><td>106 s · $0.0404</td><td class="hl">56 s · $0.0278</td></tr>
+              <tr><td>S · V3.11.0</td><td>79 s · $0.0294</td><td>107 s · $0.0409</td><td class="hl">56 s · $0.0295</td></tr>
+              <tr><td>S · V3.15.0</td><td>71 s · $0.0291</td><td>106 s · $0.0415</td><td class="hl">60 s · $0.0299</td></tr>
+              <tr><td>L · V3.15.0</td><td>97 s · $0.0311</td><td>130 s · $0.0426</td><td class="hl">77 s · $0.0313</td></tr>
+              <tr><td>T · V3.15.1</td><td>90 s · $0.0288</td><td>115 s · $0.0392</td><td class="hl">57 s · $0.0266</td></tr>
             </tbody>
           </table>
         </div>
-        <p><span class="en">Interlock was slower and more expensive than Shepherd on sets A–F, X and Y. After the V3.8–V3.9 changes it was about equal on Z (31 s against 32 s) and faster on W. Cost per successful run on W was $0.0096 with Interlock, $0.0321 with Shepherd and $0.0216 with no tool.</span><span class="ko">Interlock은 A–F, X, Y에서 Shepherd보다 느리고 비쌌습니다. V3.8~V3.9 개선 뒤 Z에서는 비슷했고(31초 대 32초), W에서는 더 빨랐습니다. W의 성공 1건당 비용은 Interlock $0.0096, Shepherd $0.0321, 도구 없음 $0.0216입니다.</span></p>
+        <p><span class="en">Interlock was slower and more expensive than Shepherd on A–F, X and Y. From V onward it had the lowest median time of the three conditions on every set, and cost about the same per run as no tool (from $0.0022 less on the last T run to $0.0008 more on S with V3.15.0) while Shepherd cost $0.0113 to $0.0130 more.</span><span class="ko">Interlock은 A–F, X, Y에서 Shepherd보다 느리고 비쌌습니다. V부터는 모든 세트에서 세 조건 중 시간 중앙값이 가장 짧았고, 시행당 비용은 도구 없음과 비슷했습니다(마지막 T 실행에서 $0.0022 적은 것부터 V3.15.0의 S에서 $0.0008 많은 것까지). Shepherd는 Interlock보다 $0.0113~$0.0130 더 들었습니다.</span></p>
+
+        <h2><span class="en">Other tools on set U</span><span class="ko">세트 U에서 다른 도구</span></h2>
+        <p><span class="en">With Interlock V3.9.2 we also compared other coordination tools on set U, each in the setup it is made for. With one worktree per agent: Interlock 60/60, Shepherd 42/60, no tool 40/60, foremerge 38/60, mcp_agent_mail 36/60, clash 0/60 (it asks a person before every flagged edit, and no person answers in these runs) and 35/60 when we assume a person approves every time. With all agents in one shared checkout: Interlock and no tool tied at 58/60, with Interlock 3.9 s slower and $0.0017 more per run; the file-claim tools finished 2 to 20 of 60. In a shared checkout we found no benefit from Interlock.</span><span class="ko">Interlock V3.9.2로 세트 U에서 다른 조율 도구도 각자 원래 쓰임새의 구조에서 비교했습니다. 에이전트마다 워크트리를 쓰면 Interlock 60/60, Shepherd 42/60, 도구 없음 40/60, foremerge 38/60, mcp_agent_mail 36/60이었고, clash는 표시한 편집마다 사람에게 묻는데 이 실행에는 답할 사람이 없어 0/60, 사람이 매번 승인한다고 가정하면 35/60이었습니다. 모든 에이전트가 체크아웃 하나를 같이 쓰면 Interlock과 도구 없음이 58/60으로 비겼고, Interlock이 시행당 3.9초 느리고 $0.0017 비쌌습니다. 파일 점유 도구들은 60회 중 2~20회였습니다. 공유 체크아웃에서는 Interlock의 이점이 없었습니다.</span></p>
 
         <h2><span class="en">Where the gain comes from</span><span class="ko">이득이 나오는 곳</span></h2>
-        <p><span class="en">The gain is concentrated in semantic conflicts: changes that merge cleanly as text but break another agent’s new code, such as a new required argument, a changed return type or a moved module (W1–W3). With Shepherd and no tool there was often no failed merge to repair, so the break reached main. On independent features and edits to the same function (W4, W5) all three conditions succeeded. Interlock catches the break before merging by sharing declared signatures and running tests on the state merged with teammates’ work.</span><span class="ko">이득은 의미 충돌에 몰려 있습니다. 텍스트로는 깨끗이 병합되지만 다른 에이전트의 새 코드를 깨뜨리는 변경, 곧 필수 인자 추가, 반환 타입 변경, 모듈 이동(W1~W3)입니다. Shepherd와 도구 없음에서는 고칠 병합 실패가 없는 경우가 많아 깨진 채 main에 들어갔습니다. 독립 기능과 같은 함수 편집(W4, W5)에서는 세 조건 모두 성공했습니다. Interlock은 선언된 시그니처를 공유하고 동료 작업과 병합한 상태로 테스트해서, 병합 전에 깨짐을 잡습니다.</span></p>
+        <p><span class="en">The gain is concentrated in semantic conflicts: changes that merge cleanly as text but break another agent’s new code, such as a new required argument, a changed return type, a moved module or a renamed setting. With Shepherd and no tool there was often no failed merge to repair, so the break reached main. On independent features and edits to the same function all three conditions succeeded in every set from W onward. Interlock catches the break before merging by sharing declared signatures and running tests on the state merged with teammates’ work.</span><span class="ko">이득은 의미 충돌에 몰려 있습니다. 텍스트로는 깨끗이 병합되지만 다른 에이전트의 새 코드를 깨뜨리는 변경, 곧 필수 인자 추가, 반환 타입 변경, 모듈 이동, 설정 이름 변경입니다. Shepherd와 도구 없음에서는 고칠 병합 실패가 없는 경우가 많아 깨진 채 main에 들어갔습니다. 독립 기능과 같은 함수 편집에서는 W 이후 모든 세트에서 세 조건 모두 성공했습니다. Interlock은 선언된 시그니처를 공유하고 동료 작업과 병합한 상태로 테스트해서, 병합 전에 깨짐을 잡습니다.</span></p>
 
         <h2><span class="en">Limits</span><span class="ko">한계</span></h2>
         <ul>
-          <li><span class="en">One model (Haiku 5.5). Sonnet, Opus, Codex, Cursor and OpenCode were not measured.</span><span class="ko">모델은 Haiku 5.5 하나입니다. Sonnet, Opus, Codex, Cursor, OpenCode는 재지 않았습니다.</span></li>
-          <li><span class="en">Small Python projects, six scenarios per set, 10 runs each. W uses the same six kinds of change as Y and Z (required argument, return type, rename or move, independent feature, same function, three agents) on a new codebase with new wording. Large refactors and other languages were not tested.</span><span class="ko">작은 Python 프로젝트, 세트마다 시나리오 6개, 각 10회입니다. W는 Y·Z와 같은 여섯 종류의 변경(필수 인자, 반환 타입, 이름 변경·이동, 독립 기능, 같은 함수, 에이전트 3개)을 새 코드베이스와 새 문장으로 만든 것입니다. 대규모 리팩터링과 다른 언어는 재지 않았습니다.</span></li>
-          <li><span class="en">Interlock’s per-turn time is still longer than Shepherd’s on W (4.6 s against 3.1 s); it finished sooner because it needed fewer turns and no conflict-resolution sessions.</span><span class="ko">W에서도 Interlock의 턴당 시간(4.6초)은 Shepherd(3.1초)보다 깁니다. 턴 수가 적고 충돌 해결 세션이 없어 더 일찍 끝났습니다.</span></li>
+          <li><span class="en">Almost all runs use one model (Haiku 5.5). On Sonnet 5.5 (one set, 24 runs per condition) the gap nearly vanished. Opus, Codex, Cursor and OpenCode were not measured.</span><span class="ko">거의 모든 실행이 모델 하나(Haiku 5.5)입니다. Sonnet 5.5(세트 하나, 조건당 24회)에서는 격차가 거의 사라졌습니다. Opus, Codex, Cursor, OpenCode는 재지 않았습니다.</span></li>
+          <li><span class="en">Small Python projects (set L is the largest, with about 2,800 extra lines), six scenarios per set, 10 runs each. Every set from Y on repeats the same kinds of change (required argument, return type, module move, independent feature, same function, and either three agents or a setting rename) on a new codebase with new wording, and we designed them. Large real repositories and other languages were not tested.</span><span class="ko">작은 Python 프로젝트(가장 큰 L은 약 2,800줄을 더함), 세트마다 시나리오 6개, 각 10회입니다. Y 이후의 모든 세트는 같은 종류의 변경(필수 인자, 반환 타입, 모듈 이동, 독립 기능, 같은 함수, 그리고 에이전트 3개 또는 설정 이름 변경)을 새 코드베이스와 새 문장으로 반복한 것이고, 우리가 설계했습니다. 실제 대형 저장소와 다른 언어는 재지 않았습니다.</span></li>
+          <li><span class="en">Interlock’s time per turn is longer than Shepherd’s (4.6 s against 3.1 s on W); it finishes sooner because it needs fewer turns and no conflict-resolution sessions.</span><span class="ko">Interlock의 턴당 시간은 Shepherd보다 깁니다(W에서 4.6초 대 3.1초). 턴 수가 적고 충돌 해결 세션이 없어 더 일찍 끝납니다.</span></li>
           <li><span class="en">One conflict-resolution session per run was allowed, following the plan, which favors tools that do not block edits.</span><span class="ko">계획서에 따라 시행마다 충돌 해결 세션 1회를 허용했고, 이는 편집을 막지 않는 도구에 유리하게 작용합니다.</span></li>
           <li><span class="en">Scoring is by script (merge result, pytest, hidden checks), with no blinded human review. The hidden checks are not published so that the scenarios stay usable.</span><span class="ko">평가는 스크립트(병합 결과, pytest, 숨겨진 검사)이고 사람의 블라인드 리뷰는 하지 않았습니다. 시나리오를 계속 쓰기 위해 숨겨진 검사는 공개하지 않습니다.</span></li>
-          <li><span class="en">We build Interlock. The pre-registration commits are in our private repository; the raw per-run data, Interlock source and harness are not public.</span><span class="ko">Interlock은 우리가 만든 도구입니다. 사전 등록 커밋은 비공개 저장소에 있고, 시행별 원자료와 Interlock 소스, 실험 도구는 공개하지 않습니다.</span></li>
+          <li><span class="en">We build Interlock. The pre-registration commits are in our private repository; the raw per-run data, Interlock source and harness are not public. In our own records, two summary lines were mistyped (Shepherd 36/60 on the last T run and no tool 15/24 on Sonnet); this page uses counts recomputed from the raw data (35/60 and 19/24).</span><span class="ko">Interlock은 우리가 만든 도구입니다. 사전 등록 커밋은 비공개 저장소에 있고, 시행별 원자료와 Interlock 소스, 실험 도구는 공개하지 않습니다. 내부 기록의 요약 줄 두 곳에 오타가 있었고(마지막 T 실행의 Shepherd 36/60, Sonnet의 도구 없음 15/24), 이 페이지는 원자료에서 다시 센 값(35/60, 19/24)을 씁니다.</span></li>
         </ul>
       </div>
     </section>

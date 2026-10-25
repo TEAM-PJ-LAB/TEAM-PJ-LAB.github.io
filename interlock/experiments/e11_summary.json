@@ -1,9 +1,31 @@
 {
   "experiment": "E11",
-  "description": "Pre-registered head-to-head: Interlock vs Shepherd 0.11.4 vs no tool. Real Claude Code agents (Claude Haiku 5.5) in parallel; success = all branches merged, no conflict left, visible tests and hidden checks pass. Aggregates only.",
-  "run_dates": "2026-10-22..2026-10-23",
+  "description": "Pre-registered head-to-heads: Interlock vs Shepherd 0.11.4 vs no tool. Real Claude Code agents in parallel; success = all branches merged, no conflict left, visible tests and hidden checks pass. Aggregates only, recomputed from the raw per-run data. Sets V onward ran in a different container, so compare time and cost only within a set.",
+  "run_dates": "2026-10-22..2026-10-25",
   "claude_code": "2.1.308",
   "sets": [
+    {
+      "set": "A-F",
+      "runs_per_condition": 120,
+      "interlock_version": "v3.4.0",
+      "model": "claude-haiku-5-5",
+      "use": "verdict (first full comparison)",
+      "success": {
+        "none": "75/120",
+        "shepherd": "81/120",
+        "interlock": "44/120"
+      },
+      "median_time_s": {
+        "none": 28.6,
+        "shepherd": 46.4,
+        "interlock": 36.0
+      },
+      "mean_cost_usd": {
+        "none": 0.0097,
+        "shepherd": 0.0146,
+        "interlock": 0.0134
+      }
+    },
     {
       "set": "A-F",
       "runs_per_condition": 120,
@@ -22,7 +44,9 @@
         "none": 0.0097,
         "shepherd": 0.0143,
         "interlock": 0.0178
-      }
+      },
+      "model": "claude-haiku-5-5",
+      "use": "verdict"
     },
     {
       "set": "X",
@@ -42,7 +66,9 @@
         "none": 0.0121,
         "shepherd": 0.0174,
         "interlock": 0.0211
-      }
+      },
+      "model": "claude-haiku-5-5",
+      "use": "verdict"
     },
     {
       "set": "Y",
@@ -62,7 +88,9 @@
         "none": 0.0115,
         "shepherd": 0.0149,
         "interlock": 0.0243
-      }
+      },
+      "model": "claude-haiku-5-5",
+      "use": "verdict"
     },
     {
       "set": "Z",
@@ -82,7 +110,9 @@
         "none": 0.0105,
         "shepherd": 0.0144,
         "interlock": 0.012
-      }
+      },
+      "model": "claude-haiku-5-5",
+      "use": "verdict"
     },
     {
       "set": "W",
@@ -102,6 +132,306 @@
         "none": 0.0094,
         "shepherd": 0.0144,
         "interlock": 0.0096
+      },
+      "model": "claude-haiku-5-5",
+      "use": "verdict"
+    },
+    {
+      "set": "V",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.9.1",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "46/60",
+        "shepherd": "45/60",
+        "interlock": "57/60"
+      },
+      "median_time_s": {
+        "none": 87.6,
+        "shepherd": 119.3,
+        "interlock": 62.9
+      },
+      "mean_cost_usd": {
+        "none": 0.0298,
+        "shepherd": 0.043,
+        "interlock": 0.03
+      }
+    },
+    {
+      "set": "U",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.9.2",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "35/60",
+        "shepherd": "40/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 72.0,
+        "shepherd": 102.5,
+        "interlock": 51.5
+      },
+      "mean_cost_usd": {
+        "none": 0.0275,
+        "shepherd": 0.0389,
+        "interlock": 0.0274
+      }
+    },
+    {
+      "set": "T",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.10.0",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "37/60",
+        "shepherd": "37/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 74.5,
+        "shepherd": 106.2,
+        "interlock": 55.9
+      },
+      "mean_cost_usd": {
+        "none": 0.0278,
+        "shepherd": 0.0404,
+        "interlock": 0.0278
+      }
+    },
+    {
+      "set": "S",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.11.0",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "43/60",
+        "shepherd": "35/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 78.8,
+        "shepherd": 106.8,
+        "interlock": 56.0
+      },
+      "mean_cost_usd": {
+        "none": 0.0294,
+        "shepherd": 0.0409,
+        "interlock": 0.0295
+      }
+    },
+    {
+      "set": "S",
+      "runs_per_condition": 24,
+      "interlock_version": "V3.11.0",
+      "model": "claude-sonnet-5-5",
+      "use": "verdict (Sonnet 5.5)",
+      "success": {
+        "none": "19/24",
+        "shepherd": "23/24",
+        "interlock": "24/24"
+      },
+      "median_time_s": {
+        "none": 58.6,
+        "shepherd": 71.2,
+        "interlock": 52.0
+      },
+      "mean_cost_usd": {
+        "none": 0.3247,
+        "shepherd": 0.4446,
+        "interlock": 0.3543
+      }
+    },
+    {
+      "set": "S",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.15.0",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "43/60",
+        "shepherd": "34/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 70.9,
+        "shepherd": 106.2,
+        "interlock": 59.5
+      },
+      "mean_cost_usd": {
+        "none": 0.0291,
+        "shepherd": 0.0415,
+        "interlock": 0.0299
+      }
+    },
+    {
+      "set": "L",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.15.0",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "41/60",
+        "shepherd": "40/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 97.2,
+        "shepherd": 130.4,
+        "interlock": 76.8
+      },
+      "mean_cost_usd": {
+        "none": 0.0311,
+        "shepherd": 0.0426,
+        "interlock": 0.0313
+      }
+    },
+    {
+      "set": "T",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.15.1",
+      "model": "claude-haiku-5-5",
+      "use": "verdict",
+      "success": {
+        "none": "39/60",
+        "shepherd": "35/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 89.8,
+        "shepherd": 114.5,
+        "interlock": 56.6
+      },
+      "mean_cost_usd": {
+        "none": 0.0288,
+        "shepherd": 0.0392,
+        "interlock": 0.0266
+      }
+    },
+    {
+      "set": "W",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.9.1 code",
+      "model": "claude-haiku-5-5",
+      "use": "regression check",
+      "success": {
+        "none": "25/60",
+        "shepherd": "26/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 16.9,
+        "shepherd": 32.5,
+        "interlock": 23.1
+      },
+      "mean_cost_usd": {
+        "none": 0.0096,
+        "shepherd": 0.0142,
+        "interlock": 0.0097
+      }
+    },
+    {
+      "set": "Z",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.9.1 code",
+      "model": "claude-haiku-5-5",
+      "use": "regression check",
+      "success": {
+        "none": "24/60",
+        "shepherd": "24/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 19.4,
+        "shepherd": 31.2,
+        "interlock": 24.2
+      },
+      "mean_cost_usd": {
+        "none": 0.0102,
+        "shepherd": 0.0142,
+        "interlock": 0.0098
+      }
+    },
+    {
+      "set": "Y",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.9.1 code",
+      "model": "claude-haiku-5-5",
+      "use": "regression check",
+      "success": {
+        "none": "35/60",
+        "shepherd": "30/60",
+        "interlock": "60/60"
+      },
+      "median_time_s": {
+        "none": 31.9,
+        "shepherd": 43.5,
+        "interlock": 26.4
+      },
+      "mean_cost_usd": {
+        "none": 0.0113,
+        "shepherd": 0.0146,
+        "interlock": 0.011
+      }
+    },
+    {
+      "set": "S",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.11.0",
+      "model": "claude-haiku-5-5",
+      "use": "invalid (hidden-check strings broken by our renaming)",
+      "success": {
+        "none": "29/60",
+        "shepherd": "27/60",
+        "interlock": "40/60"
+      },
+      "median_time_s": {
+        "none": 76.3,
+        "shepherd": 105.1,
+        "interlock": 58.8
+      },
+      "mean_cost_usd": {
+        "none": 0.0289,
+        "shepherd": 0.0403,
+        "interlock": 0.0305
+      }
+    },
+    {
+      "set": "L",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.15.0",
+      "model": "claude-haiku-5-5",
+      "use": "invalid (our error in one task text)",
+      "success": {
+        "none": "41/60",
+        "shepherd": "38/60",
+        "interlock": "51/60"
+      },
+      "median_time_s": {
+        "none": 101.3,
+        "shepherd": 143.2,
+        "interlock": 85.4
+      },
+      "mean_cost_usd": {
+        "none": 0.0308,
+        "shepherd": 0.042,
+        "interlock": 0.0314
+      }
+    },
+    {
+      "set": "T",
+      "runs_per_condition": 7,
+      "interlock_version": "V3.9.2",
+      "model": "claude-sonnet-5-5",
+      "use": "stopped early, not analysed (Sonnet 5.5)",
+      "success": {
+        "none": "4/6",
+        "shepherd": "4/4",
+        "interlock": "7/7"
       }
     }
   ],
