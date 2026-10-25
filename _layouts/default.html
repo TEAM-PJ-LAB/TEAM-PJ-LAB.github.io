@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css?v=22">
+  <link rel="stylesheet" href="/assets/css/style.css?v=23">
 
   <script>
     (function () {
@@ -66,7 +66,7 @@
         <span class="brand__name">PJ Group</span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Main">
-        <a href="/interlock/experiments/"{% if page.nav == 'results' %} aria-current="page"{% endif %}><span class="en">Results</span><span class="ko">실험 결과</span></a>
+        {%- unless page.home %}<a href="/interlock/experiments/"{% if page.nav == 'results' %} aria-current="page"{% endif %}><span class="en">Results</span><span class="ko">실험 결과</span></a>{% endunless %}
         <a href="/board/"{% if page.nav == 'board' %} aria-current="page"{% endif %}><span class="en">Board</span><span class="ko">게시판</span></a>
         <a href="/#team"><span class="en">Team</span><span class="ko">팀</span></a>
       </nav>
@@ -94,7 +94,7 @@
       </a>
       <nav class="footer__links" aria-label="Footer">
         <a href="/apps/">Interlock</a>
-        <a href="/interlock/experiments/"><span class="en">Results</span><span class="ko">실험 결과</span></a>
+        {%- unless page.home %}<a href="/interlock/experiments/"><span class="en">Results</span><span class="ko">실험 결과</span></a>{% endunless %}
         <a href="/board/"><span class="en">Board</span><span class="ko">게시판</span></a>
         <a href="/#team"><span class="en">Team</span><span class="ko">팀</span></a>
         <a href="mailto:pj.southkorea@gmail.com">Email</a>
