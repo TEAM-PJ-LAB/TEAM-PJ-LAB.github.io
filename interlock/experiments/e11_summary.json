@@ -1,8 +1,8 @@
 {
   "experiment": "E11",
   "description": "Pre-registered head-to-heads: Interlock vs Shepherd 0.11.4 vs no tool. Real Claude Code agents in parallel; success = all branches merged, no conflict left, visible tests and hidden checks pass. Aggregates only, recomputed from the raw per-run data. Sets V onward ran in a different container, so compare time and cost only within a set.",
-  "run_dates": "2026-10-22..2026-10-25",
-  "claude_code": "2.1.308",
+  "run_dates": "2026-10-22..2026-10-28",
+  "claude_code": "2.1.308 (A–F to W); 2.1.310 (set T, V3.15.1); 2.1.311 (rows of 2026-10-28)",
   "sets": [
     {
       "set": "A-F",
