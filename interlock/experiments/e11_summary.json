@@ -433,6 +433,99 @@
         "shepherd": "4/4",
         "interlock": "7/7"
       }
+    },
+    {
+      "set": "T",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.15.1",
+      "model": "claude-haiku-5-5",
+      "claude_code": "2.1.311",
+      "run_date": "2026-10-28",
+      "use": "ablation, not judged, not pre-registered: Interlock alone with the pre-merge test at Stop off (INTERLOCK_PREMERGE=0), as across developers' machines",
+      "success": {
+        "interlock": "51/60"
+      },
+      "by_scenario": {
+        "interlock": {
+          "t1": "9/10",
+          "t2": "9/10",
+          "t3": "3/10",
+          "t4": "10/10",
+          "t5": "10/10",
+          "t6": "10/10"
+        }
+      },
+      "conflicting_merges": {
+        "interlock": "43/260"
+      },
+      "median_s": {
+        "interlock": 47.5
+      },
+      "mean_cost_usd": {
+        "interlock": 0.0271
+      }
+    },
+    {
+      "set": "T",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.16.0",
+      "model": "claude-haiku-5-5",
+      "claude_code": "2.1.311",
+      "run_date": "2026-10-28",
+      "use": "development set for V3.16.0 (removal contracts), not judged: Interlock alone, pre-merge test off",
+      "success": {
+        "interlock": "59/60"
+      },
+      "by_scenario": {
+        "interlock": {
+          "t1": "10/10",
+          "t2": "9/10",
+          "t3": "10/10",
+          "t4": "10/10",
+          "t5": "10/10",
+          "t6": "10/10"
+        }
+      },
+      "conflicting_merges": {
+        "interlock": "51/260"
+      },
+      "median_s": {
+        "interlock": 53.0
+      },
+      "mean_cost_usd": {
+        "interlock": 0.0279
+      }
+    },
+    {
+      "set": "T",
+      "runs_per_condition": 60,
+      "interlock_version": "V3.16.0",
+      "model": "claude-haiku-5-5",
+      "claude_code": "2.1.311",
+      "run_date": "2026-10-28",
+      "use": "development set for V3.16.0 (removal contracts), not judged: Interlock alone, pre-merge test on",
+      "success": {
+        "interlock": "60/60"
+      },
+      "by_scenario": {
+        "interlock": {
+          "t1": "10/10",
+          "t2": "10/10",
+          "t3": "10/10",
+          "t4": "10/10",
+          "t5": "10/10",
+          "t6": "10/10"
+        }
+      },
+      "conflicting_merges": {
+        "interlock": "43/260"
+      },
+      "median_s": {
+        "interlock": 50.4
+      },
+      "mean_cost_usd": {
+        "interlock": 0.0273
+      }
     }
   ],
   "final_verdict_set_W": {
