@@ -7,7 +7,7 @@
    ========================================================= */
 (() => {
   'use strict';
-  const REPO = 'TEAM-PJ-LAB/team-pj-lab.github.io';
+  const REPO = 'TEAM-PJ-LAB/TEAM-PJ-LAB.github.io';
   const BRANCH = 'main';
   const POSTS = '_posts';
   const MEDIA = 'assets/board';

@@ -28,7 +28,7 @@ DB·서버 없이 **이 저장소 자체가 게시판**입니다. 글은 `_posts
 ### 사이트에서 로그인 — `/admin/`
 
 1. **처음 한 번 설정** (`/admin/` → *로그인 설정*)
-   - GitHub에서 세분화된 토큰(fine-grained PAT)을 만듭니다: Resource owner `TEAM-PJ-LAB`, *Only select repositories* → `team-pj-lab.github.io`, *Contents: Read and write*. 조직 승인 요청이 뜨면 조직 소유자가 승인합니다.
+   - GitHub에서 세분화된 토큰(fine-grained PAT)을 만듭니다: Resource owner `TEAM-PJ-LAB`, *Only select repositories* → `TEAM-PJ-LAB.github.io`, *Contents: Read and write*. 조직 승인 요청이 뜨면 조직 소유자가 승인합니다.
    - 토큰을 붙여 넣고 아이디·비밀번호를 정합니다.
    - 토큰은 브라우저에서 비밀번호로 암호화(PBKDF2-SHA256 600,000회 → AES-256-GCM, 아이디는 인증 데이터로 묶음)되어 `assets/admin/vault.json`에 **암호문만** 커밋됩니다.
 2. **이후** 어느 기기에서든 `/admin/`에서 아이디·비밀번호로 로그인 → 새 글 · 수정 · 삭제 · 사진 넣기.
