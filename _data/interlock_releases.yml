@@ -3,6 +3,16 @@
 # items: key changes, `en` and `ko` each. proof: optional link to the experiment that measured it.
 # Source: the project's CHANGELOG.md. Keep entries to what the changelog says.
 
+- version: "3.17.1"
+  date: "2026-10-28"
+  items:
+    - en: "The usage file (`interlock export`) keeps the days it already holds when a computer's store was reset, so a computer wiped every day and set up again from a USB drive keeps its history and its install id. Still numbers only."
+      ko: "사용량 파일(`interlock export`)이 컴퓨터의 저장소가 초기화돼도 파일에 이미 있는 날짜를 지킵니다. 매일 초기화되고 USB로 다시 설치하는 컴퓨터도 기록과 설치 id가 이어집니다. 여전히 숫자만 남깁니다."
+  proof:
+    url: "/interlock/experiments/e11/"
+    en: "Set T, Interlock alone, one machine: 59/60 (Shepherd 35/60 in E11); the failed run was a merge resolver out of turns"
+    ko: "세트 T, Interlock 단독, 한 기계: 59/60 (E11의 Shepherd 35/60), 실패 1회는 병합 해결 세션의 턴 소진"
+
 - version: "3.17.0"
   date: "2026-10-28"
   items:
