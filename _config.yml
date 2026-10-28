@@ -26,6 +26,10 @@ defaults:
       path: "google08e1dfb6159df86a.html"
     values:
       sitemap: false
+  - scope:
+      path: "google9fa164d9cc7c9e4a.html"
+    values:
+      sitemap: false
 
 exclude:
   - README.md
