@@ -632,7 +632,7 @@
         "interlock": "64/260"
       },
       "median_time_s": {
-        "none": 80.8,
+        "none": 80.9,
         "shepherd": 112.7,
         "interlock": 66.4
       },
