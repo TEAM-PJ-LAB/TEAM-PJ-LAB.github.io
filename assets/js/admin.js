@@ -83,7 +83,7 @@
 
   function explain(e) {
     if (e.status === 401) return L('The saved GitHub token is invalid or expired. Set up the login again.', '저장된 GitHub 토큰이 만료됐거나 잘못됐습니다. 로그인 설정을 다시 해 주세요.');
-    if (e.status === 403) return L('This token cannot write to the site repository (Contents: Read and write, approved for TEAM-PJ-LAB).', '이 토큰으로 사이트 저장소에 쓸 수 없습니다 (Contents: Read and write, TEAM-PJ-LAB 승인 필요).');
+    if (e.status === 403) return L('This token cannot write to the site repository (Contents: Read and write, approved for TEAM-PJ-LAB).', '이 토큰으로 사이트 저장소에 쓸 수 없습니다 (Contents: Read and write, TEAM-PJ-LAB 승인 필요).') + (e.message ? ` — GitHub: ${e.message}` : '');
     if (e.status === 404) return L('Not found, or this token cannot see the site repository.', '파일이 없거나, 이 토큰으로 사이트 저장소를 볼 수 없습니다.');
     if (e.status === 409 || e.status === 422) return L('The file changed elsewhere or already exists. Reload and try again.', '파일이 다른 곳에서 바뀌었거나 이미 있습니다. 새로고침 후 다시 해 주세요.');
     return e.message || String(e);
