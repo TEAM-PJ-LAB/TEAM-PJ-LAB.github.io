@@ -3,6 +3,18 @@
 # items: key changes, `en` and `ko` each. proof: optional link to the experiment that measured it.
 # Source: the project's CHANGELOG.md. Keep entries to what the changelog says.
 
+- version: "3.17.0"
+  date: "2026-10-28"
+  items:
+    - en: "The merged test at Stop reaches agents on other machines: each agent's work is pushed to the team's own git remote as a hidden ref, the server keeps only its commit id, and a peer's Stop tests its work merged with it."
+      ko: "끝내기 전의 병합 테스트가 다른 기계의 에이전트에게도 닿습니다. 각 에이전트의 작업을 팀의 git 원격에 숨은 ref로 올리고 서버에는 커밋 id만 남기며, 동료가 끝낼 때 그 작업과 병합해 테스트합니다."
+    - en: "A test an agent wrote that runs into a check another agent added is now that agent's to fit; before, nobody was told. Additions two agents make at one place are both kept in the check."
+      ko: "에이전트가 쓴 테스트가 다른 에이전트가 새로 넣은 검사에 걸리면, 이제 테스트를 쓴 에이전트에게 알려 고치게 합니다(전에는 아무에게도 알리지 않았습니다). 두 에이전트가 같은 곳에 추가한 코드는 병합 테스트에서 둘 다 살립니다."
+  proof:
+    url: "/interlock/experiments/e11/"
+    en: "E11, set Q, each agent on its own simulated machine: 54/60 vs Shepherd 38/60 and no tool 36/60, pre-registered"
+    ko: "E11, 세트 Q, 에이전트마다 다른 기계(재현): 54/60, Shepherd 38/60, 도구 없음 36/60, 사전 등록"
+
 - version: "3.16.0"
   date: "2026-10-28"
   items:
