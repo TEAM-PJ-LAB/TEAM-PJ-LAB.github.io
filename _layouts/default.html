@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css?v=25">
+  <link rel="stylesheet" href="/assets/css/style.css?v=26">
 
   <script>
     (function () {
@@ -53,12 +53,12 @@
       d.setAttribute('data-lang', l);
       d.lang = l;
       d.classList.add('js');
-      try { if (sessionStorage.getItem('pj-gh')) d.classList.add('is-admin'); } catch (e) {}
+      try { if (sessionStorage.getItem('pj-admin') === '1') d.classList.add('is-admin'); } catch (e) {}
     })();
   </script>
   {%- if page.admin %}
   <!-- After the inline script on purpose: a meta CSP only governs what follows it. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
   {%- endif %}
 </head>
 <body>
@@ -120,8 +120,7 @@
 
   <script src="/assets/js/main.js?v=4" defer></script>
   {%- if page.admin %}
-  <script src="/assets/js/vendor/js-yaml.min.js" defer></script>
-  <script src="/assets/js/admin.js?v=3" defer></script>
+  <script src="/assets/js/admin.js?v=4" defer></script>
   {%- endif %}
 </body>
 </html>
