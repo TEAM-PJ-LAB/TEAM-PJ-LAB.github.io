@@ -10,7 +10,7 @@
   {%- endif %}
   {%- assign desc = page.description | default: site.description %}
   <meta name="description" content="{{ desc | escape }}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="{% if page.admin %}noindex, nofollow{% else %}index, follow, max-image-preview:large{% endif %}">
   <meta name="author" content="Team PJ">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css?v=24">
+  <link rel="stylesheet" href="/assets/css/style.css?v=25">
 
   <script>
     (function () {
@@ -53,8 +53,13 @@
       d.setAttribute('data-lang', l);
       d.lang = l;
       d.classList.add('js');
+      try { if (sessionStorage.getItem('pj-gh')) d.classList.add('is-admin'); } catch (e) {}
     })();
   </script>
+  {%- if page.admin %}
+  <!-- After the inline script on purpose: a meta CSP only governs what follows it. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
+  {%- endif %}
 </head>
 <body>
 
@@ -98,6 +103,7 @@
         <a href="/board/"><span class="en">Board</span><span class="ko">게시판</span></a>
         <a href="/#team"><span class="en">Team</span><span class="ko">팀</span></a>
         <a href="mailto:pj.southkorea@gmail.com">Email</a>
+        <a href="/admin/"><span class="admin-only"><span class="en">Admin</span><span class="ko">관리</span></span><span class="admin-off"><span class="en">Log in</span><span class="ko">로그인</span></span></a>
         <a href="https://github.com/TEAM-PJ-LAB" target="_blank" rel="noopener">GitHub</a>
       </nav>
       {%- unless page.home %}
@@ -113,5 +119,9 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="/assets/js/main.js?v=4" defer></script>
+  {%- if page.admin %}
+  <script src="/assets/js/vendor/js-yaml.min.js" defer></script>
+  <script src="/assets/js/admin.js?v=1" defer></script>
+  {%- endif %}
 </body>
 </html>

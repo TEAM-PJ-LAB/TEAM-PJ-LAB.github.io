@@ -4,7 +4,10 @@ nav: board
 ---
     <article class="post">
       <div class="container container--narrow">
-        <a class="post__back" href="/board/"><span aria-hidden="true">←</span> <span class="en">Board</span><span class="ko">게시판</span></a>
+        <div class="post__top">
+          <a class="post__back" href="/board/"><span aria-hidden="true">←</span> <span class="en">Board</span><span class="ko">게시판</span></a>
+          <a class="btn btn--ghost btn--sm admin-only" href="/admin/#edit={{ page.path | uri_escape }}"><span class="en">Edit</span><span class="ko">수정</span></a>
+        </div>
         <header class="post__head">
           <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
           <h1 class="post__title">{{ page.title }}</h1>

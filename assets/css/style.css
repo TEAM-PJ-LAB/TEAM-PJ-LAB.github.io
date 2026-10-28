@@ -47,6 +47,7 @@ svg { display: block; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
 
 html[data-lang="ko"] .en, html[data-lang="en"] .ko { display: none !important; }
+[hidden] { display: none !important; }
 .sr-only {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -463,6 +464,43 @@ html[data-lang="ko"] .page-head__title { line-height: 1.2; letter-spacing: -.035
 .comments__title { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
 .comments__note { margin-top: 6px; font-size: 14.5px; color: var(--muted); }
 .giscus { margin-top: 20px; min-height: 120px; }
+
+/* Admin */
+html:not(.is-admin) .admin-only, html.is-admin .admin-off { display: none !important; }
+.post__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.page-head__admin { float: right; margin-top: 4px; }
+.page-head--admin { padding-bottom: 8px; }
+.admin-who { margin-top: 14px; font-size: 15px; color: var(--muted); }
+.link { color: var(--ink); font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--line-2); padding: 0; transition: border-color .15s; }
+.link:hover { border-color: var(--ink); }
+.admin-card { display: grid; gap: 18px; padding: clamp(22px, 3vw, 32px); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.admin-card[aria-busy="true"] { opacity: .7; }
+.admin-card__title { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+.admin-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.field { display: grid; gap: 6px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.field input, .field textarea { width: 100%; min-width: 0; padding: 11px 14px; border: 1px solid #8f8a80; border-radius: 10px; background: #fff; font: inherit; font-size: 16px; font-weight: 400; color: var(--ink); }
+.field textarea { resize: vertical; font: 15px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 1px; border-radius: 10px; }
+.field-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.admin-actions .btn[disabled] { opacity: .6; pointer-events: none; }
+.admin-danger { margin-left: auto; color: var(--accent-ink); }
+.admin-msg { font-size: 14.5px; font-weight: 500; color: var(--ink-2); }
+.admin-msg:empty { display: none; }
+.admin-note, .admin-alt { font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+.admin-steps { display: grid; gap: 8px; padding-left: 1.2em; list-style: decimal; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+.admin-steps a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.admin-posts { margin-top: 16px; border-top: 1px solid var(--line); }
+.admin-posts li { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.admin-posts time { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.admin-posts li > a:not(.link) { font-weight: 600; }
+.admin-posts li > a:not(.link):hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 720px) {
+  .field-row { grid-template-columns: 1fr; }
+  .admin-posts li { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; }
+  .admin-posts time { grid-column: 1 / -1; }
+  .page-head__admin { float: none; margin-bottom: 16px; }
+}
 
 /* Footer */
 .footer { border-top: 1px solid var(--line); padding: 32px 0; }

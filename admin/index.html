@@ -1,0 +1,92 @@
+---
+layout: default
+nav: board
+admin: true
+sitemap: false
+title: Admin
+description: "Team PJ board admin."
+---
+    <section class="page-head page-head--admin">
+      <div class="container container--narrow">
+        <p class="eyebrow"><span class="en">Admin</span><span class="ko">관리자</span></p>
+        <h1 class="page-head__title"><span class="en">Board admin.</span><span class="ko">게시판 관리.</span></h1>
+        <p class="admin-who" id="who" hidden><span id="whoName"></span> · <button type="button" class="link" id="logout"><span class="en">Log out</span><span class="ko">로그아웃</span></button></p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container container--narrow">
+
+        <noscript><p class="empty">JavaScript is required.</p></noscript>
+
+        <!-- Log in -->
+        <form class="admin-card" id="login" hidden autocomplete="on">
+          <h2 class="admin-card__title"><span class="en">Log in</span><span class="ko">로그인</span></h2>
+          <label class="field"><span><span class="en">ID</span><span class="ko">아이디</span></span>
+            <input name="user" autocomplete="username" autocapitalize="off" spellcheck="false" required></label>
+          <label class="field"><span><span class="en">Password</span><span class="ko">비밀번호</span></span>
+            <input name="pw" type="password" autocomplete="current-password" required></label>
+          <button class="btn btn--primary" type="submit"><span class="en">Log in</span><span class="ko">로그인</span></button>
+          <p class="admin-msg" role="status" aria-live="polite"></p>
+          <p class="admin-alt"><button type="button" class="link" data-go="setup"><span class="en">Set up or change the login</span><span class="ko">로그인 설정 / 비밀번호 변경</span></button></p>
+        </form>
+
+        <!-- One-time setup: seals a GitHub token with the ID and password -->
+        <form class="admin-card" id="setup" hidden autocomplete="off">
+          <h2 class="admin-card__title"><span class="en">Set up the login</span><span class="ko">로그인 설정</span></h2>
+          <ol class="admin-steps">
+            <li><span class="en">Create a</span><span class="ko">GitHub에서</span> <a href="https://github.com/settings/personal-access-tokens/new?name=Team%20PJ%20board&amp;description=team-pj-lab.github.io%20board%20admin&amp;contents=write" target="_blank" rel="noopener"><span class="en">fine-grained token</span><span class="ko">세분화된 토큰(fine-grained)</span></a><span class="en">: Resource owner <b>TEAM-PJ-LAB</b>, Only select repositories → <b>team-pj-lab.github.io</b>, Contents <b>Read and write</b>.</span><span class="ko">을 만듭니다 — Resource owner <b>TEAM-PJ-LAB</b>, Only select repositories → <b>team-pj-lab.github.io</b>, Contents <b>Read and write</b>.</span></li>
+            <li><span class="en">If the organization asks for approval, an owner approves it in the organization settings.</span><span class="ko">조직 승인 요청이 뜨면 조직 소유자가 조직 설정에서 승인합니다.</span></li>
+            <li><span class="en">Paste it below and choose the ID and password. The token is encrypted in this browser and only the encrypted copy is saved to the site.</span><span class="ko">아래에 붙여 넣고 아이디·비밀번호를 정합니다. 토큰은 이 브라우저에서 암호화되고, 사이트에는 암호화된 값만 저장됩니다.</span></li>
+          </ol>
+          <label class="field"><span><span class="en">GitHub token</span><span class="ko">GitHub 토큰</span></span>
+            <input name="token" type="password" autocomplete="off" spellcheck="false" required></label>
+          <label class="field"><span><span class="en">ID</span><span class="ko">아이디</span></span>
+            <input name="user" value="pj.korea" autocomplete="off" autocapitalize="off" spellcheck="false" required></label>
+          <label class="field"><span><span class="en">Password</span><span class="ko">비밀번호</span></span>
+            <input name="pw" type="password" autocomplete="new-password" required></label>
+          <label class="field"><span><span class="en">Password again</span><span class="ko">비밀번호 확인</span></span>
+            <input name="pw2" type="password" autocomplete="new-password" required></label>
+          <p class="admin-note"><span class="en">The encrypted copy is public, so a short password can be guessed offline. Use 12+ characters.</span><span class="ko">암호화된 값은 공개되므로 짧은 비밀번호는 오프라인에서 맞춰질 수 있습니다. 12자 이상을 쓰세요.</span></p>
+          <div class="admin-actions">
+            <button class="btn btn--primary" type="submit"><span class="en">Save login</span><span class="ko">로그인 저장</span></button>
+            <button class="btn btn--ghost" type="button" data-go="login"><span class="en">Cancel</span><span class="ko">취소</span></button>
+          </div>
+          <p class="admin-msg" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- Post list -->
+        <div id="list" hidden>
+          <div class="admin-bar">
+            <h2 class="admin-card__title"><span class="en">Posts</span><span class="ko">게시글</span></h2>
+            <a class="btn btn--accent btn--sm" href="#new"><span class="en">New post</span><span class="ko">새 글</span></a>
+          </div>
+          <p class="admin-msg" role="status" aria-live="polite"></p>
+          <ul class="admin-posts" id="posts"></ul>
+        </div>
+
+        <!-- Editor -->
+        <form class="admin-card" id="editor" hidden autocomplete="off">
+          <div class="admin-bar">
+            <h2 class="admin-card__title" id="edTitle"></h2>
+            <a class="link" href="#"><span class="en">← Posts</span><span class="ko">← 목록</span></a>
+          </div>
+          <label class="field"><span><span class="en">Title</span><span class="ko">제목</span></span><input name="subject" required></label>
+          <label class="field"><span><span class="en">Summary (one line, shown in the list)</span><span class="ko">요약 (목록에 보일 한 줄)</span></span><input name="description"></label>
+          <div class="field-row">
+            <label class="field"><span><span class="en">Date</span><span class="ko">날짜</span></span><input name="date" type="date" required></label>
+            <label class="field" id="slugField"><span><span class="en">Address (a–z, 0–9, -)</span><span class="ko">주소 (영문 소문자·숫자·-)</span></span><input name="slug" pattern="[a-z0-9]+(-[a-z0-9]+)*" spellcheck="false"></label>
+          </div>
+          <label class="field"><span><span class="en">Body — English (Markdown)</span><span class="ko">본문 — English (마크다운)</span></span><textarea name="en" rows="12" spellcheck="false"></textarea></label>
+          <label class="field"><span><span class="en">Body — 한국어 (Markdown)</span><span class="ko">본문 — 한국어 (마크다운)</span></span><textarea name="ko" rows="12" spellcheck="false"></textarea></label>
+          <p class="admin-note"><span class="en">Fill one body and it shows in both languages; fill both and the site's EN/KO switch picks one.</span><span class="ko">본문을 하나만 쓰면 두 언어 모두에 보이고, 둘 다 쓰면 사이트의 EN/KO 버튼에 맞춰 바뀝니다.</span></p>
+          <div class="admin-actions">
+            <button class="btn btn--primary" type="submit"><span class="en">Save</span><span class="ko">저장</span></button>
+            <label class="btn btn--ghost"><span class="en">Add image</span><span class="ko">사진 넣기</span><input type="file" name="img" accept="image/*" multiple hidden></label>
+            <button class="btn btn--ghost admin-danger" type="button" id="del"><span class="en">Delete</span><span class="ko">삭제</span></button>
+          </div>
+          <p class="admin-msg" role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
+    </section>
