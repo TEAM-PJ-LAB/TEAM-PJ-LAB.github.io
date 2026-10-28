@@ -62,7 +62,7 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
 
 /* ---------- Atoms ---------- */
 .brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand__mark { display: block; flex: none; width: auto; height: 22px; fill: var(--ink); }
+.brand__mark { display: block; flex: none; width: 28px; height: 28px; }
 .brand__name { font-weight: 700; font-size: 17px; letter-spacing: -.02em; }
 
 .btn {
