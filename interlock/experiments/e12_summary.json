@@ -61,7 +61,14 @@
    "label": "primary",
    "conflicts": 651,
    "clean": 546,
-   "status": "replay in progress"
+   "recall": "651/651",
+   "lower_bound": 0.9954,
+   "precision": 1.0,
+   "recall_without_merged_tests": "649/651",
+   "hidden_only": {
+    "precision": 0.9662
+   },
+   "met": true
   }
  ],
  "behaviour": [
@@ -323,5 +330,6 @@
    "Q": "54/60",
    "passed": true
   }
- ]
+ ],
+ "all_five_met_on": "V3.23.1 (primary definition; regression gate passed)"
 }

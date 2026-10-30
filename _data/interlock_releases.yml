@@ -10,8 +10,8 @@
       ko: "새 코드가 같은 파일의 다른 함수를 거쳐 닿는 함수를 동료가 고치고 있어도, 이제 에이전트가 끝내기 전에 그 동료를 기다립니다. 전에는 동료가 바꾸던 kg_free()를 부르는 has_room()을 새 코드가 부르면, 동료가 변경을 공유하기 전에 끝나 버려 옛 용량을 가정한 테스트가 병합 뒤 실패할 수 있었습니다."
   proof:
     url: "/interlock/experiments/e12/"
-    en: "Round 24, Sonnet 5.5, set N: 60/60 vs Shepherd 55/60, +8.3 points (95% CI +3.3 to +15.0); V3.23.0 had tied 55/60"
-    ko: "24차, Sonnet 5.5, 세트 N: 60/60, Shepherd 55/60, +8.3%p(95% 신뢰구간 +3.3~+15.0). V3.23.0은 55/60으로 비겼음"
+    en: "Round 24: all five targets met on this version: interface 651/651 with no false alarm; Sonnet 5.5 60/60 vs Shepherd 55/60 (V3.23.0 had tied)"
+    ko: "24차: 이 버전에서 다섯 목표 모두 달성. 인터페이스 651/651 오탐 0, Sonnet 5.5 60/60 대 Shepherd 55/60(V3.23.0은 비겼음)"
 
 - version: "3.23.0"
   date: "2026-10-30"
