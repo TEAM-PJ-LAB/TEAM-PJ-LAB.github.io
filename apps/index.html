@@ -128,7 +128,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
         <div class="section__head reveal">
           <p class="eyebrow"><span class="en">Results</span><span class="ko">실험 결과</span></p>
           <h2 class="section__title"><span class="en">We tested it before asking anyone to trust it.</span><span class="ko">믿어 달라고 하기 전에 먼저 검증했습니다.</span></h2>
-          <p class="section__lead"><span class="en">Ten published experiments, each with its method and limits; all but E11 also publish raw data (E11: summary data). The live-agent experiments used more than 20,000 real Claude Code sessions.</span><span class="ko">공개한 실험 10종, 모두 방법 · 한계와 함께, E11을 뺀 모두 원자료도 공개(E11은 요약 데이터). 실제 에이전트 실험에 Claude Code 세션을 20,000개 넘게 썼습니다.</span></p>
+          <p class="section__lead"><span class="en">Eleven published experiments, each with its method and limits; all but E11 and E12 also publish raw data (E11 and E12: summary data). The live-agent experiments used more than 20,000 real Claude Code sessions.</span><span class="ko">공개한 실험 11종, 모두 방법 · 한계와 함께, E11 · E12를 뺀 모두 원자료도 공개(E11 · E12는 요약 데이터). 실제 에이전트 실험에 Claude Code 세션을 20,000개 넘게 썼습니다.</span></p>
         </div>
 
         <figure class="bars reveal">
@@ -152,6 +152,9 @@ description: "Interlock lets many AI coding agents work on one codebase without 
         <div class="rule__more reveal">
           <p class="eyebrow"><span class="en">More experiments</span><span class="ko">다른 실험</span></p>
           <div class="rule-grid">
+            <a href="/interlock/experiments/e12/"><b>694/694</b><span class="en">E12 · interface conflicts caught on an unseen set, no false alarm (V3.22.3)</span><span class="ko">E12 · 처음 보는 세트에서 잡은 인터페이스 충돌, 오탐 0 (V3.22.3)</span></a>
+            <a href="/interlock/experiments/e12/"><b>60 vs 55</b><span class="en">E12 · runs correct out of 60 on Sonnet 5.5, Interlock vs Shepherd (V3.23.1)</span><span class="ko">E12 · Sonnet 5.5에서 60회 중 성공, Interlock 대 Shepherd (V3.23.1)</span></a>
+            <a href="/interlock/experiments/e12/"><b>0.83</b><span class="en">E12 · F1 on behavioural conflicts, mostly through merged tests (V3.23.1)</span><span class="ko">E12 · 동작 충돌 F1, 대부분 병합 테스트로 잡음 (V3.23.1)</span></a>
             <a href="/interlock/experiments/e1/"><b>20/20</b><span class="en">E1 · calls that fit a teammate's new signature, in real Claude Code sessions (0/20 without)</span><span class="ko">E1 · 실제 Claude Code 세션에서 동료의 새 시그니처에 맞은 호출 (없으면 0/20)</span></a>
             <a href="/interlock/experiments/e2/"><b>8 → 0</b><span class="en">E2 · merge conflicts when two agents edit the same or the next line</span><span class="ko">E2 · 두 에이전트가 같은 줄이나 바로 다음 줄을 고칠 때 병합 충돌</span></a>
             <a href="/interlock/experiments/e6/"><b>12/12</b><span class="en">E6 · branches merged when three agents change one backend (8/12 without)</span><span class="ko">E6 · 세 에이전트가 한 백엔드를 고칠 때 병합된 브랜치 (없으면 8/12)</span></a>
@@ -184,8 +187,9 @@ description: "Interlock lets many AI coding agents work on one codebase without 
               <ul>
                 <li><span class="en">Function-level claims, enforced at the edit, the commit and the merge</span><span class="ko">함수 단위 점유, 편집 · 커밋 · 머지 단계에서 차단</span></li>
                 <li><span class="en">Calls checked against a teammate's declared signature, with the reason for every refusal</span><span class="ko">동료가 선언한 시그니처에 맞춰 호출 검사, 모든 거부에 이유 제공</span></li>
-                <li><span class="en">Tested with live Claude Code sessions on small Python projects</span><span class="ko">작은 Python 프로젝트에서 실제 Claude Code 세션으로 검증</span></li>
-                <li><span class="en">Hook answers in about 3 to 6 ms on a 2,000-line file</span><span class="ko">2,000줄 파일에서 훅 응답 약 3~6 ms</span></li>
+                <li><span class="en">What a signature does not show (record keys, attributes, exceptions, return kinds, list order) checked the same way, and peers’ work tested merged while agents still work</span><span class="ko">시그니처로 드러나지 않는 것(레코드 키, 속성, 예외, 반환 종류, 목록 순서)도 같은 방식으로 검사하고, 에이전트가 일하는 동안 동료 작업과 병합해 테스트</span></li>
+                <li><span class="en">Tested with live Claude Code sessions (Haiku 5.5 and Sonnet 5.5) on small Python projects</span><span class="ko">작은 Python 프로젝트에서 실제 Claude Code 세션(Haiku 5.5 · Sonnet 5.5)으로 검증</span></li>
+                <li><span class="en">Hook answers in about 3 to 6 ms on a 2,000-line file; before an edit, p95 36.5 ms with every check on</span><span class="ko">2,000줄 파일에서 훅 응답 약 3~6 ms, 모든 검사를 켠 편집 전 훅 p95 36.5 ms</span></li>
               </ul>
             </div>
             <div class="status__col">
@@ -194,6 +198,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
                 <li><span class="en">Signature checks are complete for Python; JavaScript and TypeScript calls are checked by argument count only</span><span class="ko">시그니처 검사는 Python에서 완전하고, JavaScript와 TypeScript 호출은 인자 개수만 검사합니다</span></li>
                 <li><span class="en">Codex and Cursor hooks are not yet run with live agents</span><span class="ko">Codex · Cursor 훅은 아직 실제 에이전트로 돌려 보지 않았습니다</span></li>
                 <li><span class="en">Agents on separate machines have been tested only as a simulation on one machine</span><span class="ko">서로 다른 기계의 에이전트는 한 기계에서 재현한 시험만 했습니다</span></li>
+                <li><span class="en">A behaviour change that no test exposes is mostly missed: without merged tests, 25 of 250 such conflicts were caught on the latest unseen set</span><span class="ko">테스트로 드러나지 않는 동작 변경은 대부분 놓칩니다. 최신 처음 보는 세트에서 병합 테스트 없이 잡은 것은 250개 중 25개였습니다</span></li>
                 <li><span class="en">It refuses rather than resolves: an edit inside a function another agent holds, or over another branch's lines, is refused once and the retry goes through, recorded for whoever merges; a call that doesn't fit a declared signature, lines changed since the agent read them, and lines another agent is changing in the same checkout are refused every time</span><span class="ko">충돌을 해결하지 않고 거부합니다. 다른 에이전트가 점유한 함수 안이나 다른 브랜치의 줄을 고치는 편집은 한 번 거부하고, 재시도는 통과시키되 병합하는 사람을 위해 기록합니다. 선언된 시그니처에 맞지 않는 호출, 읽은 뒤 바뀐 줄, 같은 체크아웃에서 다른 에이전트가 고치는 줄은 매번 거부합니다</span></li>
                 <li><span class="en">Each turn takes longer than with Shepherd (4.6 s vs 3.1 s on set W), tasks that don't collide can cost more than with no tool, and hooks slow down on files of 5,000+ lines</span><span class="ko">턴당 시간이 Shepherd보다 길고(세트 W에서 4.6초 대 3.1초), 충돌이 없는 작업은 도구 없음보다 비용이 더 들 수 있으며, 5,000줄 이상 파일에서는 훅이 느려집니다</span></li>
               </ul>

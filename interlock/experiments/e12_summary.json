@@ -1,0 +1,327 @@
+{
+ "experiment": "E12",
+ "description": "Semantic conflicts caught before the merge: five targets fixed before measuring (2026-10-29), judged on new held-out sets in rounds 21-24. Targets 1-2: SCB units (peer change + Haiku-written new code), labelled by execution, replayed through Interlock's hooks without a model in three orders; a conflict is a hidden-check failure or a test conflict (primary, from round 22) or a hidden-check failure only (secondary). Targets 3-4: end-to-end runs with real Claude Code agents, each on its own simulated machine. Target 5: hook latency on development units. Aggregates only.",
+ "run_dates": "2026-10-29..2026-10-31",
+ "claude_code": "2.1.312 (round 21 sets M, N); 2.1.314 (round 24 sets M, N)",
+ "shepherd": "0.11.4",
+ "targets": {
+  "1_interface": "recall >= 0.99, one-sided 95% Clopper-Pearson lower bound >= 0.98, precision >= 0.99, in each of three orders",
+  "2_behaviour": "F1 >= 0.8 and precision >= 0.9, in each of three orders",
+  "3_parallelism": "set M, Haiku 5.5: CFTCR >= serial - 2 points; median time <= parallel-no-tool / 0.9",
+  "4_stronger_model": "set N, Sonnet 5.5: Interlock - Shepherd CFTCR, scenario-stratified bootstrap 95% CI lower bound > 0",
+  "5_speed": "pre-edit hook p95 <= 100 ms; Stop check median <= 10 s"
+ },
+ "interface": [
+  {
+   "round": 21,
+   "version": "V3.20.0",
+   "set": "SCB-H",
+   "label": "hidden check only",
+   "conflicts": 740,
+   "clean": 675,
+   "recall": "740/740",
+   "lower_bound": 0.996,
+   "precision": 0.932,
+   "met": false
+  },
+  {
+   "round": 22,
+   "version": "V3.21.0",
+   "set": "SCB-H2",
+   "label": "primary",
+   "conflicts": 644,
+   "clean": 525,
+   "recall": "644/644",
+   "lower_bound": 0.9954,
+   "precision": {
+    "a-first": 0.9969,
+    "c-first": 1.0,
+    "interleaved": 0.9969
+   },
+   "recall_without_merged_tests": "631/644",
+   "met": true
+  },
+  {
+   "round": 23,
+   "version": "V3.22.3",
+   "set": "SCB-H3",
+   "label": "primary",
+   "conflicts": 694,
+   "clean": 572,
+   "recall": "694/694",
+   "lower_bound": 0.9957,
+   "precision": 1.0,
+   "recall_without_merged_tests": "687/694",
+   "met": true
+  },
+  {
+   "round": 24,
+   "version": "V3.23.1",
+   "set": "SCB-H4",
+   "label": "primary",
+   "conflicts": 651,
+   "clean": 546,
+   "status": "replay in progress"
+  }
+ ],
+ "behaviour": [
+  {
+   "round": 21,
+   "version": "V3.20.0",
+   "set": "SCB-B",
+   "label": "hidden check only",
+   "conflicts": 152,
+   "clean": 363,
+   "recall": "108/152",
+   "precision": 0.61,
+   "f1": 0.657,
+   "met": false
+  },
+  {
+   "round": 22,
+   "version": "V3.21.0",
+   "set": "SCB-B2",
+   "label": "primary",
+   "conflicts": 243,
+   "clean": 288,
+   "recall": "213/243",
+   "precision": 0.964,
+   "f1": 0.918,
+   "recall_without_merged_tests": "2/243",
+   "hidden_only": {
+    "f1": 0.77
+   },
+   "met": true
+  },
+  {
+   "round": 23,
+   "version": "V3.22.3",
+   "set": "SCB-B3",
+   "label": "primary",
+   "conflicts": 236,
+   "clean": 291,
+   "recall": "184/236",
+   "precision": 1.0,
+   "f1": 0.876,
+   "recall_without_merged_tests": "16/236",
+   "hidden_only": {
+    "f1": 0.826,
+    "precision": 0.902
+   },
+   "met": true
+  },
+  {
+   "round": 24,
+   "version": "V3.23.1",
+   "set": "SCB-B4",
+   "label": "primary",
+   "conflicts": 250,
+   "clean": 292,
+   "recall": "181/250",
+   "lower_bound": 0.674,
+   "precision": 0.978,
+   "f1": 0.832,
+   "recall_without_merged_tests": "25/250",
+   "hidden_only": {
+    "f1": 0.776,
+    "precision": 0.87
+   },
+   "missed_all_without_test_conflict": 69,
+   "met": true
+  }
+ ],
+ "set_M_parallel_haiku": [
+  {
+   "version": "V3.20.0",
+   "interlock": "60/60",
+   "serial": "60/60",
+   "none": "34/60",
+   "median_time_s": {
+    "interlock": 57.5,
+    "serial": 48.5,
+    "none": 67.8
+   },
+   "met": true
+  },
+  {
+   "version": "V3.23.0",
+   "interlock": "60/60",
+   "serial": "60/60",
+   "none": "33/60",
+   "median_time_s": {
+    "interlock": 58.5,
+    "serial": 48.6,
+    "none": 67.0
+   },
+   "met": true,
+   "note": "superseded by V3.23.1"
+  },
+  {
+   "version": "V3.23.1",
+   "interlock": "60/60",
+   "serial": "60/60",
+   "none": "34/60",
+   "median_time_s": {
+    "interlock": 61.7,
+    "serial": 61.7,
+    "none": 72.0
+   },
+   "mean_cost_usd": {
+    "interlock": 0.0219,
+    "serial": 0.0124,
+    "none": 0.0223
+   },
+   "merges_conflicted_of_240": {
+    "interlock": 27,
+    "serial": 0,
+    "none": 91
+   },
+   "met": true
+  }
+ ],
+ "set_N_sonnet": [
+  {
+   "version": "V3.20.0",
+   "interlock": "58/60",
+   "shepherd": "54/60",
+   "none": "57/60",
+   "diff_vs_shepherd": "+6.7 (+1.7 to +13.3)",
+   "median_time_s": {
+    "interlock": 54.5,
+    "shepherd": 91.7,
+    "none": 89.1
+   },
+   "mean_cost_usd": {
+    "interlock": 0.3019,
+    "shepherd": 0.3872,
+    "none": 0.3155
+   },
+   "met": true
+  },
+  {
+   "version": "V3.23.0",
+   "interlock": "55/60",
+   "shepherd": "55/60",
+   "none": "52/60",
+   "diff_vs_shepherd": "+0.0 (-8.3 to +8.3)",
+   "median_time_s": {
+    "interlock": 56.2,
+    "shepherd": 70.6,
+    "none": 63.8
+   },
+   "mean_cost_usd": {
+    "interlock": 0.2926,
+    "shepherd": 0.3835,
+    "none": 0.312
+   },
+   "met": false,
+   "note": "all five failures on n6; fixed in V3.23.1"
+  },
+  {
+   "version": "V3.23.1",
+   "interlock": "60/60",
+   "shepherd": "55/60",
+   "none": "59/60",
+   "diff_vs_shepherd": "+8.3 (+3.3 to +15.0)",
+   "diff_vs_none": "+1.7 (+0.0 to +5.0)",
+   "median_time_s": {
+    "interlock": 59.5,
+    "shepherd": 98.0,
+    "none": 81.0
+   },
+   "mean_cost_usd": {
+    "interlock": 0.2877,
+    "shepherd": 0.3913,
+    "none": 0.3179
+   },
+   "met": true
+  }
+ ],
+ "latency_ms": [
+  {
+   "version": "V3.20.0",
+   "pre_edit": {
+    "n": 719,
+    "p50": 11.5,
+    "p95": 36.8
+   },
+   "post_edit": {
+    "n": 615,
+    "p50": 1.6,
+    "p95": 9.9
+   },
+   "stop_check_new_code_s": {
+    "median": 0.08,
+    "p95": 1.27
+   },
+   "stop_check_peer_s": {
+    "median": 0.65,
+    "p95": 1.37
+   }
+  },
+  {
+   "version": "V3.23.1",
+   "pre_edit": {
+    "n": 707,
+    "p50": 12.0,
+    "p95": 36.5
+   },
+   "post_edit": {
+    "n": 597,
+    "p50": 1.8,
+    "p95": 29.4
+   },
+   "after_read": {
+    "n": 180,
+    "p50": 72.9,
+    "p95": 97.8
+   },
+   "stop_check_new_code_s": {
+    "median": 0.08,
+    "p95": 1.39
+   },
+   "stop_check_peer_s": {
+    "median": 0.69,
+    "p95": 1.64
+   }
+  }
+ ],
+ "regression_gate": [
+  {
+   "version": "V3.20.0",
+   "O": "120/120",
+   "Q": "54/60",
+   "passed": true
+  },
+  {
+   "version": "V3.21.0",
+   "O": "120/120",
+   "Q": "52/60",
+   "passed": false
+  },
+  {
+   "version": "V3.22.2",
+   "O": "119/120",
+   "passed": false,
+   "note": "fixed as V3.22.3"
+  },
+  {
+   "version": "V3.22.3",
+   "O": "120/120",
+   "Q": "51/60",
+   "passed": false
+  },
+  {
+   "version": "V3.23.0",
+   "O": "120/120",
+   "Q": "55/60",
+   "passed": true
+  },
+  {
+   "version": "V3.23.1",
+   "O": "120/120",
+   "Q": "54/60",
+   "passed": true
+  }
+ ]
+}

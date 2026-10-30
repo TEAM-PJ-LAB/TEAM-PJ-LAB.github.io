@@ -3,6 +3,114 @@
 # items: key changes, `en` and `ko` each. proof: optional link to the experiment that measured it.
 # Source: the project's CHANGELOG.md. Keep entries to what the changelog says.
 
+- version: "3.23.1"
+  date: "2026-10-30"
+  items:
+    - en: "An agent's Stop now also waits for a peer changing a function that the new code reaches through another function of the same file. Before, new code calling has_room(), which calls the kg_free() a peer was changing, could finish before the peer shared its change, and its test of the old capacity failed after the merge."
+      ko: "새 코드가 같은 파일의 다른 함수를 거쳐 닿는 함수를 동료가 고치고 있어도, 이제 에이전트가 끝내기 전에 그 동료를 기다립니다. 전에는 동료가 바꾸던 kg_free()를 부르는 has_room()을 새 코드가 부르면, 동료가 변경을 공유하기 전에 끝나 버려 옛 용량을 가정한 테스트가 병합 뒤 실패할 수 있었습니다."
+  proof:
+    url: "/interlock/experiments/e12/"
+    en: "Round 24, Sonnet 5.5, set N: 60/60 vs Shepherd 55/60, +8.3 points (95% CI +3.3 to +15.0); V3.23.0 had tied 55/60"
+    ko: "24차, Sonnet 5.5, 세트 N: 60/60, Shepherd 55/60, +8.3%p(95% 신뢰구간 +3.3~+15.0). V3.23.0은 55/60으로 비겼음"
+
+- version: "3.23.0"
+  date: "2026-10-30"
+  items:
+    - en: "The checks a peer's function makes before it refuses are compared whatever their direction or variable names. New code repeating those checks is told when the peer's version adds or changes one."
+      ko: "동료 함수가 거부하기 전에 하는 검사를 방향·부정·변수 이름과 상관없이 비교합니다. 그 검사를 따라 쓴 새 코드는, 동료 버전이 검사를 더하거나 바꾸면 알림을 받습니다."
+    - en: "Values a peer's function computes on the way, and refusals a peer's version drops, are compared too: new code repeating the old computation, or catching an exception that is no longer raised, is told."
+      ko: "동료 함수가 중간에 계산하는 값과 동료 버전이 없앤 거부도 비교합니다. 옛 계산을 따라 쓰거나 더는 나지 않는 예외를 잡는 새 코드에 알립니다."
+  proof:
+    url: "/interlock/experiments/e12/"
+    en: "Held-out behaviour set B4 (V3.23.1): F1 0.832, precision 0.978; without the merged tests, recall only 25/250"
+    ko: "처음 보는 동작 세트 B4(V3.23.1): F1 0.832, 정밀도 0.978. 합친 테스트를 빼면 재현율 25/250뿐"
+
+- version: "3.22.3"
+  date: "2026-10-30"
+  items:
+    - en: "An agent's Stop waits for a peer whose own words, even unquoted, name an attribute or record key it is changing (\"rename trays to tray_count\")."
+      ko: "동료가 자기 말로 쓴 의도에 바꾸는 속성이나 레코드 키 이름이 있으면, 따옴표가 없어도(\"trays를 tray_count로\") 에이전트가 끝내기 전에 그 동료를 기다립니다."
+  proof:
+    url: "/interlock/experiments/e12/"
+    en: "Round 23, held out: interface conflicts 694/694 caught with no false alarm; behaviour F1 0.876"
+    ko: "23차, 처음 보는 세트: 인터페이스 충돌 694/694 탐지, 오탐 0. 동작 F1 0.876"
+
+- version: "3.22.2"
+  date: "2026-10-30"
+  items:
+    - en: "A work-in-progress check is no longer said about a file that changed after the check started, so an agent is not warned about a test that failed only because a module it wrote a moment later was missing."
+      ko: "작업 중 검사가 시작된 뒤에 바뀐 파일에 대한 결과는 더 이상 알리지 않습니다. 에이전트가 잠시 뒤 쓴 모듈이 그때 없어서 실패한 테스트로 잘못 경고하지 않습니다."
+
+- version: "3.22.1"
+  date: "2026-10-30"
+  items:
+    - en: "List order, a removed record and a replaced argument are no longer said about test files: a test relying on them shows it when it runs merged."
+      ko: "목록 순서, 꺼낸 기록, 바뀐 인자는 테스트 파일에 대해 알리지 않습니다. 그런 데 기대는 테스트는 병합 상태로 돌릴 때 드러납니다."
+
+- version: "3.22.0"
+  date: "2026-10-30"
+  items:
+    - en: "Any change in the order of a list a peer's function returns or a module keeps (sorted by another key, no longer sorted, inserted at another place) is compared with new code that relies on the order."
+      ko: "동료 함수가 돌려주거나 모듈이 가진 목록의 순서가 바뀌면(다른 키로 정렬, 정렬 안 함, 다른 자리에 삽입), 그 순서에 기대는 새 코드와 비교합니다."
+    - en: "New code reading a record that a peer's function now takes out, or reusing an argument that a peer's function may now replace, is told."
+      ko: "동료 함수가 이제 꺼내 버리는 기록을 읽거나, 동료 함수가 바꿔 넣을 수 있는 인자를 다시 쓰는 새 코드에 알립니다."
+
+- version: "3.21.1"
+  date: "2026-10-30"
+  items:
+    - en: "No error trace in the background service when a hook stops waiting for it and runs its check itself. No decision changed."
+      ko: "훅이 백그라운드 서비스를 기다리다 직접 검사로 넘어갈 때 서비스가 오류 기록을 남기지 않습니다. 판단은 바뀌지 않았습니다."
+
+- version: "3.21.0"
+  date: "2026-10-30"
+  items:
+    - en: "A list a peer's function no longer sorts is compared with new code that keeps or reads its order."
+      ko: "동료 함수가 더 이상 정렬하지 않는 목록을, 그 순서를 쓰는 새 코드와 비교합니다."
+    - en: "A test that fails the same way in the agent's own checkout alone is no longer reported as a merge conflict."
+      ko: "에이전트 자신의 체크아웃에서도 같은 이유로 실패하는 테스트는 병합 충돌로 알리지 않습니다."
+  proof:
+    url: "/interlock/experiments/e12/"
+    en: "Round 22, held out: interface conflicts 644/644 caught, precision 0.997; behaviour F1 0.918"
+    ko: "22차, 처음 보는 세트: 인터페이스 충돌 644/644 탐지, 정밀도 0.997. 동작 F1 0.918"
+
+- version: "3.20.1"
+  date: "2026-10-29"
+  items:
+    - en: "A Stop's interference check is not redone when nothing it looked at has changed, so an agent sent back once does not wait for the same check again."
+      ko: "확인한 것이 바뀌지 않았으면 끝내기 전 간섭 검사를 다시 하지 않습니다. 한 번 돌려보낸 에이전트가 같은 검사를 또 기다리지 않습니다."
+
+- version: "3.20.0"
+  date: "2026-10-29"
+  items:
+    - en: "Behaviour a peer changed under an agent's new code is looked for where no signature, key or attribute shows it: code repeating what the peer changed, the call paths between the two, whether any test runs through them, and inputs on which the new code answers differently once merged."
+      ko: "시그니처·키·속성으로 드러나지 않는, 동료가 바꾼 동작을 찾습니다. 동료가 바꾼 것을 따라 쓴 코드, 둘을 잇는 호출 경로, 그 경로를 지나는 테스트가 있는지, 병합하면 새 코드가 다르게 답하는 입력을 봅니다."
+    - en: "Where no test covers such a path and the merged code behaves otherwise, the agent is asked once for a test of that input."
+      ko: "그런 경로를 지나는 테스트가 없고 병합 상태에서 동작이 달라지면, 그 입력에 대한 테스트를 한 번 요청합니다."
+  proof:
+    url: "/interlock/experiments/e12/"
+    en: "Round 21: parallel runs as correct as serial (60/60); Sonnet 5.5 vs Shepherd +6.7 points; pre-edit hook p95 36.8 ms"
+    ko: "21차: 병렬 실행이 직렬만큼 정확(60/60), Sonnet 5.5에서 Shepherd 대비 +6.7%p, 편집 전 훅 p95 36.8 ms"
+
+- version: "3.19.0"
+  date: "2026-10-29"
+  items:
+    - en: "What a peer's function returns (dict, list, tuple and how many values, number, None) is compared with how new code uses the result, at the edit, while working and at Stop."
+      ko: "동료 함수가 돌려주는 것(딕셔너리, 리스트, 튜플과 값 개수, 숫자, None)을 새 코드가 그 결과를 쓰는 방식과 편집 때, 작업 중, 끝내기 전에 비교합니다."
+    - en: "Reading a module a peer is changing says what changes. Agents adding to the end of one file are each given a spot of their own."
+      ko: "동료가 바꾸는 모듈을 읽으면 무엇이 바뀌는지 알려 줍니다. 한 파일 끝에 코드를 더하는 에이전트들에게 각자 다른 자리를 줍니다."
+
+- version: "3.18.0"
+  date: "2026-10-29"
+  items:
+    - en: "Effect contracts: what a signature does not show (a record key, a class attribute, the exception raised, a module's name) is checked against the new code's uses, like signatures."
+      ko: "효과 계약: 시그니처로는 드러나지 않는 것(레코드 키, 클래스 속성, 던지는 예외, 모듈 이름)을 새 코드의 사용과 시그니처처럼 비교합니다."
+    - en: "Peers' work reaches an agent while both still work (shared at most every 15 s), and a work-in-progress check runs the affected tests merged with it."
+      ko: "동료의 작업이 둘 다 일하는 동안에도 전달되고(최대 15초마다 공유), 작업 중 검사가 영향받는 테스트를 그 작업과 병합해 돌립니다."
+  proof:
+    url: "/interlock/experiments/e11/"
+    en: "Round 20, held-out set P, each agent on its own simulated machine: 60/60 vs Shepherd 37/60 and no tool 39/60"
+    ko: "20차, 처음 보는 세트 P, 에이전트마다 다른 기계(재현): 60/60, Shepherd 37/60, 도구 없음 39/60"
+
 - version: "3.17.1"
   date: "2026-10-28"
   items:
