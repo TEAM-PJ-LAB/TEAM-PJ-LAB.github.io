@@ -44,6 +44,30 @@ description: "Team PJ is a software company from South Korea that builds develop
       </div>
     </section>
 
+    <section class="fl fl-band" id="frontling">
+      <div class="container fl-band__inner">
+        <div class="section__head reveal">
+          <p class="pill"><i class="dot dot--live"></i><span class="en">Now building</span><span class="ko">지금 만들고 있는 것</span></p>
+          <h2 class="section__title"><span class="fl-brand">{% include frontling-logo.html %}Frontling</span></h2>
+          <p class="section__title" style="margin-top:14px;font-size:clamp(24px,2.8vw,34px)"><span class="en">A professor's paper, turned into research a high school student can finish.</span><span class="ko">교수의 논문을, 고등학생이 끝낼 수 있는 연구로.</span></p>
+          <p class="section__lead"><span class="en">Frontling drafts two or three research projects from a recent paper, sized to the student's grade, weeks and laptop. The professor approves one, and the student is coached with hints, never with the answer. For students, researchers and schools in Korea and the US.</span><span class="ko">Frontling은 최근 논문으로 학생의 학년 · 기간 · 노트북 환경에 맞는 연구 과제를 2~3안으로 설계합니다. 교수가 하나를 승인하면 학생은 정답이 아닌 힌트로 코칭을 받습니다. 한국과 미국의 학생 · 연구자 · 학교를 위해 만들고 있습니다.</span></p>
+          <div class="fl-actions">
+            <a class="btn btn--fl" href="/frontling/"><span class="en">About Frontling</span><span class="ko">Frontling 자세히 보기</span> <span aria-hidden="true">→</span></a>
+            <a class="btn btn--fl-ghost" href="/frontling/#pilot"><span class="en">Join the pilot</span><span class="ko">파일럿 문의</span></a>
+          </div>
+        </div>
+        <figure class="fl-panel reveal" aria-label="Illustration of the Frontling milestone trail">
+          <p class="fl-panel__k"><span class="en">Milestone trail</span><span class="ko">마일스톤 길</span></p>
+          {% include frontling-trail.html id="home" %}
+          <div class="fl-chat" aria-hidden="true">
+            <p class="fl-chat__me"><b><span class="en">Your attempt · written first</span><span class="ko">내 시도 · 먼저 작성</span></b><i style="--w:220px"></i><i style="--w:150px"></i></p>
+            <p class="fl-chat__ai"><b><span class="en">AI hint · step 2 of 3 · Concept</span><span class="ko">AI 힌트 · 3단계 중 2 · 개념</span></b><i style="--w:240px"></i><i style="--w:120px"></i></p>
+          </div>
+          <figcaption><span class="en">Illustration. Done milestones are drawn as the wave from Frontling's icon, pink marks where the student is now, and AI hints are set apart in violet.</span><span class="ko">예시 화면입니다. 끝낸 구간은 Frontling 아이콘의 물결선, 현재 위치는 분홍 점으로 표시하고, AI 힌트는 보라색으로 학생의 글과 구분합니다.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section section--soft" id="products">
       <div class="container">
         <div class="section__head reveal">
@@ -58,9 +82,10 @@ description: "Team PJ is a software company from South Korea that builds develop
             <p class="more"><a href="/apps/"><span class="en">Open</span><span class="ko">보기</span> <span aria-hidden="true">→</span></a></p>
           </article>
           <article class="card reveal">
-            <span class="badge"><span class="en">In development</span><span class="ko">개발 중</span></span>
+            <div class="card__mark"><span class="badge"><span class="en">In development</span><span class="ko">개발 중</span></span>{% include frontling-logo.html %}</div>
             <h3><span class="en">Frontling</span><span class="ko">Frontling <span class="founder__alt">프론틀링</span></span></h3>
-            <p><span class="en">AI that turns professors' papers and research into personalized research and study roadmaps for students preparing for university admissions. Being built now, for the US and Korea.</span><span class="ko">교수의 논문과 연구를 입시를 준비하는 학생 맞춤 탐구 · 학습 로드맵으로 바꿔 주는 AI. 미국과 한국을 대상으로 현재 개발 중입니다.</span></p>
+            <p><span class="en">Turns a professor's recent paper into a research project a high school student can finish, coached with hints instead of answers. Not available yet.</span><span class="ko">교수의 최근 논문을 고등학생이 끝낼 수 있는 연구 과제로 바꾸고, 정답 대신 힌트로 코칭합니다. 아직 이용할 수 없습니다.</span></p>
+            <p class="more"><a href="/frontling/"><span class="en">Open</span><span class="ko">보기</span> <span aria-hidden="true">→</span></a></p>
           </article>
         </div>
       </div>
@@ -171,8 +196,8 @@ description: "Team PJ is a software company from South Korea that builds develop
               <span class="ko">코드 · 아키텍처 · 보안을 책임지고, 사용자를 직접 찾아 만납니다.</span>
             </p>
             <p class="founder__win">
-              <span class="en">Writing software since 2nd grade. Previously part-time CTO of a 10-developer startup; trained a 53M-parameter Korean language model from scratch.</span>
-              <span class="ko">초등학교 2학년 때부터 개발. 개발자 10명 스타트업의 파트타임 CTO 경험, 5,300만 파라미터 한국어 모델을 처음부터 학습.</span>
+              <span class="en">Previously part-time CTO of a 10-developer startup; trained a 53M-parameter Korean language model from scratch.</span>
+              <span class="ko">개발자 10명 스타트업의 파트타임 CTO 경험, 5,300만 파라미터 한국어 모델을 처음부터 학습.</span>
             </p>
             <dl class="founder__meta">
               <div><dt><span class="en">Focus</span><span class="ko">담당</span></dt><dd><span class="en">Engineering</span><span class="ko">엔지니어링</span></dd></div>
