@@ -650,10 +650,6 @@ html:not(.is-admin) .admin-only, html.is-admin .admin-off { display: none !impor
 .btn--fl-ghost { border-color: rgba(255, 255, 255, .3); color: #fff; }
 .btn--fl-ghost:hover { border-color: #fff; }
 .fl-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
-.fl-band { padding: clamp(72px, 10vw, 120px) 0; }
-.fl-band__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(40px, 6vw, 88px); }
-.fl-band .section__title { margin-top: 18px; }
-.fl-band .section__head { margin-bottom: 0; }
 
 /* Panels (trail, blueprint) */
 .fl-panel { margin: 0; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--fl-line); border-radius: var(--radius); background: var(--fl-bg-2); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6); }
@@ -662,17 +658,6 @@ html:not(.is-admin) .admin-only, html.is-admin .admin-off { display: none !impor
 html[data-lang="ko"] .fl-panel__k, html[data-lang="ko"] .fl-step__k { font-family: var(--font-kr); font-size: 13px; letter-spacing: 0; }
 .fl .hero__title { font-size: clamp(36px, 4.4vw, 56px); }
 html[data-lang="ko"] .fl .hero__title { font-size: clamp(32px, 3.8vw, 48px); }
-.fl-chat { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--fl-line); display: grid; gap: 10px; }
-.fl-chat p { max-width: 86%; padding: 12px 14px; border-radius: 12px; }
-.fl-chat b { display: block; margin-bottom: 8px; font-size: 12.5px; font-weight: 600; }
-.fl-chat i { display: block; height: 8px; width: var(--w, 100%); border-radius: 99px; }
-.fl-chat i + i { margin-top: 7px; }
-.fl-chat__me { justify-self: end; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .12); }
-.fl-chat__me b { color: rgba(255, 255, 255, .78); }
-.fl-chat__me i { background: rgba(255, 255, 255, .2); }
-.fl-chat__ai { background: rgba(201, 195, 255, .12); border: 1px solid rgba(201, 195, 255, .3); }
-.fl-chat__ai b { color: var(--fl-lav); }
-.fl-chat__ai i { background: rgba(201, 195, 255, .32); }
 .fl-trail { display: block; width: 100%; height: auto; margin-top: 8px; overflow: visible; }
 .fl-trail path { fill: none; stroke-width: 3; stroke-linecap: round; }
 .fl-trail__done { stroke: var(--fl-lav); }
@@ -728,7 +713,7 @@ html[data-lang="ko"] .fl .hero__title { font-size: clamp(32px, 3.8vw, 48px); }
 .card__mark .fl-logo { width: 32px; height: 32px; border-radius: 8px; }
 
 @media (max-width: 960px) {
-  .fl-band__inner, .fl-split { grid-template-columns: 1fr; }
+  .fl-split { grid-template-columns: 1fr; }
   .fl-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
@@ -737,3 +722,22 @@ html[data-lang="ko"] .fl .hero__title { font-size: clamp(32px, 3.8vw, 48px); }
   .fl-trail text { font-size: 17px; }
   .fl-trail__tag text { font-size: 16px; }
 }
+
+/* Home product cards: equal weight per product */
+.prods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.prod { display: flex; flex-direction: column; padding: clamp(24px, 3vw, 34px); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+.prod__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.prod__field { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.prod__name { margin-top: 16px; display: flex; align-items: center; gap: 12px; min-height: 36px; font-size: clamp(26px, 3vw, 32px); font-weight: 700; letter-spacing: -.035em; line-height: 1.1; }
+.prod__name .fl-logo { width: 36px; height: 36px; border-radius: 9px; }
+.prod__desc { margin: 12px 0 28px; font-size: 16.5px; line-height: 1.65; color: var(--ink-2); }
+.prod__vis { margin-top: auto; box-shadow: none; }
+.prod .fl-panel { padding: 16px 20px 14px; }
+.prod .fl-panel figcaption { margin-top: 6px; }
+.prod .more { margin-top: 22px; }
+.fl-rungs { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--fl-line); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.fl-rungs li { padding: 4px 10px; border-radius: 7px; background: rgba(201, 195, 255, .12); border: 1px solid rgba(201, 195, 255, .28); font-size: 12.5px; font-weight: 500; color: #e6e3ff; }
+.fl-rungs li:first-child { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .18); color: rgba(255, 255, 255, .8); }
+.fl-rungs .is-off { background: transparent; border-style: dashed; border-color: rgba(255, 255, 255, .22); color: rgba(255, 255, 255, .45); text-decoration: line-through; }
+.fl-rungs .is-off::before { content: "✕ "; display: inline-block; white-space: pre; }
+@media (max-width: 960px) { .prods { grid-template-columns: 1fr; } }
