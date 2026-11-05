@@ -14,7 +14,7 @@ GitHub Pages가 Jekyll로 빌드합니다. 공통 틀은 `_layouts/default.html`
 | | |
 |---|---|
 | `index.html` | 홈 (회사 소개 · 창업자 · 연락처) |
-| `frontling/index.html` | Frontling 소개 (개발 중 · 작동 방식 · 힌트 사다리 · 대상 · 현황 · 파일럿 문의). 아이콘은 `_includes/frontling-logo.html`, 마일스톤 그림은 `_includes/frontling-trail.html` |
+| `frontling/index.html` | Frontling 소개 (개발 중 · 왜 · 작동 방식 · 힌트 사다리 · 학생이 얻는 것 · 현황 · 파일럿 문의). 아이콘은 `_includes/frontling-logo.html`, 마일스톤 그림은 `_includes/frontling-trail.html` |
 | `apps/index.html` | Interlock 섹션 (소개 · 작동 방식 · 실험 · 현황 · 업데이트 기록 · 베타 신청) |
 | `board/index.html` | 게시판 목록 |
 | `_posts/` | 게시글 (마크다운) |

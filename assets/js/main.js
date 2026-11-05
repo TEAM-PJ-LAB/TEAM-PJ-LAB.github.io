@@ -54,6 +54,15 @@
   $$('#navLinks a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
+  /* Services dropdown: hover/focus opens it in CSS; click toggles it for touch */
+  $$('.nav__menu').forEach((m) => {
+    const b = m.querySelector('.nav__menu-btn');
+    const set = (o) => { m.classList.toggle('is-open', o); b.setAttribute('aria-expanded', String(o)); };
+    b.addEventListener('click', () => set(!m.classList.contains('is-open')));
+    document.addEventListener('click', (e) => { if (!m.contains(e.target)) set(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+  });
+
   /* ---------- Reveal on scroll ---------- */
   const reveals = $$('.reveal');
   if ('IntersectionObserver' in window) {
