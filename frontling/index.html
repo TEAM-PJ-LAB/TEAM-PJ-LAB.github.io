@@ -1,0 +1,222 @@
+---
+layout: default
+nav: frontling
+title: Frontling
+description: "Frontling turns a professor's recent paper into a research project a high school student can finish, and coaches with hints instead of answers. In development at Team PJ."
+og_image: /assets/frontling/og.png
+og_alt: "Frontling by Team PJ — research a high school student can finish."
+---
+    <!-- ============ HERO ============ -->
+    <section class="hero fl">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div>
+          <p class="pill reveal"><i class="dot dot--live"></i><span class="en">In development · not available yet</span><span class="ko">개발 중 · 아직 이용할 수 없음</span></p>
+          <p class="fl-brand reveal" style="margin-top:28px">{% include frontling-logo.html %}Frontling <small>by Team PJ</small></p>
+          <h1 class="hero__title reveal">
+            <span class="en">Turn a professor's paper into research a high school student can finish.</span>
+            <span class="ko">교수의 논문을, 고등학생이 끝낼 수 있는 연구로.</span>
+          </h1>
+          <p class="hero__lead reveal">
+            <span class="en">Frontling reads a recent paper and drafts two or three research projects sized to the student's grade, weeks and laptop. The professor approves one. Then the student is coached with hints, never with the answer.</span>
+            <span class="ko">Frontling은 최근 논문을 읽고 학생의 학년 · 기간 · 노트북 환경에 맞는 연구 과제를 2~3안으로 설계합니다. 교수가 그중 하나를 승인하면, 학생은 정답이 아닌 힌트로 코칭을 받습니다.</span>
+          </p>
+          <div class="fl-actions reveal">
+            <a class="btn btn--fl" href="#pilot"><span class="en">Join the pilot</span><span class="ko">파일럿 문의</span></a>
+            <a class="btn btn--fl-ghost" href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
+          </div>
+          <nav class="subnav reveal" aria-label="Frontling">
+            <a href="#why"><span class="en">Why</span><span class="ko">왜</span></a>
+            <a href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
+            <a href="#hints"><span class="en">Hints</span><span class="ko">힌트</span></a>
+            <a href="#who"><span class="en">Who it's for</span><span class="ko">대상</span></a>
+            <a href="#status"><span class="en">Status</span><span class="ko">현황</span></a>
+          </nav>
+        </div>
+        <figure class="fl-panel reveal" aria-label="Illustration of a Frontling project blueprint">
+          <div class="fl-bp__head">
+            <span class="fl-panel__k"><span class="en">Project blueprint · 2 of 3</span><span class="ko">과제 설계서 · 2 / 3안</span></span>
+            <span class="fl-tag"><span class="en">Awaiting professor review</span><span class="ko">교수 검토 대기</span></span>
+          </div>
+          <dl class="fl-bp__rows">
+            <div><dt><span class="en">Research question</span><span class="ko">연구 질문</span></dt><dd><i style="--w:94%"></i><i style="--w:62%"></i></dd></div>
+            <div><dt><span class="en">From the paper</span><span class="ko">원 논문과의 관계</span></dt><dd><span class="fl-chip"><span class="en">Reproduce</span><span class="ko">재현</span></span><span class="fl-chip is-on"><span class="en">Scale down</span><span class="ko">축소</span></span><span class="fl-chip"><span class="en">Extend</span><span class="ko">확장</span></span></dd></div>
+            <div><dt><span class="en">Data &amp; tools</span><span class="ko">데이터 · 도구</span></dt><dd><i style="--w:78%"></i></dd></div>
+            <div><dt><span class="en">Prerequisites</span><span class="ko">선수 지식</span></dt><dd><i style="--w:28%"></i><i style="--w:22%"></i><i style="--w:34%"></i></dd></div>
+          </dl>
+          <div class="fl-bp__trail">{% include frontling-trail.html id="hero" %}</div>
+          <div class="fl-bp__review" aria-hidden="true">
+            <span><span class="en">Edit</span><span class="ko">수정</span></span>
+            <span><span class="en">Reject</span><span class="ko">반려</span></span>
+            <span class="is-primary"><span class="en">Approve</span><span class="ko">승인</span></span>
+          </div>
+          <figcaption><span class="en">Illustration. Every plan has 3–6 milestones, and the first must fit in two weeks.</span><span class="ko">예시 화면입니다. 모든 설계서는 마일스톤 3~6개로, 첫 마일스톤은 2주 안에 끝나야 합니다.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="section section--soft stat" id="why" aria-label="Why hints">
+      <div class="container stat__inner reveal">
+        <p class="stat__num">17%</p>
+        <div class="stat__text">
+          <p class="stat__lead"><span class="en">lower exam grades for high school students who had practised with unrestricted GPT-4, compared with students who never had it.</span><span class="ko">제한 없는 GPT-4로 연습한 고등학생이, AI를 쓰지 않은 학생보다 시험에서 받은 낮은 성적.</span></p>
+          <p><span class="en">In the same field experiment, a tutor that gave hints instead of answers largely removed that harm. That is why Frontling coaches, and does not answer.</span><span class="ko">같은 현장 실험에서 답 대신 힌트를 준 튜터는 이 손해를 대부분 없앴습니다. 그래서 Frontling은 답하지 않고 코칭합니다.</span></p>
+          <p class="stat__src"><span class="en">Source:</span><span class="ko">출처:</span> <a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">Bastani et al., PNAS 122(26), 2025</a><span class="en">, field experiment with nearly 1,000 high school math students.</span><span class="ko">, 고등학생 약 1,000명 대상 수학 현장 실험.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">How it works</span><span class="ko">작동 방식</span></p>
+          <h2 class="section__title"><span class="en">From a paper to a finished project, in four steps.</span><span class="ko">논문에서 완성한 과제까지, 네 단계.</span></h2>
+          <p class="section__lead"><span class="en">The professor stays in the loop at both ends: nothing reaches a student before they approve it, and they see how the student is doing every week.</span><span class="ko">교수는 처음과 끝을 모두 지킵니다. 승인 전에는 어떤 과제도 학생에게 가지 않고, 학생의 진행은 매주 받아 봅니다.</span></p>
+        </div>
+        <ol class="grid fl-steps">
+          <li class="card fl-step reveal">
+            <p class="fl-step__k"><span class="en">01 · Paper</span><span class="ko">01 · 논문</span></p>
+            <h3><span class="en">Start from a real paper</span><span class="ko">실제 논문에서 시작</span></h3>
+            <p><span class="en">An arXiv ID, a DOI or a PDF. Links to the paper's code and data are pulled out automatically.</span><span class="ko">arXiv ID, DOI, PDF 중 하나면 됩니다. 논문의 코드 · 데이터 링크는 자동으로 찾아 둡니다.</span></p>
+          </li>
+          <li class="card fl-step reveal">
+            <p class="fl-step__k"><span class="en">02 · Plans</span><span class="ko">02 · 설계</span></p>
+            <h3><span class="en">Two or three project plans</span><span class="ko">과제 설계서 2~3안</span></h3>
+            <p><span class="en">Each plan has a question, data, tools and 3–6 milestones, sized to the student's grade, weeks and a laptop.</span><span class="ko">안마다 연구 질문 · 데이터 · 도구 · 마일스톤 3~6개가 있고, 학생의 학년 · 기간 · 노트북에 맞춥니다.</span></p>
+          </li>
+          <li class="card fl-step reveal">
+            <p class="fl-step__k"><span class="en">03 · Review</span><span class="ko">03 · 검토</span></p>
+            <h3><span class="en">The professor decides</span><span class="ko">교수가 결정</span></h3>
+            <p><span class="en">The paper's author edits, approves or rejects each plan, with a reason for every rejection.</span><span class="ko">논문 저자가 설계서를 수정 · 승인 · 반려합니다. 반려에는 반드시 사유를 남깁니다.</span></p>
+          </li>
+          <li class="card fl-step reveal">
+            <p class="fl-step__k"><span class="en">04 · Coaching</span><span class="ko">04 · 코칭</span></p>
+            <h3><span class="en">Hints, milestone by milestone</span><span class="ko">마일스톤마다 힌트</span></h3>
+            <p><span class="en">The student works through the milestones with hints, and the professor gets a weekly progress summary by email.</span><span class="ko">학생은 힌트를 받으며 마일스톤을 하나씩 끝내고, 교수는 매주 진행 요약을 메일로 받습니다.</span></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ HINTS ============ -->
+    <section class="section section--soft" id="hints">
+      <div class="container fl-split">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Hint ladder</span><span class="ko">힌트 사다리</span></p>
+          <h2 class="section__title"><span class="en">Hints, never the answer.</span><span class="ko">답 대신 힌트.</span></h2>
+          <p class="section__lead"><span class="en">The hint rule is part of Frontling, not a setting, so a student cannot switch it off. Every hint needs a written attempt first, and a model reply that reads like a full solution is held back before the student sees it.</span><span class="ko">힌트 규칙은 설정이 아니라 Frontling 자체라서 학생이 끌 수 없습니다. 힌트마다 먼저 시도를 적어야 하고, 풀이 전체처럼 보이는 모델 답변은 학생에게 가기 전에 걸러집니다.</span></p>
+          <p class="section__lead"><span class="en">Every attempt and every hint goes into the progress log the professor sees.</span><span class="ko">모든 시도와 힌트는 교수가 보는 진행 기록에 남습니다.</span></p>
+        </div>
+        <ol class="fl-ladder reveal" aria-label="Hint ladder">
+          <li class="is-first"><span class="fl-ladder__n" aria-hidden="true">✎</span><b><span class="en">Your attempt</span><span class="ko">내 시도</span></b><span><span class="en">Written first. No attempt, no hint.</span><span class="ko">먼저 적어야 힌트가 열립니다.</span></span></li>
+          <li><span class="fl-ladder__n">1</span><b><span class="en">Direction</span><span class="ko">방향</span></b><span><span class="en">Where to look next</span><span class="ko">다음에 어디를 볼지</span></span></li>
+          <li><span class="fl-ladder__n">2</span><b><span class="en">Concept</span><span class="ko">개념</span></b><span><span class="en">The idea this step needs</span><span class="ko">이 단계에 필요한 개념</span></span></li>
+          <li><span class="fl-ladder__n">3</span><b><span class="en">Partial example</span><span class="ko">부분 예시</span></b><span><span class="en">A piece of the method, not the whole</span><span class="ko">방법의 일부만, 전체는 아님</span></span></li>
+          <li class="is-off"><span class="fl-ladder__n" aria-hidden="true">✕</span><b><span class="en">The answer</span><span class="ko">정답</span></b><span><span class="en">Not a rung on this ladder</span><span class="ko">이 사다리에는 없는 단계</span></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ WHO ============ -->
+    <section class="section" id="who">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Who it's for</span><span class="ko">대상</span></p>
+          <h2 class="section__title"><span class="en">Built for the three people a student project needs.</span><span class="ko">학생 연구에 필요한 세 사람을 위해.</span></h2>
+        </div>
+        <div class="grid grid--3 fl-who">
+          <article class="card reveal">
+            <p class="fl-who__k"><span class="en">Students</span><span class="ko">학생</span></p>
+            <h3><span class="en">High school students</span><span class="ko">고등학생</span></h3>
+            <ul>
+              <li><span class="en">A project built from a real, recent paper</span><span class="ko">실제 최근 논문에서 나온 과제</span></li>
+              <li><span class="en">Milestones that fit your weeks, the first within two</span><span class="ko">내 기간에 맞춘 마일스톤, 첫 단계는 2주 안</span></li>
+              <li><span class="en">A quick check of what to study first, with study notes</span><span class="ko">먼저 공부할 개념 진단과 학습 자료</span></li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <p class="fl-who__k"><span class="en">Researchers</span><span class="ko">연구자</span></p>
+            <h3><span class="en">Professors &amp; grad students</span><span class="ko">교수 · 대학원생</span></h3>
+            <ul>
+              <li><span class="en">Project plans drafted from your own paper</span><span class="ko">본인 논문으로 만든 과제 설계서 초안</span></li>
+              <li><span class="en">You edit, approve or reject before any student sees it</span><span class="ko">학생에게 가기 전에 직접 수정 · 승인 · 반려</span></li>
+              <li><span class="en">A weekly progress summary in your inbox</span><span class="ko">매주 메일로 받는 진행 요약</span></li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <p class="fl-who__k"><span class="en">Schools</span><span class="ko">학교</span></p>
+            <h3><span class="en">Teachers &amp; science clubs</span><span class="ko">교사 · 과학 동아리</span></h3>
+            <ul>
+              <li><span class="en">Approved projects to assign to a whole class</span><span class="ko">승인된 과제를 반 전체에 배정</span></li>
+              <li><span class="en">Each student's milestone and latest attempt in one view</span><span class="ko">학생별 마일스톤과 최근 시도를 한 화면에</span></li>
+              <li><span class="en">Korean and English</span><span class="ko">한국어 · 영어 지원</span></li>
+            </ul>
+          </article>
+        </div>
+        <ul class="points reveal">
+          <li><b><span class="en">No ghostwriting</span><span class="ko">대필 없음</span></b><span class="en">Frontling will not write the paper or the report for the student.</span><span class="ko">Frontling은 학생 대신 논문이나 보고서를 쓰지 않습니다.</span></li>
+          <li><b><span class="en">Computer-based research</span><span class="ko">컴퓨터 기반 연구</span></b><span class="en">Version 1 covers data analysis, simulation and computation. No wet lab.</span><span class="ko">1차 버전은 데이터 분석 · 시뮬레이션 · 계산 과제만 다룹니다. 웻랩 실험은 없습니다.</span></li>
+          <li><b><span class="en">Consent first</span><span class="ko">동의가 먼저</span></b><span class="en">Nothing starts until the student's and a guardian's consent is on record.</span><span class="ko">학생 본인과 보호자의 동의가 기록되기 전에는 시작하지 않습니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section section--soft section--tight">
+      <div class="container apps">
+        <article class="app reveal" id="status">
+          <header class="app__head">
+            <div>
+              <p class="app__field"><span class="en">Status</span><span class="ko">현황</span></p>
+              <h2 class="app__name"><span class="en">Where Frontling is today</span><span class="ko">Frontling의 현재</span></h2>
+            </div>
+            <span class="badge"><span class="en">In development</span><span class="ko">개발 중</span></span>
+          </header>
+          <p class="app__desc">
+            <span class="en">Version 0.2.1 works end to end in our own tests, which use a stand-in model. It has not been run against the live model or deployed yet, so no one can sign up today.</span>
+            <span class="ko">버전 0.2.1은 대체 모델을 쓰는 자체 테스트에서 처음부터 끝까지 작동합니다. 실제 모델 검증과 배포는 아직이라 지금은 가입할 수 없습니다.</span>
+          </p>
+          <div class="status">
+            <div class="status__col">
+              <h3><span class="en">Built</span><span class="ko">만든 것</span></h3>
+              <ul>
+                <li><span class="en">Paper input from arXiv, DOI or PDF, with code and data links found in the paper</span><span class="ko">arXiv · DOI · PDF 논문 입력, 논문 속 코드 · 데이터 링크 추출</span></li>
+                <li><span class="en">Two or three plans per paper, checked for 3–6 milestones with the first within two weeks</span><span class="ko">논문당 설계서 2~3안, 마일스톤 3~6개 · 첫 단계 2주 이내 검사</span></li>
+                <li><span class="en">Professor review, milestone submissions and a weekly summary email</span><span class="ko">교수 검토, 마일스톤 제출 · 확인, 주간 요약 메일</span></li>
+                <li><span class="en">Hint coaching with attempt-first rules, daily limits and answer-leak screening</span><span class="ko">시도 우선 규칙 · 하루 상한 · 정답 유출 차단을 갖춘 힌트 코칭</span></li>
+                <li><span class="en">Prerequisite check with study notes, a reproducibility score for papers, and a teacher's class view</span><span class="ko">선수 지식 진단 · 학습 자료, 논문 재현 가능성 점수, 교사용 반 현황</span></li>
+              </ul>
+            </div>
+            <div class="status__col">
+              <h3><span class="en">Before launch</span><span class="ko">출시 전 남은 일</span></h3>
+              <ul>
+                <li><span class="en">Answer-leak tests against the live model, which must pass before any deploy</span><span class="ko">실제 모델 대상 정답 유출 평가 — 통과해야 배포</span></li>
+                <li><span class="en">Hosting, a domain and email delivery</span><span class="ko">호스팅 · 도메인 · 메일 발송 환경</span></li>
+                <li><span class="en">Legal review of the privacy notice and consent forms</span><span class="ko">개인정보 고지문 · 동의서 법률 검토</span></li>
+                <li><span class="en">A first free pilot with students and professors in Korea, planned for November–December 2026</span><span class="ko">한국 학생 · 교수와 첫 무료 파일럿 (2026년 11~12월 예정)</span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PILOT ============ -->
+    <section class="cta fl" id="pilot">
+      <div class="container cta__inner reveal">
+        <div>
+          <h2 class="section__title"><span class="en">Want to be part of the first pilot?</span><span class="ko">첫 파일럿에 함께하실래요?</span></h2>
+          <p class="cta__lead"><span class="en">We are looking for professors and graduate students with a recent paper, teachers who need research projects, and high school students who want to try real research.</span><span class="ko">최근 논문이 있는 교수 · 대학원생, 탐구 과제가 필요한 교사, 진짜 연구를 해 보고 싶은 고등학생을 찾고 있습니다.</span></p>
+        </div>
+        <div>
+          <a class="btn btn--fl" href="mailto:pj.southkorea@gmail.com?subject=%5BFrontling%5D%20Pilot"><span class="en">Email us about the pilot</span><span class="ko">파일럿 문의 메일 보내기</span></a>
+          <p class="cta__alt">
+            <span class="en">Or write to</span><span class="ko">또는 직접:</span>
+            <a href="mailto:pj.southkorea@gmail.com?subject=%5BFrontling%5D%20Pilot">pj.southkorea@gmail.com</a>
+            <button type="button" data-copy="pj.southkorea@gmail.com"><span class="en">Copy</span><span class="ko">복사</span></button>
+          </p>
+        </div>
+      </div>
+    </section>
