@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css?v=30">
+  <link rel="stylesheet" href="/assets/css/style.css?v=31">
 
   <script>
     (function () {
@@ -84,12 +84,14 @@
         <a href="/board/"{% if page.nav == 'board' %} aria-current="page"{% endif %}><span class="en">Board</span><span class="ko">게시판</span></a>
         <a href="/#team"{% if page.nav == 'team' %} aria-current="page"{% endif %}><span class="en">Team</span><span class="ko">팀</span></a>
         <a href="/#investors"><span class="en">Investors</span><span class="ko">투자자</span></a>
+        <a href="/admin/" class="nav__admin-m"{% if page.admin %} aria-current="page"{% endif %}><span class="en">Admin</span><span class="ko">관리자</span></a>
       </nav>
       <div class="nav__right">
         <div class="lang" role="group" aria-label="Language">
           <button type="button" data-lang-set="en" lang="en">EN</button>
           <button type="button" data-lang-set="ko" lang="ko">KO</button>
         </div>
+        <a href="/admin/" class="btn btn--ghost btn--sm nav__admin"{% if page.admin %} aria-current="page"{% endif %}><span class="en">Admin</span><span class="ko">관리자</span></a>
         <a href="/#contact" class="btn btn--primary btn--sm nav__cta"><span class="en">Contact</span><span class="ko">문의</span></a>
         <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
       </div>

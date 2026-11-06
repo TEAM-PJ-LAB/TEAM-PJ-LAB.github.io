@@ -157,6 +157,12 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .lang button { padding: 4px 9px; border-radius: 6px; font-size: 12px; font-weight: 600; letter-spacing: .02em; color: var(--muted); transition: color .15s, background-color .15s; }
 .lang button:hover { color: var(--ink); }
 .lang button.is-active { background: var(--bg-soft); color: var(--ink); }
+/* Admin link: header button on wide screens, menu item on phones. */
+.nav__links .nav__admin-m { display: none; }
+@media (max-width: 560px) {
+  .nav__right .nav__admin { display: none; }
+  .nav__links .nav__admin-m { display: block; }
+}
 .nav__burger { display: none; position: relative; width: 36px; height: 36px; }
 .nav__burger span { position: absolute; left: 9px; right: 9px; height: 1.5px; background: var(--ink); transition: transform .25s; }
 .nav__burger span:first-child { top: 14px; }
