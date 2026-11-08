@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://team-pj-lab.github.io/sitemap.xml
+Sitemap: https://team-pj-lab.github.io/CISS/sitemap.xml
