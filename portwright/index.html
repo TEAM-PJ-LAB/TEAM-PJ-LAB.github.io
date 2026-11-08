@@ -1,0 +1,173 @@
+---
+layout: default
+nav: portwright
+title: Portwright
+description: "Portwright ports new Linux security fixes into the old, vendor-frozen kernels that embedded devices ship with, and checks each patch by building and booting the kernel. In development at Team PJ."
+og_alt: "Portwright by Team PJ: new Linux security fixes for the kernels devices actually ship."
+---
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div>
+          <p class="pill reveal"><i class="dot dot--live"></i><span class="en">In development · not available yet</span><span class="ko">개발 중 · 아직 이용할 수 없음</span></p>
+          <h1 class="hero__title reveal">
+            <span class="sr-only">Portwright by Team PJ — </span>
+            <span class="en">New Linux security fixes, for the kernels your devices actually ship.</span>
+            <span class="ko">기기에 실제로 들어간 오래된 리눅스 커널에, 새 보안 수정을.</span>
+          </h1>
+          <p class="hero__lead reveal">
+            <span class="en">Chip vendors freeze their Linux kernels at an old version, so every new security fix has to be ported by hand. Portwright uses AI to port each upstream fix to the vendor kernel, then checks it by building the patched kernel and booting it.</span>
+            <span class="ko">칩 제조사는 리눅스 커널을 오래된 버전에 고정해 두기 때문에, 새 보안 수정이 나올 때마다 사람이 직접 옮겨야 합니다. Portwright는 AI로 upstream 수정을 벤더 커널에 맞게 옮기고, 패치한 커널을 빌드하고 부팅해 검증합니다.</span>
+          </p>
+          <div class="fl-actions reveal">
+            <a class="btn btn--primary" href="#contact-portwright"><span class="en">Talk to us</span><span class="ko">문의하기</span></a>
+            <a class="btn btn--ghost" href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
+          </div>
+          <nav class="subnav reveal" aria-label="Portwright">
+            <a href="#why"><span class="en">Why</span><span class="ko">왜</span></a>
+            <a href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
+            <a href="#results"><span class="en">Results</span><span class="ko">실험 결과</span></a>
+            <a href="#limits"><span class="en">Limits</span><span class="ko">한계</span></a>
+            <a href="#status"><span class="en">Status</span><span class="ko">현황</span></a>
+          </nav>
+        </div>
+        {% include portwright-log.html %}
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="section section--soft stat" id="why" aria-label="Why Portwright">
+      <div class="container why-2">
+        <div class="reveal">
+          <p class="stat__num">15 / 40</p>
+          <p class="stat__lead"><span class="en">recent upstream security fixes that failed to apply or compile, as published, on the vendor kernel we tested.</span><span class="ko">최근 upstream 보안 수정 40건 중, 그대로는 우리가 시험한 벤더 커널에 적용되지 않거나 컴파일되지 않은 수정.</span></p>
+          <p class="stat__text"><span class="en">The backports that kernel maintainers make for the 5.15 stable branch did not fit either: 8 of the 40 did not even apply. A frozen vendor tree drifts a long way from the branch it started from.</span><span class="ko">커널 관리자들이 5.15 stable 브랜치용으로 만든 백포트도 맞지 않았습니다. 40건 중 8건은 적용조차 되지 않았습니다. 고정된 벤더 트리는 출발한 브랜치에서 그만큼 멀어집니다.</span></p>
+          <p class="stat__src"><span class="en">Source: Portwright round 2, NXP linux-imx lf-5.15.y, fixes committed upstream after June 2026 (November 2026).</span><span class="ko">출처: Portwright 2차 실험, NXP linux-imx lf-5.15.y, 2026년 6월 이후 upstream에 들어간 수정 (2026년 11월).</span></p>
+        </div>
+        <div class="reveal">
+          <p class="stat__num"><span class="en">Sep 2026</span><span class="ko">2026.9</span></p>
+          <p class="stat__lead"><span class="en">the month vulnerability reporting under the EU Cyber Resilience Act began to apply (11 September).</span><span class="ko">EU 사이버 복원력법(CRA)의 취약점 보고 의무가 적용되기 시작한 달 (9월 11일).</span></p>
+          <p class="stat__text"><span class="en">Makers of connected products sold in the EU now carry legal duties around the vulnerabilities in what they ship. An old kernel that nobody patches is harder to justify than it used to be.</span><span class="ko">EU에서 판매되는 연결형 제품의 제조사는 이제 출하한 제품의 취약점에 대해 법적 의무를 집니다. 아무도 패치하지 않는 오래된 커널은 예전보다 정당화하기 어렵습니다.</span></p>
+          <p class="stat__src"><span class="en">Source:</span><span class="ko">출처:</span> <a href="https://www.mccannfitzgerald.com/knowledge/data-privacy-and-cyber-risk/cyber-resilience-act-reporting-obligations-apply-from-11-september-2026" target="_blank" rel="noopener">McCann FitzGerald, “Cyber Resilience Act: Reporting Obligations apply from 11 September 2026”</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">How it works</span><span class="ko">작동 방식</span></p>
+          <h2 class="section__title"><span class="en">Find the missing fix, port it, prove it builds and boots.</span><span class="ko">빠진 수정을 찾고, 옮기고, 빌드 · 부팅으로 확인합니다.</span></h2>
+          <p class="section__lead"><span class="en">An upstream patch that applies and compiles as published is checked and used as is. The AI only writes a backport when it does not.</span><span class="ko">upstream 패치가 그대로 적용되고 컴파일되면 검사한 뒤 그대로 씁니다. 그렇지 않을 때만 AI가 백포트를 작성합니다.</span></p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <p class="step__tag"><span class="en">01 · Find</span><span class="ko">01 · 찾기</span></p>
+            <h3><span class="en">List the fixes the vendor kernel is missing</span><span class="ko">벤더 커널에 빠진 수정 목록</span></h3>
+            <p><span class="en">Public kernel CVE data shows which security fixes reached the stable branch after the vendor froze its kernel.</span><span class="ko">공개된 커널 CVE 데이터로, 벤더가 커널을 고정한 뒤 stable 브랜치에 들어간 보안 수정을 찾습니다.</span></p>
+          </li>
+          <li class="step reveal">
+            <p class="step__tag"><span class="en">02 · Port</span><span class="ko">02 · 옮기기</span></p>
+            <h3><span class="en">Rewrite the fix for the vendor code</span><span class="ko">벤더 코드에 맞게 수정을 다시 작성</span></h3>
+            <p><span class="en">An AI agent rewrites the upstream fix against the vendor tree. A separate critic agent reviews the draft and sends it back once if the fix is incomplete.</span><span class="ko">AI 에이전트가 upstream 수정을 벤더 트리에 맞게 다시 작성합니다. 별도의 비판 에이전트가 초안을 검토하고, 수정이 불완전하면 한 번 되돌려 고치게 합니다.</span></p>
+          </li>
+          <li class="step reveal">
+            <p class="step__tag"><span class="en">03 · Check</span><span class="ko">03 · 검증</span></p>
+            <h3><span class="en">Apply, build, compare, boot</span><span class="ko">적용 · 빌드 · 비교 · 부팅</span></h3>
+            <p><span class="en">Each patch must apply and cross-compile for arm64 with no new warnings, and is compared with the upstream fix. Then all patches go in together, and the kernel has to boot in QEMU.</span><span class="ko">패치마다 적용되고 arm64로 새 경고 없이 크로스 컴파일되어야 하며, upstream 수정과 비교합니다. 마지막으로 모든 패치를 함께 넣은 커널이 QEMU에서 부팅되어야 합니다.</span></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="section section--soft" id="results">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Results</span><span class="ko">실험 결과</span></p>
+          <h2 class="section__title"><span class="en">Two rounds on one vendor kernel.</span><span class="ko">벤더 커널 하나로 두 번 실험했습니다.</span></h2>
+          <p class="section__lead"><span class="en">NXP linux-imx lf-5.15.y (based on 5.15.71), arm64, 40 fixes per round. The deciding round, R2, used fixes committed upstream after June 2026, after the model's training cutoff. Both rounds were pre-registered, and every change to the plan is logged.</span><span class="ko">NXP linux-imx lf-5.15.y(5.15.71 기반), arm64, 라운드마다 수정 40건. 판정 라운드인 R2는 모델 학습 시점 이후인 2026년 6월 이후 upstream에 들어간 수정만 썼습니다. 두 라운드 모두 사전등록했고, 계획에서 바뀐 점은 모두 기록했습니다.</span></p>
+        </div>
+        <ul class="facts reveal">
+          <li><b>15 / 15</b><span class="en">R2: fixes the upstream patch could not handle, ported, compiled and judged equivalent (95% interval 80–100%)</span><span class="ko">R2: upstream 패치로 안 되던 수정을 옮겨 컴파일하고 동등 판정까지 통과 (95% 구간 80~100%)</span></li>
+          <li><b>16 / 17</b><span class="en">R1: the same test on 2022–24 fixes, which the model may have seen in training</span><span class="ko">R1: 모델이 학습 중 봤을 수 있는 2022~24년 수정으로 한 같은 실험</span></li>
+          <li><b>40</b><span class="en">R2 fixes applied together; the patched kernel still boots in QEMU</span><span class="ko">R2 수정 40건을 한꺼번에 넣은 커널도 QEMU에서 부팅</span></li>
+          <li><b>~120k</b><span class="en">AI tokens per fix in R2, including the critic and the review</span><span class="ko">R2 수정 1건당 AI 토큰 (비판 · 검토 포함)</span></li>
+        </ul>
+        <p class="section__lead reveal" style="margin-top:28px"><span class="en">The critic was the most useful step: in R2 it caught two incomplete drafts before scoring, and both were fixed in one revision. One of them matched the human stable backport line for line, so matching the human backport is not proof that a fix is right.</span><span class="ko">가장 쓸모 있던 단계는 비판 에이전트였습니다. R2에서 채점 전에 불완전한 초안 2건을 잡아냈고, 두 건 모두 한 번의 수정으로 고쳐졌습니다. 그중 하나는 사람이 만든 stable 백포트와 한 줄도 다르지 않았습니다. 사람 백포트와 같다고 해서 맞는 수정이라는 증거가 되지는 않습니다.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ LIMITS ============ -->
+    <section class="section" id="limits">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Limits</span><span class="ko">한계</span></p>
+          <h2 class="section__title"><span class="en">What these numbers do not show.</span><span class="ko">이 수치가 보여 주지 못하는 것.</span></h2>
+          <p class="section__lead"><span class="en">Read the results as “the method works on this sample”, not “the patches are proven correct”.</span><span class="ko">결과는 “이 표본에서 방법이 통한다”로 읽어야 하며, “패치가 맞다고 증명됐다”는 뜻이 아닙니다.</span></p>
+        </div>
+        <ul class="points reveal">
+          <li><b><span class="en">AI judging AI</span><span class="ko">AI가 AI를 채점</span></b><span class="en">The author, the critic and the reviewers come from one model family, so their mistakes may line up. No human kernel engineer has reviewed the patches yet.</span><span class="ko">작성 · 비판 · 검토를 모두 같은 계열 모델이 했기 때문에, 실수가 같은 방향으로 겹칠 수 있습니다. 사람 커널 엔지니어의 검토는 아직 받지 않았습니다.</span></li>
+          <li><b><span class="en">Builds and boots is not fixed</span><span class="ko">빌드 · 부팅 ≠ 해결</span></b><span class="en">Compiling and booting are the only checks that do not rely on AI. No exploit, KUnit or other runtime test has been run.</span><span class="ko">AI에 기대지 않는 검사는 컴파일과 부팅뿐입니다. 공격 재현(PoC) · KUnit 같은 실행 시험은 아직 하지 않았습니다.</span></li>
+          <li><b><span class="en">Small sample</span><span class="ko">작은 표본</span></b><span class="en">One vendor tree, one architecture and 15 ported fixes in the deciding round.</span><span class="ko">벤더 트리 하나, 아키텍처 하나, 판정 라운드에서 옮긴 수정 15건입니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section section--soft section--tight">
+      <div class="container apps">
+        <article class="app reveal" id="status">
+          <header class="app__head">
+            <div>
+              <p class="app__field"><span class="en">Status</span><span class="ko">현황</span></p>
+              <h2 class="app__name"><span class="en">Where Portwright is today</span><span class="ko">Portwright의 현재</span></h2>
+            </div>
+            <span class="badge"><span class="en">In development</span><span class="ko">개발 중</span></span>
+          </header>
+          <p class="app__desc">
+            <span class="en">Portwright is a research pipeline today, not a product you can use. Two rounds are done on one vendor kernel; the next step is a blind check by a human kernel engineer.</span>
+            <span class="ko">Portwright는 지금 연구용 파이프라인 단계이며, 아직 쓸 수 있는 제품은 아닙니다. 벤더 커널 하나로 두 차례 실험을 마쳤고, 다음 단계는 사람 커널 엔지니어의 블라인드 검토입니다.</span>
+          </p>
+          <div class="status">
+            <div class="status__col">
+              <h3><span class="en">Built</span><span class="ko">만든 것</span></h3>
+              <ul>
+                <li><span class="en">A pipeline from a missing CVE fix to a patched kernel that boots, for NXP lf-5.15.y on arm64</span><span class="ko">빠진 CVE 수정에서 부팅되는 패치 커널까지 이어지는 파이프라인 (NXP lf-5.15.y, arm64)</span></li>
+                <li><span class="en">An independent critic step that reviews every AI backport before it is scored</span><span class="ko">채점 전에 모든 AI 백포트를 검토하는 독립 비판 단계</span></li>
+                <li><span class="en">Automatic gates: apply, arm64 compile with no new warnings, comparison with the upstream fix, QEMU boot</span><span class="ko">자동 검사: 적용 · 새 경고 없는 arm64 컴파일 · upstream 수정과 비교 · QEMU 부팅</span></li>
+                <li><span class="en">Pre-registered experiments whose numbers are all generated from committed files</span><span class="ko">사전등록한 실험, 모든 수치는 커밋된 파일에서 자동 생성</span></li>
+              </ul>
+            </div>
+            <div class="status__col">
+              <h3><span class="en">Next</span><span class="ko">다음 할 일</span></h3>
+              <ul>
+                <li><span class="en">A blind review of sample patches by a human kernel engineer</span><span class="ko">사람 커널 엔지니어의 표본 패치 블라인드 검토</span></li>
+                <li><span class="en">A third round on a second vendor or kernel line, such as a 6.1 BSP</span><span class="ko">다른 벤더나 커널 버전(예: 6.1 BSP)으로 3차 실험</span></li>
+                <li><span class="en">Runtime tests beyond compile and boot</span><span class="ko">컴파일 · 부팅을 넘어선 실행 시험</span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" id="contact-portwright">
+      <div class="container cta__inner reveal">
+        <div>
+          <h2 class="section__title"><span class="en">Do your devices run a vendor Linux kernel?</span><span class="ko">기기에 벤더 리눅스 커널을 쓰고 계신가요?</span></h2>
+          <p class="cta__lead"><span class="en">We are looking for embedded device makers who want to try Portwright on their own BSP kernel.</span><span class="ko">자사 BSP 커널로 Portwright를 시험해 볼 임베디드 기기 제조사를 찾고 있습니다.</span></p>
+        </div>
+        <div>
+          <a class="btn btn--light" href="mailto:pj.southkorea@gmail.com?subject=%5BPortwright%5D%20Inquiry"><span class="en">Email us about Portwright</span><span class="ko">Portwright 문의 메일 보내기</span></a>
+          <p class="cta__alt">
+            <span class="en">Or write to</span><span class="ko">또는 직접:</span>
+            <a href="mailto:pj.southkorea@gmail.com?subject=%5BPortwright%5D%20Inquiry">pj.southkorea@gmail.com</a>
+            <button type="button" data-copy="pj.southkorea@gmail.com"><span class="en">Copy</span><span class="ko">복사</span></button>
+          </p>
+        </div>
+      </div>
+    </section>

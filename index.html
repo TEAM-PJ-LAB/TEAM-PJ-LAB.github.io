@@ -19,6 +19,7 @@ description: "Team PJ is a software company from South Korea. We design, build a
             <a href="/apps/">Interlock</a>
             <a href="/frontling/">Frontling</a>
             <a href="/ciss/">CISS</a>
+            <a href="/portwright/">Portwright</a>
           </nav>
         </div>
       </div>
@@ -104,6 +105,16 @@ description: "Team PJ is a software company from South Korea. We design, build a
               <figcaption><span class="en">From the CISS lineage of Introsort</span><span class="ko">CISS의 Introsort 계보 중</span></figcaption>
             </figure>
             <p class="more"><a href="/ciss/"><span class="en">CISS: how it works and status</span><span class="ko">CISS 작동 방식 · 현황</span> <span aria-hidden="true">→</span></a></p>
+          </article>
+          <article class="prod reveal">
+            <div class="prod__top">
+              <p class="prod__field"><span class="en">Embedded security</span><span class="ko">임베디드 보안</span></p>
+              <span class="badge"><span class="en">In development</span><span class="ko">개발 중</span></span>
+            </div>
+            <h3 class="prod__name">Portwright</h3>
+            <p class="prod__desc"><span class="en">Ports new Linux security fixes into the old, vendor-frozen kernels that embedded devices ship with, then checks each patch by building and booting the kernel. In our latest test on an NXP kernel, all 15 fixes the upstream patch could not handle were ported, built and judged equivalent; no human kernel engineer has reviewed them yet.</span><span class="ko">임베디드 기기에 들어간, 벤더가 고정해 둔 오래된 리눅스 커널에 새 보안 수정을 옮겨 넣고, 커널을 빌드하고 부팅해 패치마다 검증합니다. NXP 커널로 한 최근 실험에서 upstream 패치로는 안 되던 수정 15건을 모두 옮겨 빌드했고 동등 판정을 받았습니다. 사람 커널 엔지니어의 검토는 아직입니다.</span></p>
+            {% include portwright-log.html class="prod__vis" %}
+            <p class="more"><a href="/portwright/"><span class="en">Portwright: how it works and status</span><span class="ko">Portwright 작동 방식 · 현황</span> <span aria-hidden="true">→</span></a></p>
           </article>
         </div>
       </div>

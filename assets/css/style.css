@@ -718,11 +718,11 @@ html[data-lang="ko"] .fl .hero__title { font-size: clamp(32px, 3.8vw, 48px); }
 .fl-chip.is-on { border-color: var(--fl-lav); background: rgba(201, 195, 255, .14); color: #fff; }
 .fl-bp__trail { margin-top: 4px; padding-top: 14px; border-top: 1px solid var(--fl-line); }
 
-.fl-why { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px clamp(32px, 6vw, 80px); }
-.fl-why .stat__num { font-size: clamp(56px, 6.4vw, 88px); }
-.fl-why .stat__lead { margin-top: 18px; }
-.fl-why .stat__text { display: block; font-size: 16px; line-height: 1.6; }
-@media (max-width: 720px) { .fl-why { grid-template-columns: 1fr; } }
+.fl-why, .why-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px clamp(32px, 6vw, 80px); }
+.fl-why .stat__num, .why-2 .stat__num { font-size: clamp(56px, 6.4vw, 88px); }
+.fl-why .stat__lead, .why-2 .stat__lead { margin-top: 18px; }
+.fl-why .stat__text, .why-2 .stat__text { display: block; font-size: 16px; line-height: 1.6; }
+@media (max-width: 720px) { .fl-why, .why-2 { grid-template-columns: 1fr; } }
 
 /* Steps, ladder, audiences (light sections) */
 .fl-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }

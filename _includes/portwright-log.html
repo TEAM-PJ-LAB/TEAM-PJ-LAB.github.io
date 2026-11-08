@@ -1,0 +1,11 @@
+{%- comment -%} Real R2 case (RESULTS.md). include.class: extra figure classes. {%- endcomment -%}
+<figure class="term {{ include.class | default: 'reveal' }}" aria-label="How Portwright handled CVE-2026-68467">
+  <div class="term__bar"><i></i><i></i><i></i><span>portwright · CVE-2026-68467</span></div>
+  <ol class="term__log">
+    <li><b class="v v--stop">fail</b><span class="a">upstream</span><span class="m">does not compile: <code>spi_get_device_match_data()</code> is not in the vendor tree</span></li>
+    <li><b class="v v--clear">pass</b><span class="a">portwright</span><span class="m">backport applies and builds for arm64</span></li>
+    <li><b class="v v--clear">pass</b><span class="a">check</span><span class="m">judged equivalent to the upstream fix</span></li>
+    <li><b class="v v--clear">pass</b><span class="a">boot</span><span class="m">kernel with all 40 R2 fixes boots in QEMU</span></li>
+  </ol>
+  <figcaption><span class="en">From Portwright round 2 (R2), NXP lf-5.15.y</span><span class="ko">Portwright 2차 실험(R2) 중, NXP lf-5.15.y</span></figcaption>
+</figure>
