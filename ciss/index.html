@@ -1,0 +1,192 @@
+---
+layout: default
+nav: ciss
+title: CISS
+description: "CISS is a free registry of who first published the algorithms in public code and how later ones were derived, with a source for every link: search, a lineage map and a repository scan."
+og_alt: "CISS by Team PJ: who first came up with the algorithms in your code."
+---
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div>
+          <p class="pill reveal"><i class="dot dot--live"></i><span class="en">Live · free · no sign-up</span><span class="ko">공개 · 무료 · 가입 없음</span></p>
+          <h1 class="hero__title reveal">
+            <span class="sr-only">CISS by Team PJ — </span>
+            <span class="en">Who first came up with the algorithms in your code?</span>
+            <span class="ko">내 코드 속 알고리즘, 누가 처음 만들었을까?</span>
+          </h1>
+          <p class="hero__lead reveal">
+            <span class="en">CISS (Code Information Sharing Service) records who first designed the algorithms in public code and how later ones were derived from them, with a source for every link. Search an algorithm, follow its lineage, or scan a repository to see whose ideas it is built on.</span>
+            <span class="ko">CISS(Code Information Sharing Service)는 공개 코드 속 알고리즘을 누가 처음 설계했고 이후 무엇이 어떻게 파생됐는지, 연결마다 출처를 붙여 기록합니다. 알고리즘을 검색하고, 계보를 따라가고, 저장소를 분석해 그 코드가 누구의 아이디어 위에 있는지 볼 수 있습니다.</span>
+          </p>
+          <div class="fl-actions reveal">
+            <a class="btn btn--primary en" href="/CISS/en/">Open CISS <span aria-hidden="true">→</span></a>
+            <a class="btn btn--primary ko" href="/CISS/ko/">CISS 바로가기 <span aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
+          </div>
+          <p class="hero__note reveal">
+            <span class="en">English · 한국어 · 日本語 · 中文 ·</span><span class="ko">한국어 · English · 日本語 · 中文 ·</span>
+            <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener"><span class="en">Source on GitHub</span><span class="ko">GitHub 소스</span> <span aria-hidden="true">↗</span></a>
+          </p>
+          <nav class="subnav reveal" aria-label="CISS">
+            <a href="#why"><span class="en">Why</span><span class="ko">왜</span></a>
+            <a href="#how"><span class="en">How it works</span><span class="ko">작동 방식</span></a>
+            <a href="#scan"><span class="en">Repo scan</span><span class="ko">저장소 분석</span></a>
+            <a href="#rules"><span class="en">Principles</span><span class="ko">기록 원칙</span></a>
+            <a href="#status"><span class="en">Status</span><span class="ko">현황</span></a>
+          </nav>
+        </div>
+        <figure class="term reveal" aria-label="A lineage record from CISS">
+          <div class="term__bar"><i></i><i></i><i></i><span>ciss · lineage</span></div>
+          <ol class="term__log">
+            <li><b class="v v--clear">origin</b><span class="a">Quicksort</span><span class="m">C. A. R. Hoare · 1961</span></li>
+            <li><b class="v v--clear">origin</b><span class="a">Heapsort</span><span class="m">J. W. J. Williams · 1964</span></li>
+            <li><b class="v">derived</b><span class="a">Introsort</span><span class="m">D. R. Musser · 1997</span></li>
+            <li><b class="v">derived</b><span class="a">pdqsort</span><span class="m">O. R. L. Peters · 2021</span></li>
+          </ol>
+          <figcaption><span class="en">From the CISS lineage of Introsort</span><span class="ko">CISS의 Introsort 계보 중</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="section section--soft" id="why">
+      <div class="container proof">
+        <div class="reveal">
+          <div class="section__head">
+            <p class="eyebrow"><span class="en">Why CISS</span><span class="ko">왜 CISS인가</span></p>
+            <h2 class="section__title"><span class="en">The name on an algorithm is not always the first.</span><span class="ko">알고리즘의 이름이 늘 처음 만든 사람은 아닙니다.</span></h2>
+            <p class="section__lead"><span class="en">Prim's algorithm was first published by Vojtěch Jarník in 1930, 27 years before Robert C. Prim, and Edsger W. Dijkstra found it again in 1959. CISS records all three as independent origins and splits the credit, each with its paper.</span><span class="ko">Prim 알고리즘은 Robert C. Prim보다 27년 앞선 1930년에 Vojtěch Jarník이 처음 발표했고, 1959년에는 Edsger W. Dijkstra가 다시 찾아냈습니다. CISS는 세 사람을 모두 독립 기원으로 기록하고 명예를 나누며, 각각의 논문을 함께 답니다.</span></p>
+          </div>
+          <ul class="facts facts--2">
+            <li><b>31</b><span class="en">algorithms discovered independently more than once</span><span class="ko">여러 사람이 따로 발견한 알고리즘</span></li>
+            <li><b>214 / 214</b><span class="en">DOI and arXiv references checked against Crossref, OpenAlex and arXiv</span><span class="ko">Crossref · OpenAlex · arXiv와 대조한 DOI · arXiv 출처</span></li>
+          </ul>
+        </div>
+        <figure class="reveal" style="margin:0">
+          <img class="proof__img" src="/assets/ciss/origin-prim.jpg" width="1100" height="948" alt="CISS record for Prim's Algorithm: three independent origins, Vojtěch Jarník (1930), Robert C. Prim (1957) and Edsger W. Dijkstra (1959), with DOIs checked against Crossref" loading="lazy">
+          <figcaption class="proof__cap"><span class="en">Prim's Algorithm in CISS: three independent origins, each with its source</span><span class="ko">CISS의 Prim 알고리즘 기록: 독립 기원 세 개와 각각의 출처</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">How it works</span><span class="ko">작동 방식</span></p>
+          <h2 class="section__title"><span class="en">Search, follow the lineage, scan your code.</span><span class="ko">검색하고, 계보를 따라가고, 코드를 분석합니다.</span></h2>
+          <p class="section__lead"><span class="en">274 algorithms in 12 fields, from sorting and graphs to cryptography and machine learning.</span><span class="ko">정렬 · 그래프부터 암호 · 머신러닝까지 12개 분야, 알고리즘 274개.</span></p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <p class="step__tag"><span class="en">01 · Search</span><span class="ko">01 · 검색</span></p>
+            <h3><span class="en">Look up an algorithm or a person</span><span class="ko">알고리즘이나 사람을 검색</span></h3>
+            <p><span class="en">Each record lists who first published it and the original paper, plus notable implementations.</span><span class="ko">기록마다 처음 발표한 사람과 원 논문, 대표 구현을 보여 줍니다.</span></p>
+          </li>
+          <li class="step reveal">
+            <p class="step__tag"><span class="en">02 · Lineage</span><span class="ko">02 · 계보</span></p>
+            <h3><span class="en">Follow what came from what</span><span class="ko">무엇이 무엇에서 왔는지</span></h3>
+            <p><span class="en">A lineage map links 190 derivations, such as Quicksort and Heapsort leading to Introsort. Every link carries evidence and a confidence level.</span><span class="ko">계보 지도는 Quicksort · Heapsort에서 Introsort로 이어지는 것처럼 파생 관계 190개를 잇습니다. 연결마다 근거와 신뢰도가 붙습니다.</span></p>
+          </li>
+          <li class="step reveal">
+            <p class="step__tag"><span class="en">03 · Scan</span><span class="ko">03 · 분석</span></p>
+            <h3><span class="en">Scan a repo or package</span><span class="ko">저장소 · 패키지 분석</span></h3>
+            <p><span class="en">Paste a GitHub, GitLab or Bitbucket repo, or an npm or PyPI package, and see who designed the algorithms it uses.</span><span class="ko">GitHub · GitLab · Bitbucket 저장소나 npm · PyPI 패키지를 넣으면, 그 코드에 쓰인 알고리즘을 누가 설계했는지 보여 줍니다.</span></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ REPO SCAN ============ -->
+    <section class="section section--soft" id="scan">
+      <div class="container proof">
+        <div class="reveal">
+          <div class="section__head">
+            <p class="eyebrow"><span class="en">Repo scan</span><span class="ko">저장소 분석</span></p>
+            <h2 class="section__title"><span class="en">Who is your code built on?</span><span class="ko">내 코드는 누구의 아이디어 위에 있을까?</span></h2>
+            <p class="section__lead"><span class="en">The scan runs in your browser. It looks for four kinds of evidence (library calls, dependencies, declarations and mentions), weighs and combines them, and reports only results at 0.5 or higher. Game-engine code and shaders for Unity, Godot and Unreal are covered too.</span><span class="ko">분석은 브라우저에서 실행됩니다. 라이브러리 호출 · 의존성 · 선언 · 언급의 네 가지 근거를 찾아 가중치를 주어 합치고, 0.5 이상인 결과만 보여 줍니다. Unity · Godot · Unreal의 게임 엔진 코드와 셰이더도 분석합니다.</span></p>
+            <p class="section__lead"><span class="en">Every result is marked “Estimated”, and similar-looking code alone is never treated as derivation or plagiarism. Large repos are only partly scanned.</span><span class="ko">모든 결과는 ‘추정’으로 표시되며, 코드가 닮았다는 이유만으로 파생이나 표절로 보지 않습니다. 큰 저장소는 일부만 분석합니다.</span></p>
+          </div>
+        </div>
+        <figure class="reveal" style="margin:0">
+          <img class="proof__img" src="/assets/ciss/scan-fflate.jpg" width="1100" height="443" alt="CISS scan report for npm:fflate: 26 of 134 files scanned, DEFLATE detected with high confidence (98%), originator Phil Katz (1993), 8 pieces of evidence" loading="lazy">
+          <figcaption class="proof__cap"><span class="en">A scan of the npm package fflate: 26 of 134 files scanned, DEFLATE found, originator Phil Katz (1993)</span><span class="ko">npm 패키지 fflate 분석: 파일 134개 중 26개 분석, DEFLATE 검출, 원작자 Phil Katz (1993)</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="section" id="rules">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="en">Record-keeping principles</span><span class="ko">기록 원칙</span></p>
+          <h2 class="section__title"><span class="en">No link without evidence.</span><span class="ko">근거 없이는 잇지 않습니다.</span></h2>
+          <p class="section__lead"><span class="en">CISS records origins. It does not rule on plagiarism or legal disputes.</span><span class="ko">CISS는 기원을 기록하는 서비스이며, 표절이나 법적 분쟁을 판정하지 않습니다.</span></p>
+        </div>
+        <ul class="points reveal">
+          <li><b><span class="en">Evidence on every link</span><span class="ko">모든 연결에 근거</span></b><span class="en">Every derivation carries evidence and a confidence level. Resemblance alone never earns more than “Related”.</span><span class="ko">모든 파생 관계에는 근거와 신뢰도가 붙습니다. 닮았다는 이유만으로는 ‘관련’ 이상으로 표시하지 않습니다.</span></li>
+          <li><b><span class="en">More than one origin</span><span class="ko">여러 기원 인정</span></b><span class="en">When several people arrived at the same idea independently, each is recorded as an origin and the credit is split.</span><span class="ko">같은 아이디어를 여러 사람이 따로 떠올렸다면 모두를 기원으로 기록하고 명예를 나눕니다.</span></li>
+          <li><b><span class="en">Open to correction</span><span class="ko">틀리면 고칩니다</span></b><span class="en">87% of derivations are verified by direct evidence; the rest are marked “Estimated”. Disputes are filed as public GitHub issues, so every outcome is visible.</span><span class="ko">파생 관계의 87%는 직접 근거로 검증되었고, 나머지는 ‘추정’으로 표시됩니다. 이의제기는 공개 GitHub 이슈로 접수되어 처리 결과가 모두 공개됩니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section section--soft section--tight">
+      <div class="container apps">
+        <article class="app reveal" id="status">
+          <header class="app__head">
+            <div>
+              <p class="app__field"><span class="en">Status</span><span class="ko">현황</span></p>
+              <h2 class="app__name"><span class="en">What is in CISS today</span><span class="ko">지금 CISS에 담긴 것</span></h2>
+            </div>
+            <span class="badge"><span class="en">Live · free</span><span class="ko">공개 · 무료</span></span>
+          </header>
+          <ul class="facts" style="margin-top:28px">
+            <li><b>274</b><span class="en">algorithms</span><span class="ko">알고리즘</span></li>
+            <li><b>465</b><span class="en">contributors credited</span><span class="ko">기여자</span></li>
+            <li><b>190</b><span class="en">derivations, 87% verified by direct evidence</span><span class="ko">파생 관계, 87% 직접 근거 검증</span></li>
+            <li><b>4</b><span class="en">languages: English, Korean, Japanese, Chinese</span><span class="ko">지원 언어: 한국어 · 영어 · 일본어 · 중국어</span></li>
+          </ul>
+          <div class="status">
+            <div class="status__col">
+              <h3><span class="en">Available now</span><span class="ko">지금 쓸 수 있는 것</span></h3>
+              <ul>
+                <li><span class="en">Search, algorithm and contributor pages, a lineage map and rankings</span><span class="ko">검색, 알고리즘 · 기여자 페이지, 계보 지도, 랭킹</span></li>
+                <li><span class="en">Repo scan for GitHub, GitLab, Bitbucket, npm and PyPI</span><span class="ko">GitHub · GitLab · Bitbucket · npm · PyPI 저장소 분석</span></li>
+                <li><span class="en">The full dataset as JSON and CSV, and SVG badges for READMEs</span><span class="ko">전체 데이터셋 JSON · CSV 제공, README용 SVG 배지</span></li>
+                <li><span class="en">Data under CC BY 4.0, code under AGPL-3.0</span><span class="ko">데이터 CC BY 4.0, 코드 AGPL-3.0 공개</span></li>
+              </ul>
+            </div>
+            <div class="status__col">
+              <h3><span class="en">Limits</span><span class="ko">한계</span></h3>
+              <ul>
+                <li><span class="en">Scan results are estimates, and large repos are only partly scanned</span><span class="ko">분석 결과는 추정이며, 큰 저장소는 일부만 분석</span></li>
+                <li><span class="en">13% of derivations are still marked “Estimated” and open to review</span><span class="ko">파생 관계의 13%는 아직 ‘추정’ 표시로 검수 대기</span></li>
+                <li><span class="en">The public site serves static data files; the live query API needs a self-hosted server</span><span class="ko">공개 사이트는 정적 데이터 파일만 제공하며, 실시간 조회 API는 직접 서버를 띄워야 사용 가능</span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+      <div class="container cta__inner reveal">
+        <div>
+          <h2 class="section__title"><span class="en">Look up the algorithms in your code.</span><span class="ko">내 코드 속 알고리즘을 찾아보세요.</span></h2>
+          <p class="cta__lead"><span class="en">Free, no sign-up, in four languages.</span><span class="ko">무료, 가입 없이, 4개 언어로.</span></p>
+        </div>
+        <div>
+          <a class="btn btn--light en" href="/CISS/en/">Open CISS <span aria-hidden="true">→</span></a>
+          <a class="btn btn--light ko" href="/CISS/ko/">CISS 바로가기 <span aria-hidden="true">→</span></a>
+          <p class="cta__alt">
+            <a href="/board/2026/11/08/meet-ciss/"><span class="en">Why we built CISS</span><span class="ko">CISS를 만든 이유</span></a>
+            <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          </p>
+        </div>
+      </div>
+    </section>

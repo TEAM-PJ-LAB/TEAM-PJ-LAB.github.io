@@ -74,12 +74,11 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Main">
         <div class="nav__menu">
-          <button type="button" class="nav__menu-btn" aria-expanded="false" aria-controls="navServices"{% if page.nav == 'apps' or page.nav == 'frontling' %} data-current{% endif %}><span class="en">Services</span><span class="ko">서비스</span></button>
+          <button type="button" class="nav__menu-btn" aria-expanded="false" aria-controls="navServices"{% if page.nav == 'apps' or page.nav == 'frontling' or page.nav == 'ciss' %} data-current{% endif %}><span class="en">Services</span><span class="ko">서비스</span></button>
           <div class="nav__drop" id="navServices">
             <a href="/apps/"{% if page.nav == 'apps' %} aria-current="page"{% endif %}><b>Interlock</b><small><span class="en">For teams running AI coding agents</span><span class="ko">AI 코딩 에이전트를 함께 쓰는 팀을 위해</span></small></a>
             <a href="/frontling/"{% if page.nav == 'frontling' %} aria-current="page"{% endif %}><b>Frontling</b><small><span class="en">Help for US college admissions</span><span class="ko">미국 대학 입시를 돕는 서비스</span></small></a>
-            <a href="/CISS/en/" class="en"><b>CISS</b><small>Who first came up with the algorithms in your code</small></a>
-            <a href="/CISS/ko/" class="ko"><b>CISS</b><small>코드 속 알고리즘의 원작자와 계보 기록</small></a>
+            <a href="/ciss/"{% if page.nav == 'ciss' %} aria-current="page"{% endif %}><b>CISS</b><small><span class="en">Who first came up with the algorithms in your code</span><span class="ko">코드 속 알고리즘의 원작자와 계보 기록</span></small></a>
           </div>
         </div>
         {%- if page.nav == 'apps' or page.nav == 'results' %}<a href="/interlock/experiments/"{% if page.nav == 'results' %} aria-current="page"{% endif %}><span class="en">Results</span><span class="ko">실험 결과</span></a>{% endif %}
@@ -114,7 +113,7 @@
       <nav class="footer__links" aria-label="Footer">
         <a href="/apps/">Interlock</a>
         <a href="/frontling/">Frontling</a>
-        <a href="/CISS/en/" class="en">CISS</a><a href="/CISS/ko/" class="ko">CISS</a>
+        <a href="/ciss/">CISS</a>
         {%- if page.nav == 'apps' or page.nav == 'results' %}<a href="/interlock/experiments/"><span class="en">Results</span><span class="ko">실험 결과</span></a>{% endif %}
         <a href="/board/"><span class="en">Board</span><span class="ko">게시판</span></a>
         <a href="/#team"><span class="en">Team</span><span class="ko">팀</span></a>

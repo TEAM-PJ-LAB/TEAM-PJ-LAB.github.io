@@ -87,6 +87,8 @@ section[id], main[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .btn--ghost:hover { border-color: var(--ink); }
 .btn--accent { background: var(--accent-ink); color: #fff; }
 .btn--accent:hover { background: #b23206; }
+.btn--light { background: #fff; color: var(--ink); }
+.btn--light:hover { background: var(--bg-soft); }
 .btn--sm { height: 36px; padding: 0 14px; font-size: 14px; border-radius: 8px; }
 
 .pill {
