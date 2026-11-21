@@ -10,7 +10,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div>
-          <p class="pill reveal"><i class="dot dot--live"></i><span class="en">Recruiting beta testers · first 100 free</span><span class="ko">베타 테스터 모집 중 · 첫 100명 무료</span></p>
+          <p class="pill reveal"><i class="dot"></i><span class="en">Pre-release · available on request</span><span class="ko">정식 출시 전 · 요청 시 제공</span></p>
           <h1 class="hero__title reveal">
             <span class="sr-only">Interlock by Team PJ — </span>
             <span class="en">Stop your AI coding agents from overwriting each other.</span>
@@ -151,17 +151,39 @@ description: "Interlock lets many AI coding agents work on one codebase without 
         </figure>
 
         <div class="rule__more reveal">
-          <p class="eyebrow"><span class="en">More experiments</span><span class="ko">다른 실험</span></p>
+          <p class="eyebrow"><span class="en">1 · Detection accuracy</span><span class="ko">1 · 충돌 탐지 정확도</span></p>
           <div class="rule-grid">
-            <a href="/interlock/experiments/e12/"><b>651/651</b><span class="en">E12 · interface conflicts caught on an unseen set, no false alarm (V3.23.1)</span><span class="ko">E12 · 처음 보는 세트에서 잡은 인터페이스 충돌, 오탐 0 (V3.23.1)</span></a>
-            <a href="/interlock/experiments/e12/"><b>60 vs 55</b><span class="en">E12 · runs correct out of 60 on Sonnet 5.5, Interlock vs Shepherd (V3.23.1)</span><span class="ko">E12 · Sonnet 5.5에서 60회 중 성공, Interlock 대 Shepherd (V3.23.1)</span></a>
-            <a href="/interlock/experiments/e12/"><b>0.83</b><span class="en">E12 · F1 on behavioural conflicts, mostly through merged tests (V3.23.1)</span><span class="ko">E12 · 동작 충돌 F1, 대부분 병합 테스트로 잡음 (V3.23.1)</span></a>
             <a href="/interlock/experiments/e1/"><b>20/20</b><span class="en">E1 · calls that fit a teammate's new signature, in real Claude Code sessions (0/20 without)</span><span class="ko">E1 · 실제 Claude Code 세션에서 동료의 새 시그니처에 맞은 호출 (없으면 0/20)</span></a>
             <a href="/interlock/experiments/e2/"><b>8 → 0</b><span class="en">E2 · merge conflicts when two agents edit the same or the next line</span><span class="ko">E2 · 두 에이전트가 같은 줄이나 바로 다음 줄을 고칠 때 병합 충돌</span></a>
+            <a href="/interlock/experiments/e12/"><b>651/651</b><span class="en">E12 · interface conflicts caught on an unseen set, no false alarm (V3.23.1)</span><span class="ko">E12 · 처음 보는 세트에서 잡은 인터페이스 충돌, 오탐 0 (V3.23.1)</span></a>
+            <a href="/interlock/experiments/e12/"><b>0.83</b><span class="en">E12 · F1 on behavioural conflicts, mostly through merged tests (V3.23.1)</span><span class="ko">E12 · 동작 충돌 F1, 대부분 병합 테스트로 잡음 (V3.23.1)</span></a>
+            <a href="/interlock/experiments/checks/"><b>0</b><span class="en">Rule checks · disagreements with git merge in 3,000 random cases</span><span class="ko">규칙 검증 · 무작위 3,000건에서 git merge와 불일치</span></a>
+          </div>
+        </div>
+
+        <div class="rule__more reveal">
+          <p class="eyebrow"><span class="en">2 · Many agents, one codebase</span><span class="ko">2 · 여러 에이전트가 한 코드를</span></p>
+          <div class="rule-grid">
             <a href="/interlock/experiments/e6/"><b>12/12</b><span class="en">E6 · branches merged when three agents change one backend (8/12 without)</span><span class="ko">E6 · 세 에이전트가 한 백엔드를 고칠 때 병합된 브랜치 (없으면 8/12)</span></a>
             <a href="/interlock/experiments/e9/"><b>10/10</b><span class="en">E9 · main correct at the end (2/10 when merged and fixed afterwards)</span><span class="ko">E9 · 끝에 main이 올바름 (합친 뒤 고치면 2/10)</span></a>
+            <a href="/interlock/experiments/e10/"><b>3/12</b><span class="en">E10 · Claude Code's own agent teams merged correctly on colliding tasks (12/12 with Interlock)</span><span class="ko">E10 · Claude Code의 agent teams가 충돌 작업에서 올바르게 병합 (Interlock은 12/12)</span></a>
+          </div>
+        </div>
+
+        <div class="rule__more reveal">
+          <p class="eyebrow"><span class="en">3 · Against other tools</span><span class="ko">3 · 경쟁 도구와 비교</span></p>
+          <div class="rule-grid">
+            <a href="/interlock/experiments/e8/"><b>12 vs 0</b><span class="en">E8 · branches merged out of 12, Interlock vs Shepherd and Foremerge (both 0/12)</span><span class="ko">E8 · 12개 중 병합된 브랜치, Interlock 대 Shepherd·Foremerge (둘 다 0/12)</span></a>
+            <a href="/interlock/experiments/e11/"><b>60/60</b><span class="en">E11 · runs correct vs Shepherd 37/60, pre-registered (Haiku 5.5)</span><span class="ko">E11 · 성공한 실행, Shepherd 37/60 대비, 사전 등록 (Haiku 5.5)</span></a>
+            <a href="/interlock/experiments/e12/"><b>60 vs 55</b><span class="en">E12 · runs correct out of 60 on Sonnet 5.5, Interlock vs Shepherd (V3.23.1)</span><span class="ko">E12 · Sonnet 5.5에서 60회 중 성공, Interlock 대 Shepherd (V3.23.1)</span></a>
+          </div>
+        </div>
+
+        <div class="rule__more reveal">
+          <p class="eyebrow"><span class="en">4 · Speed</span><span class="ko">4 · 속도</span></p>
+          <div class="rule-grid">
             <a href="/interlock/experiments/e7/"><b>3–6 ms</b><span class="en">E7 · median hook time on a 2,000-line file</span><span class="ko">E7 · 2,000줄 파일에서 훅 응답 시간 중앙값</span></a>
-            <a href="/interlock/experiments/checks/"><b>0</b><span class="en">Rule checks · disagreements with git merge in 3,000 random cases</span><span class="ko">규칙 검증 · 무작위 3,000건에서 git merge와 불일치</span></a>
+            <a href="/interlock/experiments/e7/"><b>36.5 ms</b><span class="en">E7 · p95 before an edit with every check on</span><span class="ko">E7 · 모든 검사를 켠 편집 전 훅 p95</span></a>
           </div>
         </div>
       </div>
@@ -274,8 +296,8 @@ description: "Interlock lets many AI coding agents work on one codebase without 
 
         <aside class="callout reveal" id="access">
           <p>
-            <span class="en">Interlock is not generally available yet. If you'd like to use it, email pj.southkorea@gmail.com and we will reply with the manual and an access token. The first 100 beta testers are free.</span>
-            <span class="ko">Interlock은 아직 정식 출시 전입니다. 사용을 원하시면 pj.southkorea@gmail.com으로 연락해 주세요. 사용 매뉴얼과 사용을 위한 토큰을 발행해 회신드립니다. 첫 100명 베타 테스터는 무료입니다.</span>
+            <span class="en">Interlock is not generally available yet. If you'd like to try it, email pj.southkorea@gmail.com and we will reply with the manual and an access token.</span>
+            <span class="ko">Interlock은 아직 정식 출시 전입니다. 써 보고 싶으시면 pj.southkorea@gmail.com으로 연락해 주세요. 사용 매뉴얼과 토큰을 발행해 회신드립니다.</span>
           </p>
           <a class="btn btn--primary" href="mailto:pj.southkorea@gmail.com?subject=%5BTeam%20PJ%5D%20Interlock%20Access%20Request"><span class="en">Request access</span><span class="ko">사용 신청</span></a>
         </aside>
@@ -287,7 +309,7 @@ description: "Interlock lets many AI coding agents work on one codebase without 
       <div class="container cta__inner reveal">
         <div>
           <h2 class="section__title"><span class="en">Running two or more agents on one repo?</span><span class="ko">한 저장소에서 에이전트를 둘 이상 돌리나요?</span></h2>
-          <p class="cta__lead"><span class="en">Get early access — free for the first 100 beta testers.</span><span class="ko">베타를 먼저 써 보세요. 첫 100명은 무료입니다.</span></p>
+          <p class="cta__lead"><span class="en">Interlock is pre-release. Email us if you'd like to try it, and we'll send the manual and an access token.</span><span class="ko">Interlock은 정식 출시 전입니다. 써 보고 싶으시면 이메일로 문의 주세요. 매뉴얼과 토큰을 발행해 드립니다.</span></p>
         </div>
         <div>
           {% include signup.html id="cta" %}
