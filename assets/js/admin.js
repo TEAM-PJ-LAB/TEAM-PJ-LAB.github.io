@@ -6,7 +6,7 @@
    ========================================================= */
 (() => {
   'use strict';
-  const GATE = 'da6b50ce42efd2846b4428e8bbc36d9a553e353e54da79c17e65000062f827d9'; // sha256(`team-pj-admin:${id}:${pw}`)
+  const GATE = '4064b0c8b5ddb6211e910dd538cd30f5746b9cbd663a246a74d842c88d68b186'; // sha256(`team-pj-admin:${id}:${pw}`)
   const KEY = 'pj-admin';
   const MAX_URL = 7000; // longer prefill URLs fall back to the clipboard
 
