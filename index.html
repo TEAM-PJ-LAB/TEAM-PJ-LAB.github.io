@@ -45,16 +45,16 @@ description: "Team PJ is a software company from South Korea. We design, build a
         <div class="section__head reveal">
           <p class="eyebrow"><span class="en">Our products</span><span class="ko">제품</span></p>
           <h2 class="section__title"><span class="en">What we have built, and what we are building.</span><span class="ko">만든 것, 그리고 만들고 있는 것.</span></h2>
-          <p class="section__lead"><span class="en">Each product has its own page with how it works and where it stands today.</span><span class="ko">제품마다 작동 방식과 현재 상태를 담은 페이지가 따로 있습니다.</span></p>
+          <p class="section__lead"><span class="en">Interlock is the first product we built. We keep running user experiments to improve its performance, and we have started building our next products. Each product has its own page with how it works and where it stands today.</span><span class="ko">Interlock은 우리가 가장 먼저 만든 제품입니다. 성능을 높이기 위해 사용자 실험을 계속 이어 가고 있고, 다음 제품들도 만들기 시작했습니다. 제품마다 작동 방식과 현재 상태를 담은 페이지가 따로 있습니다.</span></p>
         </div>
         <div class="prods">
           <article class="prod reveal">
             <div class="prod__top">
               <p class="prod__field"><span class="en">Developer tools</span><span class="ko">개발자 도구</span></p>
-              <span class="badge"><span class="en">Pre-release</span><span class="ko">정식 출시 전</span></span>
+              <span class="badge"><span class="en">First product · user experiments</span><span class="ko">첫 제품 · 사용자 실험 중</span></span>
             </div>
             <h3 class="prod__name">Interlock</h3>
-            <p class="prod__desc"><span class="en">Lets a team run several AI coding agents on one repository at once. It tracks which function each agent is changing and holds the edits that would collide, at the edit, the commit and the merge.</span><span class="ko">한 저장소에서 여러 AI 코딩 에이전트를 동시에 돌릴 수 있게 합니다. 에이전트마다 어떤 함수를 바꾸는지 추적하고, 부딪힐 편집은 편집 · 커밋 · 머지 단계에서 잡아 둡니다.</span></p>
+            <p class="prod__desc"><span class="en">Lets a team run several AI coding agents on one repository at once. It tracks which function each agent is changing and holds the edits that would collide, at the edit, the commit and the merge. Our first product; pre-release, with user experiments ongoing to improve performance.</span><span class="ko">한 저장소에서 여러 AI 코딩 에이전트를 동시에 돌릴 수 있게 합니다. 에이전트마다 어떤 함수를 바꾸는지 추적하고, 부딪힐 편집은 편집 · 커밋 · 머지 단계에서 잡아 둡니다. Team PJ의 첫 제품으로, 정식 출시 전이며 성능 향상을 위한 사용자 실험을 계속하고 있습니다.</span></p>
             <figure class="term prod__vis" aria-label="Interlock decisions from the demo">
               <div class="term__bar"><i></i><i></i><i></i><span>interlock · decisions</span></div>
               <ol class="term__log">
@@ -159,19 +159,36 @@ description: "Team PJ is a software company from South Korea. We design, build a
         </div>
         {%- if site.posts.size > 0 %}
         <div class="posts reveal">
-          {%- for p in site.posts limit: 3 %}
-          <a href="{{ p.url }}">
-            <time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: "%Y.%m.%d" }}</time>
-            <span class="posts__body"><span class="posts__title">{{ p.title }}</span></span>
-            <span class="posts__arrow" aria-hidden="true">→</span>
-          </a>
-          {%- endfor %}
           {%- assign latest = site.data.interlock_releases | first %}
+          {%- assign rel_shown = false %}
+          {%- assign shown = 0 %}
+          {%- for p in site.posts %}
+          {%- if shown >= 4 %}{% break %}{% endif %}
+          {%- assign pd = p.date | date: '%Y-%m-%d' %}
+          {%- if rel_shown == false and latest.date > pd %}
           <a href="/apps/#updates">
             <time datetime="{{ latest.date }}">{{ latest.date | date: "%Y.%m.%d" }}</time>
             <span class="posts__body"><span class="posts__title"><span class="en">Interlock V{{ latest.version }} released</span><span class="ko">Interlock V{{ latest.version }} 업데이트</span></span></span>
             <span class="posts__arrow" aria-hidden="true">→</span>
           </a>
+          {%- assign rel_shown = true %}
+          {%- assign shown = shown | plus: 1 %}
+          {%- if shown >= 4 %}{% break %}{% endif %}
+          {%- endif %}
+          <a href="{{ p.url }}">
+            <time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: "%Y.%m.%d" }}</time>
+            <span class="posts__body"><span class="posts__title">{{ p.title }}</span></span>
+            <span class="posts__arrow" aria-hidden="true">→</span>
+          </a>
+          {%- assign shown = shown | plus: 1 %}
+          {%- endfor %}
+          {%- if rel_shown == false and shown < 4 %}
+          <a href="/apps/#updates">
+            <time datetime="{{ latest.date }}">{{ latest.date | date: "%Y.%m.%d" }}</time>
+            <span class="posts__body"><span class="posts__title"><span class="en">Interlock V{{ latest.version }} released</span><span class="ko">Interlock V{{ latest.version }} 업데이트</span></span></span>
+            <span class="posts__arrow" aria-hidden="true">→</span>
+          </a>
+          {%- endif %}
         </div>
         {%- endif %}
         <p class="more reveal"><a href="/board/"><span class="en">All posts</span><span class="ko">모든 글</span> <span aria-hidden="true">→</span></a></p>
@@ -199,8 +216,8 @@ description: "Team PJ is a software company from South Korea. We design, build a
               </div>
             </header>
             <p class="founder__bio">
-              <span class="en">Woojin runs Team PJ as CEO, supports development, and manages our servers together with Bugeon. He works out product ideas with Bugeon.</span>
-              <span class="ko">대표로서 Team PJ를 운영하고 보조 개발을 맡으며, 서버는 박부건과 함께 관리합니다. 제품 아이디어도 박부건과 함께 정리합니다.</span>
+              <span class="en">Woojin runs Team PJ as CEO, supports development, and manages our servers together with Bugeon. He has built his own products, from a rocket simulator to an AI compliance system.</span>
+              <span class="ko">대표로서 Team PJ를 운영하고 보조 개발을 맡으며, 서버는 박부건과 함께 관리합니다. 로켓 시뮬레이터부터 AI 컴플라이언스 시스템까지 직접 만들어 온 개발자입니다.</span>
             </p>
             <p class="founder__win">
               <span class="en">Builds rockets as vice-president of ARION, DGIST's rocket club. Special Prize, Korea's National Science Exhibition (2025).</span>
