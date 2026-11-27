@@ -3,6 +3,28 @@
 # items: key changes, `en` and `ko` each. proof: optional link to the experiment that measured it.
 # Source: the project's CHANGELOG.md. Keep entries to what the changelog says.
 
+- version: "3.24.1"
+  date: "2026-11-27"
+  items:
+    - en: "Checked end to end as a team server on its Docker image: two developers' clones, Claude Code's hooks, the git hook and the GitHub App, 20 of 20 steps. The same check runs against a deployed server in one command."
+      ko: "Docker 이미지로 띄운 팀 서버에서 처음부터 끝까지 검증했습니다. 개발자 두 명의 클론, Claude Code 훅, git 훅, GitHub App까지 20단계 모두 통과했고, 같은 검사를 배포한 서버에 명령 한 줄로 돌릴 수 있습니다."
+    - en: "The server no longer shows its map of API routes (/docs, /openapi.json) to anyone; an operator can turn it on."
+      ko: "서버가 API 경로 목록(/docs, /openapi.json)을 아무에게나 보여 주지 않습니다. 필요하면 운영자가 켤 수 있습니다."
+    - en: "A server that cannot write its data folder now says which folder, who owns it and the command that fixes it, instead of stopping with an error trace at every restart."
+      ko: "서버가 데이터 폴더에 쓸 수 없으면, 재시작할 때마다 오류 기록만 남기고 멈추는 대신 어느 폴더인지, 소유자가 누구인지, 고치는 명령을 알려 줍니다."
+    - en: "Fixed: the beta server kept a tester's counts from 40 days back that no summary showed."
+      ko: "수정: 베타 서버가 40일 전 테스터 집계를 받아 두고도 요약에는 보여 주지 않던 문제."
+
+- version: "3.24.0"
+  date: "2026-11-23"
+  items:
+    - en: "The usage file a tester can share now says how each refusal turned out (needless, heeded or caught), so it gives a false-alarm rate, not only counts."
+      ko: "테스터가 공유하는 사용 기록 파일이 이제 각 거부가 어떻게 끝났는지(불필요, 따름, 잡음)도 적어서, 개수뿐 아니라 오탐 비율까지 보여 줍니다."
+    - en: "Fixed: when several agents finished at the same moment, the usage file could stay a session behind."
+      ko: "수정: 여러 에이전트가 동시에 끝나면 사용 기록 파일이 세션 하나만큼 늦게 갱신되던 문제."
+    - en: "Fixed: a local repository with no remote no longer logs a failed push each time an agent stops."
+      ko: "수정: 원격 저장소가 없는 로컬 저장소에서 에이전트가 멈출 때마다 푸시 실패가 기록되던 문제."
+
 - version: "3.23.1"
   date: "2026-10-30"
   items:

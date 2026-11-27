@@ -182,8 +182,8 @@ description: "Interlock lets many AI coding agents work on one codebase without 
         <div class="rule__more reveal">
           <p class="eyebrow"><span class="en">4 · Speed</span><span class="ko">4 · 속도</span></p>
           <div class="rule-grid">
-            <a href="/interlock/experiments/e7/"><b>3–6 ms</b><span class="en">E7 · median hook time on a 2,000-line file</span><span class="ko">E7 · 2,000줄 파일에서 훅 응답 시간 중앙값</span></a>
-            <a href="/interlock/experiments/e7/"><b>36.5 ms</b><span class="en">E7 · p95 before an edit with every check on</span><span class="ko">E7 · 모든 검사를 켠 편집 전 훅 p95</span></a>
+            <a href="/interlock/experiments/e7/"><b>3–6 ms</b><span class="en">E7 · median hook time on a 2,000-line file (V3.0.0)</span><span class="ko">E7 · 2,000줄 파일에서 훅 응답 시간 중앙값 (V3.0.0)</span></a>
+            <a href="/interlock/experiments/e7/"><b>36.5 ms</b><span class="en">E7 · p95 before an edit with every check on (V3.0.0)</span><span class="ko">E7 · 모든 검사를 켠 편집 전 훅 p95 (V3.0.0)</span></a>
           </div>
         </div>
       </div>
@@ -212,7 +212,8 @@ description: "Interlock lets many AI coding agents work on one codebase without 
                 <li><span class="en">Calls checked against a teammate's declared signature, with the reason for every refusal</span><span class="ko">동료가 선언한 시그니처에 맞춰 호출 검사, 모든 거부에 이유 제공</span></li>
                 <li><span class="en">What a signature does not show (record keys, attributes, exceptions, return kinds, list order) checked the same way, and peers’ work tested merged while agents still work</span><span class="ko">시그니처로 드러나지 않는 것(레코드 키, 속성, 예외, 반환 종류, 목록 순서)도 같은 방식으로 검사하고, 에이전트가 일하는 동안 동료 작업과 병합해 테스트</span></li>
                 <li><span class="en">Tested with live Claude Code sessions (Haiku 5.5 and Sonnet 5.5) on small Python projects</span><span class="ko">작은 Python 프로젝트에서 실제 Claude Code 세션(Haiku 5.5 · Sonnet 5.5)으로 검증</span></li>
-                <li><span class="en">Hook answers in about 3 to 6 ms on a 2,000-line file; before an edit, p95 36.5 ms with every check on</span><span class="ko">2,000줄 파일에서 훅 응답 약 3~6 ms, 모든 검사를 켠 편집 전 훅 p95 36.5 ms</span></li>
+                <li><span class="en">On a 2,000-line file, the check before an edit answers in 3 to 5 ms (median); a read and the answer after an edit take 24 to 33 ms (V3.24.1)</span><span class="ko">2,000줄 파일에서 편집 전 검사는 3~5 ms(중앙값), 파일 읽기와 편집 직후 응답은 24~33 ms (V3.24.1)</span></li>
+                <li><span class="en">Checked as a team server on its Docker image: two developers' clones, the git hook and the GitHub App, 20 of 20 steps (V3.24.1)</span><span class="ko">Docker 이미지로 띄운 팀 서버에서 검증: 개발자 두 명의 클론, git 훅, GitHub App 20단계 모두 통과 (V3.24.1)</span></li>
               </ul>
             </div>
             <div class="status__col">
