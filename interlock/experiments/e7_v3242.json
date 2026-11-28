@@ -1,0 +1,124 @@
+{
+ "runs": 5,
+ "n": 300,
+ "cpus": 2,
+ "rows": [
+  {
+   "tool": "interlock",
+   "path": "hook (http daemon): Read of the whole file (PCR overlay)",
+   "p50_range": [
+    5.03,
+    5.93
+   ],
+   "p99_range": [
+    14.05,
+    19.63
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock",
+   "path": "hook (http daemon): Edit check, no contract call",
+   "p50_range": [
+    3.7,
+    4.54
+   ],
+   "p99_range": [
+    12.78,
+    14.77
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock",
+   "path": "hook (http daemon): Edit check, a new call to a declared signature",
+   "p50_range": [
+    3.98,
+    5.21
+   ],
+   "p99_range": [
+    12.68,
+    16.38
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock",
+   "path": "hook (http daemon): After an edit (the answer; the record runs after it)",
+   "p50_range": [
+    6.39,
+    6.95
+   ],
+   "p99_range": [
+    13.84,
+    18.01
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock-v3.24.1",
+   "path": "hook (http daemon): Read of the whole file (PCR overlay)",
+   "p50_range": [
+    22.25,
+    26.7
+   ],
+   "p99_range": [
+    35.83,
+    41.15
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock-v3.24.1",
+   "path": "hook (http daemon): Edit check, no contract call",
+   "p50_range": [
+    3.63,
+    4.17
+   ],
+   "p99_range": [
+    13.4,
+    14.83
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock-v3.24.1",
+   "path": "hook (http daemon): Edit check, a new call to a declared signature",
+   "p50_range": [
+    3.94,
+    4.81
+   ],
+   "p99_range": [
+    12.92,
+    16.29
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "interlock-v3.24.1",
+   "path": "hook (http daemon): After an edit (the answer; the record runs after it)",
+   "p50_range": [
+    28.68,
+    29.97
+   ],
+   "p99_range": [
+    57.43,
+    63.87
+   ],
+   "runs": 5
+  },
+  {
+   "tool": "shepherd",
+   "path": "hook (command, node): PreToolUse",
+   "p50_range": [
+    38.63,
+    40.41
+   ],
+   "p99_range": [
+    54.21,
+    71.61
+   ],
+   "runs": 5
+  }
+ ]
+}
