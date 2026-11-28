@@ -3,6 +3,20 @@
 # items: key changes, `en` and `ko` each. proof: optional link to the experiment that measured it.
 # Source: the project's CHANGELOG.md. Keep entries to what the changelog says.
 
+- version: "3.24.2"
+  date: "2026-11-29"
+  items:
+    - en: "A read and the answer after an edit now take 5 to 7 ms (median) on a 2,000-line file, down from 22 to 30 ms: every hook meets the 10 ms target, and each is at least 5.6 times as fast as Shepherd's hook on the same machine. The checks find the same things."
+      ko: "2,000줄 파일에서 파일 읽기와 편집 직후 응답이 22~30 ms에서 5~7 ms(중앙값)로 빨라졌습니다. 모든 훅이 목표 10 ms 안에 들어오고, 같은 기계에서 Shepherd 훅보다 최소 5.6배 빠릅니다. 찾아내는 것은 그대로입니다."
+    - en: "The speed no longer drops as the repository grows: with 5,000 files a read took 34 to 38 ms before and takes about 5 ms now."
+      ko: "저장소가 커져도 느려지지 않습니다. 파일 5,000개 저장소에서 읽기가 34~38 ms였는데 이제 약 5 ms입니다."
+    - en: "Interlock's own git status never holds the index lock, so it can no longer make an agent's git commit fail with 'another git process seems to be running'."
+      ko: "Interlock이 돌리는 git status가 인덱스 잠금을 잡지 않아, 에이전트의 git commit이 '다른 git 프로세스가 실행 중' 오류로 실패하는 일이 없습니다."
+  proof:
+    url: "/interlock/experiments/e7/#v3242"
+    en: "Five runs of 300 hooks each: every hook p50 3.7 to 7.0 ms and p99 under 20 ms; Shepherd 0.11.4's hook 38.6 to 40.4 ms"
+    ko: "300번씩 5회: 모든 훅 p50 3.7~7.0 ms, p99 20 ms 미만. Shepherd 0.11.4 훅 38.6~40.4 ms"
+
 - version: "3.24.1"
   date: "2026-11-27"
   items:
